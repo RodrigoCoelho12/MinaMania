@@ -10,7 +10,7 @@ public class PersonalToolsMenu : EditorWindow
     [MenuItem("PersonalTools/Assets/Clean Unused Assets")]
     public static void CleanUnusedAssets()
     {
-        // Limpar assets não utilizados
+        // Limpar assets nï¿½o utilizados
         string[] unusedAssets = AssetDatabase.FindAssets("t:Object");
         List<string> unusedAssetPaths = new List<string>();
 
@@ -18,9 +18,9 @@ public class PersonalToolsMenu : EditorWindow
         {
             string assetPath = AssetDatabase.GUIDToAssetPath(asset);
 
-            // Verifique se o asset não está referenciado por nada
+            // Verifique se o asset nï¿½o estï¿½ referenciado por nada
             string[] dependencies = AssetDatabase.GetDependencies(assetPath, true);
-            if (dependencies.Length == 1) // O próprio asset
+            if (dependencies.Length == 1) // O prï¿½prio asset
             {
                 unusedAssetPaths.Add(assetPath);
             }
@@ -53,7 +53,7 @@ public class PersonalToolsMenu : EditorWindow
     [MenuItem("PersonalTools/Assets/Reference Checker")]
     public static void ReferenceChecker()
     {
-        // Verificar referências de assets no projeto
+        // Verificar referï¿½ncias de assets no projeto
         string[] allAssets = AssetDatabase.FindAssets("t:Object");
         foreach (string asset in allAssets)
         {
@@ -71,7 +71,7 @@ public class PersonalToolsMenu : EditorWindow
     [MenuItem("PersonalTools/Scenes/Snap to Grid")]
     public static void SnapToGrid()
     {
-        // Alinhar objetos à grade
+        // Alinhar objetos ï¿½ grade
         GameObject[] selectedObjects = Selection.gameObjects;
 
         foreach (GameObject obj in selectedObjects)
@@ -87,9 +87,11 @@ public class PersonalToolsMenu : EditorWindow
     }
 
     [MenuItem("PersonalTools/Scenes/Lighting Tester")]
+    [System.Obsolete]
+
     public static void LightingTester()
     {
-        // Testar iluminação na cena
+        // Testar iluminaï¿½ï¿½o na cena
         Light[] lights = GameObject.FindObjectsOfType<Light>();
 
         foreach (Light light in lights)
@@ -115,7 +117,7 @@ public class PersonalToolsMenu : EditorWindow
     [MenuItem("PersonalTools/Scripts/Script Analyzer")]
     public static void ScriptAnalyzer()
     {
-        // Analisar scripts em busca de redundâncias e otimizações
+        // Analisar scripts em busca de redundï¿½ncias e otimizaï¿½ï¿½es
         string[] scripts = AssetDatabase.FindAssets("t:Script");
 
         foreach (string script in scripts)
@@ -151,7 +153,7 @@ public class PersonalToolsMenu : EditorWindow
     [MenuItem("PersonalTools/Utilities/Quick Resolution Switcher")]
     public static void QuickResolutionSwitcher()
     {
-        // Alternar resoluções rapidamente
+        // Alternar resoluï¿½ï¿½es rapidamente
         Resolution[] resolutions = Screen.resolutions;
         Resolution selectedResolution = resolutions[Random.Range(0, resolutions.Length)];
 
@@ -166,7 +168,7 @@ public class PersonalToolsMenu : EditorWindow
         float startTime = Time.realtimeSinceStartup;
         Debug.Log("Starting benchmark...");
 
-        // Simulação de tarefa pesada
+        // Simulaï¿½ï¿½o de tarefa pesada
         for (int i = 0; i < 1000000; i++) { }
 
         float endTime = Time.realtimeSinceStartup;
@@ -179,7 +181,7 @@ public class PersonalToolsMenu : EditorWindow
     public static void QuickBuild()
     {
         // Criar builds rapidamente
-        string[] scenes = { "Assets/Scenes/MainScene.unity" }; // Adapte conforme necessário
+        string[] scenes = { "Assets/Scenes/MainScene.unity" }; // Adapte conforme necessï¿½rio
         BuildPipeline.BuildPlayer(scenes, "Builds/QuickBuild.exe", BuildTarget.StandaloneWindows, BuildOptions.None);
         Debug.Log("Quick build completed!");
     }
@@ -198,7 +200,7 @@ public class PersonalToolsMenu : EditorWindow
 
             if (modelObj != null)
             {
-                // Implementação fictícia de geração de LOD
+                // Implementaï¿½ï¿½o fictï¿½cia de geraï¿½ï¿½o de LOD
                 Debug.Log($"Generating LOD for model: {modelObj.name}");
             }
         }
@@ -227,6 +229,10 @@ public class PersonalToolsMenu : EditorWindow
         {
             string root = "Assets";
             string[] folders = {
+                "Documents/GDD",
+                "Documents/GDR",
+                "Documents/External Material",
+                "Editor",
                 "_Core/Scenes",
                 "_Core/Scripts",
                 "_Core/Settings",
