@@ -37,7 +37,8 @@ public class PlayerMovement : MonoBehaviour
         if (Physics.Raycast(ray, out RaycastHit hit, raycastDistance))
         {
             Vector3 direction = hit.point - transform.position;
-            direction.y = 0f; // Mantém a rotação apenas no eixo horizontal
+            Debug.DrawLine(ray.origin, hit.point, Color.red);
+            direction.y = 0f; 
             if (direction.magnitude > 0.1f)
             {
                 Quaternion targetRotation = Quaternion.LookRotation(direction);
