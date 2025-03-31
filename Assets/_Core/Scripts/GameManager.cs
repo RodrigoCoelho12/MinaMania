@@ -25,14 +25,32 @@ public class GameManager : MonoBehaviour
 
     #region Métodos
 
-    private void Start()
+    private void Awake()
     {
-       // ShowMainMenu();
+        Time.timeScale = 1f;
     }
 
     private void Update()
     {
         // Cheats();
+        if (Input.GetKeyDown(KeyCode.Escape) && isPaused == false)
+        {
+            Time.timeScale = 0f;
+            isPaused = true;
+            pause_panel.SetActive(true);
+        }
+        else if (Input.GetKeyDown(KeyCode.Escape) && isPaused == true) 
+        { 
+            Time.timeScale = 1f;
+            isPaused = false;
+            pause_panel.SetActive(false);
+        }
+
+        if (isPaused == true) 
+        {
+            Time.timeScale = 0f;     
+        }
+        
     }
 
     private void Cheats()
@@ -45,8 +63,8 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         isPaused = false;
 
-        ShowHUD();
-        HideMainMenu();
+        //ShowHUD();
+        //HideMainMenu();
     }
 
     public void Pause()

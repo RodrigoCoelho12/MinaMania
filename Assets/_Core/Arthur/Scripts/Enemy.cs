@@ -34,14 +34,17 @@ public class Enemy : MonoBehaviour
         FollowTarget();
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("PlayerAttack"))
+        {
+            DeathRoutine();
+        }
+    }
     public void FollowTarget()
     {
         var step = speed * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, target.position, step);
-        if (Vector3.Distance(transform.position, target.position) < 0.001f)
-        {
-            target.position *= -1.0f;
-        }
     }
     public void SetTarget(GameObject gameObject) => target = gameObject.transform;
 

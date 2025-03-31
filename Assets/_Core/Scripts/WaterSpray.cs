@@ -3,12 +3,12 @@ using UnityEngine.UI;
 
 public class WaterSpray : Weapon
 {
-    public float totalWaterAmount;
-    public float currentWaterAmount;
-    public float waterSpent;
-    public float waterFillSpeed;
+    [SerializeField] float totalWaterAmount;
+    [SerializeField] float currentWaterAmount;
+    [SerializeField] float waterSpent;
+    [SerializeField] float waterFillSpeed;
 
-    public Image waterSprayBar;
+    [SerializeField] Image waterSprayBar;
 
 
     public override void Attack()

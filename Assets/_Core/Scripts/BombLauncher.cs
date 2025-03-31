@@ -16,6 +16,7 @@ public class BombLauncher : Weapon
     [SerializeField] int bombAmount = 4;
 
     [SerializeField] GameObject bombPrefab;
+    [SerializeField] GameObject bombExplosionPrefab;
     [SerializeField] Image[] bombIcons;
 
 
@@ -71,7 +72,11 @@ public class BombLauncher : Weapon
                 yield return null;
             }
 
+            GameObject _bombExplosion = GameObject.Instantiate(bombExplosionPrefab,bombTarget, Quaternion.identity);
+
+            Destroy(_bombExplosion, 1f);
             Destroy(_bomb);
+
             bombInScene = false;
             
             sampleTime = 0;
