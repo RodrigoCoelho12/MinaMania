@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class StoreController : MonoBehaviour
+public class ShopController : MonoBehaviour
 {
 
     [SerializeField] GameObject panelShop;
