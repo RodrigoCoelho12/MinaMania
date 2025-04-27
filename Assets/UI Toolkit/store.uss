@@ -1,0 +1,16 @@
+.store {
+}
+
+.unity-button {
+    background-color: rgb(185, 169, 88);
+}
+
+.unity-button:hover {
+    -unity-background-image-tint-color: rgb(52, 135, 48);
+    scale: 1.1 1;
+    background-color: rgb(52, 135, 48);
+}
+
+.quit:hover {
+    scale: 1.1 1.1;
+}

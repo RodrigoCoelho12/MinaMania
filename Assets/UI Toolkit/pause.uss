@@ -1,0 +1,14 @@
+.pause {
+}
+
+.unity-button {
+    color: rgb(187, 196, 203);
+}
+
+.unity-button:hover {
+    color: rgb(105, 187, 250);
+}
+
+.quit:hover {
+    scale: 1.1 1.1;
+}

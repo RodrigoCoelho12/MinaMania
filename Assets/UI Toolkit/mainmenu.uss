@@ -1,0 +1,11 @@
+.mainmenu {
+}
+
+.unity-button {
+    color: rgb(241, 170, 0);
+}
+
+.unity-button:hover {
+    scale: 1.1 1.1;
+    color: rgb(255, 219, 131);
+}

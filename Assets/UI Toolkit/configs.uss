@@ -1,0 +1,14 @@
+.configs {
+}
+
+.quit:hover {
+    scale: 1.1 1.1;
+}
+
+.unity-slider {
+    color: rgb(210, 219, 226);
+}
+
+.unity-slider:hover {
+    color: rgb(107, 188, 250);
+}
