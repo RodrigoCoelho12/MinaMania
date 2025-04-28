@@ -10,7 +10,7 @@ public class Pickaxe : Weapon
         Collider pickaxeCollider  = GetComponent<Collider>();  
         Animator pickaxeAnimator = pickaxeModel.GetComponent<Animator>();
 
-        if (Input.GetMouseButton(0) && Input.GetMouseButton(1) == false)
+        if (UserInputManager.instance.PickaxeInput && !UserInputManager.instance.SprayInput)
         {
             pickaxeModel.SetActive(true);
             pickaxeCollider.enabled = true;

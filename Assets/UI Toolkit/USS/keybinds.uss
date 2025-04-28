@@ -1,0 +1,24 @@
+.unity-button {
+    width: 22%;
+    height: 80%;
+    background-image: none;
+    color: rgb(31, 42, 99);
+    -unity-font-definition: url("project://database/Assets/UI/Textures/UpheavalPro.ttf?fileID=12800000&guid=d04e1d096650c62409fa7a864017261b&type=3#UpheavalPro");
+    font-size: 53px;
+}
+
+.unity-label {
+    -unity-font-definition: url("project://database/Assets/UI/Textures/UpheavalPro.ttf?fileID=12800000&guid=d04e1d096650c62409fa7a864017261b&type=3#UpheavalPro");
+    font-size: 31px;
+}
+
+.button-container {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    align-content: auto;
+    align-self: auto;
+    height: 21%;
+    width: 85%;
+}

@@ -16,7 +16,7 @@ public class WaterSpray : Weapon
         MeshRenderer wsMeshRenderer = gameObject.GetComponent<MeshRenderer>();
         Collider wsCollider  = gameObject.GetComponent<Collider>();
 
-        if (Input.GetMouseButton(1) && currentWaterAmount > 0)
+        if (UserInputManager.instance.SprayInput && currentWaterAmount > 0)
         {
             wsMeshRenderer.enabled = true;
             wsCollider.enabled = true;

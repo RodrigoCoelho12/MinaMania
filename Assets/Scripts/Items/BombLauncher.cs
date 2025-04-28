@@ -83,7 +83,7 @@ public class BombLauncher : Weapon
 
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && bombAmount > 0 && bombInScene == false && Input.GetMouseButton(1) == false)
+        if (UserInputManager.instance.BombInput && bombAmount > 0 && bombInScene == false && !UserInputManager.instance.SprayInput)
         {
             StartCoroutine(LaunchBomb());
         }

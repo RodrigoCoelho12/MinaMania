@@ -3,7 +3,7 @@ using UnityEngine;
 public class ShopController : MonoBehaviour
 {
 
-    [SerializeField] GameObject panelShop;
+    public GameObject panelShop;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -18,15 +18,5 @@ public class ShopController : MonoBehaviour
         {
             panelShop.SetActive(false);
         }
-    }
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    }   
 }

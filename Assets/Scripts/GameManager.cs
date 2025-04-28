@@ -27,30 +27,20 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        Time.timeScale = 1f;
+        Time.timeScale = 0f;
     }
 
     private void Update()
     {
         // Cheats();
-        if (Input.GetKeyDown(KeyCode.Escape) && isPaused == false)
+        if (Input.GetKeyDown(KeyCode.Escape) && !isPaused)
         {
-            Time.timeScale = 0f;
-            isPaused = true;
-            pause_panel.SetActive(true);
+            Pause();
         }
-        else if (Input.GetKeyDown(KeyCode.Escape) && isPaused == true) 
-        { 
-            Time.timeScale = 1f;
-            isPaused = false;
-            pause_panel.SetActive(false);
-        }
-
-        if (isPaused == true) 
+        else if(Input.GetKeyDown(KeyCode.Escape) &&  isPaused)
         {
-            Time.timeScale = 0f;     
+            UnPause(pause_panel);
         }
-        
     }
 
     private void Cheats()
@@ -63,6 +53,8 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         isPaused = false;
 
+        Debug.Log("gameStart");
+
         //ShowHUD();
         //HideMainMenu();
     }
@@ -71,8 +63,15 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0f;
         isPaused = true;
+            
+        pause_panel.SetActive(true);
+    }
+    public void UnPause(GameObject currentPanel)
+    {
+        Time.timeScale = 1f;
+        isPaused = false;
 
-        ShowPausePanel();
+        currentPanel.SetActive(false);
     }
 
     public void GameOver()
@@ -111,12 +110,6 @@ public class GameManager : MonoBehaviour
     private void ShowHUD()
     {
         hud_panel.SetActive(true);
-    }
-
-    private void ShowPausePanel()
-    {
-        pause_panel.SetActive(true);
-        main_menu_panel.SetActive(false); 
     }
 
     private void ShowGameOverPanel()
