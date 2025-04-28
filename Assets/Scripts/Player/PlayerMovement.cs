@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public float raycastDistance = 100f;
 
     private bool isDashing = false;
-    public float dashSpeed = 20f;
+    public float dashSpeed = 25f;
     public float dashDuration = 0.2f;
     public float dashCooldown = 1f;
     private float dashTime = 0f;
