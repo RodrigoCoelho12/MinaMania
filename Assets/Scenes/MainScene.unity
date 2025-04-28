@@ -3134,6 +3134,9 @@ MonoBehaviour:
   mouseSensitivity: 100
   rotationSpeed: 10
   raycastDistance: 100
+  dashSpeed: 25
+  dashDuration: 0.2
+  dashCooldown: 1
 --- !u!114 &1669973033
 MonoBehaviour:
   m_ObjectHideFlags: 0
