@@ -59,7 +59,7 @@ public class BombLauncher : Weapon
             {
                 Vector3 Evaluate(float t)
                 {
-                    Vector3 ac = Vector3.Lerp(bombLaunchPoint, control, t);
+                    Vector3 ac = Vector3.Lerp(bombLaunchPoint, control, t); // Lancar bomba com curvatura (lerp)
                     Vector3 cb = Vector3.Lerp(control, bombTarget, t);
 
                     return Vector3.Lerp(ac, cb, t);
