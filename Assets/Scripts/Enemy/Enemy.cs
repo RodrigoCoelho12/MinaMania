@@ -9,7 +9,6 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
-
         switch (type)
         {
             case EnemyTypes.Speed:
@@ -34,18 +33,20 @@ public class Enemy : MonoBehaviour
         FollowTarget();
     }
 
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.CompareTag("PlayerAttack"))
-        {
-            DeathRoutine();
-        }
-    }
+    //private void OnTriggerStay(Collider other)
+    //{
+    //    if (other.CompareTag("PlayerAttack"))
+    //    {
+    //        DeathRoutine();
+    //    }
+    //}
+
     public void FollowTarget()
     {
         var step = speed * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, target.position, step);
     }
+
     public void SetTarget(GameObject gameObject) => target = gameObject.transform;
 
     public void DeathRoutine()
