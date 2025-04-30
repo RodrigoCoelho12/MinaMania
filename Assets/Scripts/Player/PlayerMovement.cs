@@ -23,8 +23,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        Dash();
         Move();
+        Dash();
         RotatePlayer();
     }
 
@@ -57,6 +57,20 @@ public class PlayerMovement : MonoBehaviour
                 isDashing = false;
             }
         }
+
+        //    public float speed = 5.0f; // Velocidade do personagem
+
+        //void Update()
+        //{
+        //    // Obter a direção para frente
+        //    Vector3 forwardDirection = Vector3.forward;
+
+        //    // Multiplicar a direção para frente pela velocidade e pelo tempo
+        //    Vector3 movement = forwardDirection * speed * Time.deltaTime;
+
+        //    // Aplicar o movimento ao personagem
+        //    transform.Translate(movement, Space.World);
+        //}
     }
 
     void RotatePlayer()
