@@ -33,13 +33,13 @@ public class Enemy : MonoBehaviour
         FollowTarget();
     }
 
-    //private void OnTriggerStay(Collider other)
-    //{
-    //    if (other.CompareTag("PlayerAttack"))
-    //    {
-    //        DeathRoutine();
-    //    }
-    //}
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("PlayerAttack"))
+        {
+            DeathRoutine();
+        }
+    }
 
     public void FollowTarget()
     {
