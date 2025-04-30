@@ -12,9 +12,9 @@ public class WeaponManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        pickaxe = transform.GetChild(1).gameObject.GetComponent<Pickaxe>();
-        waterSpray = transform.GetChild(2).gameObject.GetComponent<WaterSpray>();
-        bombLauncher = transform.GetChild(3).gameObject.GetComponent<BombLauncher>();
+        pickaxe = transform.GetChild(0).gameObject.GetComponent<Pickaxe>();
+        waterSpray = transform.GetChild(1).gameObject.GetComponent<WaterSpray>();
+        bombLauncher = transform.GetChild(2).gameObject.GetComponent<BombLauncher>();
     }
 
     // Update is called once per frame

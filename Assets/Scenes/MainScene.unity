@@ -3009,7 +3009,7 @@ Transform:
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 590923430}
   - {fileID: 143427038}
@@ -3314,6 +3314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 439682367}
+  mainMenu: {fileID: 783856464}
 --- !u!1 &1850454236
 GameObject:
   m_ObjectHideFlags: 0
