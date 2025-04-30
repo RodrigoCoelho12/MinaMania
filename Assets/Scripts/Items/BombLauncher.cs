@@ -19,7 +19,7 @@ public class BombLauncher : Weapon
     [SerializeField] GameObject bombExplosionPrefab;
     [SerializeField] Image[] bombIcons;
 
-    [SerializeField] float explosionRadius = 5f;
+    [SerializeField] float explosionRadius = 8f;
 
     public override void Attack()
     {
