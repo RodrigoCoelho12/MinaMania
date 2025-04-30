@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5667977965512910077}
   - component: {fileID: 1893046432748118379}
   - component: {fileID: 9029546861950599351}
+  - component: {fileID: -330957345627261290}
   m_Layer: 0
   m_Name: EnemySpeedPrefab
   m_TagString: Enemy
@@ -122,3 +123,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 2
+--- !u!114 &-330957345627261290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124346678638554569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 285925b6ea2c8e048b7819d646041c62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth: 20
+  CurrentHealth: 0
+  RegenSpeed: 0
+  gameManager: {fileID: 0}

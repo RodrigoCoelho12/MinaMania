@@ -376,7 +376,7 @@ GameObject:
   - component: {fileID: 143427044}
   m_Layer: 0
   m_Name: WaterSpray
-  m_TagString: PlayerAttack
+  m_TagString: WaterSpray
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -483,6 +483,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e31e3a7a10a461f41af26eda1735db4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  atkValue: 1
+  atkRadius: 0
   totalWaterAmount: 100
   currentWaterAmount: 100
   waterSpent: 50
@@ -506,7 +508,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &208533717
 Transform:
   m_ObjectHideFlags: 0
@@ -887,6 +889,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a61a025885683ad43a0553019a1883ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  atkValue: 30
+  atkRadius: 7
   bombAmount: 4
   bombPrefab: {fileID: 2389164394065613510, guid: 498074d916668c24fb4c79ddfed760d0, type: 3}
   bombExplosionPrefab: {fileID: 2223119561577714034, guid: 56358ec9035e3374dbea615a97f85f60, type: 3}
@@ -895,7 +899,6 @@ MonoBehaviour:
   - {fileID: 2007191671}
   - {fileID: 726052882}
   - {fileID: 1850454238}
-  explosionRadius: 5
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1324,10 +1327,11 @@ GameObject:
   m_Component:
   - component: {fileID: 590923430}
   - component: {fileID: 590923431}
+  - component: {fileID: 590923433}
   - component: {fileID: 590923432}
   m_Layer: 0
   m_Name: Pickaxe
-  m_TagString: PlayerAttack
+  m_TagString: Pickaxe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1381,6 +1385,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e126885942bd0fb4f955544c7f772039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  atkValue: 5
+  atkRadius: 0
+--- !u!65 &590923433
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 590923429}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 1.441505, y: 0.2380517, z: 0.50153446}
+  m_Center: {x: -0.0071211657, y: -0.003560404, z: 1.7731351}
 --- !u!1 &606547176
 GameObject:
   m_ObjectHideFlags: 0
@@ -2987,9 +3014,10 @@ GameObject:
   - component: {fileID: 1669973028}
   - component: {fileID: 1669973027}
   - component: {fileID: 1669973031}
-  - component: {fileID: 1669973032}
-  - component: {fileID: 1669973033}
   - component: {fileID: 1669973034}
+  - component: {fileID: 1669973032}
+  - component: {fileID: 1669973035}
+  - component: {fileID: 1669973033}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -3135,9 +3163,6 @@ MonoBehaviour:
   mouseSensitivity: 100
   rotationSpeed: 10
   raycastDistance: 100
-  dashSpeed: 25
-  dashDuration: 0.2
-  dashCooldown: 1
 --- !u!114 &1669973033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3165,12 +3190,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 285925b6ea2c8e048b7819d646041c62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMaxHealth: 100
-  playerCurrentHealth: 100
-  playerRegenSpeed: 0.01
-  enemyDamage: 10
-  playerHealtBar: {fileID: 135200430}
-  GameOverPanel: {fileID: 1407600865}
+  MaxHealth: 100
+  CurrentHealth: 100
+  RegenSpeed: 0.1
+  gameManager: {fileID: 439682367}
+--- !u!114 &1669973035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1669973025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8581d1b0efc1e24183a720f67b28c57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDashing: 0
+  dashSpeed: 25
+  dashDuration: 0.2
+  dashCooldown: 1
 --- !u!1 &1672692640
 GameObject:
   m_ObjectHideFlags: 0

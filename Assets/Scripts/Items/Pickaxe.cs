@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -22,6 +23,5 @@ public class Pickaxe : Weapon
             pickaxeCollider.enabled = false;
             pickaxeAnimator.enabled = false;
         }
-
     }
 }

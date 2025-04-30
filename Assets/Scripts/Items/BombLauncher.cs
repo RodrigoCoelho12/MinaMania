@@ -19,7 +19,6 @@ public class BombLauncher : Weapon
     [SerializeField] GameObject bombExplosionPrefab;
     [SerializeField] Image[] bombIcons;
 
-    [SerializeField] float explosionRadius = 5f;
 
     public override void Attack()
     {
@@ -63,14 +62,15 @@ public class BombLauncher : Weapon
 
             GameObject _bombExplosion = Instantiate(bombExplosionPrefab, bombTarget, Quaternion.identity);
 
-            RaycastHit[] hits = Physics.SphereCastAll(bombTarget, explosionRadius, Vector3.up, 0f);
+            RaycastHit[] hits = Physics.SphereCastAll(bombTarget, atkRadius, Vector3.up, 0f);
+            
             foreach (RaycastHit hit in hits)
             {
-                var enemy = hit.collider.GetComponent<Enemy>();
+                var enemy = hit.collider.GetComponent<HealthController>();
 
                 if (enemy != null)
                 {
-                    enemy.DeathRoutine();
+                    enemy.TakeDamage(atkValue);
                 }
             }
 

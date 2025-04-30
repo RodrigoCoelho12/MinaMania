@@ -8,7 +8,7 @@ public class Rounds : MonoBehaviour
     public GameObject damagePrefab;
     GameObject player;
 
-    List<Enemy> enemyList = new List<Enemy>(); 
+    List<EnemyProto> enemyList = new List<EnemyProto>(); 
     int round;
 
     void Start()
@@ -31,7 +31,7 @@ public class Rounds : MonoBehaviour
             GameObject selectedPrefab = GetRandomPrefab(random);
 
             // Instanciar e configurar o inimigo
-            Enemy enemyScript = Instantiate(selectedPrefab, instantiatePos, Quaternion.identity).GetComponent<Enemy>();
+            EnemyProto enemyScript = Instantiate(selectedPrefab, instantiatePos, Quaternion.identity).GetComponent<EnemyProto>();
             enemyScript.SetTarget(player);
 
             // Adicionar à lista se ainda não estiver presente
@@ -56,7 +56,7 @@ public class Rounds : MonoBehaviour
     }
 
     void EndRound(){
-        foreach(Enemy enemy in enemyList){           
+        foreach(EnemyProto enemy in enemyList){           
             enemy.DeathRoutine();
         }
         enemyList.Clear();  
