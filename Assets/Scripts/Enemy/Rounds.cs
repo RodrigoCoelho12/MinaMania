@@ -25,7 +25,7 @@ public class Rounds : MonoBehaviour
 
         for (int i = 0; i < enemyQuantity; i++)
         {
-            Vector3 instantiatePos = new Vector3(Random.Range(-20f, 20f), 0, Random.Range(-20f, 20f));
+            Vector3 instantiatePos = new Vector3(Random.Range(-20f, 20f), 0.6f, Random.Range(-20f, 20f));
 
             // Escolher um prefab aleatório
             GameObject selectedPrefab = GetRandomPrefab(random);

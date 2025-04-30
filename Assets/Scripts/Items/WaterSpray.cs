@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +8,8 @@ public class WaterSpray : Weapon
     [SerializeField] float currentWaterAmount;
     [SerializeField] float waterSpent;
     [SerializeField] float waterFillSpeed;
+    
+    public float knockbackSpeed;
 
     [SerializeField] Image waterSprayBar;
 
@@ -40,5 +43,6 @@ public class WaterSpray : Weapon
         {
             currentWaterAmount = 0;
         }
+
     }
 }

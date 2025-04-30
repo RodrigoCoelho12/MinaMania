@@ -29,12 +29,13 @@ public class EnemyProto : MonoBehaviour
         }
 
         healthController = gameObject.GetComponent<HealthController>();
-
+       
     }
 
     void Update()
     {
         FollowTarget();
+        LockYAxis();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -45,17 +46,38 @@ public class EnemyProto : MonoBehaviour
             Debug.Log("Pickaxe Damage");
             healthController.TakeDamage(pickaxeDamage);
         } 
-        else if (other.CompareTag("WaterSpray"))
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("WaterSpray"))
         {
             int waterSprayDamage = other.gameObject.GetComponent<WaterSpray>().atkValue;
-            healthController.TakeDamage(waterSprayDamage);
+            
+            float knockbackSpeed = other.gameObject.GetComponent<WaterSpray>().knockbackSpeed;
+
+            healthController.TakeDamage(waterSprayDamage * Time.deltaTime);
+
+            Vector3 knockbackDirection = transform.position - other.gameObject.transform.position;
+
+            transform.Translate(knockbackDirection * Time.deltaTime * knockbackSpeed, Space.World);
+
         }
     }
 
     public void FollowTarget()
     {
         var step = speed * Time.deltaTime;
+        
         transform.position = Vector3.MoveTowards(transform.position, target.position, step);
+    }
+
+    public void LockYAxis()
+    {
+        if (transform.position.y != 0)
+        {
+            transform.position = new Vector3(transform.position.x, 0, transform.position.z);
+        }
     }
 
     public void SetTarget(GameObject gameObject) => target = gameObject.transform;
