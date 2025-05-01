@@ -2,50 +2,38 @@ using UnityEngine;
 
 public class DashItem : Item
 {
-    public bool isDashing = false;
-    public float dashSpeed = 25f;
-    public float dashDuration = 0.2f;
-    public float dashCooldown = 1f;
-    private float dashTime = 0f;
+    public bool isDashing = false;           // Indica se o jogador está no meio de um dash
+    public float dashSpeed = 25f;            // Velocidade do dash
+    public float dashDuration = 0.2f;        // Duração do dash em segundos
+    public float dashCooldown = 1f;          // Tempo de espera entre dashes
+    private float dashTime = 0f;             // Tempo atual do dash em andamento
 
-    private float lastDashTime = -Mathf.Infinity;
+    private float lastDashTime = -Mathf.Infinity; // Armazena o momento do último dash (usado para controle de cooldown)
 
     private void Update()
     {
-        Dash();
+        Dash(); // Chama a lógica de dash a cada frame
     }
-
-    public  void Dash()
+    public void Dash()
     {
+        // Verifica se o jogador pressionou o botão de dash e se o cooldown já passou
         if (UserInputManager.instance.DashInput && Time.time >= lastDashTime + dashCooldown)
         {
-            isDashing = true;
-            dashTime = 0f;
-            lastDashTime = Time.time;
-            Debug.Log("Dash");
+            isDashing = true;           // Ativa o dash
+            dashTime = 0f;              // Reinicia o tempo do dash
+            lastDashTime = Time.time;   // Registra o tempo atual como o último dash
+            Debug.Log("Dash");          // Mensagem no console para debug
         }
 
         if (isDashing)
         {
-            dashTime += Time.deltaTime;
+            dashTime += Time.deltaTime; // Atualiza o tempo do dash com o tempo passado desde o último frame
+
+            // Se o tempo de dash ultrapassou a duração configurada, finaliza o dash
             if (dashTime >= dashDuration)
             {
                 isDashing = false;
             }
         }
-
-        //    public float speed = 5.0f; // Velocidade do personagem
-
-        //void Update()
-        //{
-        //    // Obter a direção para frente
-        //    Vector3 forwardDirection = Vector3.forward;
-
-        //    // Multiplicar a direção para frente pela velocidade e pelo tempo
-        //    Vector3 movement = forwardDirection * speed * Time.deltaTime;
-
-        //    // Aplicar o movimento ao personagem
-        //    transform.Translate(movement, Space.World);
-        //}
     }
 }

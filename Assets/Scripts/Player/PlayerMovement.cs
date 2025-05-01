@@ -36,7 +36,6 @@ public class PlayerMovement : MonoBehaviour
         transform.Translate(currentSpeed * Time.deltaTime * movement, Space.World);
     }
 
-
     void RotatePlayer()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition); // Cria um Ray com origem da camera e direção determinada pela posição do mouse na tela
