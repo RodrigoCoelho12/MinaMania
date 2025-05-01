@@ -32,30 +32,30 @@ public class BombLauncher : Weapon
                 bombIcons[i].enabled = i < bombAmount;
             }
 
-            bombRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(bombRay, out bombRayHit))
+            bombRay = Camera.main.ScreenPointToRay(Input.mousePosition); // Cria um Ray com origem da camera e direção determinada pela posição do mouse na tela
+            if (Physics.Raycast(bombRay, out bombRayHit)) // Lança o Ray e armazena o hit (acerto) do  Raycast na variavel bombRayHit
             {
-                bombTarget = bombRayHit.point;
+                bombTarget = bombRayHit.point; // Armazena a posição em Vector3 do local de acerto do Ray e armazena na variavel bombTarget
             }
 
             Vector3 bombLaunchPoint = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
             GameObject _bomb = Instantiate(bombPrefab, bombLaunchPoint, Quaternion.identity);
 
-            Vector3 control = (bombTarget + _bomb.transform.position) / 2;
-            control.y += 6f;
+            Vector3 pontoMedio = (bombTarget + _bomb.transform.position) / 2; // Variavel utilizada para armazenar o ponto médio entre a posição de origem e o alvo, onde será o ápice da parabola
+            pontoMedio.y += 6f; // Determina o valor de altura do ápice da parabola
 
             while (_bomb.transform.position != bombTarget)
             {
-                Vector3 Evaluate(float t)
+                Vector3 Evaluate(float t) // Retorna o Lerp entre outros dois Lerps em função de um tempo t
                 {
-                    Vector3 ac = Vector3.Lerp(bombLaunchPoint, control, t);
-                    Vector3 cb = Vector3.Lerp(control, bombTarget, t);
-                    return Vector3.Lerp(ac, cb, t);
+                    Vector3 ab = Vector3.Lerp(bombLaunchPoint, pontoMedio, t); // Cria um vetor que lerpa desde o ponto de lançamento da bomba até o ápice de maneira linear
+                    Vector3 bc = Vector3.Lerp(pontoMedio, bombTarget, t); // Cria um vetor que lerpa desde o ápice da parabola até o alvo da bomba de maneira linear
+                    return Vector3.Lerp(ab, bc, t); // Lerpa os outros dois lerps para garantir um movimento em arco de velocidade linear
                 }
 
-                sampleTime += Time.deltaTime * bombSpeed;
-                _bomb.transform.position = Evaluate(sampleTime);
-                _bomb.transform.forward = Evaluate(sampleTime + 0.001f) - _bomb.transform.position;
+                sampleTime += Time.deltaTime * bombSpeed;// sampleTime é calculado para ser utilizado na movimentação da bomba baseando no deltaTime multiplicado pela velocidade
+                _bomb.transform.position = Evaluate(sampleTime); // A posição da bomba é alterada em função de sampleTime, de acordo os lerps dentro do método
+                _bomb.transform.forward = Evaluate(sampleTime + 0.001f) - _bomb.transform.position; // Faz com que a bomba alinhe seu vetor transform.forward de acordo com a parabola
 
                 yield return null;
             }

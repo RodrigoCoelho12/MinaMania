@@ -39,16 +39,16 @@ public class PlayerMovement : MonoBehaviour
 
     void RotatePlayer()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out RaycastHit hit, raycastDistance))
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition); // Cria um Ray com origem da camera e direção determinada pela posição do mouse na tela
+        if (Physics.Raycast(ray, out RaycastHit hit, raycastDistance)) // Lança o Ray e armazena o hit (acerto) do  Raycast na variavel hit
         {
-            Vector3 direction = hit.point - transform.position;
+            Vector3 direction = hit.point - transform.position; // Determina a direção desejada subtraíndo a posição do ponto de acert (hit) e a propria posição atual
             Debug.DrawLine(ray.origin, hit.point, Color.red);
-            direction.y = 0f;
-            if (direction.magnitude > 0.1f)
+            direction.y = 0f; // Trava o eixo y para que o player não olhe para cima
+            if (direction.magnitude > 0.1f) // Impede a rotação do player caso o mouse esteja muito proximo da posição do player na tela
             {
-                Quaternion targetRotation = Quaternion.LookRotation(direction);
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+                Quaternion targetRotation = Quaternion.LookRotation(direction); // Armazena o alvo de rotação do player (direção desejada)
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime); // Interpola o valor de rotação do player atual com o alvo, numa velocidade determinada (rotationSpeed * Time.deltaTime)
             }
         }
     }
