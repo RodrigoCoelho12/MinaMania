@@ -4,6 +4,7 @@ using UnityEngine.UIElements;
 public class ConfigController : PanelControllerBase
 {
     public GameManager gameManager;
+    [SerializeField] GameObject mainMenu;
 
     protected override void OnEnable()
     {
@@ -22,7 +23,14 @@ public class ConfigController : PanelControllerBase
 
     protected override void OnQuitButtonClicked()
     {
-        gameManager.UnPause(gameObject);
+        if (mainMenu.activeInHierarchy)
+        {
+            gameObject.SetActive(false);
+        }
+        else
+        {
+            gameManager.UnPause(gameObject);
+        }
     }
 
 }

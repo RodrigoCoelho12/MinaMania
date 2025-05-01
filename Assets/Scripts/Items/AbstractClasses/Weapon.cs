@@ -2,8 +2,8 @@ using UnityEngine;
 
 public abstract class Weapon : Item
 {
-    public int atkValue {  get; private set; }
-    public int aoeValue {  get; private set; }
+    public int atkValue;
+    public int atkRadius;
 
 
     public void PrintAttackValue()
@@ -12,7 +12,7 @@ public abstract class Weapon : Item
     }
     public void PrintAreaOfEffectValue()
     {
-        Debug.Log("AOE diameter (m): " + aoeValue);
+        Debug.Log("Radius of Attack: " + atkRadius);
     }
 
 

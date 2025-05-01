@@ -11,12 +11,15 @@ public class UserInputManager : MonoBehaviour
     public bool SprayInput { get; private set; }
     public bool BombInput { get; private set; }
 
+    public bool DashInput { get; private set; }
+
     private PlayerInput _playerInput;
 
     private InputAction _movementAction;
     private InputAction _pickaxeAction;
     private InputAction _sprayAction;
     private InputAction _bombAction;
+    private InputAction _dashAction;
 
     private void Awake()
     {
@@ -40,6 +43,7 @@ public class UserInputManager : MonoBehaviour
         _pickaxeAction = _playerInput.actions["PickaxeAttack"];
         _sprayAction = _playerInput.actions["SprayAttack"];
         _bombAction = _playerInput.actions["BombAttack"];
+        _dashAction = _playerInput.actions["Dash"];
     }
 
     private void UpdateInput()
@@ -48,5 +52,6 @@ public class UserInputManager : MonoBehaviour
         PickaxeInput = _pickaxeAction.IsPressed();
         SprayInput = _sprayAction.IsPressed();
         BombInput = _bombAction.WasPressedThisFrame();
+        DashInput = _dashAction.WasPressedThisFrame();
     }
 }

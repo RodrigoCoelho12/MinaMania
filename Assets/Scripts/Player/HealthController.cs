@@ -3,46 +3,73 @@ using UnityEngine.UI;
 
 public class HealthController : MonoBehaviour
 {
-    [SerializeField] float playerMaxHealth;
-    [SerializeField] float playerCurrentHealth;
-    [SerializeField] float playerRegenSpeed;
-    [SerializeField] float enemyDamage;
+    [SerializeField] float MaxHealth;
+    [SerializeField] float CurrentHealth;
+    [SerializeField] float RegenSpeed;
 
-    [SerializeField] Image playerHealtBar;
-    [SerializeField] GameObject GameOverPanel;
+    [SerializeField] GameManager gameManager;
 
-
-
-    private void OnTriggerStay(Collider other)
+    private void Start()
     {
-        if (other.CompareTag("Enemy"))
+        CurrentHealth = MaxHealth;
+    }
+    public void TakeDamage(float damage)
+    {
+        CurrentHealth -= damage;
+        
+        
+        if (CurrentHealth <= 0)
         {
-            playerCurrentHealth -= enemyDamage * Time.deltaTime;
-            playerHealtBar.fillAmount -= (enemyDamage * Time.deltaTime) / playerMaxHealth;
+            if (gameObject.CompareTag("Enemy"))
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                gameManager.GameOver();
+            }
         }
     }
 
 
-    // Update is called once per frame
+
+
+
+
+
+
+
+
+    //private void OnTriggerStay(Collider other)
+    //{
+    //    if (other.CompareTag("Enemy")!)
+    //    {
+    //        playerCurrentHealth -= enemyDamage * Time.deltaTime;
+    //        playerHealtBar.fillAmount -= (enemyDamage * Time.deltaTime) / playerMaxHealth;
+    //    }
+    //}
+
+
     void Update()
     {
-        PlayerHealthRegen();
+        //PlayerHealthRegen();
 
     }
 
-    public void PlayerHealthRegen()
-    {
-        if (playerCurrentHealth <playerMaxHealth)
-        {
-            playerHealtBar.fillAmount = Mathf.MoveTowards(playerHealtBar.fillAmount, 1f, Time.deltaTime * playerRegenSpeed);
-            playerCurrentHealth = Mathf.MoveTowards(playerCurrentHealth / playerMaxHealth, 1f, Time.deltaTime * playerRegenSpeed) * playerMaxHealth;
-        }
-       
-        if (playerCurrentHealth <= 0)
-        {
-            Time.timeScale = 0;
-            GameOverPanel.SetActive(true);
-        }
-    }
+
+    //public void PlayerHealthRegen()
+    //{
+    //    if (playerCurrentHealth < playerMaxHealth)
+    //    {
+    //        playerHealtBar.fillAmount = Mathf.MoveTowards(playerHealtBar.fillAmount, 1f, Time.deltaTime * playerRegenSpeed);
+    //        playerCurrentHealth = Mathf.MoveTowards(playerCurrentHealth / playerMaxHealth, 1f, Time.deltaTime * playerRegenSpeed) * playerMaxHealth;
+    //    }
+
+    //    if (playerCurrentHealth <= 0)
+    //    {
+    //        Time.timeScale = 0;
+    //        GameOverPanel.SetActive(true);
+    //    }
+    //}
 
 }

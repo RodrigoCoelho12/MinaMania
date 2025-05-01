@@ -7,29 +7,25 @@ public class PlayerMovement : MonoBehaviour
     public float rotationSpeed = 10f;
     public float raycastDistance = 100f;
 
-    private bool isDashing = false;
-    public float dashSpeed = 25f;
-    public float dashDuration = 0.2f;
-    public float dashCooldown = 1f;
-    private float dashTime = 0f;
-
     private Rigidbody rb;
-    private float lastDashTime = -Mathf.Infinity;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        
     }
 
     void Update()
     {
         Move();
-        Dash();
         RotatePlayer();
     }
 
     void Move()
     {
+        bool isDashing = gameObject.GetComponent<DashItem>().isDashing;
+        float dashSpeed = gameObject.GetComponent<DashItem>().dashSpeed;
+
         float horizontalInput = UserInputManager.instance.MovementInput.x;
         float verticalInput = UserInputManager.instance.MovementInput.y;
 
@@ -40,51 +36,19 @@ public class PlayerMovement : MonoBehaviour
         transform.Translate(currentSpeed * Time.deltaTime * movement, Space.World);
     }
 
-    void Dash()
-    {
-        if (Input.GetKeyDown(KeyCode.LeftShift) && Time.time >= lastDashTime + dashCooldown)
-        {
-            isDashing = true;
-            dashTime = 0f;
-            lastDashTime = Time.time;
-        }
-
-        if (isDashing)
-        {
-            dashTime += Time.deltaTime;
-            if (dashTime >= dashDuration)
-            {
-                isDashing = false;
-            }
-        }
-
-        //    public float speed = 5.0f; // Velocidade do personagem
-
-        //void Update()
-        //{
-        //    // Obter a direção para frente
-        //    Vector3 forwardDirection = Vector3.forward;
-
-        //    // Multiplicar a direção para frente pela velocidade e pelo tempo
-        //    Vector3 movement = forwardDirection * speed * Time.deltaTime;
-
-        //    // Aplicar o movimento ao personagem
-        //    transform.Translate(movement, Space.World);
-        //}
-    }
 
     void RotatePlayer()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out RaycastHit hit, raycastDistance))
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition); // Cria um Ray com origem da camera e direção determinada pela posição do mouse na tela
+        if (Physics.Raycast(ray, out RaycastHit hit, raycastDistance)) // Lança o Ray e armazena o hit (acerto) do  Raycast na variavel hit
         {
-            Vector3 direction = hit.point - transform.position;
+            Vector3 direction = hit.point - transform.position; // Determina a direção desejada subtraíndo a posição do ponto de acert (hit) e a propria posição atual
             Debug.DrawLine(ray.origin, hit.point, Color.red);
-            direction.y = 0f;
-            if (direction.magnitude > 0.1f)
+            direction.y = 0f; // Trava o eixo y para que o player não olhe para cima
+            if (direction.magnitude > 0.1f) // Impede a rotação do player caso o mouse esteja muito proximo da posição do player na tela
             {
-                Quaternion targetRotation = Quaternion.LookRotation(direction);
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+                Quaternion targetRotation = Quaternion.LookRotation(direction); // Armazena o alvo de rotação do player (direção desejada)
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime); // Interpola o valor de rotação do player atual com o alvo, numa velocidade determinada (rotationSpeed * Time.deltaTime)
             }
         }
     }
