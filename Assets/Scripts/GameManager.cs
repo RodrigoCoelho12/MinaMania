@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -17,9 +18,11 @@ public class GameManager : MonoBehaviour
     public GameObject credit_panel;
     public GameObject specific_credit_panel;
     public GameObject game_over_panel;
+    public Slider masterslider, musicslider, sfxslider;
 
     [Header("Utilitários")]
     public bool isPaused;
+    public FBXPosition fbxPosition;
 
     #endregion
 
@@ -28,6 +31,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Time.timeScale = 0f;
+        fbxPosition.Position();
     }
 
     private void Update()
@@ -164,6 +168,48 @@ public class GameManager : MonoBehaviour
     {
         specific_credit_panel.SetActive(false);
         credit_panel.SetActive(true);
+    }
+
+    public void SetDefaultVolume()
+    {
+        AudioManager.manager.mixer.GetFloat("MasterVol", out float aux1);
+
+        if (masterslider != null)
+        {
+            masterslider.value = aux1;
+        }
+
+        AudioManager.manager.mixer.GetFloat("MusicVol", out float aux2);
+
+        if (musicslider != null)
+        {
+            musicslider.value = aux2;
+        }
+
+        AudioManager.manager.mixer.GetFloat("SFXVol", out float aux3);
+
+        if (sfxslider != null)
+        {
+            sfxslider.value = aux3;
+        }
+    }
+
+    // Mudar o master (volume todo)
+    public void ChangeMasterVolume()
+    {
+        AudioManager.manager.ChangeMasterVolume(masterslider.value);
+    }
+
+    // Mudar o volume da musica (so muda a musica)
+    public void ChangeMusicVolume()
+    {
+        AudioManager.manager.ChangeMusicVolume(musicslider.value);
+    }
+
+    // Mudar o volume do SFX (so muda os efeitos sonoros)
+    public void ChangeSFXVolume()
+    {
+        AudioManager.manager.ChangeSFXVolume(sfxslider.value);
     }
 
     #endregion
