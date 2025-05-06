@@ -18,6 +18,10 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         Move();
+        if (transform.position.y != 0)
+        {
+            transform.position = new Vector3(transform.position.x, 0, transform.position.z);
+        }
         RotatePlayer();
     }
 
@@ -34,10 +38,13 @@ public class PlayerMovement : MonoBehaviour
         float currentSpeed = isDashing ? dashSpeed : moveSpeed;
 
         transform.Translate(currentSpeed * Time.deltaTime * movement, Space.World);
+
     }
 
     void RotatePlayer()
     {
+        transform.rotation = new Quaternion(0, transform.rotation.y, 0,transform.rotation.w);
+
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition); // Cria um Ray com origem da camera e direção determinada pela posição do mouse na tela
         if (Physics.Raycast(ray, out RaycastHit hit, raycastDistance)) // Lança o Ray e armazena o hit (acerto) do  Raycast na variavel hit
         {
