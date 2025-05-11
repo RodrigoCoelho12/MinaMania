@@ -4,7 +4,6 @@ using UnityEngine.UIElements;
 
 public class MainMenuController : MonoBehaviour
 {
-
     public VisualElement ui;
     public GameManager gameManager;
 
@@ -50,10 +49,8 @@ public class MainMenuController : MonoBehaviour
         if (quitButton != null) quitButton.clicked -= OnQuitButtonClicked;
     }
 
-
     private void OnPlayButtonClicked()
     {
-        Debug.Log("PLAY");
         gameManager.StartGame();
         menuPanel.SetActive(false);
         rankingPanel.SetActive(false);
@@ -61,25 +58,21 @@ public class MainMenuController : MonoBehaviour
 
     private void OnRankingButtonClicked()
     {
-        Debug.Log("RANKING");
         rankingPanel.SetActive(true);
     }    
     
     private void OnSettingsButtonClicked()
     {
-        Debug.Log("SETTINGS");
         settingsPanel.SetActive(true);
     }
     
     private void OnCreditsButtonClicked()
     {
-        Debug.Log("CREDITS");
         creditsPanel.SetActive(true);
     }
 
     private void OnQuitButtonClicked()
     {
-        Debug.Log("QUIT");
         Application.Quit();
     }
 }

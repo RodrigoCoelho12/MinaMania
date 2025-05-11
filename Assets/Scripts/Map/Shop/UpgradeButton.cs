@@ -1,4 +1,3 @@
-using JetBrains.Annotations;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "UpgradeButton", menuName = "Scriptable Objects/UpgradeButton")]

@@ -5,7 +5,7 @@ public class GameManager : MonoBehaviour
 {
     #region Propriedades
 
-    [Header("Painéis")]
+    [Header("Paineis")]
     public GameObject main_menu_panel;
     public GameObject settings_panel;
     public GameObject store_panel;
@@ -52,11 +52,6 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         isPaused = false;
-
-        Debug.Log("gameStart");
-
-        //ShowHUD();
-        //HideMainMenu();
     }
 
     public void Pause()

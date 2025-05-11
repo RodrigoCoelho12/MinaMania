@@ -12,8 +12,6 @@ public class PanelControllerBase : MonoBehaviour
 
         quitButton = rootUi.Q<Button>("QuitButton");
         quitButton.clicked += OnQuitButtonClicked;
-
-
     }
 
     protected virtual void OnDisable()

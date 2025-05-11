@@ -15,7 +15,6 @@ public class ConfigController : PanelControllerBase
 
     }
 
-
     protected override void OnDisable()
     {
         quitButton.clicked -= OnQuitButtonClicked;

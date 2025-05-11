@@ -58,10 +58,9 @@ public class EnemyProto : MonoBehaviour
 
             healthController.TakeDamage(waterSprayDamage * Time.deltaTime);
 
-            Vector3 knockbackDirection = transform.position - other.gameObject.transform.position;// Determina a direção que o inimigo sera movido caso esteja dentro da area do ataque de spray
+            Vector3 knockbackDirection = transform.position - other.gameObject.transform.position;
 
-            transform.Translate(knockbackDirection * Time.deltaTime * knockbackSpeed, Space.World); // Movimenta o inimigo na direção determinada multiplicando pela velocidade desejada e Time.deltaTime para que a movimentação não seja instantanea
-
+            transform.Translate(knockbackDirection * Time.deltaTime * knockbackSpeed, Space.World);
         }
     }
 
@@ -78,9 +77,12 @@ public class EnemyProto : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x, 0, transform.position.z);
         }
-    }
+    } // -> freeze Y enemy position on Unity
 
-    public void SetTarget(GameObject gameObject) => target = gameObject.transform;
+    public void SetTarget(GameObject gameObject)
+    {
+        target = gameObject.transform;
+    } 
 
     public void DeathRoutine()
     {

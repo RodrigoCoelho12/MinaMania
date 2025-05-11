@@ -25,16 +25,13 @@ public class Rounds : MonoBehaviour
 
         for (int i = 0; i < enemyQuantity; i++)
         {
-            Vector3 instantiatePos = new Vector3(Random.Range(-20f, 20f), 0.6f, Random.Range(-20f, 20f));
+            Vector3 instantiatePosition = new Vector3(Random.Range(-20f, 20f), 0.6f, Random.Range(-20f, 20f));
 
-            // Escolher um prefab aleatório
             GameObject selectedPrefab = GetRandomPrefab(random);
 
-            // Instanciar e configurar o inimigo
-            EnemyProto enemyScript = Instantiate(selectedPrefab, instantiatePos, Quaternion.identity).GetComponent<EnemyProto>();
+            EnemyProto enemyScript = Instantiate(selectedPrefab, instantiatePosition, Quaternion.identity).GetComponent<EnemyProto>();
             enemyScript.SetTarget(player);
 
-            // Adicionar à lista se ainda não estiver presente
             if (!enemyList.Contains(enemyScript))
             {
                 enemyList.Add(enemyScript);
@@ -46,7 +43,7 @@ public class Rounds : MonoBehaviour
 
     GameObject GetRandomPrefab(System.Random random)
     {
-        int choice = random.Next(3); // Gera um número entre 0 e 2
+        int choice = random.Next(3); 
         return choice switch
         {
             0 => tankPrefab,
@@ -61,6 +58,7 @@ public class Rounds : MonoBehaviour
         }
         enemyList.Clear();  
     }
+
     void Update(){
         if(Input.GetKeyDown(KeyCode.P)){
             InitializeRound();

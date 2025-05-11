@@ -18,9 +18,6 @@ public class KeybindsController : PanelControllerBase
         rightButton = rootUi.Q<Button>("RightKeyButton");
         leftButton = rootUi.Q<Button>("LeftKeyButton");
 
-
-
         quitButton.clicked += OnQuitButtonClicked;
-
     }
 }
