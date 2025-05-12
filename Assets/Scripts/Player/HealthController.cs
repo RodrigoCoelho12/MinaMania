@@ -3,22 +3,30 @@ using UnityEngine.UI;
 
 public class HealthController : MonoBehaviour
 {
-    [SerializeField] float MaxHealth;
-    [SerializeField] float CurrentHealth;
-    [SerializeField] float RegenSpeed;
+    public float maxHealth;
+    [SerializeField] float currentHealth;
+    [SerializeField] float regenSpeed;
+
+    [SerializeField] Image playerHealthBar;
 
     [SerializeField] GameManager gameManager;
 
     private void Start()
     {
-        CurrentHealth = MaxHealth;
+        if (gameObject.CompareTag("Player"))
+        {
+            maxHealth = 100f;
+        }
+        
+        currentHealth = maxHealth;
     }
     public void TakeDamage(float damage)
     {
-        CurrentHealth -= damage;
+        currentHealth -= damage;
+
         
         
-        if (CurrentHealth <= 0)
+        if (currentHealth <= 0)
         {
             if (gameObject.CompareTag("Enemy"))
             {
@@ -32,22 +40,15 @@ public class HealthController : MonoBehaviour
     }
 
 
-
-
-
-
-
-
-
-
-    //private void OnTriggerStay(Collider other)
-    //{
-    //    if (other.CompareTag("Enemy")!)
-    //    {
-    //        playerCurrentHealth -= enemyDamage * Time.deltaTime;
-    //        playerHealtBar.fillAmount -= (enemyDamage * Time.deltaTime) / playerMaxHealth;
-    //    }
-    //}
+    private void OnTriggerEnter(Collider other) // Perguntar pro Roque se essa é a melhor maneira de fazer, ou criar um player controller para esses casos
+    {
+        if (other.CompareTag("EnemyAttack") && gameObject.CompareTag("Player"))// Erro: Collider das armas estão causando dano no player, por causa de serem filhas de um objeto com a tag Player
+        {
+           TakeDamage(other.GetComponentInParent<Enemy>().damageValue);
+            
+           playerHealthBar.fillAmount = currentHealth / maxHealth;
+        }
+    }
 
 
     void Update()

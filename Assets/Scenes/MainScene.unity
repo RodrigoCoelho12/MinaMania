@@ -436,6 +436,7 @@ GameObject:
   - component: {fileID: 143427043}
   - component: {fileID: 143427042}
   - component: {fileID: 143427044}
+  - component: {fileID: 143427045}
   m_Layer: 0
   m_Name: WaterSpray
   m_TagString: WaterSpray
@@ -551,8 +552,38 @@ MonoBehaviour:
   currentWaterAmount: 100
   waterSpent: 25
   waterFillSpeed: 0.07
+  waterIsRecharging: 0
   knockbackSpeed: 2
+  waterSprayBarBG: {fileID: 790262134}
+  rechargeIndicator: {fileID: 1693345497}
   waterSprayBar: {fileID: 2126532143}
+--- !u!54 &143427045
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143427037}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &162782888
 GameObject:
   m_ObjectHideFlags: 0
@@ -1783,6 +1814,7 @@ GameObject:
   - component: {fileID: 790262135}
   - component: {fileID: 790262137}
   - component: {fileID: 790262136}
+  - component: {fileID: 790262138}
   m_Layer: 5
   m_Name: WaterSprayBg
   m_TagString: Untagged
@@ -1847,6 +1879,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 790262134}
   m_CullTransparentMesh: 1
+--- !u!95 &790262138
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 790262134}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cc3adab660a66d745abdd091d6451129, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &797068005
 GameObject:
   m_ObjectHideFlags: 0
@@ -3057,12 +3111,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e893a284b6eb69e49a050509e5d3bf2c, type: 3}
       propertyPath: m_Name
-      value: Mapa
+      value: Map
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e893a284b6eb69e49a050509e5d3bf2c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2032606300}
   m_SourcePrefab: {fileID: 100100000, guid: e893a284b6eb69e49a050509e5d3bf2c, type: 3}
 --- !u!1 &1463721672
 GameObject:
@@ -3425,8 +3482,8 @@ Rigidbody:
   m_GameObject: {fileID: 1669973025}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Drag: 3.4028235e+38
+  m_AngularDrag: 3.4028235e+38
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -3441,7 +3498,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 4
   m_CollisionDetection: 0
 --- !u!114 &1669973032
 MonoBehaviour:
@@ -3486,9 +3543,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 285925b6ea2c8e048b7819d646041c62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 100
-  CurrentHealth: 100
-  RegenSpeed: 0.01
+  maxHealth: 0
+  currentHealth: 0
+  regenSpeed: 0
+  playerHealthBar: {fileID: 135200430}
   gameManager: {fileID: 439682367}
 --- !u!114 &1669973035
 MonoBehaviour:
@@ -3665,13 +3723,112 @@ RectTransform:
   m_Children:
   - {fileID: 790262135}
   - {fileID: 2126532142}
+  - {fileID: 1693345498}
   m_Father: {fileID: 1240765528}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 75, y: -413}
+  m_AnchoredPosition: {x: 91.3, y: -420.7}
   m_SizeDelta: {x: 71.00891, y: 377.83362}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1693345497
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1693345498}
+  - component: {fileID: 1693345501}
+  - component: {fileID: 1693345500}
+  - component: {fileID: 1693345499}
+  m_Layer: 5
+  m_Name: RechargeIndicator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1693345498
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1693345497}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1689217275}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.0000019073, y: -243.2833}
+  m_SizeDelta: {x: 92.4281, y: 87.1093}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &1693345499
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1693345497}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0ce4782414987d242976a43792404695, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1693345500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1693345497}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: e833af21cb518c5499b9434539980ddd, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1693345501
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1693345497}
+  m_CullTransparentMesh: 1
 --- !u!1 &1784181120
 GameObject:
   m_ObjectHideFlags: 0
@@ -4250,6 +4407,33 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &2032606297 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e893a284b6eb69e49a050509e5d3bf2c, type: 3}
+  m_PrefabInstance: {fileID: 1417603750}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &2032606300
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2032606297}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1550514412580984892, guid: e893a284b6eb69e49a050509e5d3bf2c, type: 3}
 --- !u!1 &2045424554
 GameObject:
   m_ObjectHideFlags: 0
@@ -4423,7 +4607,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.13381095, g: 0.6817668, b: 0.9150943, a: 1}
+  m_Color: {r: 0.20392157, g: 0.6817668, b: 0.9150943, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

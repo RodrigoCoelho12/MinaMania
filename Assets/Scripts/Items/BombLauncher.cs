@@ -74,7 +74,7 @@ public class BombLauncher : Weapon
             {
                 var enemy = hit.collider.GetComponent<HealthController>(); // Tenta acessar o componente de vida
 
-                if (enemy != null)
+                if (enemy != null && enemy.CompareTag("Enemy"))
                 {
                     enemy.TakeDamage(atkValue); // Causa dano ao inimigo caso ele tenha o componente
                 }

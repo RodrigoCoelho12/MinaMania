@@ -9,6 +9,7 @@ TagManager:
   - Loja
   - Pickaxe
   - WaterSpray
+  - EnemyAttack
   layers:
   - Default
   - TransparentFX

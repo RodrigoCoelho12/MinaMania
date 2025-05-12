@@ -8,28 +8,35 @@ public class EnemyProto : MonoBehaviour
     public EnemyTypes type;
 
     private float speed;
+    public float damage;
 
     void Start()
     {
+        healthController = gameObject.GetComponent<HealthController>();
+
         switch (type)
         {
             case EnemyTypes.Speed:
                 speed = 6;
+                damage = 2;
+                healthController.maxHealth = 20;
                 break;
             case EnemyTypes.Tank:
                 speed = 1;
+                damage = 4;
+                healthController.maxHealth = 50;
                 break;
             case EnemyTypes.Damage:
                 speed = 3;
+                damage = 6;
+                healthController.maxHealth = 35;
                 break;
             default:
                 Debug.LogWarning("Enemy type undefined");
                 Destroy(this.gameObject);
                 break;
         }
-
-        healthController = gameObject.GetComponent<HealthController>();
-       
+      
     }
 
     void Update()
@@ -63,6 +70,9 @@ public class EnemyProto : MonoBehaviour
             transform.Translate(knockbackDirection * Time.deltaTime * knockbackSpeed, Space.World); // Movimenta o inimigo na direção determinada multiplicando pela velocidade desejada e Time.deltaTime para que a movimentação não seja instantanea
 
         }
+    }
+
+    public void Attack() { 
     }
 
     public void FollowTarget()
