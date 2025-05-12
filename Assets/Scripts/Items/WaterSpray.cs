@@ -10,14 +10,13 @@ public class WaterSpray : Weapon
     [SerializeField] float waterFillSpeed;
 
     [SerializeField] bool waterIsRecharging =  false;
-    
+
     public float knockbackSpeed;
 
     [SerializeField] GameObject waterSprayBarBG;
     [SerializeField] GameObject rechargeIndicator;
 
     [SerializeField] Image waterSprayBar;
-
 
     public override void Attack()
     {

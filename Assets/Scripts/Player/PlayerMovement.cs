@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent (typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 5f;
@@ -7,11 +8,11 @@ public class PlayerMovement : MonoBehaviour
     public float rotationSpeed = 10f;
     public float raycastDistance = 100f;
 
-    private Rigidbody rb;
+    private CharacterController cc;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        cc = GetComponent<CharacterController>();
         
     }
 
@@ -33,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
 
         float currentSpeed = isDashing ? dashSpeed : moveSpeed;
 
-        transform.Translate(currentSpeed * Time.deltaTime * movement, Space.World);
+        cc.SimpleMove(currentSpeed  * movement);
 
     }
 
@@ -54,4 +55,6 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
+
+  
 }

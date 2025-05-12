@@ -58,16 +58,23 @@ public abstract class Enemy : MonoBehaviour
 
         Vector3 playerDirection = Vector3.RotateTowards(transform.forward, (playerTarget.position - transform.position), step, 0.0f);
 
-        RaycastHit hit;
-
-        if (Physics.Raycast(transform.position, playerDirection, out hit))
+        Vector3 dir = (playerTarget.position - transform.position);
+        if (dir.magnitude > 2)
         {
-            Debug.DrawLine(transform.position, hit.point, Color.cyan);
-            if(hit.distance > 1f)
-            {
-                transform.position = Vector3.MoveTowards(transform.position, playerTarget.position, step);
-            }
+            transform.position += dir.normalized * Time.deltaTime * speedValue;
         }
+
+        /*
+         RaycastHit hit;
+
+         if (Physics.Raycast(transform.position, playerDirection, out hit))
+         {
+             Debug.DrawLine(transform.position, hit.point, Color.cyan);
+             if(hit.distance > 1f)
+             {
+                 transform.position = Vector3.MoveTowards(transform.position, playerTarget.position, step);
+             }
+         }*/
 
         transform.rotation = Quaternion.LookRotation(playerDirection);
     }
