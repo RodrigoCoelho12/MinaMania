@@ -59,7 +59,7 @@ public abstract class Enemy : MonoBehaviour
         Vector3 playerDirection = Vector3.RotateTowards(transform.forward, (playerTarget.position - transform.position), step, 0.0f);
 
         Vector3 dir = (playerTarget.position - transform.position);
-        if (dir.magnitude > 2)
+        if (dir.magnitude > 1)
         {
             transform.position += dir.normalized * Time.deltaTime * speedValue;
         }

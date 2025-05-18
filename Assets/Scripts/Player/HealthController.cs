@@ -15,7 +15,6 @@ public class HealthController : MonoBehaviour
     {
         if (TryGetComponent<PlayerMovement>(out PlayerMovement player))// gameObject.CompareTag("Player"))
         {
-            player.
             maxHealth = 100f;
         }
         
