@@ -627,6 +627,7 @@ GameObject:
   - component: {fileID: 208533721}
   - component: {fileID: 208533720}
   - component: {fileID: 208533719}
+  - component: {fileID: 208533723}
   m_Layer: 0
   m_Name: PickaxeModel
   m_TagString: Untagged
@@ -643,11 +644,11 @@ Transform:
   m_GameObject: {fileID: 208533716}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1.5, y: 1.5000002, z: 1.5000002}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 590923430}
+  m_Father: {fileID: 922360353}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 302.95694}
 --- !u!95 &208533719
 Animator:
@@ -725,6 +726,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 208533716}
   m_Mesh: {fileID: 4610805397482984788, guid: fd3d9d567d28f7b4c99b5172f75849a2, type: 3}
+--- !u!65 &208533723
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208533716}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.441505, y: 0.55756706, z: 0.83311826}
+  m_Center: {x: 0, y: 1.7971885, z: 0.049065106}
 --- !u!1 &263353342
 GameObject:
   m_ObjectHideFlags: 0
@@ -1431,97 +1453,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1154252186}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &590923429
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 590923430}
-  - component: {fileID: 590923431}
-  - component: {fileID: 590923433}
-  - component: {fileID: 590923432}
-  m_Layer: 0
-  m_Name: Pickaxe
-  m_TagString: Pickaxe
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &590923430
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 590923429}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
-  m_ConstrainProportionsScale: 1
-  m_Children:
-  - {fileID: 208533717}
-  m_Father: {fileID: 1669973030}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &590923431
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 590923429}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Radius: 2
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &590923432
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 590923429}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e126885942bd0fb4f955544c7f772039, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  atkValue: 5
-  atkRadius: 0
---- !u!65 &590923433
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 590923429}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Size: {x: 1.441505, y: 0.9529249, z: 0.50153446}
-  m_Center: {x: -0.0071211657, y: -0.13799706, z: 1.7731351}
 --- !u!1 &606547176
 GameObject:
   m_ObjectHideFlags: 0
@@ -2164,6 +2095,53 @@ Transform:
   m_Children: []
   m_Father: {fileID: 606547177}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &922360352
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 922360353}
+  - component: {fileID: 922360354}
+  m_Layer: 0
+  m_Name: Pickaxe
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &922360353
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 922360352}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 208533717}
+  m_Father: {fileID: 1669973030}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &922360354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 922360352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e126885942bd0fb4f955544c7f772039, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  atkValue: 5
+  atkRadius: 0
 --- !u!1 &1027844533
 GameObject:
   m_ObjectHideFlags: 0
@@ -3358,7 +3336,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 590923430}
+  - {fileID: 922360353}
   - {fileID: 143427038}
   - {fileID: 343641515}
   m_Father: {fileID: 1027844534}
@@ -3391,7 +3369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9457545edc10b814d883fdbd19a60e72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickaxe: {fileID: 590923432}
+  pickaxe: {fileID: 0}
   waterSpray: {fileID: 143427044}
   bombLauncher: {fileID: 343641516}
 --- !u!114 &1669973034
