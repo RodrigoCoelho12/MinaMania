@@ -5,7 +5,7 @@ public class EnemyProto : MonoBehaviour
     private Transform target;
     private HealthController healthController;
 
-    public EnemyTypes type;
+    public EnemyTypes enemyType;
 
     private float speed;
     public float damage;
@@ -14,7 +14,7 @@ public class EnemyProto : MonoBehaviour
     {
         healthController = gameObject.GetComponent<HealthController>();
 
-        switch (type)
+        switch (enemyType)
         {
             case EnemyTypes.Speed:
                 speed = 6;
@@ -72,7 +72,8 @@ public class EnemyProto : MonoBehaviour
         }
     }
 
-    public void Attack() { 
+    public void Attack() 
+    { 
     }
 
     public void FollowTarget()
@@ -90,7 +91,10 @@ public class EnemyProto : MonoBehaviour
         }
     }
 
-    public void SetTarget(GameObject gameObject) => target = gameObject.transform;
+    public void SetTarget(GameObject gameObject)
+    {   
+        target = gameObject.transform;
+    }
 
     public void DeathRoutine()
     {
