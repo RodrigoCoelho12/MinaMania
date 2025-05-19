@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class EnemyHordeSpawner : MonoBehaviour
 {
+    [Header("Player Reference")]
+    private GameObject player;
+
     [Header("Enemy Types")]
-    public GameObject enemyPrefab;
+    public GameObject[] enemyPrefabs;
 
     [Header("Spawn Area")]
     public Transform[] spawnPoints;
 
     [Header("Spawn Settings")]
     public float spawnInterval = 1f;
-    public float delayAfterLastEnemyDies = 2f;
+    public float delayAfterLastEnemyDies = 30f;
 
     [Header("Horde Growth Settings")]
     public int initialEnemyCount = 5;
@@ -26,6 +29,7 @@ public class EnemyHordeSpawner : MonoBehaviour
 
     private void Start()
     {
+        player = GameObject.Find("Player");
         hordeQueue.Enqueue(new HordeData(initialEnemyCount));
         hordeQueue.Enqueue(new HordeData(initialEnemyCount + growthPerHorde));
         hordeQueue.Enqueue(new HordeData(initialEnemyCount + growthPerHorde * 2));
@@ -62,7 +66,10 @@ public class EnemyHordeSpawner : MonoBehaviour
         for (int i = 0; i < horde.enemyCount; i++)
         {
             Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
-            GameObject enemy = Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity);
+           GameObject chosenEnemy = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
+
+            GameObject enemy = Instantiate(chosenEnemy, spawnPoint.position, Quaternion.identity);
+            enemy.GetComponent<Enemy>().SetTarget(player);
             activeEnemies.Add(enemy);
 
             yield return new WaitForSeconds(spawnInterval);

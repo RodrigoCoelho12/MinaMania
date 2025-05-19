@@ -26,10 +26,10 @@ public class FBXPosition : MonoBehaviour
             try
             {
                 Instantiate(prefab[indexPrefab], positions[indexPosicao].transform.position,Quaternion.identity);
-            }
-            catch (System.Exception e) 
+            } 
+            catch (System.Exception ex) 
             {
-                Debug.Log("Objeto de index " + indexPrefab + ", nao instanciado na posicao de index " + indexPosicao);
+                Debug.Log($"Objeto de index {indexPrefab} nao instanciado na posicao de index {indexPosicao}. Erro {ex}");
             }
             contador++;
         }
