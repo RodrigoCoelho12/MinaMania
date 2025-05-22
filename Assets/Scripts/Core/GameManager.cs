@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        Time.timeScale = 0f;
+        Time.timeScale = 1f;
     }
 
     private void Update()
