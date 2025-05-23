@@ -1,86 +1,160 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
-    // Variaveis de audio
+    #region Properties
+    // Singleton instance
     public static AudioManager manager;
+
+    [Header("Audio Mixer and Clips")]
     public AudioMixer mixer;
     public AudioClip[] musics;
     public AudioClip[] sfx;
-    public AudioSource musicsource;
-    public AudioSource sfxsource;
 
+    [Header("Audio Sources")]
+    public AudioSource musicSource;
+    public AudioSource sfxSource;
 
-    // Invoca o "manager", que passa para o UIController fazendo entao o controle do volume
+    [Header("Volume Sliders")]
+    public Slider masterSlider;
+    public Slider musicSlider;
+    public Slider sfxSlider;
+
+    // Volume thresholds
+    private const float MIN_VOLUME = -80f;
+    private const float VOLUME_THRESHOLD = -20f;
+    #endregion
+
+    #region Initialization Routines
     void Awake()
     {
-        if (manager == null)
+        // Implement Singleton pattern
+        if (manager != null && manager != this)
         {
-            manager = this;
+            Destroy(gameObject);
+            return;
+        }
+
+        manager = this;
+        DontDestroyOnLoad(gameObject);
+
+        // Ensure music Source is assigned
+        if (musicSource == null)
+            musicSource = GetComponent<AudioSource>();
+
+        // Ensure SFX Source exists
+        if (sfxSource == null)
+        {
+            GameObject sfxObj = new GameObject("SFXSource");
+            sfxObj.transform.SetParent(this.transform);
+            sfxSource = sfxObj.AddComponent<AudioSource>();
+        }
+    }
+    #endregion
+
+    #region Switching Routines
+    /// <summary>
+    /// Plays a music track by index.
+    /// </summary>
+    public void SwitchMusic(int index)
+    {
+        if (index >= 0 && index < musics.Length)
+        {
+            musicSource.clip = musics[index];
+            musicSource.Play();
         }
         else
         {
-            Destroy(this.gameObject);
+            Debug.LogWarning("Invalid music index.");
         }
-
-        DontDestroyOnLoad(this.gameObject);
-        musicsource = this.GetComponent<AudioSource>();
     }
 
-    // Muda as musicas para cada ocasiao (pause, play, derrota, etc.)
-    public void SwitchMusic(int indice)
+    /// <summary>
+    /// Plays a sound effect by index.
+    /// </summary>
+    public void SwitchSFX(int index)
     {
-        musicsource.clip = musics[indice];
-
-        musicsource.Play();
-    }
-
-    public void SwitchSFX(int indice)
-    {
-        sfxsource.clip = sfx[indice];
-
-        sfxsource.Play();
-    }
-
-    // Mudanca do volume max
-    public void ChangeMasterVolume(float vol)
-    {
-        if (vol > -20)
+        if (index >= 0 && index < sfx.Length)
         {
-            mixer.SetFloat("MasterVol", vol);
+            sfxSource.clip = sfx[index];
+            sfxSource.Play();
         }
         else
         {
-            mixer.SetFloat("MasterVol", -80);
+            Debug.LogWarning("Invalid SFX index.");
         }
+    }
+    #endregion
+
+    #region Volume Control
+    /// <summary>
+    /// Sets the master volume using a float value.
+    /// </summary>
+    public void ChangeMasterVolume(float volume)
+    {
+        mixer.SetFloat("MasterVol", volume > VOLUME_THRESHOLD ? volume : MIN_VOLUME);
     }
 
-    // Mudanca do volume da musica
-    public void ChangeMusicVolume(float vol)
+    /// <summary>
+    /// Sets the music volume using a float value.
+    /// </summary>
+    public void ChangeMusicVolume(float volume)
     {
-        if (vol > -20)
-        {
-            mixer.SetFloat("MusicVol", vol);
-        }
-        else
-        {
-            mixer.SetFloat("MusicVol", -80);
-        }
+        mixer.SetFloat("MusicVol", volume > VOLUME_THRESHOLD ? volume : MIN_VOLUME);
     }
 
-    // Mudanca do volume dos efeitos sonoros
-    public void ChangeSFXVolume(float vol)
+    /// <summary>
+    /// Sets the SFX volume using a float value.
+    /// </summary>
+    public void ChangeSFXVolume(float volume)
     {
-        if (vol > -20)
-        {
-            mixer.SetFloat("SFXVol", vol);
-        }
-        else
-        {
-            mixer.SetFloat("SFXVol", -80);
-        }
+        mixer.SetFloat("SFXVol", volume > VOLUME_THRESHOLD ? volume : MIN_VOLUME);
     }
+
+    /// <summary>
+    /// Loads current mixer values into sliders (called on startup or options menu).
+    /// </summary>
+    public void SetDefaultVolume()
+    {
+        if (mixer.GetFloat("MasterVol", out float masterVol) && masterSlider != null)
+            masterSlider.value = masterVol;
+
+        if (mixer.GetFloat("MusicVol", out float musicVol) && musicSlider != null)
+            musicSlider.value = musicVol;
+
+        if (mixer.GetFloat("SFXVol", out float sfxVol) && sfxSlider != null)
+            sfxSlider.value = sfxVol;
+    }
+
+    /// <summary>
+    /// Reads master volume from slider and applies it.
+    /// </summary>
+    public void ChangeMasterVolume()
+    {
+        if (masterSlider != null)
+            ChangeMasterVolume(masterSlider.value);
+    }
+
+    /// <summary>
+    /// Reads music volume from slider and applies it.
+    /// </summary>
+    public void ChangeMusicVolume()
+    {
+        if (musicSlider != null)
+            ChangeMusicVolume(musicSlider.value);
+    }
+
+    /// <summary>
+    /// Reads SFX volume from slider and applies it.
+    /// </summary>
+    public void ChangeSFXVolume()
+    {
+        if (sfxSlider != null)
+            ChangeSFXVolume(sfxSlider.value);
+    }
+    #endregion
 }
