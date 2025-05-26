@@ -4,34 +4,42 @@ using UnityEngine;
 
 public class Pickaxe : Weapon 
 {
-    private Animator animator;
+    private GameObject pickaxeModel;
+    private Animator pickaxeAnimator;
+
+    public bool isAttacking = false;
+
     private void Start()
     {
-        animator = transform.GetChild(0).GetComponent<Animator>();
+        pickaxeModel = transform.GetChild(0).gameObject;
+        pickaxeAnimator = pickaxeModel.GetComponent<Animator>();
     }
 
     public override void Attack()
     {
-        GameObject pickaxeModel = transform.GetChild(0).gameObject;
-        Collider pickaxeCollider  = transform.GetChild(0).GetComponent<Collider>();  
-
-        if (UserInputManager.instance.PickaxeInput && !UserInputManager.instance.SprayInput && animator.GetCurrentAnimatorStateInfo(animator.GetLayerIndex("Base Layer")).length > animator.GetCurrentAnimatorStateInfo(animator.GetLayerIndex("Base Layer")).normalizedTime)
+        if (UserInputManager.instance.PickaxeInput && !UserInputManager.instance.SprayInput && !isAttacking)
         {
-            if(animator.GetFloat("PickaxeRotation") == 0f)
-            {
-                animator.SetFloat("PickaxeRotation", 1f);
-            }else
-            {
-                animator.SetFloat("PickaxeRotation", 0f);
-            }
+            Debug.Log("aaaaa");
             pickaxeModel.SetActive(true);
-            pickaxeCollider.enabled = true;
-
+            pickaxeAnimator.SetTrigger("isAttacking");
+            
+            if (pickaxeAnimator.GetFloat("PickaxeRotation") == 0f)
+            {
+                pickaxeAnimator.SetFloat("PickaxeRotation", 1f);
+            }
+            else
+            {
+                pickaxeAnimator.SetFloat("PickaxeRotation", 0f);
+            }
+            
+            isAttacking = true;
         }
-        else
+
+        if (pickaxeAnimator.GetCurrentAnimatorStateInfo(0).IsName("Empty") && isAttacking && !pickaxeAnimator.IsInTransition(0))
         {
+            Debug.Log("bbbbbbb");
+            isAttacking = false;
             pickaxeModel.SetActive(false);
-            pickaxeCollider.enabled = false;
         }
     }
 }
