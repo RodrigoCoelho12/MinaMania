@@ -7,7 +7,7 @@ public class Pickaxe : Weapon
     private GameObject pickaxeModel;
     private Animator pickaxeAnimator;
 
-    public bool isAttacking = false;
+    public int attackIndex = 1;
 
     private void Start()
     {
@@ -17,29 +17,10 @@ public class Pickaxe : Weapon
 
     public override void Attack()
     {
-        if (UserInputManager.instance.PickaxeInput && !UserInputManager.instance.SprayInput && !isAttacking)
+        if (UserInputManager.instance.PickaxeInput && !UserInputManager.instance.SprayInput)
         {
-            Debug.Log("aaaaa");
             pickaxeModel.SetActive(true);
-            pickaxeAnimator.SetTrigger("isAttacking");
-            
-            if (pickaxeAnimator.GetFloat("PickaxeRotation") == 0f)
-            {
-                pickaxeAnimator.SetFloat("PickaxeRotation", 1f);
-            }
-            else
-            {
-                pickaxeAnimator.SetFloat("PickaxeRotation", 0f);
-            }
-            
-            isAttacking = true;
-        }
-
-        if (pickaxeAnimator.GetCurrentAnimatorStateInfo(0).IsName("Empty") && isAttacking && !pickaxeAnimator.IsInTransition(0))
-        {
-            Debug.Log("bbbbbbb");
-            isAttacking = false;
-            pickaxeModel.SetActive(false);
+            pickaxeAnimator.SetInteger("AttackIndex", attackIndex);
         }
     }
 }
