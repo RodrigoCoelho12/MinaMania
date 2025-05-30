@@ -10,6 +10,7 @@ TagManager:
   - Pickaxe
   - WaterSpray
   - EnemyAttack
+  - Collectible
   layers:
   - Default
   - TransparentFX
@@ -46,6 +47,12 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Overlay
+    uniqueID: 907354575
+    locked: 0
+  - name: World Space
+    uniqueID: 1713603807
     locked: 0
   m_RenderingLayers:
   - Default

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -50,7 +51,7 @@ public class UIManager : MonoBehaviour
     }
 
     //Fill a private Dictionary that relates the enum UINames with the GameObject of the panel
-    //The panel name is the enum name + "_Panel", obtaineted by the extension of UINames
+    //The panel name is the enum name + " Panel", obtaineted by the extension of UINames
     private void InitializeUIDictionary()
     {
         foreach (UINames name in Enum.GetValues(typeof(UINames)))
@@ -104,4 +105,13 @@ public class UIManager : MonoBehaviour
         return panel;
     }
     #endregion
+
+    //Fix
+
+    public void GameSceneLoad()
+    {
+        SceneManager.LoadScene(1, LoadSceneMode.Additive); // Load the game scene
+        HidePanel(UINames.MainMenu); // Hide the main menu panel
+        ShowPanel(UINames.HUD); // Show the HUD panel
+    }
 }

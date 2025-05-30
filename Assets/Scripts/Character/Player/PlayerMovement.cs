@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent (typeof(CharacterController))]
-public partial class Player : Character
+public partial class Player
 {
     [Header("Player Movement Parameters")]
     public float mouseSensitivity = 100f;
@@ -12,7 +12,7 @@ public partial class Player : Character
     public override void Move()
     {
         bool isDashing = this.isDashing;
-        float dashSpeed = this.dashSpeed;
+        float dashSpeed = this.currentDashData.dashSpeed;
 
         float horizontalInput = UserInputManager.instance.MovementInput.x;
         float verticalInput = UserInputManager.instance.MovementInput.y;

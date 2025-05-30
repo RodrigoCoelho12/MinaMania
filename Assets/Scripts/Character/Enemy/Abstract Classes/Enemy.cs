@@ -1,118 +1,196 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UIElements;
+using UnityEngine.AI;
 
-public abstract class Enemy : MonoBehaviour
+// Abstract class for all enemy types in the game. This class contains the basic attack functionality that all enemies will share.
+public abstract class Enemy : Character
 {
-    #region Propriedades
-    public float damageValue { get; protected set; }
-    public float speedValue { get; protected set; }
+    [Header("Enemy Properties")]
+    public Transform target;                // The target that the enemy will attack.
+    public GameObject attackHitbox;         // The hitbox that will be activated when the enemy attacks.
+    protected HitBox _hitBox;                // Reference to the HitBox component.
+    public bool isAwakened = false;         // If true, the enemy will move towards the target and attack.
 
-    public float attackShowTime { get; protected set; }
-    public float attackHideTime { get; protected set; }
+    private Vector3 _positionInProfiling;   // The initial position to reset the enemy when it dies.
+    private float exposureTime = 0f;        // Time exposed to a continuous attack like WaterSpray.
+    private Coroutine attackCoroutine;      // Reference to the attack coroutine.
 
-    [SerializeField] protected GameObject attackHitbox;
+    public float attackCooldown = 1f; // Time between attacks
+    public float attackDuration = 0.5f; // Duration of the attack animation
+    public float attackRange = 4f; // Range of the attack
 
-    //[SerializeField] protected HealthController healthController;
+    private NavMeshAgent navMeshAgent; // Reference to the NavMeshAgent component
 
-    private Transform playerTarget;
 
-    #endregion
-
-    // private void OnTriggerStay(Collider other)
-    // {
-    //     if (other.CompareTag("WaterSpray"))
-    //     {
-    //         int waterSprayDamage = other.gameObject.GetComponent<WaterSpray>().atkValue;
-
-    //         float knockbackSpeed = other.gameObject.GetComponent<WaterSpray>().knockbackSpeed;
-
-    //         healthController.TakeDamage(waterSprayDamage * Time.deltaTime);
-
-    //         Vector3 knockbackDirection = transform.position - other.gameObject.transform.position;// Determina a dire��o que o inimigo sera movido caso esteja dentro da area do ataque de spray
-
-    //         transform.Translate(knockbackDirection * Time.deltaTime * knockbackSpeed, Space.World); // Movimenta o inimigo na dire��o determinada multiplicando pela velocidade desejada e Time.deltaTime para que a movimenta��o n�o seja instantanea
-
-    //     }
-    // }
-
-    void Update()
+    // Fix
+    private void Awake()
     {
-        FollowTarget();
-        LockYAxis();
+        // Store the starting position for reuse on death.
+        this.navMeshAgent = GetComponent<NavMeshAgent>();
+        _positionInProfiling = transform.position;
     }
 
-    #region FollowTarget() Comentarios
-    /*
-    A fun��o FollowTarget() faz com que o inimigo siga o player
-    
-    A variavel playerDirection armazena a dire��o do player utilizando o m�todo RotateTowards que rotaciona 
-    o forward do inimigo (frente) na dire��o do player (determinada pela subtra��o da posi��o do player da posi��o atual do inimigo);
+    #region Movement & Awakening
 
-    o if utiliza um RayCast na dire��o do player para detectar o valor da distancia do inimigo em rela��o ao player, 
-    garantindo que eles n�o ocupem o mesmo espa�o e mantenham uma distancia de 1 unidade;
-
-    O MoveTowards move o inimigo em dire��o ao player;
-
-    o LookRotation rotaciona o inimigo baseado na dire��o atual do player (playerDirection);  
-     */
-    #endregion
-    public void FollowTarget()
+    public override void Move()
     {
-        float step = speedValue * Time.deltaTime;
+        if (!isAwakened || navMeshAgent == null || target == null)
+            return;
 
-        Vector3 playerDirection = Vector3.RotateTowards(transform.forward, (playerTarget.position - transform.position), step, 0.0f);
+        // Set the destination for the NavMeshAgent
+        navMeshAgent.SetDestination(target.position);
 
-        Vector3 dir = (playerTarget.position - transform.position);
-        if (dir.magnitude > 1)
+        // Optional: Limit rotation to Y-axis only
+        if (navMeshAgent.velocity.sqrMagnitude > 0.1f)
         {
-            transform.position += dir.normalized * Time.deltaTime * speedValue;
-        }
-
-        /*
-         RaycastHit hit;
-
-         if (Physics.Raycast(transform.position, playerDirection, out hit))
-         {
-             Debug.DrawLine(transform.position, hit.point, Color.cyan);
-             if(hit.distance > 1f)
-             {
-                 transform.position = Vector3.MoveTowards(transform.position, playerTarget.position, step);
-             }
-         }*/
-
-        transform.rotation = Quaternion.LookRotation(playerDirection);
-    }
-
-    public void LockYAxis()
-    {
-        if (transform.position.y != 0)
-        {
-            transform.position = new Vector3(transform.position.x, 0, transform.position.z);
+            Vector3 lookDirection = navMeshAgent.steeringTarget - transform.position;
+            lookDirection.y = 0f;
+            if (lookDirection != Vector3.zero)
+            {
+                Quaternion rotation = Quaternion.LookRotation(lookDirection);
+                transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 10f);
+            }
         }
     }
-    public void SetTarget(GameObject gameObject)
+
+    /// <summary>
+    /// Toggles the awakened state and starts/stops the attack coroutine accordingly.
+    /// </summary>
+    public void SetAwakened(bool awakened)
     {
-        playerTarget = gameObject.transform;
+        if (isAwakened == awakened)
+            return;
+
+        isAwakened = awakened;
+
+        if (isAwakened)
+            StartAttackRoutine();
+        else
+            StopAttackRoutine();
     }
 
-    public void DeathRoutine()
+    public void StartAttackRoutine()
     {
-        Destroy(this.gameObject);
+        if (attackCoroutine == null)
+            attackCoroutine = StartCoroutine(ShowHitBox());
     }
 
-    public abstract void Attack();
-    
-    public IEnumerator Attack(GameObject attackHitbox)
+    public void StopAttackRoutine()
     {
-        while (true)
+        if (attackCoroutine != null)
         {
-            attackHitbox.SetActive(true);
-
-            yield return new WaitForSeconds(0.5f);
-
+            StopCoroutine(attackCoroutine);
+            attackCoroutine = null;
             attackHitbox.SetActive(false);
-
-            yield return new WaitForSeconds(4f);
         }
     }
+
+    public void Attack()
+    {
+        // Check if the target is within attack range
+        if (Vector3.Distance(transform.position, target.position) <= attackRange)
+        {
+            // Start the attack coroutine
+            StartAttackRoutine();
+        }
+        else
+        {
+            // If the target is out of range, stop the attack
+            StopAttackRoutine();
+        }
+    }
+    #endregion
+
+    #region Attack Hitbox Coroutine
+
+    /// <summary>
+    /// Activates the attack hitbox in intervals while the enemy is awakened.
+    /// </summary>
+protected IEnumerator ShowHitBox()
+{
+    WaitForSeconds hitboxActiveTime = new WaitForSeconds(0.5f);
+    WaitForSeconds hitboxCooldownTime = new WaitForSeconds(4f);
+
+    while (isAwakened)
+    {
+        attackHitbox.SetActive(true);
+
+        float distance = Vector3.Distance(transform.position, target.position);
+        if (distance > 4f)
+        {
+            //_hitBox.ChangeHitBoxColor(2);
+        }
+        else if (distance > 2f)
+        {
+            //_hitBox.ChangeHitBoxColor(1);
+        }
+        else
+        {
+            //_hitBox.ChangeHitBoxColor(0);
+        }
+
+        yield return hitboxActiveTime;
+
+        attackHitbox.SetActive(false);
+        yield return hitboxCooldownTime;
+    }
+}
+
+
+    #endregion
+
+    #region Damage & Death Handling
+
+    /// <summary>
+    /// Checks if health has dropped to zero or below, and triggers death routine.
+    /// </summary>
+    private void CheckDeath()
+    {
+        if (healthBar.CurrentBarValue <= 0)
+            DeathRoutine();
+    }
+
+    public override void DeathRoutine()
+    {
+        // Play death animation here if needed.
+        StopAttackRoutine();
+        gameObject.SetActive(false);
+
+        // Reset position and state for pooling or reuse.
+        transform.position = _positionInProfiling;
+        isAwakened = false;
+    }
+
+    public override void OnTriggerEnter(Collider other)
+    {
+        // Handle initial hit from any weapon.
+        var weapon = other.GetComponent<Weapon>();
+        if (weapon != null)
+        {
+            healthBar.AdjustStatusBarBySubtraction(1);
+            //CheckDeath();
+        }
+    }
+
+    public override void OnTriggerStay(Collider other)
+    {
+        // Handle continuous damage from WaterSpray.
+        if (other.CompareTag("WaterSpray"))
+        {
+            var weapon = other.GetComponent<Weapon>();
+            if (weapon == null)
+                return;
+
+            exposureTime += Time.deltaTime;
+            if (exposureTime >= 2f)
+            {
+                healthBar.AdjustStatusBarBySubtraction(1 * 2);
+                exposureTime = 0f;
+                CheckDeath();
+            }
+        }
+    }
+
+    #endregion
 }

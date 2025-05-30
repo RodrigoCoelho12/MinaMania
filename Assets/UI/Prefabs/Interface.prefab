@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2344653922468311734}
   - component: {fileID: 925138576036200972}
   m_Layer: 5
-  m_Name: HUD_Panel
+  m_Name: HUD Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -714,7 +714,6 @@ RectTransform:
   - {fileID: 7519900102070552373}
   - {fileID: 2815793382211189692}
   - {fileID: 6654229168999286784}
-  - {fileID: 1661447863990096430}
   - {fileID: 6745718047846925357}
   m_Father: {fileID: 7626583223884723442}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -798,7 +797,7 @@ GameObject:
   - component: {fileID: 2366331259785161487}
   - component: {fileID: 2468293582839221921}
   m_Layer: 0
-  m_Name: Tutorial_Panel
+  m_Name: Tutorial Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3451,7 +3450,7 @@ GameObject:
   - component: {fileID: 6539202883355944478}
   - component: {fileID: 7338585831626378670}
   m_Layer: 0
-  m_Name: Credit_Panel
+  m_Name: Credit Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3529,7 +3528,7 @@ GameObject:
   - component: {fileID: 6684824117470443817}
   - component: {fileID: 1740233908844130745}
   m_Layer: 0
-  m_Name: Store_Panel
+  m_Name: Store Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3830,7 +3829,7 @@ GameObject:
   - component: {fileID: 534324825399992726}
   - component: {fileID: 8011735116209372266}
   m_Layer: 0
-  m_Name: Settings_Panel
+  m_Name: Settings Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4177,7 +4176,7 @@ GameObject:
   - component: {fileID: 3555900247583399936}
   - component: {fileID: 6885287920796449358}
   m_Layer: 0
-  m_Name: KeyBinds_Panel
+  m_Name: KeyBinds Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4500,7 +4499,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6654229168999286784}
   m_Layer: 0
-  m_Name: SpecificCredit_Panel
+  m_Name: SpecificCredit Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5030,41 +5029,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Sair
---- !u!1 &3453796016453553202
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1661447863990096430}
-  m_Layer: 0
-  m_Name: Dialog_Panel
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1661447863990096430
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3453796016453553202}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4812554064531304803}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &3532358354905716019
 GameObject:
   m_ObjectHideFlags: 0
@@ -5640,7 +5604,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2815793382211189692}
   m_Layer: 0
-  m_Name: Loading_Panel
+  m_Name: Loading Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6739,7 +6703,7 @@ GameObject:
   - component: {fileID: 4104424381523998832}
   - component: {fileID: 5709665772865933366}
   m_Layer: 0
-  m_Name: Ranking_Panel
+  m_Name: Ranking Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7174,7 +7138,7 @@ GameObject:
   - component: {fileID: 4900295822958198180}
   - component: {fileID: 666372428685521233}
   m_Layer: 0
-  m_Name: Pause_Panel
+  m_Name: Pause Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7685,7 +7649,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6745718047846925357}
   m_Layer: 0
-  m_Name: InsertUsername_Panel
+  m_Name: InsertUsername Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9336,7 +9300,7 @@ GameObject:
   - component: {fileID: 199038289441957976}
   - component: {fileID: 206587399981953572}
   m_Layer: 5
-  m_Name: GameOver_Panel
+  m_Name: GameOver Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10719,7 +10683,7 @@ GameObject:
   - component: {fileID: 3842263297375953074}
   - component: {fileID: 5298231346687263195}
   m_Layer: 0
-  m_Name: MainMenu_Panel
+  m_Name: MainMenu Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

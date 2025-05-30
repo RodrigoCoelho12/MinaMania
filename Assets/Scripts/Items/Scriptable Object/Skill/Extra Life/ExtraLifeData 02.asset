@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a5c9ff260a75334097c9541e738b3fd, type: 3}
+  m_Name: ExtraLifeData 02
+  m_EditorClassIdentifier: 
+  itemName: 
+  description: 
+  shopDescription: 
+  itemMesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  itemMaterial: {fileID: -2194867069838009482, guid: fa4f5f53602a2734681d907b2ee20a57, type: 3}
+  itemPrice: 0
+  extraLives: 0

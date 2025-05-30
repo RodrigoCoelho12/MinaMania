@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.AI;
+using Unity.AI.Navigation;
 
 public class PositionRandomizer : MonoBehaviour
 {
@@ -11,6 +13,10 @@ public class PositionRandomizer : MonoBehaviour
 
     private List<bool> filledPositions = new List<bool>();
 
+    void Awake()
+    {
+        Positioning();
+    }
     int Randomize(int limit)
     {
         System.Random rand = new System.Random();
@@ -75,6 +81,16 @@ public class PositionRandomizer : MonoBehaviour
         catch (System.Exception e)
         {
             Debug.LogError($"Error in Positioning: {e.Message}");
+        }
+
+        NavMeshSurface navMeshSurface = Object.FindFirstObjectByType<NavMeshSurface>();
+        if (navMeshSurface != null)
+        {
+            navMeshSurface.BuildNavMesh();
+        }
+        else
+        {
+            Debug.LogWarning("No NavMeshSurface found in the scene.");
         }
     }
 }

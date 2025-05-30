@@ -1,35 +1,19 @@
 using System.Collections;
+using Unity.Burst.Intrinsics;
 using UnityEngine;
 
 public class Tank : Enemy
 {
-    private void Awake()
-    {
-        speedValue = 1;
-        damageValue = 4;
-        //healthController.maxHealth = 50;
-    }
-
     private void Start()
     {
+        // Initialize the target to the player
+        target = GameObject.Find("Player").transform;
+        _hitBox = attackHitbox.GetComponent<HitBox>();
+    }
+
+    private void Update()
+    {
         Attack();
-    }
-    public override void Attack()
-    {
-        StartCoroutine(TankAttack(attackHitbox));
-    }
-
-    IEnumerator TankAttack(GameObject attackHitbox)
-    {
-        while (true)
-        {
-            attackHitbox.SetActive(true);
-
-            yield return new WaitForSeconds(0.5f);
-
-            attackHitbox.SetActive(false);
-
-            yield return new WaitForSeconds(7f);
-        }
+        Move();
     }
 }

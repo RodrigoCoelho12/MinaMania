@@ -4,10 +4,12 @@ using System.Collections.Generic;
 
 public partial class Player : Character
 {
+    //test
+    float yPosition;
     void Start()
     {
         cc = GetComponent<CharacterController>();
-
+        yPosition = transform.position.y;
     }
 
     void Update()
@@ -15,6 +17,11 @@ public partial class Player : Character
         Move();
         RotatePlayer();
         Dash();
+        MagnetEffect();
+        if (yPosition != transform.position.y)
+        {
+            this.transform.position = new Vector3(transform.position.x, yPosition, transform.position.z);
+        }
     }
 
     public override void OnTriggerEnter(Collider other)

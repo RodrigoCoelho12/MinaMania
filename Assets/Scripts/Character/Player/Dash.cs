@@ -4,15 +4,11 @@ public partial class Player : Character
 {
     [Header("Dash Properties")]
     public bool isDashing = false;           
-    public float dashSpeed = 25f;            
-    public float dashDuration = 0.2f;        
-    public float dashCooldown = 1f;          
-    private float dashTime = 0f;             
-
+    private float dashTime = 0f; 
     private float lastDashTime = -Mathf.Infinity;
     public void Dash()
     {
-        if (UserInputManager.instance.DashInput && Time.time >= lastDashTime + dashCooldown)
+        if (UserInputManager.instance.DashInput && Time.time >= lastDashTime + currentDashData.dashCooldown)
         {
             isDashing = true;           
             dashTime = 0f;              
@@ -23,7 +19,7 @@ public partial class Player : Character
         if (isDashing)
         {
             dashTime += Time.deltaTime;
-            if (dashTime >= dashDuration)
+            if (dashTime >= currentDashData.dashDuration)
             {
                 isDashing = false;
             }

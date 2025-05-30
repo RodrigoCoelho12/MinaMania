@@ -1,20 +1,15 @@
 using UnityEngine;
 
-public abstract class Weapon : Item
+public abstract class Weapon : MonoBehaviour
 {
-    public int atkValue;
-    public int atkRadius;
-
-
-    public void PrintAttackValue()
+    #region Weapon Properties
+    [Header("Weapon Properties")]
+    public WeaponData weaponData;
+    #endregion
+    public virtual void Attack(){}
+    public virtual void WeaponToString()
     {
-        Debug.Log("Attack: "+atkValue);
+        string weaponName = weaponData.itemName;
+        Debug.Log($"Weapon: {weaponName}, Damage: {weaponData.damage}");
     }
-    public void PrintAreaOfEffectValue()
-    {
-        Debug.Log("Radius of Attack: " + atkRadius);
-    }
-
-
-    public abstract void Attack();
 }

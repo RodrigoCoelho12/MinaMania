@@ -454,6 +454,30 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 63294558357949092, guid: 9ed4193e189f7a64b96a3a64696fb19c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 63294558357949092, guid: 9ed4193e189f7a64b96a3a64696fb19c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 63294558357949092, guid: 9ed4193e189f7a64b96a3a64696fb19c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1826258632}
+    - target: {fileID: 63294558357949092, guid: 9ed4193e189f7a64b96a3a64696fb19c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GameSceneLoad
+      objectReference: {fileID: 0}
+    - target: {fileID: 63294558357949092, guid: 9ed4193e189f7a64b96a3a64696fb19c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UIManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 63294558357949092, guid: 9ed4193e189f7a64b96a3a64696fb19c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 320883377383907177, guid: 9ed4193e189f7a64b96a3a64696fb19c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

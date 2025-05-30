@@ -1,9 +1,9 @@
-public class HordeData
-{
-    public int enemyCount;
+// public class HordeData
+// {
+//     public int enemyCount;
 
-    public HordeData(int enemyCount)
-    {
-        this.enemyCount = enemyCount;
-    }
-}
+//     public HordeData(int enemyCount)
+//     {
+//         this.enemyCount = enemyCount;
+//     }
+// }
