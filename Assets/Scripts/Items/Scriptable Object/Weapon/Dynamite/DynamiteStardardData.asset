@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e97a77999214eb45ac1a50a56044017, type: 3}
   m_Name: DynamiteStardardData
   m_EditorClassIdentifier: 
-  itemName: 
+  itemName: "Dinamite B\xE1sica"
   description: 
   shopDescription: 
   itemMesh: {fileID: 0}
   itemMaterial: {fileID: 0}
   itemPrice: 0
-  damage: 0
+  damage: 50
   weaponPrice: 11
-  dynamitePrefab: {fileID: 0}
-  explosionRadius: 0
-  explosionForce: 0
-  dynamiteAmount: 0
+  dynamitePrefab: {fileID: 2389164394065613510, guid: 498074d916668c24fb4c79ddfed760d0, type: 3}
+  explosionRadius: 8
+  explosionForce: 150
+  dynamiteAmount: 4

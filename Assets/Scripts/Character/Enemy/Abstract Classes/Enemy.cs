@@ -27,6 +27,7 @@ public abstract class Enemy : Character
     private void Awake()
     {
         // Store the starting position for reuse on death.
+        healthBar.CurrentBarValue = healthBar.MaxBarValue;
         this.navMeshAgent = GetComponent<NavMeshAgent>();
         _positionInProfiling = transform.position;
     }
@@ -35,6 +36,11 @@ public abstract class Enemy : Character
 
     public override void Move()
     {
+        if(gameObject.GetComponent<Rigidbody>().linearVelocity.magnitude <= 0.1) 
+        {
+            navMeshAgent.enabled = true;
+        }
+
         if (!isAwakened || navMeshAgent == null || target == null)
             return;
 
@@ -145,7 +151,7 @@ protected IEnumerator ShowHitBox()
     /// <summary>
     /// Checks if health has dropped to zero or below, and triggers death routine.
     /// </summary>
-    private void CheckDeath()
+    public void CheckDeath()
     {
         if (healthBar.CurrentBarValue <= 0)
             DeathRoutine();
@@ -165,12 +171,14 @@ protected IEnumerator ShowHitBox()
     public override void OnTriggerEnter(Collider other)
     {
         // Handle initial hit from any weapon.
-        var weapon = other.GetComponent<Weapon>();
-        if (weapon != null)
+        if (other.CompareTag("Pickaxe"))
         {
-            healthBar.AdjustStatusBarBySubtraction(1);
-            //CheckDeath();
+            Pickaxe pickaxe = other.GetComponent<Pickaxe>();
+            
+            healthBar.AdjustStatusBarBySubtraction(10);
+            CheckDeath();
         }
+
     }
 
     public override void OnTriggerStay(Collider other)
@@ -178,11 +186,17 @@ protected IEnumerator ShowHitBox()
         // Handle continuous damage from WaterSpray.
         if (other.CompareTag("WaterSpray"))
         {
-            var weapon = other.GetComponent<Weapon>();
-            if (weapon == null)
+            WaterSpray waterSpray= other.GetComponent<WaterSpray>();
+            
+            if (waterSpray == null)
                 return;
 
+            float knockbackSpeed = waterSpray.knockbackSpeed;
+            Vector3 knockbackDirection = transform.position - other.gameObject.transform.position;
+            transform.Translate(knockbackDirection * Time.deltaTime * knockbackSpeed, Space.World);
+
             exposureTime += Time.deltaTime;
+            
             if (exposureTime >= 2f)
             {
                 healthBar.AdjustStatusBarBySubtraction(1 * 2);

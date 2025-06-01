@@ -32,21 +32,21 @@ public class StatusBar
 
     public void AdjustStatusBarBySum(float portion)
     {
-        MaxBarValue += portion;
+        //MaxBarValue += portion;
         CurrentBarValue += portion;
         _currentValue = AdjustToClosestBoundary(_currentValue);
     }
 
     public void AdjustStatusBarBySubtraction(float portion)
     {
-        MaxBarValue -= portion;
+        //MaxBarValue -= portion;
         CurrentBarValue -= portion;
         _currentValue = AdjustToClosestBoundary(_currentValue);
     }
 
     public void AdjustStatusBarByMultiplication(float portion)
     {
-        MaxBarValue *= portion;
+        //MaxBarValue *= portion;
         CurrentBarValue *= portion;
         _currentValue = AdjustToClosestBoundary(_currentValue);
     }

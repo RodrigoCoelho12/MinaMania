@@ -11,9 +11,15 @@ public partial class Player
     public float coins;
 
     [Header(" └─ Weapons")]
-    public DynamiteData currentDynamiteData;
     public PickaxeData currentPickaxeData;
     public WaterSprayData currentWaterSprayData;
+    public DynamiteData currentDynamiteData;
+
+    [Header(" └─ Weapon Instances")]
+    public Pickaxe pickaxe;
+    public WaterSpray waterSpray;
+    public Dynamite dynamite;
+
 
     [Header("   └─ Discovered Weapons")]
     public List<WeaponData> discoveredWeapons;

@@ -4,8 +4,8 @@ using System.Collections.Generic;
 
 public partial class Player : Character
 {
-    //test
     float yPosition;
+
     void Start()
     {
         cc = GetComponent<CharacterController>();
@@ -18,6 +18,11 @@ public partial class Player : Character
         RotatePlayer();
         Dash();
         MagnetEffect();
+        
+        pickaxe.Attack();
+        waterSpray.Attack();
+        dynamite.Attack();
+
         if (yPosition != transform.position.y)
         {
             this.transform.position = new Vector3(transform.position.x, yPosition, transform.position.z);

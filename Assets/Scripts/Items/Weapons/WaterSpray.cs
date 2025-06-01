@@ -16,11 +16,10 @@ public class WaterSpray : Weapon
     [SerializeField] GameObject waterSprayBarBG;
     [SerializeField] GameObject rechargeIndicator;
     [SerializeField] Image waterSprayBar;
-    private GameObject ws;
     public override void Attack()
     {
-        MeshRenderer wsMeshRenderer= ws.GetComponent<MeshRenderer>();
-        Collider wsCollider = ws.GetComponent<Collider>();
+        MeshRenderer wsMeshRenderer= gameObject.GetComponent<MeshRenderer>();
+        Collider wsCollider = gameObject.GetComponent<Collider>();
 
         if (UserInputManager.instance.SprayInput && waterIsRecharging == false)
         {

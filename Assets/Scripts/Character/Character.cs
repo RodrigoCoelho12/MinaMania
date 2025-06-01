@@ -3,8 +3,8 @@ using UnityEngine;
 public abstract class Character : MonoBehaviour
 {
     #region Character Properties
-    [Header("Character Properties")]
     public StatusBar healthBar;
+    [Header("Character Properties")]
     public float speedValue;
     #endregion
 

@@ -2,17 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.UI;
 
 public class Dynamite : Weapon
 {
+    [Header("Dynamite Amount Properties")]
+    private int dynamiteCurrentAmount;
+
     [Header("Dynamite Launch Properties")]
     private Vector3 dynamitePositionLaunchFactor = new Vector3(0f, 2f, 0f);
     private readonly float arcHeight = 10f;
     private bool isLaunching = false;
 
     [Header("Dynamite UI Properties")] 
-    public List<RawImage> dynamiteIcons;
+    public List<Image> dynamiteIcons;
 
     [Header("Dynamite Data Properties")]
     public DynamiteData dynamiteData;
@@ -27,24 +31,19 @@ public class Dynamite : Weapon
     private void Start()
     {
         player = GameObject.FindWithTag("Player");
+        dynamiteCurrentAmount = dynamiteData.dynamiteAmount;
     }
 
-    private void Update()
-    {
-        Attack();
-
-    }
     public override void Attack()
     {
-        if (UserInputManager.instance.dynamiteInput &&
-            dynamiteData.dynamiteAmount > 0 &&
-            !isLaunching)
+        if (UserInputManager.instance.dynamiteInput && dynamiteCurrentAmount > 0 && !isLaunching)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
                 StartCoroutine(LaunchDynamite(hit.point));
             }
+            Debug.Log("aaaaaa");
         }
     }
 
@@ -52,13 +51,10 @@ public class Dynamite : Weapon
     {
         isLaunching = true;
 
-        GameObject dynamite = GameObject.Instantiate(
-            dynamiteData.dynamitePrefab,
-            player.transform.position + dynamitePositionLaunchFactor,
-            Quaternion.identity
-        );
+        GameObject dynamite = GameObject.Instantiate(dynamiteData.dynamitePrefab, player.transform.position + dynamitePositionLaunchFactor, Quaternion.identity);
 
-        dynamiteData.dynamiteAmount--;
+        dynamiteCurrentAmount--;
+        UpdateDynamiteUI();
         Vector3 startPosition = dynamite.transform.position + dynamitePositionLaunchFactor;
         float elapsedTime = 0f;
         float duration = 1.0f;
@@ -82,16 +78,25 @@ public class Dynamite : Weapon
     private void Explode(GameObject dynamite)
     {
         Destroy(dynamite);
-        if (Physics.CheckSphere(dynamite.transform.position, dynamiteData.explosionRadius, explosionLayerMask))
+        if (Physics.CheckSphere(dynamite.transform.position, dynamiteData.explosionRadius))
         {
+            Debug.Log("check");
             Debug.DrawLine(dynamite.transform.position, Vector3.up * dynamiteData.explosionRadius, Color.cyan, 2f);
-            explosionHits = Physics.SphereCastAll(dynamite.transform.position, dynamiteData.explosionRadius, Vector3.up, 0f, explosionLayerMask);
+            explosionHits = Physics.SphereCastAll(dynamite.transform.position, dynamiteData.explosionRadius, Vector3.up, 0f);
             foreach (RaycastHit hit in explosionHits)
             {
-                Rigidbody rb = hit.collider.GetComponent<Rigidbody>();
-                if (rb != null)
+                if (hit.collider.CompareTag("Enemy"))
                 {
-                    rb.AddExplosionForce(dynamiteData.explosionForce, dynamite.transform.position, dynamiteData.explosionRadius);
+                    GameObject enemy = hit.collider.gameObject;
+                    Rigidbody rb = enemy.GetComponent<Rigidbody>();
+                    Debug.Log(" " + hit.collider.gameObject.name);
+
+                    enemy.GetComponent<Enemy>().healthBar.AdjustStatusBarBySubtraction(dynamiteData.damage);
+                    enemy.GetComponent<Enemy>().CheckDeath();
+
+                    enemy.GetComponent<NavMeshAgent>().enabled = false;
+
+                    rb.AddExplosionForce(dynamiteData.explosionForce, dynamite.transform.position, dynamiteData.explosionRadius, 0f,ForceMode.Impulse);
                 }
             }
         }
@@ -100,7 +105,7 @@ public class Dynamite : Weapon
     {
         for (int i = 0; i < dynamiteIcons.Count; i++)
         {
-            dynamiteIcons[i].enabled = i < dynamiteData.dynamiteAmount;
+            dynamiteIcons[i].enabled = i < dynamiteCurrentAmount;
         }
     }
 }
