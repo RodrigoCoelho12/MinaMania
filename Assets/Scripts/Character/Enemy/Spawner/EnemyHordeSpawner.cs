@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class EnemyHordeSpawner : MonoBehaviour
 {
@@ -15,11 +16,14 @@ public class EnemyHordeSpawner : MonoBehaviour
 
     [Header("Spawn Settings")]
     public float spawnInterval = 1f;
-    public float delayAfterLastEnemyDies = 30f;
+    public float delayAfterLastEnemyDies = 10f;
 
     [Header("Horde Growth Settings")]
-    public int initialEnemyCount = 5;
+    public int initialEnemyCount = 1;
     public int growthPerHorde = 2;
+
+    [Header("UI")]
+    public TextMeshProUGUI countdownHordeText;
 
     private Queue<HordeData> hordeQueue = new Queue<HordeData>();
     private int hordeCount = 0;
@@ -30,6 +34,7 @@ public class EnemyHordeSpawner : MonoBehaviour
     private void Start()
     {
         player = GameObject.Find("Player");
+
         hordeQueue.Enqueue(new HordeData(initialEnemyCount));
         hordeQueue.Enqueue(new HordeData(initialEnemyCount + growthPerHorde));
         hordeQueue.Enqueue(new HordeData(initialEnemyCount + growthPerHorde * 2));
@@ -52,7 +57,10 @@ public class EnemyHordeSpawner : MonoBehaviour
 
             yield return StartCoroutine(SpawnHorde(currentHorde));
             yield return new WaitUntil(() => AllEnemiesDead());
-            yield return new WaitForSeconds(delayAfterLastEnemyDies);
+
+            float currentDelay = delayAfterLastEnemyDies;
+
+            yield return StartCoroutine(Countdown(currentDelay));
 
             int futureEnemyCount = initialEnemyCount + growthPerHorde * hordeCount;
             hordeQueue.Enqueue(new HordeData(futureEnemyCount));
@@ -61,6 +69,7 @@ public class EnemyHordeSpawner : MonoBehaviour
 
     IEnumerator SpawnHorde(HordeData horde)
     {
+        player.GetComponent<Player>().IncreasePoints();
         activeEnemies.Clear();
 
         for (int i = 0; i < horde.enemyCount; i++)
@@ -69,7 +78,6 @@ public class EnemyHordeSpawner : MonoBehaviour
             GameObject chosenEnemy = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
 
             GameObject enemy = Instantiate(chosenEnemy, spawnPoint.position, Quaternion.identity);
-            enemy.GetComponent<Enemy>().isAwakened = true;
             activeEnemies.Add(enemy);
 
             yield return new WaitForSeconds(spawnInterval);
@@ -85,5 +93,26 @@ public class EnemyHordeSpawner : MonoBehaviour
     public void StopSpawning()
     {
         canSpawn = false;
+    }
+
+    IEnumerator Countdown(float time)
+    {
+        if (countdownHordeText != null)
+            countdownHordeText.gameObject.SetActive(true);
+
+        while (time > 0)
+        {
+            if (countdownHordeText != null)
+                countdownHordeText.text = "Próxima horda em: " + Mathf.Ceil(time).ToString() + "s";
+
+            time -= Time.deltaTime;
+            yield return null;
+        }
+
+        if (countdownHordeText != null)
+        {
+            countdownHordeText.text = "";
+            countdownHordeText.gameObject.SetActive(false);
+        }
     }
 }
