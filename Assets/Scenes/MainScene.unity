@@ -731,8 +731,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e31e3a7a10a461f41af26eda1735db4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  atkValue: 10
-  atkRadius: 0
   totalWaterAmount: 100
   currentWaterAmount: 100
   waterSpent: 25
@@ -1331,16 +1329,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a61a025885683ad43a0553019a1883ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  atkValue: 30
-  atkRadius: 7
-  bombAmount: 4
-  bombPrefab: {fileID: 2389164394065613510, guid: 498074d916668c24fb4c79ddfed760d0, type: 3}
-  bombExplosionPrefab: {fileID: 2223119561577714034, guid: 56358ec9035e3374dbea615a97f85f60, type: 3}
-  bombIcons:
-  - {fileID: 1684264064}
-  - {fileID: 2007191671}
-  - {fileID: 726052882}
-  - {fileID: 1850454238}
+  dynamiteIcons: []
+  dynamiteData: {fileID: 0}
+  explosionLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &352477813
 GameObject:
   m_ObjectHideFlags: 0
@@ -1810,22 +1803,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d1d12527b549ae42a4df1e9709dd405, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  main_menu_panel: {fileID: 535381123337693338}
-  settings_panel: {fileID: 3984189093974676844}
-  store_panel: {fileID: 3551811435645529955}
-  insert_username_panel: {fileID: 0}
-  hud_panel: {fileID: 0}
-  pause_panel: {fileID: 7581242865639765854}
-  ranking_panel: {fileID: 8167610617563255942}
-  dialog_panel: {fileID: 0}
-  credit_panel: {fileID: 7679468869363200074}
-  specific_credit_panel: {fileID: 0}
-  game_over_panel: {fileID: 5512692958248948785}
-  masterslider: {fileID: 0}
-  musicslider: {fileID: 0}
-  sfxslider: {fileID: 0}
-  isPaused: 1
-  fbxPosition: {fileID: 1154252187}
 --- !u!4 &439682368
 Transform:
   m_ObjectHideFlags: 0
@@ -3193,8 +3170,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e126885942bd0fb4f955544c7f772039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  atkValue: 5
-  atkRadius: 0
   attackIndex: 1
 --- !u!1 &941346139
 GameObject:
@@ -3820,6 +3795,8 @@ MonoBehaviour:
   - {fileID: 7135897842646711109, guid: d5b1df790a182064a8c5e596a14e4d35, type: 3}
   - {fileID: 8418411362632931479, guid: ba1a14ce3023edc41a73d3cdd56b4c67, type: 3}
   - {fileID: 716986529082452729, guid: 9855f16f82530ed4290ec00265a40692, type: 3}
+  parent: {fileID: 0}
+  positionToFill: 0
 --- !u!1 &1177043266
 GameObject:
   m_ObjectHideFlags: 0
