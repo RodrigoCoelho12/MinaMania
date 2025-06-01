@@ -2303,8 +2303,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3503f30bc856d043ba797eb1229641c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  configPanel: {fileID: 1784181120}
-  gameManager: {fileID: 439682367}
 --- !u!1 &674820895
 GameObject:
   m_ObjectHideFlags: 0
@@ -2480,11 +2478,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eec5cc8e2b5e16243af99c96731054b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 439682367}
-  settingsPanel: {fileID: 1784181120}
-  creditsPanel: {fileID: 1463721672}
-  menuPanel: {fileID: 783856464}
-  rankingPanel: {fileID: 1131818273}
 --- !u!1 &790262134
 GameObject:
   m_ObjectHideFlags: 0
@@ -3790,11 +3783,11 @@ MonoBehaviour:
   - {fileID: 674820895}
   - {fileID: 1403377225}
   prefab:
-  - {fileID: 792220710966707099, guid: 88960ed12e31c6644a1735dfb8e6a94e, type: 3}
-  - {fileID: 1453884990783132209, guid: edddb6dff44edb34090298b88e70bb2b, type: 3}
-  - {fileID: 7135897842646711109, guid: d5b1df790a182064a8c5e596a14e4d35, type: 3}
-  - {fileID: 8418411362632931479, guid: ba1a14ce3023edc41a73d3cdd56b4c67, type: 3}
-  - {fileID: 716986529082452729, guid: 9855f16f82530ed4290ec00265a40692, type: 3}
+  - {fileID: 1473954303224377116, guid: ab873e882ff53374096549835c10a810, type: 3}
+  - {fileID: 7417327228282692022, guid: 58264405188f0854caf7f3ec9d30ff9d, type: 3}
+  - {fileID: 9032104862955948260, guid: b0b977807d1de594ebd7428c62a8ad52, type: 3}
+  - {fileID: 6756901587958099652, guid: 17cd662735452684aa0773e8e8e239cb, type: 3}
+  - {fileID: 9072501410014865665, guid: 74bed56c1f31cbe45b4f6c239c2c5644, type: 3}
   parent: {fileID: 0}
   positionToFill: 0
 --- !u!1 &1177043266
@@ -5490,10 +5483,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8bb6b90c953936428be97683f38666b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  mouseSensitivity: 100
-  rotationSpeed: 10
-  raycastDistance: 100
 --- !u!114 &1669973033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5506,9 +5495,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9457545edc10b814d883fdbd19a60e72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickaxe: {fileID: 0}
-  waterSpray: {fileID: 143427044}
-  bombLauncher: {fileID: 343641516}
 --- !u!114 &1669973034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5521,11 +5507,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 285925b6ea2c8e048b7819d646041c62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
-  currentHealth: 0
-  regenSpeed: 0
-  playerHealthBar: {fileID: 135200430}
-  gameManager: {fileID: 439682367}
 --- !u!114 &1669973035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5538,10 +5519,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8581d1b0efc1e24183a720f67b28c57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDashing: 0
-  dashSpeed: 25
-  dashDuration: 0.2
-  dashCooldown: 1
 --- !u!136 &1669973036
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -6002,8 +5979,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9c6ab5ae3a17e3419d9a426f0ad3c5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 439682367}
-  mainMenu: {fileID: 783856464}
 --- !u!1 &1850454236
 GameObject:
   m_ObjectHideFlags: 0
@@ -12494,9 +12469,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfc03d9af982ff74f8caed6e17bddc2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tankPrefab: {fileID: 4233761314733655620, guid: 607db1298059a264789703694443ca78, type: 3}
-  speedPrefab: {fileID: 124346678638554569, guid: 719529eb65509234a800f791d473e7bd, type: 3}
-  damagePrefab: {fileID: 5166974353700158189, guid: 1d6e0da6d0d9bf34db322ddca91ca4dd, type: 3}
 --- !u!1 &5529091795988071292
 GameObject:
   m_ObjectHideFlags: 0

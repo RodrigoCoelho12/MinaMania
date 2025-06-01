@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7135897842646711109
+--- !u!1 &9032104862955948260
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,11 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 9061251558711382357}
-  - component: {fileID: 7260610507697141191}
-  - component: {fileID: 3368241442423923140}
-  - component: {fileID: 7523430165433938177}
-  - component: {fileID: 4495156571236933809}
+  - component: {fileID: 5640568270172888855}
+  - component: {fileID: 6108109898083658115}
+  - component: {fileID: 6950964145423316017}
   m_Layer: 0
   m_Name: Carrinho
   m_TagString: Untagged
@@ -20,36 +18,36 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &9061251558711382357
+--- !u!4 &5640568270172888855
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7135897842646711109}
+  m_GameObject: {fileID: 9032104862955948260}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
-  m_ConstrainProportionsScale: 1
+  m_LocalPosition: {x: -15.251058, y: 2.8915835e-18, z: 3.814808}
+  m_LocalScale: {x: 1.8119555, y: 1.8119555, z: 1.8119555}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &7260610507697141191
+--- !u!33 &6108109898083658115
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7135897842646711109}
-  m_Mesh: {fileID: -6779120245592026439, guid: dc057a4728364e649b82cbc0f7456d36, type: 3}
---- !u!23 &3368241442423923140
+  m_GameObject: {fileID: 9032104862955948260}
+  m_Mesh: {fileID: -6779120245592026439, guid: 9d5ecae76ad01394bb7f1e5c8e5bac7a, type: 3}
+--- !u!23 &6950964145423316017
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7135897842646711109}
+  m_GameObject: {fileID: 9032104862955948260}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -66,8 +64,9 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 4874126678125670354, guid: dc057a4728364e649b82cbc0f7456d36, type: 3}
-  - {fileID: -6922793697723135513, guid: dc057a4728364e649b82cbc0f7456d36, type: 3}
+  - {fileID: 8212226473263337188, guid: 9d5ecae76ad01394bb7f1e5c8e5bac7a, type: 3}
+  - {fileID: -4973734387028869240, guid: 9d5ecae76ad01394bb7f1e5c8e5bac7a, type: 3}
+  - {fileID: -1444460858095362738, guid: 9d5ecae76ad01394bb7f1e5c8e5bac7a, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -89,44 +88,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7523430165433938177
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7135897842646711109}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.5756228, y: 1.060558, z: 0.897678}
-  m_Center: {x: 1.4248275, y: 0.5343253, z: -0.023714423}
---- !u!114 &4495156571236933809
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7135897842646711109}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SerializedVersion: 0
-  m_OverrideArea: 1
-  m_Area: 1
-  m_OverrideGenerateLinks: 0
-  m_GenerateLinks: 0
-  m_IgnoreFromBuild: 0
-  m_ApplyToChildren: 0
-  m_AffectedAgents: ffffffff
