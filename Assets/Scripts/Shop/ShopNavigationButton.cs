@@ -13,7 +13,7 @@ public class ShopNavigationButton : MonoBehaviour, IPointerEnterHandler, IPointe
     public Camera shopCamera;
     public List<GameObject> shopPositionslist;
 
-    private Vector3 originalPosition = new Vector3(0f,2f,0f); // Store the original position of the button
+    private Vector3 originalPosition = new Vector3(0f, 2f, 0f); // Store the original position of the button
     private float rotationSpeed = 5f; // Speed of the camera rotation
 
     [Header("Navigation Settings")]
@@ -39,16 +39,16 @@ public class ShopNavigationButton : MonoBehaviour, IPointerEnterHandler, IPointe
         }
         if (isRightButton)
         {
-            currentIndex = Mathf.Min(currentIndex + 1, shopPositionslist.Count - 1);
+            currentIndex = (currentIndex + 1) % shopPositionslist.Count;
         }
         else
         {
-            currentIndex = Mathf.Max(currentIndex - 1, 0);
+            currentIndex = (currentIndex - 1 + shopPositionslist.Count) % shopPositionslist.Count;
         }
 
         Transform target = shopPositionslist[currentIndex].transform;
         StartCoroutine(SmoothLookAt(target.position));
-        
+
     }
 
     private IEnumerator SmoothLookAt(Vector3 direction)

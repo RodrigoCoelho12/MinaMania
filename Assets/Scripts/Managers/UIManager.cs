@@ -41,8 +41,8 @@ public class UIManager : MonoBehaviour
         }
 
 
-        DontDestroyOnLoad(gameObject);
-        DontDestroyOnLoad(gameInterface);
+        //DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameInterface);
     }
 
     private void Start()
@@ -110,8 +110,8 @@ public class UIManager : MonoBehaviour
 
     public void GameSceneLoad()
     {
-        SceneManager.LoadScene(1, LoadSceneMode.Additive); // Load the game scene
+        SceneManager.LoadScene(1); // Load the game scene
         HidePanel(UINames.MainMenu); // Hide the main menu panel
-        ShowPanel(UINames.HUD); // Show the HUD panel
+        Time.timeScale = 1f; // Ensure the game runs at normal speed
     }
 }

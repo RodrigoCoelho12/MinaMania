@@ -21,6 +21,7 @@ public class Pickaxe : Weapon
         if (UserInputManager.instance.PickaxeInput && !UserInputManager.instance.SprayInput)
         {
             pickaxeModel.SetActive(true);
+            AudioManager.instance.SwitchSFX(1);
             pickaxeAnimator.SetInteger("AttackIndex", attackIndex);
         }else if (UserInputManager.instance.SprayInput)
         {
