@@ -9,6 +9,7 @@ public abstract class Enemy : Character
     [Header("Enemy Properties")]
     public Transform target;                // The target that the enemy will attack.
     public GameObject attackHitbox;         // The hitbox that will be activated when the enemy attacks.
+    public Animator animator;
     protected HitBox _hitBox;                // Reference to the HitBox component.
     public bool isAwakened = false;         // If true, the enemy will move towards the target and attack.
 
@@ -29,6 +30,7 @@ public abstract class Enemy : Character
         // Store the starting position for reuse on death.
         healthBar.CurrentBarValue = healthBar.MaxBarValue;
         this.navMeshAgent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
         _positionInProfiling = transform.position;
     }
 
@@ -43,13 +45,14 @@ public abstract class Enemy : Character
 
         if (!isAwakened || navMeshAgent == null || target == null)
             return;
-
+        
         // Set the destination for the NavMeshAgent
         navMeshAgent.SetDestination(target.position);
 
         // Optional: Limit rotation to Y-axis only
         if (navMeshAgent.velocity.sqrMagnitude > 0.1f)
         {
+            animator.SetBool("IsWalking", true);
             Vector3 lookDirection = navMeshAgent.steeringTarget - transform.position;
             lookDirection.y = 0f;
             if (lookDirection != Vector3.zero)
@@ -57,6 +60,10 @@ public abstract class Enemy : Character
                 Quaternion rotation = Quaternion.LookRotation(lookDirection);
                 transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 10f);
             }
+        }
+        else
+        {
+            animator.SetBool("IsWalking", false);
         }
     }
 
@@ -113,35 +120,53 @@ public abstract class Enemy : Character
     /// <summary>
     /// Activates the attack hitbox in intervals while the enemy is awakened.
     /// </summary>
-protected IEnumerator ShowHitBox()
-{
-    WaitForSeconds hitboxActiveTime = new WaitForSeconds(0.5f);
-    WaitForSeconds hitboxCooldownTime = new WaitForSeconds(4f);
-
-    while (isAwakened)
+    protected IEnumerator ShowHitBox()
     {
-        attackHitbox.SetActive(true);
+        WaitForSeconds hitboxActiveTime = new WaitForSeconds(0.5f);
+        WaitForSeconds hitboxCooldownTime = new WaitForSeconds(4f);
 
-        float distance = Vector3.Distance(transform.position, target.position);
-        if (distance > 4f)
-        {
-            //_hitBox.ChangeHitBoxColor(2);
-        }
-        else if (distance > 2f)
-        {
-            //_hitBox.ChangeHitBoxColor(1);
-        }
-        else
-        {
-            //_hitBox.ChangeHitBoxColor(0);
-        }
+        //while (isAwakened)
+        //{
+        //    float distance = Vector3.Distance(transform.position, target.position);
 
-        yield return hitboxActiveTime;
 
-        attackHitbox.SetActive(false);
-        yield return hitboxCooldownTime;
+        //    if (distance < 2f)
+        //    {
+        //        animator.SetBool("IsAttacking", true);
+        //        attackHitbox.SetActive(true);
+
+        //        yield return hitboxActiveTime;
+
+        //        animator.SetBool("IsAttacking", false);
+        //        attackHitbox.SetActive(false);
+
+        //        yield return hitboxCooldownTime;
+        //    }
+
+        //}
+
+        while (isAwakened)
+        {
+            float distance = Vector3.Distance(transform.position, target.position);
+
+            if (distance < 2f)
+            {
+                // Ataca
+                animator.SetBool("isAttacking", true);
+                attackHitbox.SetActive(true);
+                yield return hitboxActiveTime;
+
+                animator.SetBool("isAttacking", false);
+                attackHitbox.SetActive(false);
+                yield return hitboxCooldownTime;
+            }
+            else
+            {
+                // Espera um pouco antes de checar novamente
+                yield return new WaitForSeconds(0.1f);
+            }
+        }
     }
-}
 
 
     #endregion

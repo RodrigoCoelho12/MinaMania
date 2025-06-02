@@ -7401,13 +7401,13 @@ MonoBehaviour:
   - {fileID: 674820895}
   - {fileID: 1403377225}
   prefab:
-  - {fileID: 792220710966707099, guid: 88960ed12e31c6644a1735dfb8e6a94e, type: 3}
-  - {fileID: 1453884990783132209, guid: edddb6dff44edb34090298b88e70bb2b, type: 3}
-  - {fileID: 7135897842646711109, guid: d5b1df790a182064a8c5e596a14e4d35, type: 3}
-  - {fileID: 8418411362632931479, guid: ba1a14ce3023edc41a73d3cdd56b4c67, type: 3}
-  - {fileID: 716986529082452729, guid: 9855f16f82530ed4290ec00265a40692, type: 3}
-  parent: {fileID: 0}
-  positionToFill: 0
+  - {fileID: 5768119196057598916, guid: eb4e7cad8ddb7a24f958aedc674786a7, type: 3}
+  - {fileID: 4957596999226818022, guid: 58264405188f0854caf7f3ec9d30ff9d, type: 3}
+  - {fileID: 4095768984947609272, guid: 52cd49dc2c3a48946b46bb8945cfb0c4, type: 3}
+  - {fileID: 1589787161397239654, guid: 17cd662735452684aa0773e8e8e239cb, type: 3}
+  - {fileID: 1576302188915961343, guid: 74bed56c1f31cbe45b4f6c239c2c5644, type: 3}
+  parent: {fileID: 2101868630}
+  positionToFill: 5
 --- !u!1 &1181215275
 GameObject:
   m_ObjectHideFlags: 0
@@ -11336,7 +11336,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.4, y: 1.4, z: 1.4}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 181573889}
@@ -14141,7 +14141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &913363200618810484
 Transform:
   m_ObjectHideFlags: 0
@@ -14152,7 +14152,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 3, z: 1.5}
+  m_LocalScale: {x: 1.2, y: 3, z: 1.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1669973030}
@@ -14604,7 +14604,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 86996056382828789}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -14910,8 +14910,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefabs:
   - {fileID: 5166974353700158189, guid: 1d6e0da6d0d9bf34db322ddca91ca4dd, type: 3}
-  - {fileID: 124346678638554569, guid: 719529eb65509234a800f791d473e7bd, type: 3}
-  - {fileID: 4233761314733655620, guid: 607db1298059a264789703694443ca78, type: 3}
+  - {fileID: 1422970441689252460, guid: eeebff2adf6cd094286519fa05c28ae5, type: 3}
+  - {fileID: 3562617968447525588, guid: ffd1bfa02dccfe64ab03ca6304c17eb8, type: 3}
   spawnPoints:
   - {fileID: 1653565407}
   - {fileID: 1759435045}
@@ -14931,7 +14931,7 @@ MonoBehaviour:
   - {fileID: 2014397878}
   spawnInterval: 1
   delayAfterLastEnemyDies: 10
-  initialEnemyCount: 1
+  initialEnemyCount: 8
   growthPerHorde: 2
   countdownHordeText: {fileID: 1471036214}
 --- !u!224 &8255982218946533063
