@@ -9,15 +9,18 @@ public partial class Player
     [Header("Canvas Elements")]
     public TextMeshProUGUI pointsText;
 
-    public void IncreasePoints()
+    public void IncreasePoints(int hordeCount)
     {
-        points++;
-        UpdateInterface();
+        if(hordeCount > 1)
+        {
+            points += 1000;
+            UpdateInterface();
+        }
     }
 
     private void UpdateInterface()
     {
         if (pointsText != null)
-            pointsText.text = points.ToString();
+            pointsText.text = "PONTOS: "+points.ToString();
     }
 }

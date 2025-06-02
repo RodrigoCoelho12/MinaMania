@@ -70,7 +70,7 @@ public class EnemyHordeSpawner : MonoBehaviour
     IEnumerator SpawnHorde(HordeData horde)
     {
 
-        player.GetComponent<Player>().IncreasePoints();
+        player.GetComponent<Player>().IncreasePoints(hordeCount);
 
         activeEnemies.Clear();
 
@@ -89,6 +89,7 @@ public class EnemyHordeSpawner : MonoBehaviour
     bool AllEnemiesDead()
     {
         activeEnemies.RemoveAll(enemy => enemy == null || enemy.activeSelf == false);
+        Debug.Log("Inimigos restantes: " + activeEnemies.Count);
 
         return activeEnemies.Count == 0;
     }

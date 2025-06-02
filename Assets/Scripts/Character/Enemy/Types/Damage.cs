@@ -13,7 +13,7 @@ public class Damage : Enemy
 
     private void Update()
     {
-       // Attack();
+        Attack();
         Move();
     }
 }

@@ -5,10 +5,30 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public Slider masterslider, musicslider, sfxslider;
+
+    [SerializeField] GameObject currentPanel;
+    [SerializeField] GameObject pausePanel;
+
+    public bool isPaused;
+
     void Start()
     {
         AudioManager.instance.SwitchMusic(0);
+        SetDefaultVolume();
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape) && !isPaused)
+        {
+            PauseGame();
+        }
+        else if (Input.GetKeyDown(KeyCode.Escape) && isPaused)
+        {
+            UnpauseGame(); 
+        }
+    }
+
     public void SetDefaultVolume()
     {
         AudioManager.instance.mixer.GetFloat("MasterVol", out float aux1);
@@ -49,5 +69,36 @@ public class GameManager : MonoBehaviour
     public void ChangeSFXVolume()
     {
         AudioManager.instance.ChangeSFXVolume(sfxslider.value);
+    }
+
+    public void PauseGame()
+    {
+        Time.timeScale = 0f;
+        pausePanel.SetActive(true);
+
+        isPaused = true;
+    }
+    public void UnpauseGame()
+    {
+        currentPanel.SetActive(false);
+        if(currentPanel != pausePanel)
+        {
+            currentPanel = pausePanel;
+        }
+        else
+        {
+            Time.timeScale = 1f;
+            isPaused = false;
+        }
+    }
+
+    public void SetCurrentPanel(GameObject panel)
+    {
+        currentPanel = panel;
+    }
+
+    public void ResetGame()
+    {
+        SceneManager.LoadScene(0);
     }
 }

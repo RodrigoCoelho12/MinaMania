@@ -1,10 +1,12 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public partial class Player : Character
 {
     float yPosition;
+    public Image healthBarUI;
 
     void Start()
     {
@@ -32,14 +34,16 @@ public partial class Player : Character
         {
             this.transform.position = new Vector3(transform.position.x, yPosition, transform.position.z);
         }
+
     }
 
     public override void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag("EnemyAttack"))
         {
-            // Handle enemy collision
-            Debug.Log("Collided with enemy");
+            healthBar.AdjustStatusBarBySubtraction(10);
+            healthBarUI.fillAmount = healthBar.CurrentBarValue/100;
+            Debug.Log("aaa");
         }
     }
 

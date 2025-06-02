@@ -2055,6 +2055,7 @@ MonoBehaviour:
   mouseSensitivity: 100
   rotationSpeed: 10
   raycastDistance: 100
+  pointsText: {fileID: 0}
   coins: 0
   currentPickaxeData: {fileID: 11400000, guid: 17cad3eb10d510a40b384568e7f0aaa7, type: 2}
   currentWaterSprayData: {fileID: 11400000, guid: 8f5d02a243540c040a5df2260e54d768, type: 2}
@@ -3559,6 +3560,7 @@ GameObject:
   - component: {fileID: 1807655308}
   - component: {fileID: 1807655307}
   - component: {fileID: 1807655306}
+  - component: {fileID: 1807655309}
   m_Layer: 0
   m_Name: ExitDoor
   m_TagString: Untagged
@@ -3655,6 +3657,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1807655304}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1807655309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1807655304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76e685f30dbf6c941b29f1cb11404117, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1931781723
 GameObject:
   m_ObjectHideFlags: 0

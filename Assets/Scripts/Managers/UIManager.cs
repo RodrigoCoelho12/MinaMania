@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
     public static UIManager Instance { get; private set; }
     private Dictionary<UINames, GameObject> uiDictionary = new Dictionary<UINames, GameObject>();
     public GameObject gameInterface;
+
     #endregion
 
     #region Initialization Routines

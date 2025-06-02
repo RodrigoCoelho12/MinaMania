@@ -12,6 +12,7 @@ public abstract class Enemy : Character
     public Animator animator;
     protected HitBox _hitBox;                // Reference to the HitBox component.
     public bool isAwakened = false;         // If true, the enemy will move towards the target and attack.
+    public int damage = 20;
 
     private Vector3 _positionInProfiling;   // The initial position to reset the enemy when it dies.
     private float exposureTime = 0f;        // Time exposed to a continuous attack like WaterSpray.
@@ -49,7 +50,6 @@ public abstract class Enemy : Character
         // Store the starting position for reuse on death.
         AudioManager.instance.enemySfx.Add(GetComponent<AudioSource>());
         indiceAudioSource = AudioManager.instance.enemySfx.Count - 1;
-        Debug.Log("Indice de inimigo: " + indiceAudioSource);
         StartCoroutine(EnemySound());
         healthBar.CurrentBarValue = healthBar.MaxBarValue;
         this.navMeshAgent = GetComponent<NavMeshAgent>();
@@ -145,41 +145,22 @@ public abstract class Enemy : Character
     /// </summary>
     protected IEnumerator ShowHitBox()
     {
-        WaitForSeconds hitboxActiveTime = new WaitForSeconds(0.5f);
+        WaitForSeconds hitboxActiveTime = new WaitForSeconds(2f);
         WaitForSeconds hitboxCooldownTime = new WaitForSeconds(4f);
 
-        //while (isAwakened)
-        //{
-        //    float distance = Vector3.Distance(transform.position, target.position);
-
-
-        //    if (distance < 2f)
-        //    {
-        //        animator.SetBool("IsAttacking", true);
-        //        attackHitbox.SetActive(true);
-
-        //        yield return hitboxActiveTime;
-
-        //        animator.SetBool("IsAttacking", false);
-        //        attackHitbox.SetActive(false);
-
-        //        yield return hitboxCooldownTime;
-        //    }
-
-        //}
 
         while (isAwakened)
         {
             float distance = Vector3.Distance(transform.position, target.position);
 
-            if (distance < 2f)
+            if (distance < 4f)
             {
                 // Ataca
-                animator.SetBool("isAttacking", true);
+                animator.SetBool("IsAttacking", true);
                 attackHitbox.SetActive(true);
                 yield return hitboxActiveTime;
 
-                animator.SetBool("isAttacking", false);
+                animator.SetBool("IsAttacking", false);
                 attackHitbox.SetActive(false);
                 yield return hitboxCooldownTime;
             }

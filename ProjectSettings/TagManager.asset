@@ -11,6 +11,7 @@ TagManager:
   - WaterSpray
   - EnemyAttack
   - Collectible
+  - ShopDoor
   layers:
   - Default
   - TransparentFX

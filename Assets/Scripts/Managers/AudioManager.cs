@@ -66,39 +66,39 @@ public class AudioManager : MonoBehaviour
     // Mudanca do volume max
     public void ChangeMasterVolume(float vol)
     {
-        if (vol > -20)
-        {
+        //if (vol > -20)
+        //{
             mixer.SetFloat("MasterVol", vol);
-        }
-        else
-        {
-            mixer.SetFloat("MasterVol", -80);
-        }
+        //}
+        //else
+        //{
+        //    mixer.SetFloat("MasterVol", -80);
+        //}
     }
 
     // Mudanca do volume da musica
     public void ChangeMusicVolume(float vol)
     {
-        if (vol > -20)
-        {
+        //if (vol > -20)
+        //{
             mixer.SetFloat("MusicVol", vol);
-        }
-        else
-        {
-            mixer.SetFloat("MusicVol", -80);
-        }
+        //}
+        //else
+        //{
+        //    mixer.SetFloat("MusicVol", -80);
+        //}
     }
 
     // Mudanca do volume dos efeitos sonoros
     public void ChangeSFXVolume(float vol)
     {
-        if (vol > -20)
-        {
+        //if (vol > -20)
+        //{
             mixer.SetFloat("SFXVol", vol);
-        }
-        else
-        {
-            mixer.SetFloat("SFXVol", -80);
-        }
+        //}
+        //else
+        //{
+        //    mixer.SetFloat("SFXVol", -80);
+        //}
     }
 }
