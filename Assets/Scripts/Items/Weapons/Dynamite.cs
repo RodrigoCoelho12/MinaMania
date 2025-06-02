@@ -43,7 +43,6 @@ public class Dynamite : Weapon
             {
                 StartCoroutine(LaunchDynamite(hit.point));
             }
-            Debug.Log("aaaaaa");
         }
     }
 
@@ -80,7 +79,6 @@ public class Dynamite : Weapon
         Destroy(dynamite);
         if (Physics.CheckSphere(dynamite.transform.position, dynamiteData.explosionRadius))
         {
-            Debug.Log("check");
             Debug.DrawLine(dynamite.transform.position, Vector3.up * dynamiteData.explosionRadius, Color.cyan, 2f);
             explosionHits = Physics.SphereCastAll(dynamite.transform.position, dynamiteData.explosionRadius, Vector3.up, 0f);
             foreach (RaycastHit hit in explosionHits)
@@ -89,7 +87,6 @@ public class Dynamite : Weapon
                 {
                     GameObject enemy = hit.collider.gameObject;
                     Rigidbody rb = enemy.GetComponent<Rigidbody>();
-                    Debug.Log(" " + hit.collider.gameObject.name);
 
                     enemy.GetComponent<Enemy>().healthBar.AdjustStatusBarBySubtraction(dynamiteData.damage);
                     enemy.GetComponent<Enemy>().CheckDeath();

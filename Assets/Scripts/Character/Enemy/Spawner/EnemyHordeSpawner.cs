@@ -33,7 +33,7 @@ public class EnemyHordeSpawner : MonoBehaviour
 
     private void Start()
     {
-        player = GameObject.Find("Player");
+        player = GameObject.FindGameObjectWithTag("Player");
 
         hordeQueue.Enqueue(new HordeData(initialEnemyCount));
         hordeQueue.Enqueue(new HordeData(initialEnemyCount + growthPerHorde));
@@ -69,7 +69,9 @@ public class EnemyHordeSpawner : MonoBehaviour
 
     IEnumerator SpawnHorde(HordeData horde)
     {
+
         player.GetComponent<Player>().IncreasePoints();
+
         activeEnemies.Clear();
 
         for (int i = 0; i < horde.enemyCount; i++)
@@ -86,7 +88,8 @@ public class EnemyHordeSpawner : MonoBehaviour
 
     bool AllEnemiesDead()
     {
-        activeEnemies.RemoveAll(enemy => enemy == null);
+        activeEnemies.RemoveAll(enemy => enemy == null || enemy.activeSelf == false);
+
         return activeEnemies.Count == 0;
     }
 
