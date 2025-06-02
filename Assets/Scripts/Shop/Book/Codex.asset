@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d98976f1f7e3f714ba815b264284e426, type: 3}
+  m_Name: Codex
+  m_EditorClassIdentifier: 
+  bookName: Codex
+  chapters:
+  - {fileID: 11400000, guid: b05e2424852699746ab673c45c47dd8c, type: 2}
+  - {fileID: 11400000, guid: 327c8702106e905459d1cc6aac1644fa, type: 2}
+  - {fileID: 11400000, guid: 5ad4d5f26c9411d44a13a824da1c4991, type: 2}

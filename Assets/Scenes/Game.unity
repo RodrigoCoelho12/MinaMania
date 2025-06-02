@@ -2012,7 +2012,6 @@ GameObject:
   m_Component:
   - component: {fileID: 330585546}
   - component: {fileID: 330585545}
-  - component: {fileID: 330585544}
   - component: {fileID: 330585547}
   - component: {fileID: 330585548}
   m_Layer: 0
@@ -2022,14 +2021,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &330585544
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 330585543}
-  m_Enabled: 1
 --- !u!20 &330585545
 Camera:
   m_ObjectHideFlags: 0
@@ -2750,6 +2741,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d1d12527b549ae42a4df1e9709dd405, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  masterslider: {fileID: 0}
+  musicslider: {fileID: 0}
+  sfxslider: {fileID: 0}
 --- !u!4 &439682368
 Transform:
   m_ObjectHideFlags: 0
@@ -6142,7 +6136,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -11243,6 +11237,7 @@ GameObject:
   - component: {fileID: 1669973038}
   - component: {fileID: 1669973040}
   - component: {fileID: 1669973039}
+  - component: {fileID: 1669973041}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -11463,15 +11458,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a61a025885683ad43a0553019a1883ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dynamiteIcons:
-  - {fileID: 265446103}
-  - {fileID: 869531340}
-  - {fileID: 186725894}
-  - {fileID: 1631289771}
-  dynamiteData: {fileID: 11400000, guid: 8a681f19393f222438fcf97051ccafee, type: 2}
+  dynamiteIcons: []
+  dynamiteData: {fileID: 0}
   explosionLayerMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 0
+--- !u!81 &1669973041
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1669973025}
+  m_Enabled: 1
 --- !u!1 &1672692640
 GameObject:
   m_ObjectHideFlags: 0
@@ -11998,7 +11997,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -328, y: -13.46698}
+  m_AnchoredPosition: {x: -328, y: -13.466919}
   m_SizeDelta: {x: -1393.4812, y: -880.3973}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1752211639
@@ -12715,13 +12714,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mixer: {fileID: 24100000, guid: 37f313b3b5ed93846a87e8bff92bfd9d, type: 2}
-  musics: []
-  sfx: []
-  musicSource: {fileID: 0}
-  sfxSource: {fileID: 0}
-  masterSlider: {fileID: 0}
-  musicSlider: {fileID: 0}
-  sfxSlider: {fileID: 0}
+  musics:
+  - {fileID: 8300000, guid: 9af8d0588399f1640a6eceabab30d393, type: 3}
+  sfx:
+  - {fileID: 8300000, guid: ba050cae532d2854b9a955adc3a2d7e1, type: 3}
+  - {fileID: 8300000, guid: 9de7a68cff2bd5549a8e945f03a11321, type: 3}
+  enemySfx: []
+  musicSource: {fileID: 1022758902}
+  sfxSource: {fileID: 1508665126}
 --- !u!4 &1896287598
 Transform:
   m_ObjectHideFlags: 0
@@ -14312,8 +14312,8 @@ MonoBehaviour:
   waterFillSpeed: 0.07
   waterIsRecharging: 0
   knockbackSpeed: 2
-  waterSprayBarBG: {fileID: 1114948494}
-  rechargeIndicator: {fileID: 517753172}
+  waterSprayBarBG: {fileID: 0}
+  rechargeIndicator: {fileID: 0}
   waterSprayBar: {fileID: 267071842}
 --- !u!114 &1703115345373733280
 MonoBehaviour:

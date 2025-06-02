@@ -1,160 +1,104 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
-    #region Properties
-    // Singleton instance
-    public static AudioManager manager;
-
-    [Header("Audio Mixer and Clips")]
+    // Variaveis de audio
+    public static AudioManager instance;
     public AudioMixer mixer;
     public AudioClip[] musics;
     public AudioClip[] sfx;
-
-    [Header("Audio Sources")]
+    public List<AudioSource> enemySfx = new List<AudioSource>();
     public AudioSource musicSource;
     public AudioSource sfxSource;
 
-    [Header("Volume Sliders")]
-    public Slider masterSlider;
-    public Slider musicSlider;
-    public Slider sfxSlider;
 
-    // Volume thresholds
-    private const float MIN_VOLUME = -80f;
-    private const float VOLUME_THRESHOLD = -20f;
-    #endregion
 
-    #region Initialization Routines
+    // Invoca o "manager", que passa para o UIController fazendo entao o controle do volume
     void Awake()
     {
-        // Implement Singleton pattern
-        if (manager != null && manager != this)
+        if (instance == null)
         {
-            Destroy(gameObject);
-            return;
-        }
-
-        manager = this;
-        DontDestroyOnLoad(gameObject);
-
-        // Ensure music Source is assigned
-        if (musicSource == null)
-            musicSource = GetComponent<AudioSource>();
-
-        // Ensure SFX Source exists
-        if (sfxSource == null)
-        {
-            GameObject sfxObj = new GameObject("SFXSource");
-            sfxObj.transform.SetParent(this.transform);
-            sfxSource = sfxObj.AddComponent<AudioSource>();
-        }
-    }
-    #endregion
-
-    #region Switching Routines
-    /// <summary>
-    /// Plays a music track by index.
-    /// </summary>
-    public void SwitchMusic(int index)
-    {
-        if (index >= 0 && index < musics.Length)
-        {
-            musicSource.clip = musics[index];
-            musicSource.Play();
+            instance = this;
         }
         else
         {
-            Debug.LogWarning("Invalid music index.");
+            Destroy(this.gameObject);
         }
+
+        DontDestroyOnLoad(this.gameObject);
     }
 
-    /// <summary>
-    /// Plays a sound effect by index.
-    /// </summary>
-    public void SwitchSFX(int index)
+    // Muda as musicas para cada ocasiao (pause, play, derrota, etc.)
+    public void SwitchMusic(int indice)
     {
-        if (index >= 0 && index < sfx.Length)
+        musicSource.clip = musics[indice];
+        Debug.Log("Switching music to: " + musics[indice].name);
+
+        musicSource.Play();
+    }
+
+    public void SwitchSFX(int indice)
+    {
+        sfxSource.clip = sfx[indice];
+
+        sfxSource.Play();
+    }
+
+    public void SwitchEnemySFX(int indice)
+    {
+        if (enemySfx.Count == 0) return;
+
+        /*if (indice == 0)
         {
-            sfxSource.clip = sfx[index];
-            sfxSource.Play();
+            enemySfx[indice].pitch = Random.Range(0.2f, 1.8f);
         }
         else
         {
-            Debug.LogWarning("Invalid SFX index.");
+            enemySfx[indice].pitch = 1;
+        }*/
+
+        enemySfx[indice].Play();
+    }
+
+    // Mudanca do volume max
+    public void ChangeMasterVolume(float vol)
+    {
+        if (vol > -20)
+        {
+            mixer.SetFloat("MasterVol", vol);
+        }
+        else
+        {
+            mixer.SetFloat("MasterVol", -80);
         }
     }
-    #endregion
 
-    #region Volume Control
-    /// <summary>
-    /// Sets the master volume using a float value.
-    /// </summary>
-    public void ChangeMasterVolume(float volume)
+    // Mudanca do volume da musica
+    public void ChangeMusicVolume(float vol)
     {
-        mixer.SetFloat("MasterVol", volume > VOLUME_THRESHOLD ? volume : MIN_VOLUME);
+        if (vol > -20)
+        {
+            mixer.SetFloat("MusicVol", vol);
+        }
+        else
+        {
+            mixer.SetFloat("MusicVol", -80);
+        }
     }
 
-    /// <summary>
-    /// Sets the music volume using a float value.
-    /// </summary>
-    public void ChangeMusicVolume(float volume)
+    // Mudanca do volume dos efeitos sonoros
+    public void ChangeSFXVolume(float vol)
     {
-        mixer.SetFloat("MusicVol", volume > VOLUME_THRESHOLD ? volume : MIN_VOLUME);
+        if (vol > -20)
+        {
+            mixer.SetFloat("SFXVol", vol);
+        }
+        else
+        {
+            mixer.SetFloat("SFXVol", -80);
+        }
     }
-
-    /// <summary>
-    /// Sets the SFX volume using a float value.
-    /// </summary>
-    public void ChangeSFXVolume(float volume)
-    {
-        mixer.SetFloat("SFXVol", volume > VOLUME_THRESHOLD ? volume : MIN_VOLUME);
-    }
-
-    /// <summary>
-    /// Loads current mixer values into sliders (called on startup or options menu).
-    /// </summary>
-    public void SetDefaultVolume()
-    {
-        if (mixer.GetFloat("MasterVol", out float masterVol) && masterSlider != null)
-            masterSlider.value = masterVol;
-
-        if (mixer.GetFloat("MusicVol", out float musicVol) && musicSlider != null)
-            musicSlider.value = musicVol;
-
-        if (mixer.GetFloat("SFXVol", out float sfxVol) && sfxSlider != null)
-            sfxSlider.value = sfxVol;
-    }
-
-    /// <summary>
-    /// Reads master volume from slider and applies it.
-    /// </summary>
-    public void ChangeMasterVolume()
-    {
-        if (masterSlider != null)
-            ChangeMasterVolume(masterSlider.value);
-    }
-
-    /// <summary>
-    /// Reads music volume from slider and applies it.
-    /// </summary>
-    public void ChangeMusicVolume()
-    {
-        if (musicSlider != null)
-            ChangeMusicVolume(musicSlider.value);
-    }
-
-    /// <summary>
-    /// Reads SFX volume from slider and applies it.
-    /// </summary>
-    public void ChangeSFXVolume()
-    {
-        if (sfxSlider != null)
-            ChangeSFXVolume(sfxSlider.value);
-    }
-    #endregion
 }

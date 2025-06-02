@@ -23,11 +23,34 @@ public abstract class Enemy : Character
 
     private NavMeshAgent navMeshAgent; // Reference to the NavMeshAgent component
 
+    int indiceAudioSource;
+
+    IEnumerator EnemySound()
+    {
+        while (true)
+        {
+            if (Time.timeScale != 0)
+            {
+                yield return new WaitForSeconds(Random.Range(1f , 5f));
+                AudioManager.instance.SwitchEnemySFX(indiceAudioSource);
+                yield return new WaitForSeconds(5);
+            }
+            else
+            {
+                yield return null;
+            }
+        }
+    }
+
 
     // Fix
-    private void Awake()
+    private void OnEnable()
     {
         // Store the starting position for reuse on death.
+        AudioManager.instance.enemySfx.Add(GetComponent<AudioSource>());
+        indiceAudioSource = AudioManager.instance.enemySfx.Count - 1;
+        Debug.Log("Indice de inimigo: " + indiceAudioSource);
+        StartCoroutine(EnemySound());
         healthBar.CurrentBarValue = healthBar.MaxBarValue;
         this.navMeshAgent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
