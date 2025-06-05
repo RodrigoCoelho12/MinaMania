@@ -43,9 +43,9 @@ public class WaterSpray : Weapon
             if(currentWaterAmount >= totalWaterAmount)
             {
                 waterIsRecharging = false;
-                //rechargeIndicator.SetActive(false);
-                //waterSprayBarBG.GetComponent<Animator>().enabled = false;
-                //waterSprayBarBG.GetComponent<Image>().color = Color.white;
+                rechargeIndicator.SetActive(false);
+                waterSprayBarBG.GetComponent<Animator>().enabled = false;
+                waterSprayBarBG.GetComponent<Image>().color = Color.white;
             }
 
         }

@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
 
 public class BookManager : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class BookManager : MonoBehaviour
     public TMPro.TextMeshProUGUI pageText;
     private GameObject pageCurentModel;
     public GameObject pageModel;
+
+    public Camera modelCamera;
 
     public GameObject navigationUI;
     public GameObject ChapterUI;
@@ -118,11 +121,26 @@ public class BookManager : MonoBehaviour
         navigationUI.SetActive(false);
         pageTitle.text = pageData.title;
         pageText.text = pageData.storyText;
+        //pageModel.transform.position = new Vector3 (0, -2.5f, 4.2f);
+        //pageModel.transform.position = new Vector3(0, -2.5f, 4.2f);
         pageCurentModel = Instantiate(pageData.model3D, pageModel.transform);
         pageCurentModel.transform.localScale = new Vector3(1, 1, 1);
         ChapterUI.SetActive(false);
         pageUI.SetActive(true);
-        
+
+        switch (pageData.id)
+        {
+            case 1:
+                modelCamera.orthographicSize = 2.98f;
+                return;
+            case 2:
+                modelCamera.orthographicSize = 2.73f;
+                return;
+            case 3:
+                modelCamera.orthographicSize = 2.5f;
+                return;
+        }
+
     }
 
     public void ClosePage()

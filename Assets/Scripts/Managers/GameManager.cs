@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public Slider masterslider, musicslider, sfxslider;
 
-    [SerializeField] GameObject currentPanel;
+    private GameObject currentPanel;
     [SerializeField] GameObject pausePanel;
 
     public bool isPaused;
@@ -75,6 +75,7 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0f;
         pausePanel.SetActive(true);
+        SetCurrentPanel(pausePanel);
 
         isPaused = true;
     }

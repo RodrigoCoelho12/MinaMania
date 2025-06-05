@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a966a140831a6549b094d995d1a639f, type: 3}
+  m_Name: Damage
+  m_EditorClassIdentifier: 
+  title: Dano
+  id: 2
+  storyText: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur rhoncus
+    id arcu et rutrum. Proin in orci ut ante rutrum luctus at in nibh. Nam vel pretium
+    ante. Aliquam dignissim ipsum in nisi dapibus dapibus. Etiam in nulla quam. Sed
+    ex nibh, maximus venenatis convallis at, fermentum non odio. Cras suscipit malesuada
+    ipsum, nec consectetur augue consequat at. Curabitur sagittis ac orci vitae pulvinar.
+    Duis eget mi congue, auctor urna id, sodales orci. Quisque accumsan cursus enim,
+    eu euismod sem. Fusce tempor leo non feugiat feugiat. In molestie erat neque,
+    ut sollicitudin turpis laoreet quis. Suspendisse elementum semper euismod. Morbi
+    congue ex eu mollis consequat.
+  model3D: {fileID: 1700893812758184934, guid: 141381b64407a144c8a3503cd09bad18, type: 3}

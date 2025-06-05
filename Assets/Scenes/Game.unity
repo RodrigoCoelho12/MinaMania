@@ -2719,7 +2719,6 @@ MonoBehaviour:
   masterslider: {fileID: 1769844366}
   musicslider: {fileID: 614434875}
   sfxslider: {fileID: 1475559372}
-  currentPanel: {fileID: 0}
   pausePanel: {fileID: 424185302}
   isPaused: 0
 --- !u!4 &439682368
@@ -10955,6 +10954,7 @@ GameObject:
   - component: {fileID: 1669973030}
   - component: {fileID: 1669973029}
   - component: {fileID: 1669973028}
+  - component: {fileID: 1669973042}
   - component: {fileID: 1669973027}
   - component: {fileID: 1669973036}
   - component: {fileID: 1669973037}
@@ -11200,6 +11200,28 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1669973025}
   m_Enabled: 1
+--- !u!95 &1669973042
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1669973025}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: fbdd87982d9b3194b90a19544d77ad52, type: 3}
+  m_Controller: {fileID: 9100000, guid: 79bc54c04c723eb4f9e52f55d2fea11d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1672692640
 GameObject:
   m_ObjectHideFlags: 0
