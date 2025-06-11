@@ -79,6 +79,7 @@ public class GameManager : MonoBehaviour
 
         isPaused = true;
     }
+
     public void UnpauseGame()
     {
         currentPanel.SetActive(false);

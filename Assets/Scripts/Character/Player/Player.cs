@@ -13,7 +13,7 @@ public partial class Player : Character
         cc = GetComponent<CharacterController>();
         yPosition = transform.position.y;
         
-        if (pointsText == null)
+        if (scoreText == null)
             Debug.LogError("pointsText nao atribuido no PlayerRanking.");
 
         UpdateInterface();
