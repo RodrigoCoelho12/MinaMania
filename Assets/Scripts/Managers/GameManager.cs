@@ -19,11 +19,11 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && !isPaused)
+        if (UserInputManager.instance.MenuOpenCloseInput && !isPaused)
         {
             PauseGame();
         }
-        else if (Input.GetKeyDown(KeyCode.Escape) && isPaused)
+        else if (UserInputManager.instance.MenuOpenCloseInput && isPaused)
         {
             UnpauseGame(); 
         }

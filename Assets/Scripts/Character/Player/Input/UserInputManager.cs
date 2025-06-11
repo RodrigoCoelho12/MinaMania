@@ -10,8 +10,9 @@ public class UserInputManager : MonoBehaviour
     public bool PickaxeInput { get; private set; }
     public bool SprayInput { get; private set; }
     public bool DynamiteInput { get; private set; }
-
     public bool DashInput { get; private set; }
+    public bool MenuOpenCloseInput { get; private set; }
+
 
     private PlayerInput _playerInput;
     private InputAction _movementAction;
@@ -19,6 +20,7 @@ public class UserInputManager : MonoBehaviour
     private InputAction _sprayAction;
     private InputAction _dynamiteAction;
     private InputAction _dashAction;
+    private InputAction _menuOpenCloseAction;
 
     private void Awake()
     {
@@ -43,6 +45,7 @@ public class UserInputManager : MonoBehaviour
         _sprayAction = _playerInput.actions["SprayAttack"];
         _dynamiteAction = _playerInput.actions["DynamiteAttack"];
         _dashAction = _playerInput.actions["Dash"];
+        _menuOpenCloseAction = _playerInput.actions["MenuOpenClose"];
     }
 
     private void UpdateInput()
@@ -52,5 +55,6 @@ public class UserInputManager : MonoBehaviour
         SprayInput = _sprayAction.IsPressed();
         DynamiteInput = _dynamiteAction.WasPressedThisFrame();
         DashInput = _dashAction.WasPressedThisFrame();
+        MenuOpenCloseInput = _menuOpenCloseAction.WasPressedThisFrame();
     }
 }
