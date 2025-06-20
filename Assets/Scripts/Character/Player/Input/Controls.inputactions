@@ -15,6 +15,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "LookDirection",
+                    "type": "Value",
+                    "id": "e1306c90-74bb-48ab-8d30-e1dd77105b13",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
                     "name": "PickaxeAttack",
                     "type": "Button",
                     "id": "deae9ee5-f83a-449f-884c-66a9ac525b98",
@@ -388,6 +397,17 @@
                     "processors": "",
                     "groups": ";Gamepad",
                     "action": "MenuOpenClose",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "66a552c5-d98f-434c-92e7-bd965ac4c822",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "LookDirection",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
