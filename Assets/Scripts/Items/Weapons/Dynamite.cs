@@ -36,10 +36,14 @@ public class Dynamite : Weapon
     public Texture2D cursorDynamiteTexture;
     private Vector2 cursorHotspot;
 
+    private int dynamiteAttackCount;
+
     private void Start()
     {
         player = GameObject.FindWithTag("Player");
         dynamiteCurrentAmount = dynamiteData.dynamiteAmount;
+
+        dynamiteAttackCount = 0;
     }
 
     public override void Attack()
@@ -84,6 +88,9 @@ public class Dynamite : Weapon
 
     private IEnumerator LaunchDynamite(Vector3 landingPosition)
     {
+        dynamiteAttackCount++;
+        AnalyticsTest.Instance.AddAnalytics("Player", "Dynamite Attack", dynamiteAttackCount.ToString());
+
         isLaunching = true;
 
         GameObject dynamite = GameObject.Instantiate(dynamiteData.dynamitePrefab, player.transform.position + dynamitePositionLaunchFactor, Quaternion.identity);

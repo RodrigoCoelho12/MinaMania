@@ -6,6 +6,9 @@ public partial class Player : Character
     public bool isDashing = false;           
     private float dashTime = 0f; 
     private float lastDashTime = -Mathf.Infinity;
+
+    private int dashCount = 0;
+
     public void Dash()
     {
         if (UserInputManager.instance.DashInput && Time.time >= lastDashTime + currentDashData.dashCooldown)
@@ -13,7 +16,10 @@ public partial class Player : Character
             isDashing = true;           
             dashTime = 0f;              
             lastDashTime = Time.time;   
-            Debug.Log("Dash");          
+            Debug.Log("Dash");     
+            
+            dashCount++;
+            AnalyticsTest.Instance.AddAnalytics("Player", "Dash", dashCount.ToString());
         }
 
         if (isDashing)

@@ -16,6 +16,14 @@ public class WaterSpray : Weapon
     [SerializeField] GameObject waterSprayBarBG;
     [SerializeField] GameObject rechargeIndicator;
     [SerializeField] Image waterSprayBar;
+
+    private int waterSpayAttackCount;
+
+    private void Start()
+    {
+        waterSpayAttackCount = 0;
+    }
+
     public override void Attack()
     {
         MeshRenderer wsMeshRenderer= gameObject.GetComponent<MeshRenderer>();
@@ -28,6 +36,9 @@ public class WaterSpray : Weapon
             
             currentWaterAmount -= waterSpent * Time.deltaTime;
             waterSprayBar.fillAmount -= (waterSpent * Time.deltaTime) / totalWaterAmount;
+
+            waterSpayAttackCount++;
+            AnalyticsTest.Instance.AddAnalytics("Player", "WaterSpray Attack", waterSpayAttackCount.ToString());
         }
         else
         {

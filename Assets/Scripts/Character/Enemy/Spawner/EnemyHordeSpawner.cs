@@ -89,7 +89,7 @@ public class EnemyHordeSpawner : MonoBehaviour
     bool AllEnemiesDead()
     {
         activeEnemies.RemoveAll(enemy => enemy == null || enemy.activeSelf == false);
-        Debug.Log("Inimigos restantes: " + activeEnemies.Count);
+        //Debug.Log("Inimigos restantes: " + activeEnemies.Count);
 
         return activeEnemies.Count == 0;
     }
