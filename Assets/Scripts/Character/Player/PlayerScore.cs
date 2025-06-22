@@ -13,7 +13,8 @@ public partial class Player
 
     public SaveSystem saveSystem;
     private PlayerData playerData;
-
+    private PlayerDataList playerDataList;
+    
     [Header("Canvas Elements")]
     public TextMeshProUGUI scoreText;
 
@@ -22,8 +23,9 @@ public partial class Player
         if(hordeCount > 1)
         {
             score += 1000;
+            playerData.score = score;
             UpdateInterface();
-            saveSystem.SavePlayerData(playerData);
+            saveSystem.SavePlayerDataList(playerDataList);
         }
     }
 

@@ -14,8 +14,6 @@ public class AudioManager : MonoBehaviour
     public AudioSource musicSource;
     public AudioSource sfxSource;
 
-
-
     // Invoca o "manager", que passa para o UIController fazendo entao o controle do volume
     void Awake()
     {
@@ -35,7 +33,6 @@ public class AudioManager : MonoBehaviour
     public void SwitchMusic(int indice)
     {
         musicSource.clip = musics[indice];
-        Debug.Log("Switching music to: " + musics[indice].name);
 
         musicSource.Play();
     }

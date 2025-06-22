@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -11,10 +12,31 @@ public class GameManager : MonoBehaviour
 
     public bool isPaused;
 
+    [Header("Utilitaries")]
+    private SaveSystem saveSystem;
+    private LoadSystem loadSystem;
+    private PlayerData playerData;
+    private PlayerDataList playerDataList;
+
     void Start()
     {
         AudioManager.instance.SwitchMusic(0);
         SetDefaultVolume();
+
+        playerData = new PlayerData("", 0);
+        saveSystem = new SaveSystem();
+        loadSystem = new LoadSystem();
+        playerDataList = new PlayerDataList();
+
+        if (loadSystem.LoadPlayerData() == null)
+        {
+            saveSystem.SavePlayerDataList(playerDataList);
+        }
+        else
+        {
+            playerData = loadSystem.LoadPlayerData();
+            saveSystem.SavePlayerDataList(playerDataList);
+        }
     }
 
     private void Update()

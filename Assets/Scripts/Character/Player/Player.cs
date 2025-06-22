@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using System.Linq;
 
 public partial class Player : Character
 {
@@ -16,6 +17,21 @@ public partial class Player : Character
         if (scoreText == null)
             Debug.LogError("pointsText nao atribuido no PlayerRanking.");
 
+        saveSystem = new SaveSystem();
+        playerDataList = saveSystem.LoadPlayerDataList();
+
+        string playerName = "Player";
+
+        playerData = playerDataList.players.FirstOrDefault(p => p.name == playerName);
+
+        if (playerData == null)
+        {
+            playerData = new PlayerData(playerName, 0);
+            playerDataList.players.Add(playerData);
+        }
+
+        score = playerData.score;
+
         UpdateInterface();
     }
 
@@ -28,7 +44,7 @@ public partial class Player : Character
         
         pickaxe.Attack();
         waterSpray.Attack();
-        dynamite.Attack();
+        //dynamite.Attack();
 
         if (yPosition != transform.position.y)
         {
@@ -43,7 +59,6 @@ public partial class Player : Character
         {
             healthBar.AdjustStatusBarBySubtraction(other.GetComponentInParent<Enemy>().damage);
             healthBarUI.fillAmount = healthBar.CurrentBarValue/100;
-            Debug.Log("aaa");
         }
     }
 

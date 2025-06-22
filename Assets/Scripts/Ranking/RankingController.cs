@@ -10,29 +10,37 @@ public class RankingController : MonoBehaviour
     private LoadSystem loadSystem;
     private PlayerData playerData;
     private RankingList rankingList;
+    private SaveSystem saveSystem;
+
+    private PlayerDataList playerDataList;
 
     void Start()
     {
-        loadSystem = new LoadSystem();
-        playerData = loadSystem.LoadPlayerData();
-        rankingList = new RankingList();
+        saveSystem = new SaveSystem();
+        playerDataList = new PlayerDataList();
 
-        rankingList.AddScore(2500, "Amanda");
-        rankingList.AddScore(3200, "Dandan");
-        rankingList.AddScore(3300, "Duda");
-        rankingList.AddScore(1500, "Ivan");
-        rankingList.AddScore(2900, "Jaum");
-        rankingList.AddScore(1800, "Nelson");
-        rankingList.AddScore(1800, "Rodrigão");
-        rankingList.AddScore(1800, "Roque");
+        InsertPlayerOnRanking("Amanda", 2500);
+        InsertPlayerOnRanking("Dandan", 3200);
+        InsertPlayerOnRanking("Duda", 3300);
+        InsertPlayerOnRanking("Ivan", 1500);
+        InsertPlayerOnRanking("Jaum", 2900);
+        InsertPlayerOnRanking("Nelson", 1800);
+        InsertPlayerOnRanking("Rodrigão", 1800);
+        InsertPlayerOnRanking("Roque", 1800);
+
+        saveSystem.SavePlayerDataList(playerDataList);
 
         UpdateRankingUI();
     }
 
-    public void InsertPlayerOnRanking()
+    public void InsertPlayerOnRanking(string name, int score)
     {
-        rankingList.AddScore(playerData.score, playerData.name);
-        UpdateRankingUI();
+        PlayerData data = new PlayerData(name, score);
+        data.name = name;
+        data.score = score;
+
+        rankingList.AddScore(data.score, data.name);
+        playerDataList.players.Add(data);
     }
 
     public void UpdateRankingUI()

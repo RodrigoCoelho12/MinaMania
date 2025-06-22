@@ -14,14 +14,14 @@ public partial class Player
         bool isDashing = this.isDashing;
         float dashSpeed = this.currentDashData.dashSpeed;
 
-        float horizontalInput = UserInputManager.instance.MovementInput.x;
-        float verticalInput = UserInputManager.instance.MovementInput.y;
+        //float horizontalInput = UserInputManager.instance.MovementInput.x;
+        //float verticalInput = UserInputManager.instance.MovementInput.y;
 
-        Vector3 movement = new Vector3(horizontalInput, 0, verticalInput).normalized;
+        //Vector3 movement = new Vector3(horizontalInput, 0, verticalInput).normalized;
 
         float currentSpeed = isDashing ? dashSpeed : speedValue;
 
-        cc.SimpleMove(currentSpeed  * movement);
+        //cc.SimpleMove(currentSpeed  * movement);
 
     }
 
