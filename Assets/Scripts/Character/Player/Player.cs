@@ -43,7 +43,6 @@ public partial class Player : Character
         {
             healthBar.AdjustStatusBarBySubtraction(other.GetComponentInParent<Enemy>().damage);
             healthBarUI.fillAmount = healthBar.CurrentBarValue/100;
-            Debug.Log("aaa");
         }
     }
 
