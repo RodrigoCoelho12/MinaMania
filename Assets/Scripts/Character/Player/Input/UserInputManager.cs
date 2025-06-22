@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.XR;
@@ -11,7 +12,8 @@ public class UserInputManager : MonoBehaviour
     public Vector2 LookDirectionInput {  get; private set; }
     public bool PickaxeInput { get; private set; }
     public bool SprayInput { get; private set; }
-    public bool DynamiteInput { get; private set; }
+    public bool DynamiteInputPressed { get; private set; }
+    public bool DynamiteInputReleased { get; private set; }
     public bool DashInput { get; private set; }
     public bool MenuOpenCloseInput { get; private set; }
     public bool isUsingGamepad {  get; private set; }
@@ -60,7 +62,8 @@ public class UserInputManager : MonoBehaviour
         LookDirectionInput = _lookDirectionAction.ReadValue<Vector2>();
         PickaxeInput = _pickaxeAction.IsPressed();
         SprayInput = _sprayAction.IsPressed();
-        DynamiteInput = _dynamiteAction.WasPressedThisFrame();
+        DynamiteInputPressed = _dynamiteAction.WasPressedThisFrame();
+        DynamiteInputReleased = _dynamiteAction.WasReleasedThisFrame();
         DashInput = _dashAction.WasPressedThisFrame();
         MenuOpenCloseInput = _menuOpenCloseAction.WasPressedThisFrame();
 

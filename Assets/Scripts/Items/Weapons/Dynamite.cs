@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class Dynamite : Weapon
@@ -13,6 +14,7 @@ public class Dynamite : Weapon
     [Header("Dynamite Launch Properties")]
     private Vector3 dynamitePositionLaunchFactor = new Vector3(0f, 2f, 0f);
     private readonly float arcHeight = 10f;
+    public bool isChoosingTarget = false;
     private bool isLaunching = false;
 
     [Header("Dynamite UI Properties")] 
@@ -27,6 +29,12 @@ public class Dynamite : Weapon
     [Header("Dynamite Raycast Properties")]
     public LayerMask explosionLayerMask;
     public RaycastHit[] explosionHits;
+    private Ray launchTargetRay;
+
+   [Header("Cursor properties")]
+    [SerializeField] GameObject gamepadCursor;
+    public Texture2D cursorDynamiteTexture;
+    private Vector2 cursorHotspot;
 
     private void Start()
     {
@@ -36,15 +44,43 @@ public class Dynamite : Weapon
 
     public override void Attack()
     {
-        if (UserInputManager.instance.DynamiteInput && dynamiteCurrentAmount > 0 && !isLaunching)
+
+        if (UserInputManager.instance.DynamiteInputPressed && dynamiteCurrentAmount > 0 && !isChoosingTarget && !isLaunching)
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out RaycastHit hit))
+            if (UserInputManager.instance.isUsingGamepad)
             {
+                gamepadCursor.SetActive(true);
+            }
+
+            cursorHotspot = new Vector2(cursorDynamiteTexture.width / 2, cursorDynamiteTexture.height / 2);
+            Cursor.SetCursor(cursorDynamiteTexture, cursorHotspot, CursorMode.ForceSoftware);        
+          
+            isChoosingTarget = true;
+        }
+        if (UserInputManager.instance.DynamiteInputReleased && isChoosingTarget)
+        {
+            Debug.Log("SOLTOU O BOTAO DINAMITE");
+
+            isChoosingTarget = false;
+
+            if (UserInputManager.instance.isUsingGamepad)
+            {
+                launchTargetRay = Camera.main.ScreenPointToRay(gamepadCursor.transform.position);
+                gamepadCursor.SetActive(false);
+            }
+            else
+            {
+                launchTargetRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+            }
+
+            if (Physics.Raycast(launchTargetRay, out RaycastHit hit))
+            {
+                Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
                 StartCoroutine(LaunchDynamite(hit.point));
             }
         }
     }
+       
 
     private IEnumerator LaunchDynamite(Vector3 landingPosition)
     {

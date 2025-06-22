@@ -1,0 +1,151 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: PlayerWalkMask
+  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: ArmaturePlayer
+    m_Weight: 0
+  - m_Path: ArmaturePlayer/Root
+    m_Weight: 0
+  - m_Path: ArmaturePlayer/Root/Master
+    m_Weight: 0
+  - m_Path: ArmaturePlayer/Root/Master/Barriga
+    m_Weight: 0
+  - m_Path: ArmaturePlayer/Root/Master/Barriga/Peito
+    m_Weight: 0
+  - m_Path: ArmaturePlayer/Root/Master/Barriga/Peito/Clavivcula.L
+    m_Weight: 0
+  - m_Path: "ArmaturePlayer/Root/Master/Barriga/Peito/Clavivcula.L/Bra\xE7o.L"
+    m_Weight: 0
+  - m_Path: "ArmaturePlayer/Root/Master/Barriga/Peito/Clavivcula.L/Bra\xE7o.L/Antebra\xE7o.L"
+    m_Weight: 0
+  - m_Path: "ArmaturePlayer/Root/Master/Barriga/Peito/Clavivcula.L/Bra\xE7o.L/Antebra\xE7o.L/Mao.L"
+    m_Weight: 0
+  - m_Path: "ArmaturePlayer/Root/Master/Barriga/Peito/Clavivcula.L/Bra\xE7o.L/Antebra\xE7o.L/Mao.L/DedaoBase.L"
+    m_Weight: 0
+  - m_Path: "ArmaturePlayer/Root/Master/Barriga/Peito/Clavivcula.L/Bra\xE7o.L/Antebra\xE7o.L/Mao.L/DedaoBase.L/DedaoPonta.L"
+    m_Weight: 0
+  - m_Path: "ArmaturePlayer/Root/Master/Barriga/Peito/Clavivcula.L/Bra\xE7o.L/Antebra\xE7o.L/Mao.L/DedaoBase.L/DedaoPonta.L/DedaoPonta.L_end"
+    m_Weight: 0
+  - m_Path: "ArmaturePlayer/Root/Master/Barriga/Peito/Clavivcula.L/Bra\xE7o.L/Antebra\xE7o.L/Mao.L/DedosBase.L"
+    m_Weight: 0
+  - m_Path: "ArmaturePlayer/Root/Master/Barriga/Peito/Clavivcula.L/Bra\xE7o.L/Antebra\xE7o.L/Mao.L/DedosBase.L/DedosPonta.L"
+    m_Weight: 0
+  - m_Path: "ArmaturePlayer/Root/Master/Barriga/Peito/Clavivcula.L/Bra\xE7o.L/Antebra\xE7o.L/Mao.L/DedosBase.L/DedosPonta.L/DedosPonta.L_end"
+    m_Weight: 0
+  - m_Path: "ArmaturePlayer/Root/Master/Barriga/Peito/Clavivcula.L/Bra\xE7o.L/Antebra\xE7o.L/Mao.L/IndicadorBase.L"
+    m_Weight: 0
+  - m_Path: "ArmaturePlayer/Root/Master/Barriga/Peito/Clavivcula.L/Bra\xE7o.L/Antebra\xE7o.L/Mao.L/IndicadorBase.L/IndicadorPonta.L"
+    m_Weight: 0
+  - m_Path: "ArmaturePlayer/Root/Master/Barriga/Peito/Clavivcula.L/Bra\xE7o.L/Antebra\xE7o.L/Mao.L/IndicadorBase.L/IndicadorPonta.L/IndicadorPonta.L_end"
+    m_Weight: 0
+  - m_Path: ArmaturePlayer/Root/Master/Barriga/Peito/Clavivcula.R
+    m_Weight: 0
+  - m_Path: "ArmaturePlayer/Root/Master/Barriga/Peito/Clavivcula.R/Bra\xE7o.R"
+    m_Weight: 0
+  - m_Path: "ArmaturePlayer/Root/Master/Barriga/Peito/Clavivcula.R/Bra\xE7o.R/Antebra\xE7o.R"
+    m_Weight: 0
+  - m_Path: "ArmaturePlayer/Root/Master/Barriga/Peito/Clavivcula.R/Bra\xE7o.R/Antebra\xE7o.R/Mao.R"
+    m_Weight: 0
+  - m_Path: "ArmaturePlayer/Root/Master/Barriga/Peito/Clavivcula.R/Bra\xE7o.R/Antebra\xE7o.R/Mao.R/DedaoBase.R"
+    m_Weight: 0
+  - m_Path: "ArmaturePlayer/Root/Master/Barriga/Peito/Clavivcula.R/Bra\xE7o.R/Antebra\xE7o.R/Mao.R/DedaoBase.R/DedaoPonta.R"
+    m_Weight: 0
+  - m_Path: "ArmaturePlayer/Root/Master/Barriga/Peito/Clavivcula.R/Bra\xE7o.R/Antebra\xE7o.R/Mao.R/DedaoBase.R/DedaoPonta.R/DedaoPonta.R_end"
+    m_Weight: 0
+  - m_Path: "ArmaturePlayer/Root/Master/Barriga/Peito/Clavivcula.R/Bra\xE7o.R/Antebra\xE7o.R/Mao.R/DedosBase.R"
+    m_Weight: 0
+  - m_Path: "ArmaturePlayer/Root/Master/Barriga/Peito/Clavivcula.R/Bra\xE7o.R/Antebra\xE7o.R/Mao.R/DedosBase.R/DedosPonta.R"
+    m_Weight: 0
+  - m_Path: "ArmaturePlayer/Root/Master/Barriga/Peito/Clavivcula.R/Bra\xE7o.R/Antebra\xE7o.R/Mao.R/DedosBase.R/DedosPonta.R/DedosPonta.R_end"
+    m_Weight: 0
+  - m_Path: "ArmaturePlayer/Root/Master/Barriga/Peito/Clavivcula.R/Bra\xE7o.R/Antebra\xE7o.R/Mao.R/IndicadorBase.R"
+    m_Weight: 0
+  - m_Path: "ArmaturePlayer/Root/Master/Barriga/Peito/Clavivcula.R/Bra\xE7o.R/Antebra\xE7o.R/Mao.R/IndicadorBase.R/IndicadorPonta.R"
+    m_Weight: 0
+  - m_Path: "ArmaturePlayer/Root/Master/Barriga/Peito/Clavivcula.R/Bra\xE7o.R/Antebra\xE7o.R/Mao.R/IndicadorBase.R/IndicadorPonta.R/IndicadorPonta.R_end"
+    m_Weight: 0
+  - m_Path: "ArmaturePlayer/Root/Master/Barriga/Peito/Clavivcula.R/Bra\xE7o.R/Antebra\xE7o.R/Mao.R/Picareta"
+    m_Weight: 0
+  - m_Path: "ArmaturePlayer/Root/Master/Barriga/Peito/Clavivcula.R/Bra\xE7o.R/Antebra\xE7o.R/Mao.R/Picareta/Picareta_end"
+    m_Weight: 0
+  - m_Path: "ArmaturePlayer/Root/Master/Barriga/Peito/Pesco\xE7o"
+    m_Weight: 0
+  - m_Path: "ArmaturePlayer/Root/Master/Barriga/Peito/Pesco\xE7o/Cabe\xE7a"
+    m_Weight: 0
+  - m_Path: "ArmaturePlayer/Root/Master/Barriga/Peito/Pesco\xE7o/Cabe\xE7a/Olho.L"
+    m_Weight: 0
+  - m_Path: "ArmaturePlayer/Root/Master/Barriga/Peito/Pesco\xE7o/Cabe\xE7a/Olho.L/Olho.L_end"
+    m_Weight: 0
+  - m_Path: "ArmaturePlayer/Root/Master/Barriga/Peito/Pesco\xE7o/Cabe\xE7a/Olho.R"
+    m_Weight: 0
+  - m_Path: "ArmaturePlayer/Root/Master/Barriga/Peito/Pesco\xE7o/Cabe\xE7a/Olho.R/Olho.R_end"
+    m_Weight: 0
+  - m_Path: "ArmaturePlayer/Root/Master/Barriga/Peito/Pesco\xE7o/Cabe\xE7a/Sobrancelha.L"
+    m_Weight: 0
+  - m_Path: "ArmaturePlayer/Root/Master/Barriga/Peito/Pesco\xE7o/Cabe\xE7a/Sobrancelha.L/Sobrancelha.L_end"
+    m_Weight: 0
+  - m_Path: "ArmaturePlayer/Root/Master/Barriga/Peito/Pesco\xE7o/Cabe\xE7a/Sobrancelha.R"
+    m_Weight: 0
+  - m_Path: "ArmaturePlayer/Root/Master/Barriga/Peito/Pesco\xE7o/Cabe\xE7a/Sobrancelha.R/Sobrancelha.R_end"
+    m_Weight: 0
+  - m_Path: ArmaturePlayer/Root/Master/Barriga/Tanque
+    m_Weight: 0
+  - m_Path: ArmaturePlayer/Root/Master/Barriga/Tanque/Mangueira
+    m_Weight: 0
+  - m_Path: ArmaturePlayer/Root/Master/Barriga/Tanque/Mangueira/Mangueira1
+    m_Weight: 0
+  - m_Path: ArmaturePlayer/Root/Master/Barriga/Tanque/Mangueira/Mangueira1/Mangueira2
+    m_Weight: 0
+  - m_Path: ArmaturePlayer/Root/Master/Barriga/Tanque/Mangueira/Mangueira1/Mangueira2/Mangueira3
+    m_Weight: 0
+  - m_Path: ArmaturePlayer/Root/Master/Barriga/Tanque/Mangueira/Mangueira1/Mangueira2/Mangueira3/Mangueira4
+    m_Weight: 0
+  - m_Path: ArmaturePlayer/Root/Master/Barriga/Tanque/Mangueira/Mangueira1/Mangueira2/Mangueira3/Mangueira4/Mangueira5
+    m_Weight: 0
+  - m_Path: ArmaturePlayer/Root/Master/Barriga/Tanque/Mangueira/Mangueira1/Mangueira2/Mangueira3/Mangueira4/Mangueira5/Mangueira6
+    m_Weight: 0
+  - m_Path: ArmaturePlayer/Root/Master/Barriga/Tanque/Mangueira/Mangueira1/Mangueira2/Mangueira3/Mangueira4/Mangueira5/Mangueira6/Canhao
+    m_Weight: 0
+  - m_Path: ArmaturePlayer/Root/Master/Barriga/Tanque/Mangueira/Mangueira1/Mangueira2/Mangueira3/Mangueira4/Mangueira5/Mangueira6/Canhao/Canhao_end
+    m_Weight: 0
+  - m_Path: ArmaturePlayer/Root/Master/Quadril
+    m_Weight: 1
+  - m_Path: ArmaturePlayer/Root/Master/Quadril/Coxa.L
+    m_Weight: 1
+  - m_Path: ArmaturePlayer/Root/Master/Quadril/Coxa.L/Canela.L
+    m_Weight: 1
+  - m_Path: ArmaturePlayer/Root/Master/Quadril/Coxa.L/Canela.L/Pe.L
+    m_Weight: 1
+  - m_Path: ArmaturePlayer/Root/Master/Quadril/Coxa.L/Canela.L/Pe.L/Pe.L_end
+    m_Weight: 1
+  - m_Path: ArmaturePlayer/Root/Master/Quadril/Coxa.R
+    m_Weight: 1
+  - m_Path: ArmaturePlayer/Root/Master/Quadril/Coxa.R/Canela.R
+    m_Weight: 1
+  - m_Path: ArmaturePlayer/Root/Master/Quadril/Coxa.R/Canela.R/Pe.R
+    m_Weight: 1
+  - m_Path: ArmaturePlayer/Root/Master/Quadril/Coxa.R/Canela.R/Pe.R/Pe.R_end
+    m_Weight: 1
+  - m_Path: Picareta
+    m_Weight: 0
+  - m_Path: PicaretaEvolucao1
+    m_Weight: 0
+  - m_Path: PicaretaEvolucao2
+    m_Weight: 0
+  - m_Path: Player
+    m_Weight: 0
+  - m_Path: Tanque
+    m_Weight: 0
+  - m_Path: TanqueEvolucao1
+    m_Weight: 0
+  - m_Path: TanqueEvolucao2
+    m_Weight: 0

@@ -30,7 +30,7 @@ public partial class Player
 
     void RotatePlayer()
     {
-        if (UserInputManager.instance.isUsingGamepad == true)
+        if (UserInputManager.instance.isUsingGamepad)
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
