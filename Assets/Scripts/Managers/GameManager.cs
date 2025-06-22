@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,11 +8,6 @@ public class GameManager : MonoBehaviour
 
     private GameObject currentPanel;
     [SerializeField] GameObject pausePanel;
-    [SerializeField] GameObject pausePanelFirst;
-    [SerializeField] GameObject settingsPanelFirst;
-    [SerializeField] GameObject keyboardControlsPanelFirst;
-    [SerializeField] GameObject gamepadControlsPanelFirst;
-    [SerializeField] Player player;
 
     public bool isPaused;
 
@@ -25,11 +19,11 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (UserInputManager.instance.MenuOpenCloseInput && !isPaused)
+        if (Input.GetKeyDown(KeyCode.Escape) && !isPaused)
         {
             PauseGame();
         }
-        else if (UserInputManager.instance.MenuOpenCloseInput && isPaused)
+        else if (Input.GetKeyDown(KeyCode.Escape) && isPaused)
         {
             UnpauseGame(); 
         }
@@ -82,7 +76,6 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0f;
         pausePanel.SetActive(true);
         SetCurrentPanel(pausePanel);
-        player.enabled = false;
 
         isPaused = true;
     }
@@ -96,7 +89,6 @@ public class GameManager : MonoBehaviour
         else
         {
             Time.timeScale = 1f;
-            player.enabled = true;
             isPaused = false;
         }
     }
@@ -104,23 +96,6 @@ public class GameManager : MonoBehaviour
     public void SetCurrentPanel(GameObject panel)
     {
         currentPanel = panel;
-        if (currentPanel.name == "Pause Panel") 
-        { 
-            EventSystem.current.SetSelectedGameObject(pausePanelFirst);
-        
-        } 
-        else if(currentPanel.name == "Settings Panel")
-        {
-            EventSystem.current.SetSelectedGameObject(settingsPanelFirst);
-        }
-        else if (currentPanel.name == "KeyBind_Keyboard Panel")
-        {
-            EventSystem.current.SetSelectedGameObject(keyboardControlsPanelFirst);
-        }
-        else if (currentPanel.name == "KeyBind_Gamepad Panel")
-        {
-            EventSystem.current.SetSelectedGameObject(gamepadControlsPanelFirst);
-        }
     }
 
     public void ResetGame()

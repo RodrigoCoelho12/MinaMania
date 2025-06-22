@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 [RequireComponent (typeof(CharacterController))]
 public partial class Player
@@ -8,8 +7,6 @@ public partial class Player
     public float mouseSensitivity = 100f;
     public float rotationSpeed = 10f;
     public float raycastDistance = 100f;
-    
-    private Quaternion targetRotation = Quaternion.identity;
     private CharacterController cc;
 
     public override void Move()
@@ -30,38 +27,19 @@ public partial class Player
 
     void RotatePlayer()
     {
-        if (UserInputManager.instance.isUsingGamepad == true)
+        this.transform.rotation = new Quaternion(0, this.transform.rotation.y, 0, this.transform.rotation.w);
+
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition); 
+        if (Physics.Raycast(ray, out RaycastHit hit, raycastDistance)) 
         {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-
-            Vector2 dir = UserInputManager.instance.LookDirectionInput;
-
-            float angle = Mathf.Atan2(dir.x, dir.y) * Mathf.Rad2Deg;
-            if(dir != Vector2.zero)
+            Vector3 direction = hit.point - this.transform.position; 
+            Debug.DrawLine(ray.origin, hit.point, Color.red);
+            direction.y = 0f;
+            if (direction.magnitude > 0.1f)
             {
-                targetRotation = Quaternion.Euler(0, angle, 0);
+                Quaternion targetRotation = Quaternion.LookRotation(direction);
+                this.transform.rotation = Quaternion.Slerp(this.transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
             }
         }
-        else
-        {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out RaycastHit hit, raycastDistance))
-            {
-                Vector3 direction = hit.point - this.transform.position;
-                Debug.DrawLine(ray.origin, hit.point, Color.red);
-                direction.y = 0f;
-                if (direction.magnitude > 0.1f)
-                {
-                    targetRotation = Quaternion.LookRotation(direction);
-                }
-            }
-        }
-
-        this.transform.rotation = Quaternion.Slerp(this.transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-
     }
 }

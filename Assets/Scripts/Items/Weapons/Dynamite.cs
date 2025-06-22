@@ -36,7 +36,7 @@ public class Dynamite : Weapon
 
     public override void Attack()
     {
-        if (UserInputManager.instance.DynamiteInput && dynamiteCurrentAmount > 0 && !isLaunching)
+        if (UserInputManager.instance.dynamiteInput && dynamiteCurrentAmount > 0 && !isLaunching)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out RaycastHit hit))
