@@ -12,13 +12,16 @@ public class RankingController : MonoBehaviour
     private RankingList rankingList;
     private SaveSystem saveSystem;
 
-    private PlayerDataList playerDataList;
+    private void Awake()
+    {
+        saveSystem = GetComponent<SaveSystem>();
+        loadSystem = GetComponent<LoadSystem>();
+
+        rankingList = new RankingList();
+    }
 
     void Start()
     {
-        saveSystem = new SaveSystem();
-        playerDataList = new PlayerDataList();
-
         InsertPlayerOnRanking("Amanda", 2500);
         InsertPlayerOnRanking("Dandan", 3200);
         InsertPlayerOnRanking("Duda", 3300);
@@ -28,19 +31,16 @@ public class RankingController : MonoBehaviour
         InsertPlayerOnRanking("Rodrigão", 1800);
         InsertPlayerOnRanking("Roque", 1800);
 
-        saveSystem.SavePlayerDataList(playerDataList);
+        saveSystem.SavePlayerDataList(rankingList);
 
         UpdateRankingUI();
     }
 
     public void InsertPlayerOnRanking(string name, int score)
     {
-        PlayerData data = new PlayerData(name, score);
-        data.name = name;
-        data.score = score;
+        PlayerData playerData = new PlayerData(name, score);
 
-        rankingList.AddScore(data.score, data.name);
-        playerDataList.players.Add(data);
+        rankingList.AddScore(playerData);
     }
 
     public void UpdateRankingUI()

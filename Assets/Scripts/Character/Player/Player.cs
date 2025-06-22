@@ -14,23 +14,23 @@ public partial class Player : Character
         cc = GetComponent<CharacterController>();
         yPosition = transform.position.y;
         
-        if (scoreText == null)
-            Debug.LogError("pointsText nao atribuido no PlayerRanking.");
+        //if (scoreText == null)
+        //    Debug.LogError("pointsText nao atribuido no PlayerRanking.");
 
-        saveSystem = new SaveSystem();
-        playerDataList = saveSystem.LoadPlayerDataList();
+        //saveSystem = new SaveSystem();
+        //playerDataList = saveSystem.LoadPlayerDataList();
 
-        string playerName = "Player";
+        //string playerName = "Player";
 
-        playerData = playerDataList.players.FirstOrDefault(p => p.name == playerName);
+        //playerData = playerDataList.players.FirstOrDefault(p => p.name == playerName);
 
-        if (playerData == null)
-        {
-            playerData = new PlayerData(playerName, 0);
-            playerDataList.players.Add(playerData);
-        }
+        //if (playerData == null)
+        //{
+        //    playerData = new PlayerData(playerName, 0);
+        //    playerDataList.players.Add(playerData);
+        //}
 
-        score = playerData.score;
+        //score = playerData.score;
 
         UpdateInterface();
     }

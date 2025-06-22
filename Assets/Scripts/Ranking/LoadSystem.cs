@@ -3,19 +3,14 @@ using UnityEngine;
 
 public class LoadSystem : MonoBehaviour
 {
-    public PlayerData LoadPlayerData()
+    private string filePath => Application.persistentDataPath + "/playerData.json";
+    public RankingList LoadRankingList()
     {
-        string path = Application.persistentDataPath + "/playerData.json";
-        if (File.Exists(path))
+        if (File.Exists(filePath))
         {
-            string json = File.ReadAllText(path);
-            PlayerData data = JsonUtility.FromJson<PlayerData>(json);
-            return data;
+            string json = File.ReadAllText(filePath);
+            return JsonUtility.FromJson<RankingList>(json);
         }
-        else
-        {
-            Debug.LogError("Save file not found in " + path);
-            return null;
-        }
+        return new RankingList();
     }
 }

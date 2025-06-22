@@ -11,9 +11,9 @@ public class RankingList
         Tail = null;
     }
 
-    public void AddScore(int score, string name)
+    public void AddScore(PlayerData playerData)
     {
-        RankingNode newNode = new RankingNode(score, name);
+        RankingNode newNode = new RankingNode(playerData);
 
         if (Head == null)
         {
@@ -24,7 +24,7 @@ public class RankingList
 
         RankingNode current = Head;
 
-        while (current != null && current.PlayerData.score > score)
+        while (current != null && current.PlayerData.score > playerData.score)
             current = current.Next;
 
         if (current == Head)        // Inserção no início

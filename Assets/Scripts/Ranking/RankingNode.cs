@@ -4,9 +4,9 @@ public class RankingNode
     public RankingNode Previous;
     public RankingNode Next;
 
-    public RankingNode(int score, string name)
+    public RankingNode(PlayerData playerData)
     {
-        PlayerData = new PlayerData(name, score);
+        PlayerData = playerData;
         Previous = null;
         Next = null;
     }

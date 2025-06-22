@@ -13,7 +13,7 @@ public partial class Player
 
     public SaveSystem saveSystem;
     private PlayerData playerData;
-    private PlayerDataList playerDataList;
+    private RankingList playerDataList;
     
     [Header("Canvas Elements")]
     public TextMeshProUGUI scoreText;

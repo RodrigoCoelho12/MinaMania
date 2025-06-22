@@ -16,27 +16,27 @@ public class GameManager : MonoBehaviour
     private SaveSystem saveSystem;
     private LoadSystem loadSystem;
     private PlayerData playerData;
-    private PlayerDataList playerDataList;
+    private RankingList playerDataList;
 
     void Start()
     {
         AudioManager.instance.SwitchMusic(0);
         SetDefaultVolume();
 
-        playerData = new PlayerData("", 0);
-        saveSystem = new SaveSystem();
-        loadSystem = new LoadSystem();
-        playerDataList = new PlayerDataList();
+        //playerData = new PlayerData("", 0);
+        //saveSystem = new SaveSystem();
+        //loadSystem = new LoadSystem();
+        //playerDataList = new RankingList();
 
-        if (loadSystem.LoadPlayerData() == null)
-        {
-            saveSystem.SavePlayerDataList(playerDataList);
-        }
-        else
-        {
-            playerData = loadSystem.LoadPlayerData();
-            saveSystem.SavePlayerDataList(playerDataList);
-        }
+        //if (loadSystem.LoadPlayerData() == null)
+        //{
+        //    saveSystem.SavePlayerDataList(playerDataList);
+        //}
+        //else
+        //{
+        //    playerData = loadSystem.LoadPlayerData();
+        //    saveSystem.SavePlayerDataList(playerDataList);
+        //}
     }
 
     private void Update()
