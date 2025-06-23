@@ -128,12 +128,12 @@ ModelImporter:
       scale: {x: 44.538948, y: 44.538948, z: 44.538948}
     - name: Root
       parentName: ArmaturePlayer
-      position: {x: 0, y: -1.6728235e-10, z: 0.0019462781}
+      position: {x: -0, y: 0, z: 0}
       rotation: {x: 0.99999994, y: -0, z: -0, w: 0.00035685304}
       scale: {x: 0.9999997, y: 0.99999994, z: 0.99999994}
     - name: Master
       parentName: Root
-      position: {x: -2.0414481e-19, y: -0.007390216, z: -0.021403799}
+      position: {x: -2.0414481e-19, y: -0.007388826, z: -0.023350075}
       rotation: {x: -0.99999994, y: -0, z: -0, w: 0.00035685304}
       scale: {x: 0.99999976, y: 0.9999988, z: 0.9999989}
     - name: Barriga

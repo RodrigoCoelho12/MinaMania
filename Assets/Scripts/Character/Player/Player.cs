@@ -11,6 +11,7 @@ public partial class Player : Character
     void Start()
     {
         cc = GetComponent<CharacterController>();
+        animator = GetComponent<Animator>();
         yPosition = transform.position.y;
         
         if (pointsText == null)

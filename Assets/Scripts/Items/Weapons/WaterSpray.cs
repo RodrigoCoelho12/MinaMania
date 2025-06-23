@@ -16,6 +16,18 @@ public class WaterSpray : Weapon
     [SerializeField] GameObject waterSprayBarBG;
     [SerializeField] GameObject rechargeIndicator;
     [SerializeField] Image waterSprayBar;
+
+    private Animator animator;
+
+
+    private int waterSpayAttackCount;
+
+    private void Start()
+    {
+        waterSpayAttackCount = 0;
+        animator = GetComponentInParent<Animator>();
+    }
+
     public override void Attack()
     {
         MeshRenderer wsMeshRenderer= gameObject.GetComponent<MeshRenderer>();
@@ -23,16 +35,23 @@ public class WaterSpray : Weapon
 
         if (UserInputManager.instance.SprayInput && waterIsRecharging == false)
         {
+            animator.SetTrigger("StartedWaterSpray");
+            animator.SetBool("IsUsingWaterSpray", true);
+
             wsMeshRenderer.enabled = true;
             wsCollider.enabled = true;
-            
+
             currentWaterAmount -= waterSpent * Time.deltaTime;
             waterSprayBar.fillAmount -= (waterSpent * Time.deltaTime) / totalWaterAmount;
+
+           
+            waterSpayAttackCount++;
         }
         else
         {
             wsMeshRenderer.enabled = false;
             wsCollider.enabled = false;
+            animator.SetBool("IsUsingWaterSpray", false);
 
             if (currentWaterAmount < totalWaterAmount)
             {

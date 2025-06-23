@@ -11,6 +11,7 @@ public partial class Player
     
     private Quaternion targetRotation = Quaternion.identity;
     private CharacterController cc;
+    private Animator animator;
 
     public override void Move()
     {
@@ -21,6 +22,8 @@ public partial class Player
         float verticalInput = UserInputManager.instance.MovementInput.y;
 
         Vector3 movement = new Vector3(horizontalInput, 0, verticalInput).normalized;
+
+        animator.SetFloat("Blend", verticalInput);
 
         float currentSpeed = isDashing ? dashSpeed : speedValue;
 

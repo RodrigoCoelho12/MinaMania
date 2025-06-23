@@ -5,27 +5,27 @@ using UnityEngine;
 
 public class Pickaxe : Weapon
 {
-    private GameObject pickaxeModel;
-    private Animator pickaxeAnimator;
+    private Animator animator;
 
     public int attackIndex = 1;
 
     private void Start()
     {
-        pickaxeModel = transform.GetChild(0).gameObject;
-        pickaxeAnimator = pickaxeModel.GetComponent<Animator>();
+        animator = GetComponentInParent<Animator>();
     }
 
     public override void Attack()
     {
         if (UserInputManager.instance.PickaxeInput && !UserInputManager.instance.SprayInput)
         {
-            pickaxeModel.SetActive(true);
             AudioManager.instance.SwitchSFX(1);
-            pickaxeAnimator.SetInteger("AttackIndex", attackIndex);
-        }else if (UserInputManager.instance.SprayInput)
+            
+            animator.SetTrigger("UsedPickaxe");
+
+        }
+        else if (UserInputManager.instance.SprayInput)
         {
-            pickaxeModel.SetActive(false);
+            animator.SetTrigger("StartedWaterSpray");
         }
     }
 }
