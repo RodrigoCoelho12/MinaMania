@@ -1,3 +1,4 @@
+using Unity.Mathematics.Geometry;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -22,8 +23,12 @@ public partial class Player
         float verticalInput = UserInputManager.instance.MovementInput.y;
 
         Vector3 movement = new Vector3(horizontalInput, 0, verticalInput).normalized;
-
-        animator.SetFloat("Blend", verticalInput);
+        
+        float d = Vector3.Dot(transform.forward, Vector3.forward);
+        
+        Debug.Log(d);
+        
+        animator.SetFloat("Blend", d*verticalInput);
 
         float currentSpeed = isDashing ? dashSpeed : speedValue;
 
