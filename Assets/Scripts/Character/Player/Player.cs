@@ -8,9 +8,15 @@ public partial class Player : Character
 {
     float yPosition;
     public Image healthBarUI;
+    private GameManager gameManager;
 
     void Start()
     {
+        if (gameManager == null)
+        {
+            gameManager = FindObjectOfType<GameManager>();
+        }
+
         cc = GetComponent<CharacterController>();
         yPosition = transform.position.y;
         
@@ -59,6 +65,15 @@ public partial class Player : Character
         {
             healthBar.AdjustStatusBarBySubtraction(other.GetComponentInParent<Enemy>().damage);
             healthBarUI.fillAmount = healthBar.CurrentBarValue/100;
+
+            if (healthBar.CurrentBarValue <= 0)
+            {
+                if(gameManager == null) {
+                    Debug.Log("null");
+                    gameManager = GetComponent<GameManager>();
+                }
+                gameManager.GameOver();
+            }
         }
     }
 

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class RankingController : MonoBehaviour
 {
+    public TMP_InputField nameInputField;
+    public Player player;
+
     [Header("Ranking UI (Single Field)")]
     public List<TextMeshProUGUI> rankingTexts;
 
@@ -27,11 +30,15 @@ public class RankingController : MonoBehaviour
         UpdateRankingUI();
     }
 
-    public void InsertPlayerOnRanking(string name, int score)
+    public void InsertPlayerOnRanking()
     {
-        PlayerData playerData = new PlayerData(name, score);
+        string playerName = nameInputField.text;
+        int score = player.score;
+
+        PlayerData playerData = new PlayerData(playerName, score);
 
         rankingList.AddScore(playerData);
+        saveSystem.SavePlayerDataList(rankingList);
     }
 
     public void UpdateRankingUI()

@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 
     private GameObject currentPanel;
     [SerializeField] GameObject pausePanel;
+    [SerializeField] GameObject inputUserNamePanel;
 
     public bool isPaused;
 
@@ -91,6 +92,15 @@ public class GameManager : MonoBehaviour
     public void ChangeSFXVolume()
     {
         AudioManager.instance.ChangeSFXVolume(sfxslider.value);
+    }
+
+    public void GameOver()
+    {
+        Time.timeScale = 0f;
+        inputUserNamePanel.SetActive(true);
+        SetCurrentPanel(inputUserNamePanel);
+
+        isPaused = true;
     }
 
     public void PauseGame()
