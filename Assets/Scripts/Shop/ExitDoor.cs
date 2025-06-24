@@ -12,11 +12,11 @@ public class ExitDoor : MonoBehaviour, IPointerClickHandler, IPointerExitHandler
     public void OnPointerExit(PointerEventData eventData)
     {
         this.transform.localScale = new Vector3(1f, 1f, 1f);
-        this.GetComponent<Renderer>().material.color = Color.grey;
+        //this.GetComponent<Renderer>().material.color = Color.grey;
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
         this.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
-        this.GetComponent<Renderer>().material.color = Color.cyan;
+       // this.GetComponent<Renderer>().material.color = Color.cyan;
     }
 }
