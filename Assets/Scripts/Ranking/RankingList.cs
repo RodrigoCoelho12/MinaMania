@@ -1,65 +1,28 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
+[Serializable]
 public class RankingList
 {
-    public RankingNode Head;
-    public RankingNode Tail;
+    public List<PlayerData> playerDataList = new List<PlayerData>();
 
-    public RankingList()
+    public void AddScore(PlayerData newPlayer)
     {
-        Head = null;
-        Tail = null;
+        playerDataList.Add(newPlayer);
+        SortRanking();
     }
 
-    public void AddScore(PlayerData playerData)
+    public List<PlayerData> GetTopPlayers(int count)
     {
-        RankingNode newNode = new RankingNode(playerData);
-
-        if (Head == null)
-        {
-            Head = newNode;
-            Tail = newNode;
-            return;
-        }
-
-        RankingNode current = Head;
-
-        while (current != null && current.PlayerData.score > playerData.score)
-            current = current.Next;
-
-        if (current == Head)        // Inserção no início
-        {
-            newNode.Next = Head;
-            Head.Previous = newNode;
-            Head = newNode;
-        }
-        else if (current == null)   // Inserção no final
-        {
-            Tail.Next = newNode;
-            newNode.Previous = Tail;
-            Tail = newNode;
-        }
-        else    // Inserção no meio
-        {
-            newNode.Previous = current.Previous;
-            newNode.Next = current;
-            current.Previous.Next = newNode;
-            current.Previous = newNode;
-        }
+        return playerDataList.Take(count).ToList();
     }
 
-    public List<PlayerData> GetTopPlayers(int n)
+    private void SortRanking()
     {
-        List<PlayerData> topList = new List<PlayerData>();
-        var current = Head;
-        int count = 0;
-
-        while (current != null && count < n)
-        {
-            topList.Add(current.PlayerData);
-            current = current.Next;
-            count++;
-        }
-        return topList;
+        playerDataList = playerDataList
+            .OrderByDescending(p => p.score)
+            .ThenBy(p => p.name)
+            .ToList();
     }
 }

@@ -22,16 +22,7 @@ public class RankingController : MonoBehaviour
 
     void Start()
     {
-        InsertPlayerOnRanking("Amanda", 2500);
-        InsertPlayerOnRanking("Dandan", 3200);
-        InsertPlayerOnRanking("Duda", 3300);
-        InsertPlayerOnRanking("Ivan", 1500);
-        InsertPlayerOnRanking("Jaum", 2900);
-        InsertPlayerOnRanking("Nelson", 1800);
-        InsertPlayerOnRanking("Rodrigão", 1800);
-        InsertPlayerOnRanking("Roque", 1800);
-
-        saveSystem.SavePlayerDataList(rankingList);
+        rankingList = loadSystem.LoadRankingList();
 
         UpdateRankingUI();
     }
@@ -46,6 +37,7 @@ public class RankingController : MonoBehaviour
     public void UpdateRankingUI()
     {
         List<PlayerData> top = rankingList.GetTopPlayers(rankingTexts.Count);
+
         for (int i = 0; i < rankingTexts.Count; i++)
         {
             if (i < top.Count)
