@@ -15,8 +15,8 @@ MonoBehaviour:
   itemName: 
   description: 
   shopDescription: 
-  itemMesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
-  itemMaterial: {fileID: 5576205013713683825, guid: fa4f5f53602a2734681d907b2ee20a57, type: 3}
+  itemMesh: {fileID: -3952231572300330341, guid: 7d8027f2ad922e441b0aa811b014587a, type: 3}
+  itemMaterial: {fileID: 2100000, guid: 340c472d6c64a884eb3c441db28c6796, type: 2}
   itemPrice: 0
   dashSpeed: 25
   dashDuration: 0.5
