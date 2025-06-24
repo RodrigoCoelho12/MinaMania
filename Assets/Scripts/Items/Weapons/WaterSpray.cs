@@ -9,7 +9,7 @@ public class WaterSpray : Weapon
     [SerializeField] float waterSpent;
     [SerializeField] float waterFillSpeed;
 
-    [SerializeField] bool waterIsRecharging =  false;
+    public bool waterIsRecharging =  false;
 
     public float knockbackSpeed;
 
@@ -33,13 +33,15 @@ public class WaterSpray : Weapon
         MeshRenderer wsMeshRenderer= gameObject.GetComponent<MeshRenderer>();
         Collider wsCollider = gameObject.GetComponent<Collider>();
 
-        if (UserInputManager.instance.SprayInput && waterIsRecharging == false)
+        if (UserInputManager.instance.SprayInput && !waterIsRecharging)
         {
             animator.SetTrigger("StartedWaterSpray");
-            animator.SetBool("IsUsingWaterSpray", true);
 
-            wsMeshRenderer.enabled = true;
-            wsCollider.enabled = true;
+            if (animator.GetBool("IsUsingWaterSpray"))
+            {
+                wsMeshRenderer.enabled = true;
+                wsCollider.enabled = true;
+            }
 
             currentWaterAmount -= waterSpent * Time.deltaTime;
             waterSprayBar.fillAmount -= (waterSpent * Time.deltaTime) / totalWaterAmount;

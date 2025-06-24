@@ -5,13 +5,16 @@ using UnityEngine;
 
 public class Pickaxe : Weapon
 {
-    private Animator animator;
+    private Animator animatorPlayer;
+    private Animator animatorAttack;
+
 
     public int attackIndex = 1;
 
     private void Start()
     {
-        animator = GetComponentInParent<Animator>();
+        animatorPlayer = GetComponentInParent<Animator>();
+        animatorAttack = GetComponentInChildren<Animator>();
     }
 
     public override void Attack()
@@ -20,12 +23,10 @@ public class Pickaxe : Weapon
         {
             AudioManager.instance.SwitchSFX(1);
             
-            animator.SetTrigger("UsedPickaxe");
+            animatorPlayer.SetBool("UsedPickaxe", true);
+            animatorAttack.SetTrigger("IsAttacking");
+            gameObject.GetComponentInChildren<Collider>().enabled = true;
 
-        }
-        else if (UserInputManager.instance.SprayInput)
-        {
-            animator.SetTrigger("StartedWaterSpray");
         }
     }
 }

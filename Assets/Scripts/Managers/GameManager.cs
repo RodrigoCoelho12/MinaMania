@@ -21,6 +21,9 @@ public class GameManager : MonoBehaviour
     {
         AudioManager.instance.SwitchMusic(0);
         SetDefaultVolume();
+        
+        //Time.timeScale = 1f;
+        //isPaused = true;
     }
 
     private void Update()
@@ -89,7 +92,7 @@ public class GameManager : MonoBehaviour
     public void UnpauseGame()
     {
         currentPanel.SetActive(false);
-        if(currentPanel != pausePanel)
+        if(currentPanel != pausePanel && currentPanel != null)
         {
             currentPanel = pausePanel;
         }
@@ -113,7 +116,7 @@ public class GameManager : MonoBehaviour
         {
             EventSystem.current.SetSelectedGameObject(settingsPanelFirst);
         }
-        else if (currentPanel.name == "KeyBind_Keyboard Panel")
+        else if (currentPanel.name == "Tutorial Panel")
         {
             EventSystem.current.SetSelectedGameObject(keyboardControlsPanelFirst);
         }

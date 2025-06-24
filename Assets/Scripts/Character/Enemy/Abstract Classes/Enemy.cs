@@ -186,6 +186,15 @@ public abstract class Enemy : Character
             DeathRoutine();
     }
 
+    public IEnumerator StopMovementTemp()
+    {
+        navMeshAgent.enabled = false;
+
+        yield return new WaitForSeconds(1f);
+
+        navMeshAgent.enabled = true;
+    }
+
     public override void DeathRoutine()
     {
         // Play death animation here if needed.
@@ -203,9 +212,11 @@ public abstract class Enemy : Character
         if (other.CompareTag("Pickaxe"))
         {
             Pickaxe pickaxe = other.GetComponent<Pickaxe>();
-            
+          
             healthBar.AdjustStatusBarBySubtraction(10);
             CheckDeath();
+
+            StartCoroutine(StopMovementTemp());
         }
 
     }

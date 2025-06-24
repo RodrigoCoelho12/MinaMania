@@ -60,7 +60,7 @@ public class UserInputManager : MonoBehaviour
     {
         MovementInput = _movementAction.ReadValue<Vector2>();
         LookDirectionInput = _lookDirectionAction.ReadValue<Vector2>();
-        PickaxeInput = _pickaxeAction.IsPressed();
+        PickaxeInput = _pickaxeAction.WasPressedThisFrame();
         SprayInput = _sprayAction.IsPressed();
         DynamiteInputPressed = _dynamiteAction.WasPressedThisFrame();
         DynamiteInputReleased = _dynamiteAction.WasReleasedThisFrame();
