@@ -26,8 +26,6 @@ public partial class Player
         
         float d = Vector3.Dot(transform.forward, Vector3.forward);
         
-        Debug.Log(d);
-        
         animator.SetFloat("Blend", d*verticalInput);
 
         float currentSpeed = isDashing ? dashSpeed : speedValue;

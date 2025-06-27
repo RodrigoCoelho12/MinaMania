@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject settingsPanelFirst;
     [SerializeField] GameObject keyboardControlsPanelFirst;
     [SerializeField] GameObject gamepadControlsPanelFirst;
+    [SerializeField] GameObject inputUserNamePanelFirst;
+    [SerializeField] GameObject inputUserNamePanel;
     [SerializeField] Player player;
 
     public bool isPaused;
@@ -107,6 +109,7 @@ public class GameManager : MonoBehaviour
     public void SetCurrentPanel(GameObject panel)
     {
         currentPanel = panel;
+
         if (currentPanel.name == "Pause Panel") 
         { 
             EventSystem.current.SetSelectedGameObject(pausePanelFirst);
@@ -116,7 +119,7 @@ public class GameManager : MonoBehaviour
         {
             EventSystem.current.SetSelectedGameObject(settingsPanelFirst);
         }
-        else if (currentPanel.name == "Tutorial Panel")
+        else if (currentPanel.name == "KeyBind_Keyboard Panel")
         {
             EventSystem.current.SetSelectedGameObject(keyboardControlsPanelFirst);
         }
@@ -124,6 +127,18 @@ public class GameManager : MonoBehaviour
         {
             EventSystem.current.SetSelectedGameObject(gamepadControlsPanelFirst);
         }
+        else if (currentPanel.name == "InputUsername Panel")
+        {
+            EventSystem.current.SetSelectedGameObject(inputUserNamePanelFirst);
+        }
+    }
+    public void GameOver()
+    {
+        Time.timeScale = 0f;
+        inputUserNamePanel.SetActive(true);
+        SetCurrentPanel(inputUserNamePanel);
+
+        isPaused = true;
     }
 
     public void ResetGame()

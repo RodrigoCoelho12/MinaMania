@@ -41,10 +41,10 @@ public class WaterSpray : Weapon
             {
                 wsMeshRenderer.enabled = true;
                 wsCollider.enabled = true;
-            }
 
-            currentWaterAmount -= waterSpent * Time.deltaTime;
-            waterSprayBar.fillAmount -= (waterSpent * Time.deltaTime) / totalWaterAmount;
+                currentWaterAmount -= waterSpent * Time.deltaTime;
+                waterSprayBar.fillAmount -= (waterSpent * Time.deltaTime) / totalWaterAmount;
+            }
 
            
             waterSpayAttackCount++;

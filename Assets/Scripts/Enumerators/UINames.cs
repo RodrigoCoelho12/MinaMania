@@ -2,18 +2,8 @@ public enum UINames
 {
     MainMenu,
     Settings,
-    Store,
-    InsertUsername,
-    HUD,
-    Pause,
     Ranking,
-    Dialog,
-    Credit,
-    SpecificCredit,
     KeyBinds,
-    Tutorial,
-    GameOver,
-    Loading,
 }
 
 public static class UINamesExtensions

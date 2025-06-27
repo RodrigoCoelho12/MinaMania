@@ -3,9 +3,11 @@ using UnityEngine;
 
 public class SaveSystem : MonoBehaviour
 {
-    public void SavePlayerData(PlayerData data)
+    private string filePath => Application.persistentDataPath + "/playerData.json";
+
+    public void SaveRankingList(RankingList rankingList)
     {
-        string json = JsonUtility.ToJson(data);
-        File.WriteAllText(Application.persistentDataPath + "/playerData.json", json);
+        string json = JsonUtility.ToJson(rankingList);
+        File.WriteAllText(filePath, json);
     }
 }

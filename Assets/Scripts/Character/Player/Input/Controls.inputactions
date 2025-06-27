@@ -424,7 +424,7 @@
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Submit",
@@ -775,17 +775,6 @@
                 },
                 {
                     "name": "",
-                    "id": "1486a477-2d73-4018-bb00-ae3c5c0191ce",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard & Mouse",
-                    "action": "Submit",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "4b87725b-1ccf-40a5-b1f9-10238b11392f",
                     "path": "*/{Cancel}",
                     "interactions": "",
@@ -801,7 +790,7 @@
                     "path": "<Mouse>/position",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard&Mouse",
+                    "groups": "Keyboard&Mouse;Keyboard & Mouse",
                     "action": "Point",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -830,7 +819,7 @@
                 },
                 {
                     "name": "",
-                    "id": "3684845c-d87d-4ea6-afd3-0e45fd926311",
+                    "id": "c1c6296e-e104-459d-a672-41fda0f413f5",
                     "path": "<VirtualMouse>/position",
                     "interactions": "",
                     "processors": "",

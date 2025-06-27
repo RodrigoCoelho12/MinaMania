@@ -6,7 +6,7 @@ public class LightingTesterTool
     [MenuItem("Tools/Arthur Roque/Scenes/Lighting Tester")]
     public static void LightingTester()
     {
-        Light[] lights = GameObject.FindObjectsOfType<Light>();
+        Light[] lights = GameObject.FindObjectsByType<Light>(FindObjectsSortMode.None);
 
         foreach (Light light in lights)
         {

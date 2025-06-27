@@ -5,18 +5,18 @@ using UnityEngine.XR;
 
 public class UserInputManager : MonoBehaviour
 {
-   public static UserInputManager instance;
+    public static UserInputManager instance;
 
 
-    public Vector2 MovementInput {  get; private set; }
-    public Vector2 LookDirectionInput {  get; private set; }
+    public Vector2 MovementInput { get; private set; }
+    public Vector2 LookDirectionInput { get; private set; }
     public bool PickaxeInput { get; private set; }
     public bool SprayInput { get; private set; }
     public bool DynamiteInputPressed { get; private set; }
     public bool DynamiteInputReleased { get; private set; }
     public bool DashInput { get; private set; }
     public bool MenuOpenCloseInput { get; private set; }
-    public bool isUsingGamepad {  get; private set; }
+    public bool isUsingGamepad { get; private set; }
 
 
 
@@ -67,13 +67,18 @@ public class UserInputManager : MonoBehaviour
         DashInput = _dashAction.WasPressedThisFrame();
         MenuOpenCloseInput = _menuOpenCloseAction.WasPressedThisFrame();
 
-        if(_playerInput.currentControlScheme == "Gamepad")
+        if (_playerInput.currentControlScheme == "Gamepad")
         {
             isUsingGamepad = true;
         }
         else
         {
             isUsingGamepad = false;
+        }
+
+        if (DynamiteInputReleased)
+        {
+            Debug.Log("Soltou o botao da dinamite");
         }
     }
 }

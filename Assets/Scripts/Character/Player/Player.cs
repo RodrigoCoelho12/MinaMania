@@ -7,15 +7,21 @@ public partial class Player : Character
 {
     float yPosition;
     public Image healthBarUI;
+    private GameManager gameManager;
 
     void Start()
     {
+        if (gameManager == null)
+        {
+            gameManager = FindFirstObjectByType<GameManager>();
+        }
+
         cc = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
         yPosition = transform.position.y;
         
-        if (pointsText == null)
-            Debug.LogError("pointsText nao atribuido no PlayerRanking.");
+        if (scoreText == null)
+            Debug.LogError("scoreText nao atribuido no PlayerRanking.");
 
         UpdateInterface();
     }
@@ -44,6 +50,16 @@ public partial class Player : Character
         {
             healthBar.AdjustStatusBarBySubtraction(other.GetComponentInParent<Enemy>().damage);
             healthBarUI.fillAmount = healthBar.CurrentBarValue/100;
+            
+            if (healthBar.CurrentBarValue <= 0)
+            {
+                if (gameManager == null)
+                {
+                    Debug.Log("null");
+                    gameManager = GetComponent<GameManager>();
+                }
+                gameManager.GameOver();
+            }
         }
     }
 

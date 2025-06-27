@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
@@ -10,6 +11,9 @@ public class UIManager : MonoBehaviour
     public static UIManager Instance { get; private set; }
     private Dictionary<UINames, GameObject> uiDictionary = new Dictionary<UINames, GameObject>();
     public GameObject gameInterface;
+    [SerializeField] GameObject mainMenuFirstButton;
+    [SerializeField] GameObject rankingFirstButton;
+    [SerializeField] GameObject settingsFirstButton;
 
     #endregion
 
@@ -50,6 +54,8 @@ public class UIManager : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+
+        EventSystem.current.SetSelectedGameObject(mainMenuFirstButton);
         InitializeUIDictionary();
     }
 
@@ -116,5 +122,36 @@ public class UIManager : MonoBehaviour
         SceneManager.LoadScene(1); // Load the game scene
         HidePanel(UINames.MainMenu); // Hide the main menu panel
         Time.timeScale = 1f; // Ensure the game runs at normal speed
+    }
+
+    private void Update()
+    {
+        if(UserInputManager.instance.isUsingGamepad)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+    }
+
+    public void SetSelectedPanelButton(GameObject panel)
+    {
+        if(panel.name == "Ranking Panel")
+        {
+            EventSystem.current.SetSelectedGameObject(rankingFirstButton);
+        }
+        else if(panel.name == "Settings Panel")
+        {
+            EventSystem.current.SetSelectedGameObject(settingsFirstButton);
+        }
+        else
+        {
+            EventSystem.current.SetSelectedGameObject(mainMenuFirstButton);
+        }
+
     }
 }

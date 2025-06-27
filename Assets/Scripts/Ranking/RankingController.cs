@@ -1,28 +1,56 @@
-using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class RankingController : MonoBehaviour
 {
-    public Text PrimeiroRankingScoreText;
-    public Text SegundoRankingScoreText;
-    public Text TerceiroRankingScoreText;
-    
+    public TMP_InputField nameInputField;
+    public Player player;
+
+    [Header("Ranking UI (Single Field)")]
+    public List<TextMeshProUGUI> rankingTexts;
+
     private LoadSystem loadSystem;
     private PlayerData playerData;
+    private RankingList rankingList;
+    private SaveSystem saveSystem;
 
+    private void Awake()
+    {
+        saveSystem = GetComponent<SaveSystem>();
+        loadSystem = GetComponent<LoadSystem>();
+
+        rankingList = new RankingList();
+    }
 
     void Start()
     {
-        loadSystem = new LoadSystem();
-        playerData = loadSystem.LoadPlayerData();
+        rankingList = loadSystem.LoadRankingList();
+
+        UpdateRankingUI();
     }
 
-    public void AtualizaRanking()
+    public void InsertPlayerOnRanking()
     {
-        PrimeiroRankingScoreText.text = playerData.RankFirstPlace.ToString();
-        SegundoRankingScoreText.text = playerData.RankSecondPlace.ToString();
-        TerceiroRankingScoreText.text = playerData.RankThirdPlace.ToString();
+        string playerName = nameInputField.text;
+        int score = player.score;
+
+        PlayerData playerData = new PlayerData(playerName, score);
+
+        rankingList.AddScore(playerData);
+        saveSystem.SaveRankingList(rankingList);
+    }
+
+    public void UpdateRankingUI()
+    {
+        List<PlayerData> top = rankingList.GetTopPlayers(rankingTexts.Count);
+
+        for (int i = 0; i < rankingTexts.Count; i++)
+        {
+            if (i < top.Count)
+                rankingTexts[i].text = $"{top[i].name} — {top[i].score}";
+            else
+                rankingTexts[i].text = "-";
+        }
     }
 }

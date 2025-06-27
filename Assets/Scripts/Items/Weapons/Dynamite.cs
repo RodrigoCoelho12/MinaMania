@@ -59,7 +59,6 @@ public class Dynamite : Weapon
         }
         if (UserInputManager.instance.DynamiteInputReleased && isChoosingTarget)
         {
-            Debug.Log("SOLTOU O BOTAO DINAMITE");
 
             isChoosingTarget = false;
 
