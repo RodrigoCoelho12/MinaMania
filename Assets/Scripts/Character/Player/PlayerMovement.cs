@@ -25,12 +25,15 @@ public partial class Player
         Vector3 movement = new Vector3(horizontalInput, 0, verticalInput).normalized;
         
         float d = Vector3.Dot(transform.forward, Vector3.forward);
-        
-        animator.SetFloat("Blend", d*verticalInput);
 
         float currentSpeed = isDashing ? dashSpeed : speedValue;
 
-        cc.SimpleMove(currentSpeed  * movement);
+        Vector3 finalMovement = currentSpeed * movement;
+
+        animator.SetFloat("YAxis", d * finalMovement.z);
+        animator.SetFloat("XAxis", d * finalMovement.x);
+
+        cc.SimpleMove(finalMovement);
 
     }
 
