@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UIElements;
@@ -32,7 +33,7 @@ public abstract class Enemy : Character
         {
             if (Time.timeScale != 0)
             {
-                yield return new WaitForSeconds(Random.Range(1f , 5f));
+                yield return new WaitForSeconds(UnityEngine.Random.Range(1f, 5f));
                 AudioManager.instance.SwitchEnemySFX(indiceAudioSource);
                 yield return new WaitForSeconds(5);
             }
@@ -61,14 +62,14 @@ public abstract class Enemy : Character
 
     public override void Move()
     {
-        if(gameObject.GetComponent<Rigidbody>().linearVelocity.magnitude <= 0.1) 
+        if (gameObject.GetComponent<Rigidbody>().linearVelocity.magnitude <= 0.1)
         {
             navMeshAgent.enabled = true;
         }
 
         if (!isAwakened || navMeshAgent == null || target == null)
             return;
-        
+
         // Set the destination for the NavMeshAgent
         navMeshAgent.SetDestination(target.position);
 
@@ -186,24 +187,37 @@ public abstract class Enemy : Character
             DeathRoutine();
     }
 
-    public IEnumerator StopMovementTemp()
+    private bool isMovementStopped = false;
+
+    public IEnumerator StopMovementTemp(float duration = 1f, Action onComplete = null)
     {
-        navMeshAgent.enabled = false;
+        if (isMovementStopped || navMeshAgent == null)
+            yield break;
 
-        yield return new WaitForSeconds(1f);
+        isMovementStopped = true;
 
-        navMeshAgent.enabled = true;
+        navMeshAgent.isStopped = true; // pause pathfinding
+        animator.SetBool("IsWalking", false);
+
+        yield return new WaitForSeconds(duration);
+
+        navMeshAgent.isStopped = false; // resume pathfinding
+        isMovementStopped = false;
+
+        onComplete?.Invoke();
     }
+
 
     public override void DeathRoutine()
     {
         // Play death animation here if needed.
         StopAttackRoutine();
         gameObject.SetActive(false);
-
+        FindAnyObjectByType<Player>().IncreasePoints(FindAnyObjectByType<EnemyHordeSpawner>().hordeCount);
         // Reset position and state for pooling or reuse.
         transform.position = _positionInProfiling;
         isAwakened = false;
+        //Dropar moeda
     }
 
     public override void OnTriggerEnter(Collider other)
@@ -212,11 +226,11 @@ public abstract class Enemy : Character
         if (other.CompareTag("Pickaxe"))
         {
             Pickaxe pickaxe = other.GetComponent<Pickaxe>();
-          
+
             healthBar.AdjustStatusBarBySubtraction(10);
             CheckDeath();
 
-            StartCoroutine(StopMovementTemp());
+            StartCoroutine(StopMovementTemp(2f, () => Debug.Log("Movement resumed.")));
         }
 
     }
@@ -226,8 +240,8 @@ public abstract class Enemy : Character
         // Handle continuous damage from WaterSpray.
         if (other.CompareTag("WaterSpray"))
         {
-            WaterSpray waterSpray= other.GetComponent<WaterSpray>();
-            
+            WaterSpray waterSpray = other.GetComponent<WaterSpray>();
+
             if (waterSpray == null)
                 return;
 
@@ -236,7 +250,7 @@ public abstract class Enemy : Character
             transform.Translate(knockbackDirection * Time.deltaTime * knockbackSpeed, Space.World);
 
             exposureTime += Time.deltaTime;
-            
+
             if (exposureTime >= 2f)
             {
                 healthBar.AdjustStatusBarBySubtraction(1 * 2);
