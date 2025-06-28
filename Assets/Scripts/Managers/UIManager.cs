@@ -54,6 +54,7 @@ public class UIManager : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        AudioManager.instance.SwitchMusic(0);
 
         EventSystem.current.SetSelectedGameObject(mainMenuFirstButton);
         InitializeUIDictionary();

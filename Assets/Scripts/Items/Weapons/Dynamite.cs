@@ -36,6 +36,11 @@ public class Dynamite : Weapon
     public Texture2D cursorDynamiteTexture;
     private Vector2 cursorHotspot;
 
+    [Header("Explosion Effect Properties")]
+    public GameObject explosionEffect;
+
+
+
     private void Start()
     {
         player = GameObject.FindWithTag("Player");
@@ -131,6 +136,8 @@ public class Dynamite : Weapon
                     rb.AddExplosionForce(dynamiteData.explosionForce, dynamite.transform.position, dynamiteData.explosionRadius, 0f,ForceMode.Impulse);
                 }
             }
+            GameObject explosionClone = Instantiate(explosionEffect, dynamite.transform.position, explosionEffect.transform.rotation);
+            Destroy(explosionClone, 2f);
         }
     }
     private void UpdateDynamiteUI()

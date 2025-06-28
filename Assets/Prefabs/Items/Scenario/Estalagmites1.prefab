@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4239659071718320006}
   - component: {fileID: 2670179920254272672}
   - component: {fileID: 7452341376980053522}
+  - component: {fileID: 4514477675063490728}
   m_Layer: 0
   m_Name: Estalagmites1
   m_TagString: Untagged
@@ -29,8 +30,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.00000011920929, y: 0, z: 0}
-  m_LocalScale: {x: 1.8119555, y: 1.8119555, z: 1.8119555}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2.65, y: 2.65, z: 2.65}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -109,3 +110,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -4117684241606163180, guid: 25b50022763646a408f8142b3028296d, type: 3}
+--- !u!208 &4514477675063490728
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1576302188915961343}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.4, y: 0.39000002, z: 0.201}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.059000004, y: 0.388, z: -0.014}
+  m_TimeToStationary: 0.5

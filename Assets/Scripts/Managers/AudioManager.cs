@@ -13,6 +13,7 @@ public class AudioManager : MonoBehaviour
     public List<AudioSource> enemySfx = new List<AudioSource>();
     public AudioSource musicSource;
     public AudioSource sfxSource;
+    public AudioSource waterSfxSource;
 
 
 
@@ -40,12 +41,26 @@ public class AudioManager : MonoBehaviour
         musicSource.Play();
     }
 
-    public void SwitchSFX(int indice)
-    {
+    public void PlaySFX(int indice)
+    {    
         sfxSource.clip = sfx[indice];
 
         sfxSource.Play();
+        Debug.Log("play no sfx da arma");
     }
+
+    public void PlayLoopedSFX(int indice)
+    {
+        waterSfxSource.clip = sfx[indice];
+
+        waterSfxSource.Play();
+    }
+    public void StopLoopedSFX()
+    {
+        waterSfxSource.Stop();
+    }
+
+    
 
     public void SwitchEnemySFX(int indice)
     {
@@ -66,39 +81,39 @@ public class AudioManager : MonoBehaviour
     // Mudanca do volume max
     public void ChangeMasterVolume(float vol)
     {
-        //if (vol > -20)
-        //{
+        if (vol > -30)
+        {
             mixer.SetFloat("MasterVol", vol);
-        //}
-        //else
-        //{
-        //    mixer.SetFloat("MasterVol", -80);
-        //}
+        }
+        else
+        {
+            mixer.SetFloat("MasterVol", -80);
+        }
     }
 
     // Mudanca do volume da musica
     public void ChangeMusicVolume(float vol)
     {
-        //if (vol > -20)
-        //{
+        if (vol > -30)
+        {
             mixer.SetFloat("MusicVol", vol);
-        //}
-        //else
-        //{
-        //    mixer.SetFloat("MusicVol", -80);
-        //}
+        }
+        else
+        {
+            mixer.SetFloat("MusicVol", -80);
+        }
     }
 
     // Mudanca do volume dos efeitos sonoros
     public void ChangeSFXVolume(float vol)
     {
-        //if (vol > -20)
-        //{
+        if (vol > -20)
+        {
             mixer.SetFloat("SFXVol", vol);
-        //}
-        //else
-        //{
-        //    mixer.SetFloat("SFXVol", -80);
-        //}
+        }
+        else
+        {
+            mixer.SetFloat("SFXVol", -80);
+        }
     }
 }

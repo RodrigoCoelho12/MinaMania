@@ -7,6 +7,7 @@ public class Pickaxe : Weapon
 {
     private Animator animatorPlayer;
     private Animator animatorAttack;
+    private ParticleSystem particleSystem;
 
 
     public int attackIndex = 1;
@@ -15,17 +16,20 @@ public class Pickaxe : Weapon
     {
         animatorPlayer = GetComponentInParent<Animator>();
         animatorAttack = GetComponentInChildren<Animator>();
+        particleSystem = GetComponentInChildren<ParticleSystem>(); 
     }
 
     public override void Attack()
     {
-        if (UserInputManager.instance.PickaxeInput && !UserInputManager.instance.SprayInput)
+        if (UserInputManager.instance.PickaxeInput && !UserInputManager.instance.SprayInput && animatorPlayer.GetBool("IsUsingPickaxe") == false)
         {
-            AudioManager.instance.SwitchSFX(1);
+           // AudioManager.instance.PlaySFX(1);
             
-            animatorPlayer.SetBool("UsedPickaxe", true);
-            animatorAttack.SetTrigger("IsAttacking");
+            animatorAttack.SetTrigger("AttackTrigger");
             gameObject.GetComponentInChildren<Collider>().enabled = true;
+            particleSystem.Play();
+
+            animatorPlayer.SetBool("IsUsingPickaxe", true);
 
         }
     }

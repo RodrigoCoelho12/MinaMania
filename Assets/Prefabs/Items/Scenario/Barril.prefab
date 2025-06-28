@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 600358297702104485}
   - component: {fileID: 5822700459464964976}
   - component: {fileID: 3441164451799485406}
+  - component: {fileID: 1861130745484994623}
   m_Layer: 0
   m_Name: Barril
   m_TagString: Untagged
@@ -29,8 +30,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1.8064035, y: 1.8064035, z: 1.8064035}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2.43, y: 2.43, z: 2.43}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -104,8 +105,24 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 5406791406776542442, guid: 4be37d5a19898e747975a3d51e24dd1c, type: 3}
+--- !u!208 &1861130745484994623
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5768119196057598916}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 0.51100004, y: 0.642, z: 0.51100004}
+  m_MoveThreshold: 2.27
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.642, z: 0}
+  m_TimeToStationary: 0.5

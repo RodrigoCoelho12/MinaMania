@@ -30,7 +30,7 @@ public class WaterSpray : Weapon
 
     public override void Attack()
     {
-        MeshRenderer wsMeshRenderer= gameObject.GetComponent<MeshRenderer>();
+        ParticleSystem wsParticleSystem = gameObject.transform.parent.GetComponentInChildren<ParticleSystem>();
         Collider wsCollider = gameObject.GetComponent<Collider>();
 
         if (UserInputManager.instance.SprayInput && !waterIsRecharging)
@@ -39,7 +39,7 @@ public class WaterSpray : Weapon
 
             if (animator.GetBool("IsUsingWaterSpray"))
             {
-                wsMeshRenderer.enabled = true;
+                wsParticleSystem.Play();
                 wsCollider.enabled = true;
 
                 currentWaterAmount -= waterSpent * Time.deltaTime;
@@ -51,7 +51,7 @@ public class WaterSpray : Weapon
         }
         else
         {
-            wsMeshRenderer.enabled = false;
+            wsParticleSystem.Stop();
             wsCollider.enabled = false;
             animator.SetBool("IsUsingWaterSpray", false);
 

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2135093006433679940}
   - component: {fileID: 2993459203232285179}
   - component: {fileID: 2474223692695243383}
+  - component: {fileID: 4036689790769615170}
   m_Layer: 0
   m_Name: Carrinho
   m_TagString: Untagged
@@ -29,8 +30,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.8191781, y: 2.8915835e-18, z: -12.010811}
-  m_LocalScale: {x: 1.8119555, y: 1.8119555, z: 1.8119555}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2.65, y: 2.65, z: 2.65}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -110,3 +111,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.6192465, y: 1.1732925, z: 0.97459805}
   m_Center: {x: 0.077009514, y: 0.58664626, z: -0.003170045}
+--- !u!208 &4036689790769615170
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4095768984947609272}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.8, y: 0.57, z: 0.48}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.07, y: 0.587, z: 0}
+  m_TimeToStationary: 0.5

@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        AudioManager.instance.SwitchMusic(0);
+        AudioManager.instance.SwitchMusic(1);
         SetDefaultVolume();
         
         //Time.timeScale = 1f;
