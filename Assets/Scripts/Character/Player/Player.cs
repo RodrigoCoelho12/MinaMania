@@ -61,6 +61,12 @@ public partial class Player : Character
                 gameManager.GameOver();
             }
         }
+
+        if (other.CompareTag("Drop"))
+        {
+            dropCurrency++;
+            Destroy(other.gameObject);
+        }
     }
 
     public override void OnTriggerStay(Collider other)

@@ -9095,7 +9095,7 @@ MonoBehaviour:
   mouseSensitivity: 100
   rotationSpeed: 10
   raycastDistance: 100
-  coins: 0
+  dropCurrency: 0
   currentPickaxeData: {fileID: 11400000, guid: 17cad3eb10d510a40b384568e7f0aaa7, type: 2}
   currentWaterSprayData: {fileID: 11400000, guid: 8f5d02a243540c040a5df2260e54d768, type: 2}
   currentDynamiteData: {fileID: 11400000, guid: 8a681f19393f222438fcf97051ccafee, type: 2}

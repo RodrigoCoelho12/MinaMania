@@ -8,7 +8,7 @@ public partial class Player
     [Header("Player Resources Properties")]
 
     [Header(" └─ Inventory")]
-    public float coins;
+    public float dropCurrency;
 
     [Header(" └─ Weapons")]
     public PickaxeData currentPickaxeData;

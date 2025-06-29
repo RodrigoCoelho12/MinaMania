@@ -7,7 +7,7 @@ public class Pickaxe : Weapon
 {
     private Animator animatorPlayer;
     private Animator animatorAttack;
-    private ParticleSystem particleSystem;
+    private ParticleSystem pickaxeParticleSystem;
 
 
     public int attackIndex = 1;
@@ -16,7 +16,7 @@ public class Pickaxe : Weapon
     {
         animatorPlayer = GetComponentInParent<Animator>();
         animatorAttack = GetComponentInChildren<Animator>();
-        particleSystem = GetComponentInChildren<ParticleSystem>(); 
+        pickaxeParticleSystem = GetComponentInChildren<ParticleSystem>(); 
     }
 
     public override void Attack()
@@ -27,7 +27,7 @@ public class Pickaxe : Weapon
             
             animatorAttack.SetTrigger("AttackTrigger");
             gameObject.GetComponentInChildren<Collider>().enabled = true;
-            particleSystem.Play();
+            pickaxeParticleSystem.Play();
 
             animatorPlayer.SetBool("IsUsingPickaxe", true);
 

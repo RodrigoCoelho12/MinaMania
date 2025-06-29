@@ -12,6 +12,7 @@ TagManager:
   - EnemyAttack
   - Collectible
   - ShopDoor
+  - Drop
   layers:
   - Default
   - TransparentFX

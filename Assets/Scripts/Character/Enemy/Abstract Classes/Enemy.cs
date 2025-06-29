@@ -24,6 +24,8 @@ public abstract class Enemy : Character
 
     private NavMeshAgent navMeshAgent; // Reference to the NavMeshAgent component
 
+    public GameObject dropPrefab;
+
     int indiceAudioSource;
 
     IEnumerator EnemySound()
@@ -197,6 +199,8 @@ public abstract class Enemy : Character
 
     public override void DeathRoutine()
     {
+        Instantiate(dropPrefab, gameObject.transform.position, Quaternion.identity);
+
         // Play death animation here if needed.
         StopAttackRoutine();
         gameObject.SetActive(false);
