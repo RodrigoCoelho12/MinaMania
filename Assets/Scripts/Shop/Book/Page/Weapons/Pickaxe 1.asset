@@ -12,7 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a966a140831a6549b094d995d1a639f, type: 3}
   m_Name: Pickaxe 1
   m_EditorClassIdentifier: 
-  title: 
+  title: "Picareta de Ni\xF3bio (Nb)"
   id: 0
-  storyText: 
-  model3D: {fileID: 0}
+  storyText: "O Ni\xF3bio \xE9 um metal cinza-met\xE1lico, meio brilhante, que \xE9
+    considerado um metal raro na crosta terrestre. Ele \xE9 encontrado em minerais
+    espec\xEDficos, como a columbita e a tantalita. O Ni\xF3bio \xE9 conhecido por
+    ser extremamente resistente \xE0 corros\xE3o, ter um alto ponto de fus\xE3o e
+    ser muito forte, mesmo em altas temperaturas. Al\xE9m disso, ele melhora a resist\xEAncia
+    e a leveza de ligas met\xE1licas. O Ni\xF3bio \xE9 um \"metal do futuro\", essencial
+    na fabrica\xE7\xE3o de a\xE7os especiais para tubula\xE7\xF5es de g\xE1s e petr\xF3leo,
+    carros mais leves, turbinas de avi\xF5es e at\xE9 supercondutores para tecnologia
+    de ponta. Cerca de 90% das reservas de Ni\xF3bio est\xE3o no Brasil, principalmente
+    em Minas Gerais (Ara\xE7\xE1) e Goi\xE1s (Catal\xE3o), com outros dep\xF3sitos
+    menores no Canad\xE1 e Austr\xE1lia. Essa concentra\xE7\xE3o faz do Brasil um
+    ator geopol\xEDtico chave no mercado de ni\xF3bio, o que traz grande import\xE2ncia
+    econ\xF4mica, mas tamb\xE9m responsabilidades em termos de gest\xE3o ambiental
+    e de recursos. No jogo, essas propriedades s\xE3o consideradas um avan\xE7o significativo
+    al\xE9m de combinar for\xE7a e efici\xEAncia. "
+  model3D: {fileID: 658906643886061425, guid: 6a6667090363a4a42aebc78260dfc530, type: 3}

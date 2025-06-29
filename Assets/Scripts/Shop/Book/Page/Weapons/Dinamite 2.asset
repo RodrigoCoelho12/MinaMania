@@ -12,7 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a966a140831a6549b094d995d1a639f, type: 3}
   m_Name: Dinamite 2
   m_EditorClassIdentifier: 
-  title: 
+  title: 'Dinamite de Gelo de Metano '
   id: 0
-  storyText: 
-  model3D: {fileID: 0}
+  storyText: " O Gelo de Metano (ou Hidrato de Metano) n\xE3o \xE9 gelo comum, mas
+    uma subst\xE2ncia cristalina onde mol\xE9culas de metano (um g\xE1s inflam\xE1vel)
+    ficam presas dentro de uma \"gaiola\" de mol\xE9culas de \xE1gua. Ele se forma
+    em condi\xE7\xF5es de alta press\xE3o e baixa temperatura, como no fundo do oceano.
+    Quando as condi\xE7\xF5es de press\xE3o ou temperatura mudam, o Gelo de Metano
+    se desestabiliza e libera rapidamente o g\xE1s metano em alta press\xE3o. Essa
+    libera\xE7\xE3o abrupta pode causar uma explos\xE3o massiva com um grande raio
+    de impacto.  O Gelo de Metano \xE9 uma imensa fonte de energia potencial, sendo
+    considerado uma futura fronteira energ\xE9tica. Contudo, \xE9 tamb\xE9m um poss\xEDvel
+    risco ambiental: se grandes quantidades forem liberadas rapidamente do fundo
+    do oceano (por degelo ou terremotos), isso poderia intensificar o efeito estufa
+    (metano \xE9 um g\xE1s potente) e causar grandes explos\xF5es submarinas. Grandes
+    dep\xF3sitos de Hidrato de Metano s\xE3o encontrados em sedimentos oce\xE2nicos
+    profundos ao redor do mundo (especialmente nas margens continentais). H\xE1 um
+    grande interesse de pa\xEDses como Jap\xE3o, EUA e China na sua explora\xE7\xE3o,
+    mas a tecnologia ainda \xE9 um desafio, e o potencial impacto ambiental da sua
+    libera\xE7\xE3o em larga escala \xE9 uma preocupa\xE7\xE3o global. No jogo, essa
+    capacidade de gerar uma explos\xE3o em larga escala \xE9 o que o torna a dinamite
+    mais forte do jogo, com um raio de dano massivo, capaz de limpar grandes \xE1reas
+    e abrir caminhos rapidamente. \xC9 a explos\xE3o definitiva! "
+  model3D: {fileID: 8007541920902249124, guid: 072c43976d9e11448aed94a9e3dc017b, type: 3}

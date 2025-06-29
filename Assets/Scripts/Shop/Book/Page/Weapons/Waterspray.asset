@@ -12,7 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a966a140831a6549b094d995d1a639f, type: 3}
   m_Name: Waterspray
   m_EditorClassIdentifier: 
-  title: 
+  title: "Jato d\xB4\xC1gua de Argilito "
   id: 0
-  storyText: 
-  model3D: {fileID: 0}
+  storyText: "O Argilito \xE9 uma rocha sedimentar formada principalmente por gr\xE3os
+    muito finos de argila. Imagine a lama que secou e virou pedra! O Argilito possui
+    uma baixa permeabilidade, o que significa que a \xE1gua tem dificuldade de passar
+    por ele. Isso se deve aos seus poros min\xFAsculos e bem conectados. O Argilito
+    \xE9 uma rocha comum, mas importante na geologia por registrar informa\xE7\xF5es
+    sobre antigos ambientes de deposi\xE7\xE3o. Ele tamb\xE9m pode atuar como uma
+    barreira natural para o fluxo de \xE1gua subterr\xE2nea, protegendo aqu\xEDferos
+    mais profundos. No jogo, essa caracter\xEDstica pode ser usada para simbolizar
+    um jato d'\xE1gua com menor poder de penetra\xE7\xE3o. Um poder de infiltra\xE7\xE3o
+    limitado. "
+  model3D: {fileID: 6881239265415306478, guid: fdeb3cd76bb894742b0b50fd4d38fbbb, type: 3}

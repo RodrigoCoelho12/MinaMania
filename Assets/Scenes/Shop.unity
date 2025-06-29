@@ -367,6 +367,7 @@ MonoBehaviour:
   dashData: {fileID: 0}
   extraLifeData: {fileID: 0}
   magnetData: {fileID: 0}
+  playerCurrency: 0
 --- !u!4 &1232943734
 Transform:
   m_ObjectHideFlags: 0
@@ -3528,14 +3529,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3363458003842619589}
     m_Modifications:
-    - target: {fileID: 0}
-      propertyPath: currentCamera
-      value: 
-      objectReference: {fileID: 4147247130037813539}
-    - target: {fileID: 0}
-      propertyPath: confirmationUI
-      value: 
-      objectReference: {fileID: 2211253036173609928}
     - target: {fileID: 4335392330444345374, guid: f8879bf3daf325b478c57ac83a4354f1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.9375

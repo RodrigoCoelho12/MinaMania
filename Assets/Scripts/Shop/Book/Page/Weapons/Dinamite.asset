@@ -12,7 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a966a140831a6549b094d995d1a639f, type: 3}
   m_Name: Dinamite
   m_EditorClassIdentifier: 
-  title: 
+  title: "Dinamite de P\xF3lvora"
   id: 0
-  storyText: 
-  model3D: {fileID: 0}
+  storyText: "A P\xF3lvora \xE9 uma das primeiras e mais famosas subst\xE2ncias explosivas
+    da hist\xF3ria. Ela \xE9 uma mistura de tr\xEAs ingredientes principais: nitrato
+    de pot\xE1ssio (salitre), carv\xE3o e enxofre. O Enxofre, um dos componentes,
+    \xE9 conhecido por sua alta inflamabilidade e reatividade, o que aumenta a volatilidade
+    da p\xF3lvora e garante uma detona\xE7\xE3o r\xE1pida e eficaz.  Criada na China
+    antiga, a p\xF3lvora foi usada inicialmente em fogos de artif\xEDcio antes de
+    ser adaptada para armas e, posteriormente, para a minera\xE7\xE3o e constru\xE7\xE3o.
+    Ela transformou a guerra e a engenharia, permitindo a escava\xE7\xE3o de t\xFAneis
+    e a remo\xE7\xE3o de grandes volumes de rochas. No jogo, essa capacidade de explos\xE3o
+    \xE9 o que o torna a base para sua dinamite inicial. Sua capacidade de detona\xE7\xE3o
+    r\xE1pida \xE9 traduzida em uma explos\xE3o b\xE1sica, mas eficaz, para eliminar
+    grupos de inimigos ou blocos. "
+  model3D: {fileID: 8007541920902249124, guid: f8879bf3daf325b478c57ac83a4354f1, type: 3}

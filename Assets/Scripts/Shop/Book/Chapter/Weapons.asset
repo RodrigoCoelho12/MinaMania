@@ -13,4 +13,16 @@ MonoBehaviour:
   m_Name: Weapons
   m_EditorClassIdentifier: 
   chapterName: Armas
-  pages: []
+  pages:
+  - {fileID: 11400000, guid: 0cd6be9124406194598771e3006460b4, type: 2}
+  - {fileID: 11400000, guid: 8a1d399f682612443a80180b62b4a229, type: 2}
+  - {fileID: 11400000, guid: a8954f41a7b57f24389b050289db06d9, type: 2}
+  - {fileID: 11400000, guid: 29515c84ea338a449a4954cd2a330fc3, type: 2}
+  - {fileID: 11400000, guid: 157503d470bd2c44ebded56a784038ff, type: 2}
+  - {fileID: 11400000, guid: 9d7dcc99b0b109c44b81dbe8a54de67f, type: 2}
+  - {fileID: 11400000, guid: f6b85a23d249fa14d8f17a5cb2226a16, type: 2}
+  - {fileID: 11400000, guid: bbdcbaec45797044c8c027f9b2a2958f, type: 2}
+  - {fileID: 11400000, guid: e867df0331fe2d745b8a21cfcb358d26, type: 2}
+  - {fileID: 11400000, guid: 32eb9e1dba8134a47a75eb77bf826484, type: 2}
+  - {fileID: 11400000, guid: e2cac828e2833a14aaccb8a8dd5282ab, type: 2}
+  - {fileID: 11400000, guid: fed3e2cc9c76cfa4aa7a5292aeebe75a, type: 2}

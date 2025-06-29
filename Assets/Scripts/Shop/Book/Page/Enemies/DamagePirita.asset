@@ -27,4 +27,4 @@ MonoBehaviour:
     incluindo veios hidrotermais em praticamente todos os continentes. No jogo, a
     natureza reativa e corrosiva confere \xE0 Pirita sua caracter\xEDstica danosa
     aos inimigos, representando uma amea\xE7a que \"corr\xF3i\" suas defesas. "
-  model3D: {fileID: 0}
+  model3D: {fileID: 1369153010550857258, guid: 60f437411719fb54989b6cadbdb5925c, type: 3}

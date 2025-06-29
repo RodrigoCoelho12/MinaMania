@@ -12,7 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a966a140831a6549b094d995d1a639f, type: 3}
   m_Name: Magnet
   m_EditorClassIdentifier: 
-  title: 
+  title: "\xCDm\xE3 Mineral de Neod\xEDmio (Nd)"
   id: 0
-  storyText: 
+  storyText: "O Neod\xEDmio \xE9 um elemento qu\xEDmico, pertencente ao grupo dos
+    lantan\xEDdeos, tamb\xE9m conhecidos como Elementos Terras Raras, encontrado
+    em minerais como a monazita. Ele se apresenta como um metal s\xF3lido, prateado
+    e brilhante. O Neod\xEDmio \xE9 o componente chave dos \xEDm\xE3s mais poderosos
+    conhecidos atualmente devido \xE0 sua caracter\xEDstica magn\xE9tica. Estes \xEDm\xE3s
+    s\xE3o usados em uma infinidade de tecnologias modernas: fones de ouvido, motores
+    de carros el\xE9tricos e h\xEDbridos, discos r\xEDgidos de computadores, turbinas
+    e\xF3licas e equipamentos m\xE9dicos. Atualmente, a China domina a maior parte
+    da produ\xE7\xE3o e processamento de terras raras no mundo. No Brasil, os principais
+    Estados produtores de ETR s\xE3o Minas Gerais e Goi\xE1s. No jogo, sua for\xE7a
+    magn\xE9tica incompar\xE1vel se traduz em uma habilidade de atrair automaticamente
+    os itens, tornando sua coleta muito mais eficiente e r\xE1pida. "
   model3D: {fileID: 0}

@@ -12,7 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a966a140831a6549b094d995d1a639f, type: 3}
   m_Name: ExtraLife
   m_EditorClassIdentifier: 
-  title: 
+  title: "Colar da Vida Extra de L\xE1pis-Laz\xFAli com Granada"
   id: 0
-  storyText: 
+  storyText: "O L\xE1pis-laz\xFAli \xE9 uma rocha metam\xF3rfica, n\xE3o um mineral,
+    composta principalmente por lazurita, principal respons\xE1vel pela cor azul
+    vibrante, calcita e pirita. Sua origem est\xE1 ligada ao metamorfismo de contato
+    em m\xE1rmores ou calc\xE1rios. Usado desde a antiguidade no Egito (em joias
+    e m\xE1scaras funer\xE1rias, como a de Tutanc\xE2mon) e na Mesopot\xE2mia, o
+    L\xE1pis-Laz\xFAli foi mo\xEDdo para criar o pigmento \"azul ultramarino\", um
+    dos mais caros e cobi\xE7ados da hist\xF3ria da arte. \xC9 uma pedra associada
+    \xE0 prote\xE7\xE3o divina, sabedoria e realeza. Granada \xE9 o nome de um grupo
+    de minerais de silicato, que ocorre em v\xE1rias cores, mas as mais comuns s\xE3o
+    as vermelhas (Almandina). No contexto simb\xF3lico, s\xE3o associadas \xE0 vitalidade
+    e energia e regenera\xE7\xE3o. No jogo, o Colar da Vida Extra combina o simbolismo
+    do L\xE1pis-Laz\xFAli para prote\xE7\xE3o divina e sabedoria com a energia e
+    vitalidade da Granada. "
   model3D: {fileID: 0}
