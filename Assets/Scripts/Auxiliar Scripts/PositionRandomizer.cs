@@ -83,14 +83,18 @@ public class PositionRandomizer : MonoBehaviour
             Debug.LogError($"Error in Positioning: {e.Message}");
         }
 
-        NavMeshSurface navMeshSurface = Object.FindFirstObjectByType<NavMeshSurface>();
-        if (navMeshSurface != null)
+        NavMeshSurface[] navMeshSurfaces = Object.FindObjectsByType<NavMeshSurface>(FindObjectsSortMode.None);
+        if (navMeshSurfaces.Length > 0)
         {
-            navMeshSurface.BuildNavMesh();
+            foreach (var surface in navMeshSurfaces)
+            {
+                surface.BuildNavMesh();
+            }
         }
         else
         {
-            Debug.LogWarning("No NavMeshSurface found in the scene.");
+            Debug.LogWarning("No NavMeshSurface components found in the scene.");
         }
+
     }
 }

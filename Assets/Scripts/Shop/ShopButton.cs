@@ -1,139 +1,134 @@
+using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
+
 public class ShopButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     [Header("Shop Button Properties")]
     [SerializeField] private List<ItemData> itemData;
-    private int itemIndex;
+    private int itemIndex = 1;
+
     private Player player;
     private bool isHoverEnabled = true;
 
+    public Camera currentCamera;
+    public ItemConfirmationUI confirmationUI;
+    private Vector3 originalScale;
+
+    public Vector3[] camPos = new Vector3[2]; // index 0 = standard, index 1 = close
+    private bool isMoving;
+
     private void Start()
     {
+        originalScale = transform.localScale;
         player = FindFirstObjectByType<Player>();
         if (player == null)
+        {
             Debug.LogError("Player not found in the scene.");
-        itemIndex = 1; // Default to the first weapon
+        }
+
         ChangeButtonAppearance();
     }
+
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (!isHoverEnabled)
             return;
 
-        this.transform.localScale *= 1.1f; // Scale up the button on hover
+        transform.localScale *= 1.1f;
+
+        if (currentCamera.transform.position != camPos[1] || confirmationUI.confirmPanel.activeInHierarchy)
+            return;
+
         if (itemIndex < itemData.Count && itemData[itemIndex] != null)
         {
-            string tooltip;
-            if (itemData[itemIndex] is DynamiteData dynamiteData)
+            string tooltip = GetTooltipForItem(itemIndex);
+            if (!string.IsNullOrEmpty(tooltip))
             {
-                tooltip = dynamiteData.GetTooltip(itemData[itemIndex - 1] as DynamiteData);
+                TooltipManager.Instance.ShowTooltip(tooltip);
             }
-            else if (itemData[itemIndex] is PickaxeData pickaxeData)
-            {
-                tooltip = pickaxeData.GetTooltip(itemData[itemIndex - 1] as PickaxeData);
-            }
-            else if (itemData[itemIndex] is WaterSprayData waterSprayData)
-            {
-                tooltip = waterSprayData.GetTooltip(itemData[itemIndex - 1] as WaterSprayData);
-            }
-            else if (itemData[itemIndex] is DashData dashData)
-            {
-                tooltip = dashData.GetTooltip(itemData[itemIndex - 1] as DashData);
-            }
-            else if (itemData[itemIndex] is MagnetData magnetData)
-            {
-                tooltip = magnetData.GetTooltip(itemData[itemIndex - 1] as MagnetData);
-            }
-            else if (itemData[itemIndex] is ExtraLifeData extraLifeData)
-            {
-                tooltip = extraLifeData.GetTooltip(itemData[itemIndex - 1] as ExtraLifeData);
-            }
-            else
-            {
-                Debug.LogWarning("Unknown item type.");
-                return;
-            }
-
-            TooltipManager.Instance.ShowTooltip(tooltip);
         }
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        this.transform.localScale /= 1.1f; // Scale down the button on exit
+        transform.localScale = originalScale;
         TooltipManager.Instance.HideTooltip();
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (player == null)
+        if (currentCamera.transform.position == camPos[1])
         {
-            Debug.LogError("Player reference is missing.");
-            return;
-        }
-
-        if (itemIndex >= itemData.Count)
-        {
-            Debug.Log("No more weapons to assign.");
-            DisableButton();
-            return;
-        }
-
-        ItemData currentItem = itemData[itemIndex];
-
-        if (currentItem != null)
-        {
-            if (currentItem is DynamiteData dynamite)
+            if (player == null || itemIndex >= itemData.Count)
             {
-                player.currentDynamiteData = dynamite;
-                Debug.Log("Dynamite assigned.");
-            }
-            else if (currentItem is PickaxeData pickaxe)
-            {
-                player.currentPickaxeData = pickaxe;
-                Debug.Log("Pickaxe assigned.");
-            }
-            else if (currentItem is WaterSprayData waterspray)
-            {
-                player.currentWaterSprayData = waterspray;
-                Debug.Log("Waterspray assigned.");
-            }
-            else if (currentItem is DashData dash)
-            {
-                player.currentDashData = dash;
-                Debug.Log("Dash assigned.");
-            }
-            else if (currentItem is MagnetData magnet)
-            {
-                player.currentMagnetData = magnet;
-                Debug.Log("Magnet assigned.");
-            }
-            else if (currentItem is ExtraLifeData extraLife)
-            {
-                player.currentExtraLifeData = extraLife;
-                Debug.Log("Extra Life assigned.");
-            }
-            else
-            {
-                Debug.LogWarning("Unknown weapon type.");
+                Debug.Log("No more items or player not assigned.");
+                DisableButton();
                 return;
             }
+
+            HandleItemAssignment(itemData[itemIndex]);
         }
-        else
+        else if (!isMoving)
         {
-            Debug.LogWarning("Weapon data is null.");
+            StartMoving(camPos[1], 1f, currentCamera.gameObject);
+        }
+    }
+
+    private void HandleItemAssignment(ItemData item)
+    {
+        if (item == null)
+        {
+            Debug.LogWarning("Item data is null.");
             return;
         }
 
+        switch (item)
+        {
+            case DynamiteData dynamite:
+                ConfirmAssignment(() => player.currentDynamiteData = dynamite);
+                break;
+            case PickaxeData pickaxe:
+                ConfirmAssignment(() => player.currentPickaxeData = pickaxe);
+                break;
+            case WaterSprayData waterSpray:
+                ConfirmAssignment(() => player.currentWaterSprayData = waterSpray);
+                break;
+            case DashData dash:
+                ConfirmAssignment(() => player.currentDashData = dash);
+                break;
+            case MagnetData magnet:
+                ConfirmAssignment(() => player.currentMagnetData = magnet);
+                break;
+            case ExtraLifeData extraLife:
+                ConfirmAssignment(() => player.currentExtraLifeData = extraLife);
+                break;
+            default:
+                Debug.LogWarning("Unknown item type.");
+                break;
+        }
+    }
+
+    private void ConfirmAssignment(System.Action assignAction)
+    {
+        confirmationUI.ShowConfirmation(() =>
+        {
+            assignAction?.Invoke();
+            Debug.Log("Item assigned.");
+            AdvanceItem();
+        });
+    }
+
+    private void AdvanceItem()
+    {
         itemIndex++;
+        Debug.Log("Advanced to next item.");
 
         if (itemIndex >= itemData.Count)
         {
             DisableButton();
-            return; // Avoid changing appearance for invalid index
+            return;
         }
 
         ChangeButtonAppearance();
@@ -142,21 +137,24 @@ public class ShopButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     private void DisableButton()
     {
         isHoverEnabled = false;
+        Debug.Log("Shop button disabled.");
     }
 
     private void ChangeButtonAppearance()
     {
         if (itemData == null || itemIndex >= itemData.Count)
         {
-            Debug.LogWarning("Reached end of item list or itemData is not assigned. Appearance not changed.");
+            Debug.LogWarning("No item to show.");
             return;
         }
 
-        MeshRenderer renderer = GetComponent<MeshRenderer>();
-        if (renderer != null)
+        if (TryGetComponent(out MeshRenderer renderer))
         {
             renderer.material = itemData[itemIndex].itemMaterial;
-            renderer.GetComponent<MeshFilter>().mesh = itemData[itemIndex].itemMesh;
+
+            if (TryGetComponent(out MeshFilter filter))
+                filter.mesh = itemData[itemIndex].itemMesh;
+
             Debug.Log($"Button appearance changed to {itemData[itemIndex].itemName}.");
         }
         else
@@ -165,5 +163,45 @@ public class ShopButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         }
     }
 
+    private string GetTooltipForItem(int index)
+    {
+        if (index <= 0 || index >= itemData.Count)
+            return null;
 
+        ItemData current = itemData[index];
+        ItemData previous = itemData[index - 1];
+
+        return current switch
+        {
+            DynamiteData dynamite => dynamite.GetTooltip(previous as DynamiteData),
+            PickaxeData pickaxe => pickaxe.GetTooltip(previous as PickaxeData),
+            WaterSprayData spray => spray.GetTooltip(previous as WaterSprayData),
+            DashData dash => dash.GetTooltip(previous as DashData),
+            MagnetData magnet => magnet.GetTooltip(previous as MagnetData),
+            ExtraLifeData life => life.GetTooltip(previous as ExtraLifeData),
+            _ => null
+        };
+    }
+
+    public void StartMoving(Vector3 newPosition, float timeToMove, GameObject gameObject)
+    {
+        StartCoroutine(MoveCameraToPosition(newPosition, timeToMove, gameObject));
+    }
+
+    private IEnumerator MoveCameraToPosition(Vector3 targetPosition, float duration, GameObject gameObject)
+    {
+        isMoving = true;
+        Vector3 startPosition = gameObject.transform.position;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < duration)
+        {
+            gameObject.transform.position = Vector3.Lerp(startPosition, targetPosition, elapsedTime / duration);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        gameObject.transform.position = targetPosition;
+        isMoving = false;
+    }
 }

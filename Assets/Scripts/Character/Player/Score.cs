@@ -20,18 +20,18 @@ public partial class Player
 
     public void IncreasePoints(int hordeCount)
     {
-        if (hordeCount > 1)
-        {
-            score += 1000;
-            playerData.score = score;
-            UpdateInterface();
-            saveSystem.SaveRankingList(playerDataList);
-        }
+        Debug.Log("Entrei");
+        score += 1000;
+        //this.playerData.score = score;
+        Debug.Log(score);
+        UpdateInterface();
+        saveSystem.SaveRankingList(playerDataList);
     }
 
     private void UpdateInterface()
     {
         if (scoreText != null)
             scoreText.text = "PONTOS: " + score.ToString();
+        Debug.Log(scoreText.text = "PONTOS: " + score.ToString());
     }
 }
