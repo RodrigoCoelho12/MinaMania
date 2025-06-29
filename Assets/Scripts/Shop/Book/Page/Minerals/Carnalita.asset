@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a966a140831a6549b094d995d1a639f, type: 3}
+  m_Name: Carnalita
+  m_EditorClassIdentifier: 
+  title: Carnalita
+  id: 0
+  storyText: "A carnalita \xE9 um mineral evapor\xEDtico, ou seja, forma-se pela
+    evapora\xE7\xE3o de \xE1guas salgadas. \xC9 um tipo de sal, geralmente incolor,
+    branco, amarelado ou avermelhado. Sua f\xF3rmula qu\xEDmica \xE9 KCl\u22C5MgCl2\u200B\u22C56H2\u200BO,
+    o que significa que \xE9 um cloreto duplo de pot\xE1ssio e magn\xE9sio com \xE1gua.
+    Apresenta um sabor salgado e amargo. \xC9 tamb\xE9m higrosc\xF3pica, ou seja,
+    absorve umidade do ar. \xC9 uma importante fonte de pot\xE1ssio e magn\xE9sio,
+    sendo muito utilizada na produ\xE7\xE3o de fertilizantes e na extra\xE7\xE3o
+    de magn\xE9sio met\xE1lico. Sua principal ocorr\xEAncia est\xE1 em grandes dep\xF3sitos
+    de sal-gema. No Brasil, os dep\xF3sitos de sal-gema localizam-se no Esp\xEDrito
+    Santo, Amazonas e Sergipe.A carnalita \xE9 um mineral evapor\xEDtico, ou seja,
+    forma-se pela evapora\xE7\xE3o de \xE1guas salgadas. \xC9 um tipo de sal, geralmente
+    incolor, branco, amarelado ou avermelhado. Sua f\xF3rmula qu\xEDmica \xE9 KCl\u22C5MgCl2\u200B\u22C56H2\u200BO,
+    o que significa que \xE9 um cloreto duplo de pot\xE1ssio e magn\xE9sio com \xE1gua.
+    Apresenta um sabor salgado e amargo. \xC9 tamb\xE9m higrosc\xF3pica, ou seja,
+    absorve umidade do ar. \xC9 uma importante fonte de pot\xE1ssio e magn\xE9sio,
+    sendo muito utilizada na produ\xE7\xE3o de fertilizantes e na extra\xE7\xE3o
+    de magn\xE9sio met\xE1lico. Sua principal ocorr\xEAncia est\xE1 em grandes dep\xF3sitos
+    de sal-gema. No Brasil, os dep\xF3sitos de sal-gema localizam-se no Esp\xEDrito
+    Santo, Amazonas e Sergipe."
+  model3D: {fileID: 7498841160729334923, guid: 283961f829563034fb5f4ad0a1c5c71c, type: 3}

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a966a140831a6549b094d995d1a639f, type: 3}
+  m_Name: Diamante
+  m_EditorClassIdentifier: 
+  title: Diamante
+  id: 0
+  storyText: "O diamante \xE9 a forma cristalina mais dura do carbono puro. \xC9
+    composto unicamente por \xE1tomos de carbono arranjados em uma estrutura cristalina
+    c\xFAbica muito forte. Essa estrutura lhe confere a maior dureza de todos os
+    minerais: 10 na escala de Mohs. Al\xE9m da dureza, possui um brilho adamanto
+    (muito intenso) e alta dispers\xE3o, que \xE9 a capacidade de separar a luz branca
+    em suas cores do arco-\xEDris. "
+  model3D: {fileID: 3423092410260935068, guid: 6982060dbd8e76045ba1bda5dbb9b43e, type: 3}

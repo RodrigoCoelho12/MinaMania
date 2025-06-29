@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a966a140831a6549b094d995d1a639f, type: 3}
+  m_Name: TankGranito
+  m_EditorClassIdentifier: 
+  title: Tank Granito
+  id: 0
+  storyText: "O nome \"granito\" deriva do latim \"granum\", que significa \"gr\xE3o\".
+    Essa origem remete \xE0 caracter\xEDstica granular da rocha. \xC9 uma rocha \xEDgnea
+    intrusiva, se forma pelo resfriamento do magma no interior da crosta terrestre,
+    composta principalmente por minerais como quartzo, feldspato e mica. Devido \xE0
+    sua estrutura cristalina bem interligada entre esses minerais, \xE9 uma rocha
+    muito resistente e dur\xE1vel. \xC9 por isso que o vemos em pisos, bancadas e
+    tamb\xE9m ocorre como sustenta\xE7\xE3o do relevo em forma\xE7\xF5es rochosas
+    e montanhas. O Granito \xE9 amplamente distribu\xEDdo globalmente, com grandes
+    jazidas em pa\xEDses como Brasil (especialmente no Esp\xEDrito Santo, Minas Gerais
+    e Bahia), \xCDndia, China e It\xE1lia. No jogo, \xE9 essa solidez \xE9 o que
+    confere a resist\xEAncia aos inimigos de Granito. Sua forma\xE7\xE3o robusta
+    e a resist\xEAncia que ele oferece na natureza s\xE3o o motivo pelo qual esses
+    inimigos s\xE3o t\xE3o dif\xEDceis de serem quebrados. "
+  model3D: {fileID: 0}

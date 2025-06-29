@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a966a140831a6549b094d995d1a639f, type: 3}
+  m_Name: SpeedPedraPomes
+  m_EditorClassIdentifier: 
+  title: Pedra Pomes
+  id: 0
+  storyText: "O termo \"pedra-pomes\" tem origem no latim \"pumex\", que significa
+    pedra-pomes ou qualquer rocha porosa. A pedra-pomes \xE9 uma rocha vulc\xE2nica
+    de baixa densidade, formada quando a lava rica em gases esfria rapidamente e
+    se solidifica. Essa r\xE1pida solidifica\xE7\xE3o faz com que o g\xE1s escape,
+    deixando para tr\xE1s uma estrutura porosa e leve, t\xE3o leve que muitas vezes
+    flutua na \xE1gua. A Pedra Pomes \xE9 utilizada como abrasivo leve em produtos
+    de beleza e limpeza e na fabrica\xE7\xE3o de cimento leve. Grandes dep\xF3sitos
+    s\xE3o encontrados em regi\xF5es vulc\xE2nicas como a Turquia, It\xE1lia, Gr\xE9cia,
+    Estados Unidos e Jap\xE3o. No jogo, \xE9 a leveza da Pedra-Pomes que configura
+    a locomo\xE7\xE3o r\xE1pida e \xE1gil dos inimigos. "
+  model3D: {fileID: 0}

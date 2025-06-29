@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a966a140831a6549b094d995d1a639f, type: 3}
+  m_Name: CristalQuartzo
+  m_EditorClassIdentifier: 
+  title: Cristal de Quartzo
+  id: 0
+  storyText: "O quartzo \xE9 um dos minerais mais abundantes da crosta terrestre.
+    \xC9 um \xF3xido de sil\xEDcio (SiO2\u200B) de dureza  07 na escala de Mohs,
+    o que o torna bastante resistente. Ele pode ser encontrado em uma variedade impressionante
+    de formas e tamanhos, desde pequenos gr\xE3os at\xE9 cristais gigantes. O quartzo
+    possui propriedades piezoel\xE9tricas (gera eletricidade sob press\xE3o) e piroel\xE9tricas
+    (gera eletricidade com mudan\xE7a de temperatura), o que o torna essencial em
+    rel\xF3gios (osciladores de quartzo), r\xE1dios e outros equipamentos eletr\xF4nicos. "
+  model3D: {fileID: 4952218683219100112, guid: 730f567133171c44d92fbbf2f1ca7d53, type: 3}

@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a966a140831a6549b094d995d1a639f, type: 3}
+  m_Name: SpeedSafira
+  m_EditorClassIdentifier: 
+  title: Speed Safira (Al2O3)
+  id: 0
+  storyText: "O nome Safira tem origem no termo hebraico \"sappir\", que significa
+    \"mais bonito\" ou \"pedra preciosa\". Tamb\xE9m h\xE1 registros de que a palavra
+    \"sappheiros\" em grego, que se refere a uma pedra azul, A Safira \xE9 outra
+    variedade de Cor\xEDndon, assim como o Rubi, mas famosa por suas cores que v\xE3o
+    do azul profundo a outras tonalidades, causadas pela presen\xE7a de impurezas
+    de Ferro, Tit\xE2nio ou Cromo e apresenta dureza 09 na Escala de Mohs. Devido
+    \xE0 sua dureza, \xE9 utilizada em aplica\xE7\xF5es industriais, como componentes
+    de rel\xF3gios, vidros \xE0 prova de arranh\xF5es e lasers. Historicamente, foi
+    associada \xE0 sabedoria e \xE0 realeza. Os principais dep\xF3sitos de Safiras
+    de qualidade gemol\xF3gica est\xE3o no Sri Lanka, Madagascar, Austr\xE1lia, Tail\xE2ndia
+    e Estados Unidos. O Brasil n\xE3o \xE9 um grande produtor em escala mundial,
+    as safiras brasileiras s\xE3o encontradas nos Estados do Mato Grosso, Goi\xE1s,
+    Santa Catarina e Minas Gerais. No jogo, \xE9 a densidade e seu sistema cristalino
+    trigonal que configuram a ideia de movimento aos inimigos. "
+  model3D: {fileID: 0}

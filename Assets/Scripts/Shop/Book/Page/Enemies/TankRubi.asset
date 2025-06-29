@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a966a140831a6549b094d995d1a639f, type: 3}
+  m_Name: TankRubi
+  m_EditorClassIdentifier: 
+  title: "Tank Rubi (Al2\u200BO3)"
+  id: 0
+  storyText: "O nome Rubi tem origem latina, derivada da palavra \"ruber\", que significa
+    \"vermelho\". \xC9 uma variedade de Cor\xEDndon, famoso por sua intensa cor vermelha
+    proveniente do elemento Cromo presente em sua composi\xE7\xE3o. \xC9 um dos minerais
+    mais duros perdendo apenas para o Diamante dentro da Escala de Dureza de Mohs,
+    onde sua dureza \xE9 09. A dureza do Rubi tamb\xE9m o torna \xFAtil em algumas
+    aplica\xE7\xF5es industriais, como em componentes de rel\xF3gios de precis\xE3o,
+    lasers (como os usados em cirurgias ou leitores de DVD) e instrumentos cient\xEDficos.
+    Reis e imperadores adornavam suas coroas e joias com Rubis, acreditando que eles
+    trariam prote\xE7\xE3o e invencibilidade. Em algumas culturas antigas, acreditava-se
+    que o Rubi continha uma chama eterna que n\xE3o poderia ser apagada. Os Rubis
+    de mais alta qualidade s\xE3o historicamente encontrados em Myanmar (antiga Birm\xE2nia),
+    mas tamb\xE9m existem dep\xF3sitos importantes na Tail\xE2ndia, Sri Lanka, Mo\xE7ambique,
+    Vietn\xE3 e Madagascar. A qualidade dos rubis brasileiros \xE9 geralmente considerada
+    inferior aos encontrados nesses pa\xEDses. No Brasil, as ocorr\xEAncias s\xE3o
+    na Bahia, Santa Catarina e Minas Gerais. No jogo, \xE9 a dureza do Rubi que caracteriza
+    a resist\xEAncia desses inimigos. "
+  model3D: {fileID: 0}
