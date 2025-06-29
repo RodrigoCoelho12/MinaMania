@@ -80,6 +80,12 @@ public partial class Player : Character
             dropCurrency++;
             Destroy(other.gameObject);
         }
+
+        if (other.CompareTag("Mineral"))
+        {
+            //discoveredMinerals.Add(other.gameObject.GetComponent(MineralData));
+            Destroy(other.gameObject);
+        }
     }
 
     public override void OnTriggerStay(Collider other)

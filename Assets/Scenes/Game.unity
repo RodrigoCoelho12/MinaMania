@@ -27766,7 +27766,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2101868631
 Transform:
   m_ObjectHideFlags: 0
@@ -36575,10 +36575,20 @@ MonoBehaviour:
   - {fileID: 2014397878}
   spawnInterval: 1
   delayAfterLastEnemyDies: 10
-  initialEnemyCount: 6
+  initialEnemyCount: 1
   growthPerHorde: 2
   countdownHordeText: {fileID: 1471036214}
   hordeCount: 0
+  dropPrefabs:
+  - {fileID: 9066059861523022536, guid: 86cd511b0e8958e44b5cdb8c392c6e59, type: 3}
+  - {fileID: 7498841160729334923, guid: 283961f829563034fb5f4ad0a1c5c71c, type: 3}
+  - {fileID: 4952218683219100112, guid: 730f567133171c44d92fbbf2f1ca7d53, type: 3}
+  - {fileID: 3423092410260935068, guid: 6982060dbd8e76045ba1bda5dbb9b43e, type: 3}
+  - {fileID: 6289107732934055585, guid: 6b562e763eec3524eba0bf0c7489dd62, type: 3}
+  - {fileID: 2913901833217014794, guid: b05eb740821a0224fa9da15731ce97d1, type: 3}
+  - {fileID: 4864593914337878725, guid: 27d4ca1b8ec5423408918a0bc9e6a94a, type: 3}
+  - {fileID: 3189470677884996045, guid: 07812f1f0e9cfe94f98aa28d05290b1c, type: 3}
+  - {fileID: 8757038752104351280, guid: 48dfb21632848144ab9c25de6fef9d8d, type: 3}
 --- !u!4 &7556555258314247203
 Transform:
   m_ObjectHideFlags: 0
