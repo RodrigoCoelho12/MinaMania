@@ -75,10 +75,5 @@ public class UserInputManager : MonoBehaviour
         {
             isUsingGamepad = false;
         }
-
-        if (DynamiteInputReleased)
-        {
-            Debug.Log("Soltou o botao da dinamite");
-        }
     }
 }

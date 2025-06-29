@@ -1,10 +1,13 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RankingController : MonoBehaviour
 {
     public TMP_InputField nameInputField;
+    public GameObject msgErroMaxima;
+    public GameObject msgErroMinima;
     public Player player;
 
     [Header("Ranking UI (Single Field)")]
@@ -35,10 +38,24 @@ public class RankingController : MonoBehaviour
         string playerName = nameInputField.text;
         int score = player.score;
 
-        PlayerData playerData = new PlayerData(playerName, score);
+        if (playerName.Length > 8)
+        {
+            msgErroMaxima.SetActive(true); 
+            msgErroMinima.SetActive(false);
+        }
+        else if (playerName.Length < 3)
+        {
+            msgErroMinima.SetActive(true);
+            msgErroMaxima.SetActive(false);
+        }
+        else
+        {
+            PlayerData playerData = new PlayerData(playerName, score);
 
-        rankingList.AddScore(playerData);
-        saveSystem.SaveRankingList(rankingList);
+            rankingList.AddScore(playerData);
+            saveSystem.SaveRankingList(rankingList);
+            SceneManager.LoadScene(0);
+        }
     }
 
     public void UpdateRankingUI()

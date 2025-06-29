@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7b4a6eefa09bd8448c64a724e700302, type: 3}
   m_Name: PickaxeStandardData
   m_EditorClassIdentifier: 
-  itemName: 
+  itemName: Picareta de Ferro
   description: 
   shopDescription: 
   itemMesh: {fileID: 4610805397482984788, guid: 0c43e91535ef36b4f90698a8526e8b19, type: 3}
-  itemMaterial: {fileID: 2100000, guid: 52bb933ad0f50a1438c2b7b44c9a5fb2, type: 2}
+  itemMaterial: {fileID: 2100000, guid: 0f926dab43d3c784db4e0df43b2c0249, type: 2}
   itemPrice: 0
   damage: 0
   weaponPrice: 0

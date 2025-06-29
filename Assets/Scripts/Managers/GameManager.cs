@@ -9,11 +9,14 @@ public class GameManager : MonoBehaviour
 
     private GameObject currentPanel;
     [SerializeField] GameObject pausePanel;
+    [SerializeField] GameObject settingsPanel;
     [SerializeField] GameObject pausePanelFirst;
     [SerializeField] GameObject settingsPanelFirst;
     [SerializeField] GameObject keyboardControlsPanelFirst;
     [SerializeField] GameObject gamepadControlsPanelFirst;
     [SerializeField] GameObject inputUserNamePanelFirst;
+    [SerializeField] GameObject audioSettingsPanelFirst;
+    [SerializeField] GameObject graphicsSettingsPanelFirst;
     [SerializeField] GameObject inputUserNamePanel;
     [SerializeField] Player player;
 
@@ -94,7 +97,12 @@ public class GameManager : MonoBehaviour
     public void UnpauseGame()
     {
         currentPanel.SetActive(false);
-        if(currentPanel != pausePanel && currentPanel != null)
+
+        if (currentPanel.name == "GraphicsSettings Panel" ||  currentPanel.name == "AudioSettings Panel")
+        {
+            currentPanel = settingsPanel;
+        }
+        else if (currentPanel != pausePanel && currentPanel != null)
         {
             currentPanel = pausePanel;
         }
@@ -113,7 +121,6 @@ public class GameManager : MonoBehaviour
         if (currentPanel.name == "Pause Panel") 
         { 
             EventSystem.current.SetSelectedGameObject(pausePanelFirst);
-        
         } 
         else if(currentPanel.name == "Settings Panel")
         {
@@ -130,6 +137,14 @@ public class GameManager : MonoBehaviour
         else if (currentPanel.name == "InputUsername Panel")
         {
             EventSystem.current.SetSelectedGameObject(inputUserNamePanelFirst);
+        }
+        else if(currentPanel.name == "AudioSettings Panel")
+        {
+            EventSystem.current.SetSelectedGameObject(audioSettingsPanelFirst);
+        }
+        else if (currentPanel.name == "GraphicsSettings Panel")
+        {
+            EventSystem.current.SetSelectedGameObject(graphicsSettingsPanelFirst);
         }
     }
     public void GameOver()

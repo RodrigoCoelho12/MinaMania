@@ -26,12 +26,24 @@ public partial class Player
 
         if (inputDir == Vector3.zero)
         {
-            if (animator != null) animator.SetFloat("Blend", 0);
+            if (animator != null)
+            {
+                animator.SetFloat("YAxis", 0);
+                animator.SetFloat("XAxis", 0);
+            }
             return;
         }
 
         float d = Vector3.Dot(transform.forward, Vector3.forward);
-        if (animator != null) animator.SetFloat("Blend", d * verticalInput);
+
+        
+
+        if (animator != null)
+        {
+            animator.SetFloat("YAxis", d * verticalInput);
+            animator.SetFloat("XAxis", d * horizontalInput);
+        }
+
 
         float currentSpeed = isDashing ? dashSpeed : speedValue;
 

@@ -137,6 +137,7 @@ public class Dynamite : Weapon
                 }
             }
             GameObject explosionClone = Instantiate(explosionEffect, dynamite.transform.position, explosionEffect.transform.rotation);
+            AudioManager.instance.PlaySFX(3);
             Destroy(explosionClone, 2f);
         }
     }
