@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7050207869576117038}
   m_Layer: 0
   m_Name: AguaMarinha
-  m_TagString: Untagged
+  m_TagString: Mineral
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,8 +28,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.7070307, y: -0.010371011, z: 0.010371008, w: 0.7070308}
   m_LocalPosition: {x: -7.7695236, y: 0.012290389, z: -0.006543182}
-  m_LocalScale: {x: 132.11731, y: 132.15541, z: 75.9874}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 307.01, y: 307.09863, z: 176.57707}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

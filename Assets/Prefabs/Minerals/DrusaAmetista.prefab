@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8448513387061876285}
   m_Layer: 0
   m_Name: DrusaAmetista
-  m_TagString: Untagged
+  m_TagString: Mineral
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,8 +28,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.3553732, y: -6.432092e-17, z: 6.4320916e-17, w: 0.9347245}
   m_LocalPosition: {x: -4.2935834, y: 0.24037144, z: -0.0074156295}
-  m_LocalScale: {x: 91.724045, y: 91.724045, z: 91.724045}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 307.01, y: 307.01, z: 307.01}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

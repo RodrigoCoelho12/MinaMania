@@ -120,6 +120,7 @@ public abstract class Enemy : Character
         if (attackCoroutine != null)
         {
             StopCoroutine(attackCoroutine);
+            animator.SetBool("IsAttacking", false);
             attackCoroutine = null;
             attackHitbox.SetActive(false);
         }
@@ -146,35 +147,24 @@ public abstract class Enemy : Character
     /// <summary>
     /// Activates the attack hitbox in intervals while the enemy is awakened.
     /// </summary>
-    protected IEnumerator ShowHitBox()
+    protected virtual IEnumerator ShowHitBox()
     {
-        WaitForSeconds hitboxActiveTime = new WaitForSeconds(2f);
-        WaitForSeconds hitboxCooldownTime = new WaitForSeconds(4f);
+        WaitForSeconds animationTime = new WaitForSeconds(attackDuration);
+        WaitForSeconds hitboxActiveTime = new WaitForSeconds(0.2f);
+        WaitForSeconds hitboxCooldownTime = new WaitForSeconds(attackCooldown);
 
 
         while (isAwakened)
         {
-            float distance = Vector3.Distance(transform.position, target.position);
-
-            if (distance < 4f)
-            {
-                // Ataca
-                animator.SetBool("IsAttacking", true);
-                attackHitbox.SetActive(true);
-                yield return hitboxActiveTime;
-
-                animator.SetBool("IsAttacking", false);
-                attackHitbox.SetActive(false);
-                yield return hitboxCooldownTime;
-            }
-            else
-            {
-                // Espera um pouco antes de checar novamente
-                yield return new WaitForSeconds(0.1f);
-            }
+            animator.SetBool("IsAttacking", true);
+            yield return animationTime;
+            attackHitbox.SetActive(true);
+            yield return hitboxActiveTime;
+            attackHitbox.SetActive(false);
+            animator.SetBool("IsAttacking", false);
+            yield return hitboxCooldownTime;
         }
     }
-
 
     #endregion
 

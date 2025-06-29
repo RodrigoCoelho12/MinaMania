@@ -15,9 +15,9 @@ MonoBehaviour:
   itemName: Picareta de Diamante
   description: 
   shopDescription: "Essa \xE9 a mais forte e resistente picareta de todas"
-  itemMesh: {fileID: 5405180214268738523, guid: 67b2661e81122bb4183cac00639476cf, type: 3}
+  itemMesh: {fileID: -2952860655737247576, guid: 58586bcf08aaf8e4db7c45169353d0d6, type: 3}
   itemMaterial: {fileID: 2100000, guid: 0f926dab43d3c784db4e0df43b2c0249, type: 2}
   itemPrice: 0
   damage: 0
   weaponPrice: 0
-  pickaxePrefab: {fileID: 2930804969173290973, guid: 520d73c5b98c39b4087e54421fd5fcd8, type: 3}
+  pickaxePrefab: {fileID: 7394171789317946224, guid: 520d73c5b98c39b4087e54421fd5fcd8, type: 3}

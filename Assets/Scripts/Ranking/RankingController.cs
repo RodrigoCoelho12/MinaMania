@@ -40,7 +40,7 @@ public class RankingController : MonoBehaviour
 
         if (playerName.Length > 8)
         {
-            msgErroMaxima.SetActive(true); 
+            msgErroMaxima.SetActive(true);
             msgErroMinima.SetActive(false);
         }
         else if (playerName.Length < 3)

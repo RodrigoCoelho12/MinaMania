@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5315590946608472410}
   m_Layer: 0
   m_Name: MeteoritoBocaiuva
-  m_TagString: Untagged
+  m_TagString: Mineral
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,8 +28,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.34818423, y: 0.6154411, z: 0.6154411, w: 0.34818426}
   m_LocalPosition: {x: -1.628522, y: 0.22402912, z: 0.19633855}
-  m_LocalScale: {x: 122.99032, y: 122.99032, z: 122.99031}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 307.01, y: 307.01, z: 307.01}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -22,46 +22,18 @@ public partial class Player
         float horizontalInput = UserInputManager.instance.MovementInput.x;
         float verticalInput = UserInputManager.instance.MovementInput.y;
 
-        Vector3 inputDir = new Vector3(horizontalInput, 0, verticalInput).normalized;
-
-        if (inputDir == Vector3.zero)
-        {
-            if (animator != null)
-            {
-                animator.SetFloat("YAxis", 0);
-                animator.SetFloat("XAxis", 0);
-            }
-            return;
-        }
+        Vector3 movement = new Vector3(horizontalInput, 0, verticalInput).normalized;
 
         float d = Vector3.Dot(transform.forward, Vector3.forward);
 
-        
-
-        if (animator != null)
-        {
-            animator.SetFloat("YAxis", d * verticalInput);
-            animator.SetFloat("XAxis", d * horizontalInput);
-        }
-
-
         float currentSpeed = isDashing ? dashSpeed : speedValue;
 
-        // Detecta colisão à frente com SphereCast
-        Vector3 origin = transform.position + Vector3.up * 0.5f; // eleva um pouco para evitar o chão
-        float radius = 0.3f;
-        float checkDistance = 0.5f;
-        RaycastHit hit;
+        Vector3 finalMovement = currentSpeed * movement;
 
-        Vector3 finalMove = inputDir;
+        animator.SetFloat("YAxis", d * finalMovement.z);
+        animator.SetFloat("XAxis", d * finalMovement.x);
 
-        if (Physics.SphereCast(origin, radius, inputDir, out hit, checkDistance))
-        {
-            // Projeta o movimento no plano da parede (evita empurrar contra ela)
-            finalMove = Vector3.ProjectOnPlane(inputDir, hit.normal).normalized;
-        }
-
-        cc.SimpleMove(finalMove * currentSpeed);
+        cc.SimpleMove(finalMovement);
     }
 
 

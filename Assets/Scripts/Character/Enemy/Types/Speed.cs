@@ -16,4 +16,26 @@ public class Speed : Enemy
         Attack();
         Move();
     }
+
+    protected override IEnumerator ShowHitBox()
+    {
+       while (isAwakened)
+        {
+            WaitForSeconds animationTime = new WaitForSeconds(attackDuration);
+            WaitForSeconds hitboxActiveTime = new WaitForSeconds(0.2f);
+            WaitForSeconds hitboxCooldownTime = new WaitForSeconds(attackCooldown);
+
+            animator.SetBool("IsAttacking", true);
+            yield return new WaitForSeconds(0.5f);
+            attackHitbox.SetActive(true);
+            yield return new WaitForSeconds(0.1f);
+            attackHitbox.SetActive(false);
+            yield return new WaitForSeconds(1.1f);
+            attackHitbox.SetActive(true);
+            yield return new WaitForSeconds(0.1f);
+            attackHitbox.SetActive(false);
+            animator.SetBool("IsAttacking", false);
+            yield return hitboxCooldownTime;
+        }
+    }
 }

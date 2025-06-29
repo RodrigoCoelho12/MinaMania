@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7719701678378943249}
   m_Layer: 0
   m_Name: Diamante
-  m_TagString: Untagged
+  m_TagString: Mineral
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,8 +28,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: -8.746812, y: 0.3126118, z: 0.000000008815268}
-  m_LocalScale: {x: 37.98649, y: 37.98649, z: 37.98649}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 307.01, y: 307.01, z: 307.01}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

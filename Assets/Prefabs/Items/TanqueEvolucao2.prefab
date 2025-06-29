@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8717661723622058634
+--- !u!1 &7551735919230459308
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7298864690566636230}
-  - component: {fileID: 8853496946553733691}
-  - component: {fileID: 1484205234789461771}
+  - component: {fileID: 2513160392217269345}
+  - component: {fileID: 4054268593564772887}
+  - component: {fileID: 713025612163719749}
   m_Layer: 0
   m_Name: TanqueEvolucao2
   m_TagString: Untagged
@@ -18,36 +18,36 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7298864690566636230
+--- !u!4 &2513160392217269345
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8717661723622058634}
+  m_GameObject: {fileID: 7551735919230459308}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -8.742119, y: 0, z: 0}
-  m_LocalScale: {x: 100, y: 99.999985, z: 99.999985}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &8853496946553733691
+--- !u!33 &4054268593564772887
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8717661723622058634}
+  m_GameObject: {fileID: 7551735919230459308}
   m_Mesh: {fileID: 7700664705688137729, guid: 67b2661e81122bb4183cac00639476cf, type: 3}
---- !u!23 &1484205234789461771
+--- !u!23 &713025612163719749
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8717661723622058634}
+  m_GameObject: {fileID: 7551735919230459308}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1

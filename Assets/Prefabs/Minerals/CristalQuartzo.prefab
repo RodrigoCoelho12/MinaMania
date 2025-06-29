@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7393180501195320417}
   m_Layer: 0
   m_Name: CristalQuartzo
-  m_TagString: Untagged
+  m_TagString: Mineral
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,8 +28,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.7590494, y: 1.1992221e-17, z: -1.1992223e-17, w: 0.651033}
   m_LocalPosition: {x: -9.654212, y: 0.0116202375, z: 0.0000000015612843}
-  m_LocalScale: {x: 5.6253357, y: 5.625336, z: 16.19308}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 307.01, y: 307.01, z: 883.7585}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -15,8 +15,8 @@ MonoBehaviour:
   itemName: 
   description: 
   shopDescription: 
-  itemMesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
-  itemMaterial: {fileID: -2194867069838009482, guid: fa4f5f53602a2734681d907b2ee20a57, type: 3}
+  itemMesh: {fileID: -6608124319622672718, guid: 6f248c8ffd7a5ff44aef5bfc6dc12dff, type: 3}
+  itemMaterial: {fileID: 2100000, guid: 499947e1ffc204241830c52a7d79b58d, type: 2}
   itemPrice: 0
   damage: 0
   weaponPrice: 11

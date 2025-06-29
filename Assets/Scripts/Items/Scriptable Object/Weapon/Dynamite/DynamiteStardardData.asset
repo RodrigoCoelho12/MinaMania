@@ -20,7 +20,7 @@ MonoBehaviour:
   itemPrice: 0
   damage: 50
   weaponPrice: 11
-  dynamitePrefab: {fileID: 285699990416719504, guid: a90519ffd10755b4ca930f1a42996d07, type: 3}
+  dynamitePrefab: {fileID: 0}
   explosionRadius: 8
   explosionForce: 150
   dynamiteAmount: 4

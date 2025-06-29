@@ -617,16 +617,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar:
     _minBarValue: 0
-    _maxBarValue: 100
+    _maxBarValue: 120
     _currentValue: 0
   speedValue: 0
   target: {fileID: 0}
   attackHitbox: {fileID: 5685496204809828019}
   animator: {fileID: 7242965527963633690}
   isAwakened: 1
-  damage: 20
+  damage: 5
   attackCooldown: 1
-  attackDuration: 0.5
+  attackDuration: 1
   attackRange: 4
   dropPrefab: {fileID: 8206282687000050023, guid: a95cb5f1375ebe44f89e1a56e0a01c6b, type: 3}
 --- !u!195 &3858300891203352874
@@ -643,7 +643,7 @@ NavMeshAgent:
   m_Acceleration: 4
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 4
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -958,7 +958,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5685496204809828019}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

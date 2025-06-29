@@ -875,16 +875,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar:
     _minBarValue: 0
-    _maxBarValue: 100
+    _maxBarValue: 120
     _currentValue: 0
   speedValue: 0
   target: {fileID: 0}
   attackHitbox: {fileID: 7600400424674657109}
   animator: {fileID: 2751485814562165724}
   isAwakened: 1
-  damage: 20
+  damage: 5
   attackCooldown: 1
-  attackDuration: 0.5
+  attackDuration: 1
   attackRange: 4
   dropPrefab: {fileID: 8130893902863381005, guid: dc2eb8f3d03a9f846b033602886b670a, type: 3}
 --- !u!195 &4076740052241760023
@@ -901,7 +901,7 @@ NavMeshAgent:
   m_Acceleration: 4
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 4
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
