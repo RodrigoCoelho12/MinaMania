@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a966a140831a6549b094d995d1a639f, type: 3}
+  m_Name: DamagePirita
+  m_EditorClassIdentifier: 
+  title: "Damage Pirita (FeS\u2082)"
+  id: 0
+  storyText: "O termo \"pirita\" deriva da palavra grega \"pyr\", que significa fogo,
+    e foi dado devido \xE0 sua capacidade de produzir fa\xEDscas quando atingida
+    por materiais duros, como metal ou pedra. A Pirita possui um brilho met\xE1lico
+    lat\xE3o-amarelo inconfund\xEDvel que lembra o ouro, que lhe rendeu o apelido
+    de \"ouro de tolo\". Quando exposta ao ar e \xE0 umidade, a pirita se oxida,
+    liberando calor e formando \xE1cido sulf\xFArico. Esse processo \xE9 conhecido
+    como \"drenagem \xE1cida de minas\" e \xE9 extremamente corrosivo. Historicamente,
+    a Pirita foi usada para acender fogo, pois gera fa\xEDscas quando golpeada. Tamb\xE9m
+    foi uma fonte de enxofre para a produ\xE7\xE3o de \xE1cido sulf\xFArico. A Pirita
+    \xE9 um mineral comum, encontrado em diversos tipos de dep\xF3sitos minerais,
+    incluindo veios hidrotermais em praticamente todos os continentes. No jogo, a
+    natureza reativa e corrosiva confere \xE0 Pirita sua caracter\xEDstica danosa
+    aos inimigos, representando uma amea\xE7a que \"corr\xF3i\" suas defesas. "
+  model3D: {fileID: 0}

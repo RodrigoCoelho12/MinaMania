@@ -12,7 +12,7 @@ public class ItemData : ScriptableObject
     public Material itemMaterial;
 
     [Header("Item Attributes")]
-    public int itemPrice;
+    public float itemPrice;
     public virtual string GetTooltip(ItemData previousData)
     {
         return "Item";

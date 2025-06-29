@@ -35,6 +35,7 @@ public partial class Player : Character
             this.currentMagnetData = playerSO.magnetData;
             this.currentDynamiteData = playerSO.dynamiteData;
             this.currentDashData = playerSO.dashData;
+            this.dropCurrency = playerSO.playerCurrency;
             playerSO.overrides = false;
         }
     }

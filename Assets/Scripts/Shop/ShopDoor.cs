@@ -16,6 +16,7 @@ public class ShopDoor : MonoBehaviour
             playerSO.magnetData = player.currentMagnetData;
             playerSO.dynamiteData = player.currentDynamiteData;
             playerSO.dashData = player.currentDashData;
+            playerSO.playerCurrency = player.dropCurrency;
             
             DontDestroyOnLoad(playerSO);
             SceneManager.LoadScene(2);

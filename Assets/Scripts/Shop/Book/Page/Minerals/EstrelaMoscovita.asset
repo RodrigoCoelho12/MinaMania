@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a966a140831a6549b094d995d1a639f, type: 3}
+  m_Name: EstrelaMoscovita
+  m_EditorClassIdentifier: 
+  title: Estrela de Moscovita
+  id: 0
+  storyText: "A moscovita \xE9 um mineral muito comum, membro do grupo das micas,
+    conhecido por sua capacidade de se dividir em finas e flex\xEDveis l\xE2minas
+    transparentes. Geralmente \xE9 incolor, branca, cinza prateada, ou pode ter tons
+    amarelados a marrons claros, e at\xE9 verdes p\xE1lidos devido a impurezas. A
+    estrutura em livros \xE9 um formato peculiar deste mineral, podendo configurar
+    estruturas \xFAnicas como o de uma Estrela.  "
+  model3D: {fileID: 2913901833217014794, guid: b05eb740821a0224fa9da15731ce97d1, type: 3}

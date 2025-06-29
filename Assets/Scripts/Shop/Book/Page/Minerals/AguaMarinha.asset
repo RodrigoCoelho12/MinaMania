@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a966a140831a6549b094d995d1a639f, type: 3}
+  m_Name: AguaMarinha
+  m_EditorClassIdentifier: 
+  title: "\xC1gua marinha"
+  id: 0
+  storyText: "A \xE1gua-marinha, variedade do mineral berilo, forma-se principalmente
+    em pegmatitos gran\xEDticos, que s\xE3o rochas \xEDgneas de granula\xE7\xE3o
+    muito grossa, ricas em minerais como quartzo, feldspato e mica. A sua cor azulada
+    vem da presen\xE7a de pequenas quantidades de ferro na sua estrutura e seus cristais
+    s\xE3o tipicamente prism\xE1ticos e alongados. As maiores e mais famosas ocorr\xEAncias
+    no mundo est\xE3o no Brasil, especialmente em Minas Gerais (regi\xF5es como Te\xF3filo
+    Otoni e Coronel Murta) e no Esp\xEDrito Santo. Outros dep\xF3sitos importantes
+    incluem Paquist\xE3o, Afeganist\xE3o e Nig\xE9ria. "
+  model3D: {fileID: 9066059861523022536, guid: 86cd511b0e8958e44b5cdb8c392c6e59, type: 3}

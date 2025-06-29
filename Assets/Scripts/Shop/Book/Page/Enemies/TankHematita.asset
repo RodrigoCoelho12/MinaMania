@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a966a140831a6549b094d995d1a639f, type: 3}
+  m_Name: TankHematita
+  m_EditorClassIdentifier: 
+  title: "Tank Hematita (Fe2\u200BO3\u200B)"
+  id: 0
+  storyText: "O nome Hematita vem do grego \"haima\", que significa \"sangue\", por
+    conta da cor avermelhada quando em formato de p\xF3, tom caracter\xEDstico do
+    solo de muitas regi\xF5es no Brasil. \xC9 um mineral comum na crosta terrestre
+    e a principal fonte do elemento Ferro no planeta. No Brasil, a explora\xE7\xE3o
+    de min\xE9rio de Ferro ocorre principalmente em Minas Gerais, na regi\xE3o denominada
+    Quadril\xE1tero Ferr\xEDfero e, no Par\xE1, especificamente na Prov\xEDncia Mineral
+    de Caraj\xE1s. Outros pa\xEDses produtores s\xE3o Austr\xE1lia, \xCDndia e China.
+    Usada desde a pr\xE9-hist\xF3ria como pigmento vermelho para pinturas rupestres,
+    a Hematita tamb\xE9m foi valorizada como joia em algumas culturas. Hoje, \xE9
+    um dos minerais mais importantes para a ind\xFAstria, pois \xE9 a mat\xE9ria-prima
+    do a\xE7o, essencial para carros, constru\xE7\xF5es e m\xE1quinas. No jogo, a
+    Hematita representa a resist\xEAncia de uma massa met\xE1lica, famosa por sua
+    alta densidade e resist\xEAncia \xE0 quebra. "
+  model3D: {fileID: 0}

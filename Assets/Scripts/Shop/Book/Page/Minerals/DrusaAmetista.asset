@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a966a140831a6549b094d995d1a639f, type: 3}
+  m_Name: DrusaAmetista
+  m_EditorClassIdentifier: 
+  title: Drusa de Ametista
+  id: 0
+  storyText: "ma drusa de ametista \xE9 uma forma\xE7\xE3o geol\xF3gica onde m\xFAltiplos
+    cristais de ametista crescem juntos sobre uma rocha-m\xE3e, preenchendo cavidades
+    ou geodos. A ametista \xE9 uma variedade de quartzo de cor violeta. Essa cor
+    violeta vibrante \xE9 resultado da irradia\xE7\xE3o natural de impurezas de ferro
+    dentro da estrutura cristalina do quartzo. Os tons podem variar de claros a roxos
+    profundos"
+  model3D: {fileID: 6289107732934055585, guid: 6b562e763eec3524eba0bf0c7489dd62, type: 3}

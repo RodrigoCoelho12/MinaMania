@@ -13,4 +13,13 @@ MonoBehaviour:
   m_Name: Minerals
   m_EditorClassIdentifier: 
   chapterName: Minerais
-  pages: []
+  pages:
+  - {fileID: 11400000, guid: efe86c8785e6d9843b287b10d693911b, type: 2}
+  - {fileID: 11400000, guid: 1974ab333b13ebe42b9010f907bd9f83, type: 2}
+  - {fileID: 11400000, guid: 87ed14c756267924b9ca0bff6d960938, type: 2}
+  - {fileID: 11400000, guid: 58c67cbd2f7966d4dab159241a2b35fc, type: 2}
+  - {fileID: 11400000, guid: 0ae86eadd3f08cd4ea12cf58233e4075, type: 2}
+  - {fileID: 11400000, guid: fcab94b1902ff754dbc686a54e9eb471, type: 2}
+  - {fileID: 11400000, guid: 159bd57f31a4fb54091815890c069d52, type: 2}
+  - {fileID: 11400000, guid: b716dac5e185a45498a3b5fadfa1dcd2, type: 2}
+  - {fileID: 11400000, guid: 7eacc4d37c269db4c9275f01252f95e3, type: 2}

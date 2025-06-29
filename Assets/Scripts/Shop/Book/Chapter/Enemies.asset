@@ -14,6 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chapterName: Inimigos
   pages:
-  - {fileID: 11400000, guid: 03c0bf46d2b61664093c991576c173f2, type: 2}
-  - {fileID: 11400000, guid: 7a25e02d53c23324c8be4e5b7a16802a, type: 2}
-  - {fileID: 11400000, guid: bfadd2adfbe59674a81ca9c814a7ea37, type: 2}
+  - {fileID: 11400000, guid: 0ebc43df43bd08548b98d44bb4fa7d6f, type: 2}
+  - {fileID: 11400000, guid: d51ccbaafa4c17b4da888bdce20e59bd, type: 2}
+  - {fileID: 11400000, guid: 2a4212e1a95df9f4a99929799e08868f, type: 2}
+  - {fileID: 11400000, guid: df2020556d7ff3f4998fecf55e66d64e, type: 2}
+  - {fileID: 11400000, guid: 88608766d86af8047a154f24ec0acfa2, type: 2}
+  - {fileID: 11400000, guid: ffd7230bebc8f43449ccd93fdafb5b88, type: 2}
+  - {fileID: 11400000, guid: bd994bbd59af7c94d9862bb360512dd3, type: 2}
+  - {fileID: 11400000, guid: ac1d0d159eada7c4da33ff351e7d1966, type: 2}
+  - {fileID: 11400000, guid: 19396e5c7d196184998909b24e3eb2bb, type: 2}

@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a966a140831a6549b094d995d1a639f, type: 3}
+  m_Name: SpeedAluminio
+  m_EditorClassIdentifier: 
+  title: "Speed Alum\xEDnio"
+  id: 0
+  storyText: "O Alum\xEDnio \xE9 um metal leve e prateado, o terceiro elemento mais
+    abundante na crosta terrestre, encontrado principalmente na Bauxita. Apresenta
+    uma excelente rela\xE7\xE3o resist\xEAncia-peso o que lhe oferece uma boa resist\xEAncia
+    estrutural sem adicionar muito peso. Isso significa que ele \xE9 forte, por\xE9m
+    muito leve, o que o torna ideal para tudo que precisa de agilidade e leveza.
+    O Alum\xEDnio \xE9 um metal relativamente jovem na hist\xF3ria da ind\xFAstria,
+    tendo se tornado amplamente dispon\xEDvel apenas no s\xE9culo XX. \xC9 essencial
+    na fabrica\xE7\xE3o de avi\xF5es, carros, latas de refrigerante e at\xE9 em embalagens
+    de alimentos. As maiores reservas de bauxita, de onde o alum\xEDnio \xE9 extra\xEDdo,
+    est\xE3o na Austr\xE1lia, Guin\xE9, Brasil (Par\xE1 e Minas Gerais), China e
+    Jamaica. A produ\xE7\xE3o de alum\xEDnio \xE9 um processo que consome muita energia,
+    mas sua reciclagem \xE9 extremamente eficiente, reduzindo significativamente
+    o impacto ambiental e econ\xF4mico, tornando-o um material-chave na economia
+    circular. No jogo, \xE9 essa leveza que tornam os inimigos \xE1geis e dif\xEDceis
+    de serem atingidos. "
+  model3D: {fileID: 0}

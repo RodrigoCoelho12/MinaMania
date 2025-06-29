@@ -17,7 +17,7 @@ public class ShopButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public Vector3[] camPos = new Vector3[2]; // index 0 = standard, index 1 = close
     private bool isMoving;
-    
+
     private PlayerSO playerSO;
 
     private void Start()
@@ -66,10 +66,13 @@ public class ShopButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
                 DisableButton();
                 return;
             }
+            if (playerSO.playerCurrency >= itemData[itemIndex].itemPrice)
+            {
+                HandleItemAssignment(itemData[itemIndex]);
+            }
 
-            HandleItemAssignment(itemData[itemIndex]);
         }
-        
+
         if (!isMoving)
         {
             StartMoving(camPos[1], 1f, currentCamera.gameObject);
@@ -125,7 +128,7 @@ public class ShopButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         itemIndex++;
         playerSO.overrides = true;
         Debug.Log("Advanced to next item.");
-
+        playerSO.playerCurrency -= itemData[itemIndex].itemPrice;
         if (itemIndex >= itemData.Count)
         {
             DisableButton();

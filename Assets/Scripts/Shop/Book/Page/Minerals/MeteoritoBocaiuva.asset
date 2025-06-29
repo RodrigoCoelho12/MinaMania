@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a966a140831a6549b094d995d1a639f, type: 3}
+  m_Name: MeteoritoBocaiuva
+  m_EditorClassIdentifier: 
+  title: "Meteorito Bocai\xFAva "
+  id: 0
+  storyText: "O Meteorito Bocai\xFAva \xE9 classificado como um siderito silicatado.
+    Isso significa que ele \xE9 composto por uma matriz predominantemente met\xE1lica
+    de ferro e n\xEDquel, mas com uma presen\xE7a not\xE1vel de silicatos. O meteorito
+    foi descoberto por volta de 1947 (algumas fontes citam a d\xE9cada de 1960) no
+    munic\xEDpio de Bocai\xFAva, na regi\xE3o norte de Minas Gerais, a cerca de 384
+    km de Belo Horizonte. A massa principal deste meteorito \xE9 de cerca de 64 kg."
+  model3D: {fileID: 4864593914337878725, guid: 27d4ca1b8ec5423408918a0bc9e6a94a, type: 3}

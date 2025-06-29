@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a966a140831a6549b094d995d1a639f, type: 3}
+  m_Name: Pirita
+  m_EditorClassIdentifier: 
+  title: Pirita (FeS2)
+  id: 0
+  storyText: "A pirita \xE9 um mineral muito conhecido, especialmente por seu brilho
+    met\xE1lico dourado que a levou a ser apelidada de \"ouro de tolo\". \xC9 um
+    dos sulfetos mais comuns na crosta terrestre e pode ser encontrada em uma grande
+    variedade de ambientes geol\xF3gicos. Em sua ess\xEAncia, a forma c\xFAbica da
+    pirita \xE9 determinada pela sua estrutura cristalina. Os \xE1tomos de ferro
+    (Fe) e enxofre (S) na pirita se arranjam em um padr\xE3o que possui uma simetria
+    c\xFAbica. "
+  model3D: {fileID: 3189470677884996045, guid: 07812f1f0e9cfe94f98aa28d05290b1c, type: 3}

@@ -9,4 +9,5 @@ public class PlayerSO : MonoBehaviour
     public DashData dashData;
     public ExtraLifeData extraLifeData;
     public MagnetData magnetData;
+    public float playerCurrency;
 }

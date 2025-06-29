@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a966a140831a6549b094d995d1a639f, type: 3}
+  m_Name: DamageMeteorito
+  m_EditorClassIdentifier: 
+  title: Damage Meteorito
+  id: 0
+  storyText: "Meteoritos s\xE3o fragmentos de asteroides ou cometas, compostos principalmente
+    por ferro, n\xEDquel e silicatos. O impacto de um meteoro \xE9 um evento de libera\xE7\xE3o
+    de energia massiva. Ele cria crateras gigantescas, gera ondas de choque devastadoras
+    e libera calor extremo. O impacto de meteoros moldou a hist\xF3ria da Terra,
+    sendo respons\xE1vel por eventos de extin\xE7\xE3o como dos dinossauros. Estudar
+    meteoritos nos ajuda a entender a forma\xE7\xE3o do nosso sistema solar. O Museu
+    das Minas e do Metal possui o Meteorito Bocai\xFAva dispon\xEDvel \xE0 visita\xE7\xE3o.
+    No jogo, a for\xE7a destrutiva de um impacto mete\xF3rico \xE9 a base para o
+    vasto raio de destrui\xE7\xE3o que esses inimigos podem causar. "
+  model3D: {fileID: 0}
