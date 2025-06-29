@@ -32,6 +32,6 @@ public partial class Player
     {
         if (scoreText != null)
             scoreText.text = "PONTOS: " + score.ToString();
-        Debug.Log(scoreText.text = "PONTOS: " + score.ToString());
+        //Debug.Log(scoreText.text = "PONTOS: " + score.ToString());
     }
 }

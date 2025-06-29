@@ -334,10 +334,11 @@ MonoBehaviour:
   attackHitbox: {fileID: 890022550827560612}
   animator: {fileID: 8364423284619855998}
   isAwakened: 1
-  damage: 20
+  damage: 5
   attackCooldown: 1
   attackDuration: 0.5
   attackRange: 4
+  dropPrefab: {fileID: 1031889259620169860, guid: 5f76ea1e08e32cd459106d245b160354, type: 3}
 --- !u!195 &8737642380572988437
 NavMeshAgent:
   m_ObjectHideFlags: 0

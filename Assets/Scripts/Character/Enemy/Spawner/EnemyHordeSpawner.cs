@@ -2,12 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Linq;
 
 public class EnemyHordeSpawner : MonoBehaviour
 {
-    [Header("Player Reference")]
-    private GameObject player;
-
     [Header("Enemy Types")]
     public GameObject[] enemyPrefabs;
 
@@ -31,12 +29,20 @@ public class EnemyHordeSpawner : MonoBehaviour
 
     private List<GameObject> activeEnemies = new List<GameObject>();
 
+    [Header("Drop Types")]
+    public GameObject[] dropPrefabs;
+    private Queue<GameObject> dropItemQueue = new Queue<GameObject>();
+
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
         hordeQueue.Enqueue(new HordeData(initialEnemyCount));
         hordeQueue.Enqueue(new HordeData(initialEnemyCount + growthPerHorde));
         hordeQueue.Enqueue(new HordeData(initialEnemyCount + growthPerHorde * 2));
+
+        foreach (var item in dropPrefabs)
+        {
+            dropItemQueue.Enqueue(item);
+        }
 
         StartCoroutine(HordeLoop());
     }
@@ -54,9 +60,11 @@ public class EnemyHordeSpawner : MonoBehaviour
             HordeData currentHorde = hordeQueue.Dequeue();
 
             hordeCount++;
-            Debug.Log("Horda: " + hordeCount);
+            //Debug.Log("Horda: " + hordeCount);
             yield return StartCoroutine(SpawnHorde(currentHorde));
             yield return new WaitUntil(() => AllEnemiesDead());
+
+            DropItem();
 
             float currentDelay = delayAfterLastEnemyDies;
 
@@ -65,6 +73,15 @@ public class EnemyHordeSpawner : MonoBehaviour
             int futureEnemyCount = initialEnemyCount + growthPerHorde * hordeCount;
             hordeQueue.Enqueue(new HordeData(futureEnemyCount));
         }
+    }
+
+    public void DropItem()
+    {
+        var item = dropItemQueue.First();
+        Instantiate(item, Vector3.zero, Quaternion.identity);
+
+        dropItemQueue.Dequeue();
+        dropItemQueue.Enqueue(item);
     }
 
     IEnumerator SpawnHorde(HordeData horde)
@@ -86,7 +103,7 @@ public class EnemyHordeSpawner : MonoBehaviour
     bool AllEnemiesDead()
     {
         activeEnemies.RemoveAll(enemy => enemy == null || enemy.activeSelf == false);
-        Debug.Log("Inimigos restantes: " + activeEnemies.Count);
+        //Debug.Log("Inimigos restantes: " + activeEnemies.Count);
 
         return activeEnemies.Count == 0;
     }
