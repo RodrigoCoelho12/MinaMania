@@ -16,4 +16,23 @@ public class Tank : Enemy
         Attack();
         Move();
     }
-}
+    protected override IEnumerator ShowHitBox()
+    {
+        WaitForSeconds animationTime = new WaitForSeconds(attackDuration);
+        WaitForSeconds hitboxActiveTime = new WaitForSeconds(0.2f);
+        WaitForSeconds hitboxCooldownTime = new WaitForSeconds(attackCooldown);
+
+
+        while (isAwakened)
+        {
+            animator.SetBool("IsAttacking", true);
+            yield return animationTime;
+            attackHitbox.SetActive(true);
+            yield return hitboxActiveTime;
+            attackHitbox.SetActive(false);
+            animator.SetBool("IsAttacking", false);
+            yield return hitboxCooldownTime;
+        }
+    }
+
+    }

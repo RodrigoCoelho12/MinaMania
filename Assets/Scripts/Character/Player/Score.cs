@@ -13,7 +13,7 @@ public partial class Player
 
     public SaveSystem saveSystem;
     private PlayerData playerData;
-    private RankingList playerDataList;
+    private RankingList rankingList;
 
     [Header("Canvas Elements")]
     public TextMeshProUGUI scoreText;
@@ -22,10 +22,8 @@ public partial class Player
     {
         Debug.Log("Entrei");
         score += 1000;
-        //this.playerData.score = score;
-        Debug.Log(score);
         UpdateInterface();
-        saveSystem.SaveRankingList(playerDataList);
+        saveSystem.SaveRankingList(rankingList);
     }
 
     private void UpdateInterface()

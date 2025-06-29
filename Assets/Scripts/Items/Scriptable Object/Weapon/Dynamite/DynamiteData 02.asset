@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e97a77999214eb45ac1a50a56044017, type: 3}
   m_Name: DynamiteData 02
   m_EditorClassIdentifier: 
-  itemName: 
+  itemName: Dinamite de Gelo de Metano
   description: 
   shopDescription: 
   itemMesh: {fileID: -6608124319622672718, guid: 6f248c8ffd7a5ff44aef5bfc6dc12dff, type: 3}
@@ -20,7 +20,7 @@ MonoBehaviour:
   itemPrice: 0
   damage: 0
   weaponPrice: 11
-  dynamitePrefab: {fileID: 0}
-  explosionRadius: 0
-  explosionForce: 0
-  dynamiteAmount: 0
+  dynamitePrefab: {fileID: 8007541920902249124, guid: f8879bf3daf325b478c57ac83a4354f1, type: 3}
+  explosionRadius: 12
+  explosionForce: 200
+  dynamiteAmount: 6

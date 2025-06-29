@@ -634,7 +634,7 @@ MonoBehaviour:
   isAwakened: 1
   damage: 5
   attackCooldown: 1
-  attackDuration: 1
+  attackDuration: 0.8
   attackRange: 4
   dropPrefab: {fileID: 4314037490416884437, guid: 8dde2de46cdadee41a5267cee5390e52, type: 3}
 --- !u!195 &6687761780528552982

@@ -11,7 +11,8 @@ public class RankingController : MonoBehaviour
     public Player player;
 
     [Header("Ranking UI (Single Field)")]
-    public List<TextMeshProUGUI> rankingTexts;
+    public List<TextMeshProUGUI> rankingNameTexts;
+    public List<TextMeshProUGUI> rankingScoreTexts;
 
     private LoadSystem loadSystem;
     private PlayerData playerData;
@@ -23,16 +24,14 @@ public class RankingController : MonoBehaviour
         saveSystem = GetComponent<SaveSystem>();
         loadSystem = GetComponent<LoadSystem>();
 
-        rankingList = new RankingList();
+        rankingList = loadSystem.LoadRankingList();
+        Debug.Log(rankingList);
     }
 
     void Start()
     {
-        rankingList = loadSystem.LoadRankingList();
-
         UpdateRankingUI();
     }
-
     public void InsertPlayerOnRanking()
     {
         string playerName = nameInputField.text;
@@ -60,14 +59,22 @@ public class RankingController : MonoBehaviour
 
     public void UpdateRankingUI()
     {
-        List<PlayerData> top = rankingList.GetTopPlayers(rankingTexts.Count);
+        List<PlayerData> top = rankingList.GetTopPlayers(rankingNameTexts.Count);
 
-        for (int i = 0; i < rankingTexts.Count; i++)
+        for (int i = 0; i < rankingNameTexts.Count; i++)
         {
             if (i < top.Count)
-                rankingTexts[i].text = $"{top[i].name} — {top[i].score}";
+            {
+                rankingNameTexts[i].text = $"{top[i].name}";
+                rankingScoreTexts[i].text = $"{top[i].score}";
+
+            }
             else
-                rankingTexts[i].text = "-";
+            {
+                rankingNameTexts[i].text = "-";
+                rankingScoreTexts[i].text = "-";
+            }
         }
     }
 }
+

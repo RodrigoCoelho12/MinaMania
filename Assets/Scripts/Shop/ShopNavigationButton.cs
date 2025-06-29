@@ -50,40 +50,6 @@ public class ShopNavigationButton : MonoBehaviour, IPointerEnterHandler, IPointe
         StartCoroutine(SmoothLookAt(target.position));
 
     }
-    private void Update()
-    {
-        //RotateCameraGamepad();
-    }
-    //public void RotateCameraGamepad()
-    //{
-    //    if (shopCamera == null || shopPositionslist == null || shopPositionslist.Count == 0)
-    //    {
-    //        Debug.LogError("Shop camera or positions list is not properly assigned.");
-    //        return;
-    //    }
-    //    if (!canRotate)
-    //    {
-    //        Debug.Log("Camera is currently rotating, please wait.");
-    //        return; // Prevent further clicks while rotating
-    //    }
-
-    //    if (ShopInputManager.instance.RotateRightInput)
-    //    {
-    //        currentIndex = (currentIndex + 1) % shopPositionslist.Count;
-            
-    //        Transform target = shopPositionslist[currentIndex].transform;
-    //        StartCoroutine(SmoothLookAt(target.position));
-    //    }
-    //    else if (ShopInputManager.instance.RotateLeftInput)
-    //    {
-    //        currentIndex = (currentIndex - 1 + shopPositionslist.Count) % shopPositionslist.Count;
-            
-    //        Transform target = shopPositionslist[currentIndex].transform;
-    //        StartCoroutine(SmoothLookAt(target.position));
-    //    }
-
-    //}
-
     private IEnumerator SmoothLookAt(Vector3 direction)
     {
         canRotate = false;

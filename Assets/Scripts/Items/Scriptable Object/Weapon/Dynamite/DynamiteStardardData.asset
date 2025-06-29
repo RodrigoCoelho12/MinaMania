@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e97a77999214eb45ac1a50a56044017, type: 3}
   m_Name: DynamiteStardardData
   m_EditorClassIdentifier: 
-  itemName: "Dinamite B\xE1sica"
+  itemName: "Dinamite de Polv\xF3ra"
   description: 
   shopDescription: 
-  itemMesh: {fileID: 0}
-  itemMaterial: {fileID: 0}
+  itemMesh: {fileID: -6608124319622672718, guid: 6f248c8ffd7a5ff44aef5bfc6dc12dff, type: 3}
+  itemMaterial: {fileID: 2100000, guid: 499947e1ffc204241830c52a7d79b58d, type: 2}
   itemPrice: 0
   damage: 50
   weaponPrice: 11
-  dynamitePrefab: {fileID: 0}
+  dynamitePrefab: {fileID: 8007541920902249124, guid: f8879bf3daf325b478c57ac83a4354f1, type: 3}
   explosionRadius: 8
   explosionForce: 150
   dynamiteAmount: 4
