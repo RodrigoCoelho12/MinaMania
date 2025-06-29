@@ -9,7 +9,6 @@ public class ShopButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     [SerializeField] private List<ItemData> itemData;
     private int itemIndex = 1;
 
-    private Player player;
     private bool isHoverEnabled = true;
 
     public Camera currentCamera;
@@ -18,15 +17,15 @@ public class ShopButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public Vector3[] camPos = new Vector3[2]; // index 0 = standard, index 1 = close
     private bool isMoving;
+    
+    private PlayerSO playerSO;
 
     private void Start()
     {
         originalScale = transform.localScale;
-        player = FindFirstObjectByType<Player>();
-        if (player == null)
-        {
-            Debug.LogError("Player not found in the scene.");
-        }
+
+        playerSO = FindAnyObjectByType<PlayerSO>();
+        playerSO.overrides = false;
 
         ChangeButtonAppearance();
     }
@@ -61,7 +60,7 @@ public class ShopButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     {
         if (currentCamera.transform.position == camPos[1])
         {
-            if (player == null || itemIndex >= itemData.Count)
+            if (itemIndex >= itemData.Count)
             {
                 Debug.Log("No more items or player not assigned.");
                 DisableButton();
@@ -70,7 +69,8 @@ public class ShopButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
             HandleItemAssignment(itemData[itemIndex]);
         }
-        else if (!isMoving)
+        
+        if (!isMoving)
         {
             StartMoving(camPos[1], 1f, currentCamera.gameObject);
         }
@@ -87,22 +87,22 @@ public class ShopButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         switch (item)
         {
             case DynamiteData dynamite:
-                ConfirmAssignment(() => player.currentDynamiteData = dynamite);
+                ConfirmAssignment(() => playerSO.dynamiteData = dynamite);
                 break;
             case PickaxeData pickaxe:
-                ConfirmAssignment(() => player.currentPickaxeData = pickaxe);
+                ConfirmAssignment(() => playerSO.pickaxeData = pickaxe);
                 break;
             case WaterSprayData waterSpray:
-                ConfirmAssignment(() => player.currentWaterSprayData = waterSpray);
+                ConfirmAssignment(() => playerSO.waterSprayData = waterSpray);
                 break;
             case DashData dash:
-                ConfirmAssignment(() => player.currentDashData = dash);
+                ConfirmAssignment(() => playerSO.dashData = dash);
                 break;
             case MagnetData magnet:
-                ConfirmAssignment(() => player.currentMagnetData = magnet);
+                ConfirmAssignment(() => playerSO.magnetData = magnet);
                 break;
             case ExtraLifeData extraLife:
-                ConfirmAssignment(() => player.currentExtraLifeData = extraLife);
+                ConfirmAssignment(() => playerSO.extraLifeData = extraLife);
                 break;
             default:
                 Debug.LogWarning("Unknown item type.");
@@ -123,6 +123,7 @@ public class ShopButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     private void AdvanceItem()
     {
         itemIndex++;
+        playerSO.overrides = true;
         Debug.Log("Advanced to next item.");
 
         if (itemIndex >= itemData.Count)

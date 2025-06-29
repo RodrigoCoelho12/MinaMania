@@ -7,7 +7,17 @@ public class ShopDoor : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            DontDestroyOnLoad(FindAnyObjectByType<PlayerSO>());
+            PlayerSO playerSO = FindAnyObjectByType<PlayerSO>();
+            Player player = FindAnyObjectByType<Player>();
+
+            playerSO.waterSprayData = player.currentWaterSprayData;
+            playerSO.extraLifeData = player.currentExtraLifeData;
+            playerSO.pickaxeData = player.currentPickaxeData;
+            playerSO.magnetData = player.currentMagnetData;
+            playerSO.dynamiteData = player.currentDynamiteData;
+            playerSO.dashData = player.currentDashData;
+            
+            DontDestroyOnLoad(playerSO);
             SceneManager.LoadScene(2);
         }
     }
