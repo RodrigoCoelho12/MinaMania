@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using Unity.VisualScripting;
 
 public partial class Player : Character
 {
@@ -19,11 +20,23 @@ public partial class Player : Character
         cc = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
         yPosition = transform.position.y;
-        
+
         if (scoreText == null)
             Debug.LogError("scoreText nao atribuido no PlayerRanking.");
 
         UpdateInterface();
+
+        PlayerSO playerSO = FindAnyObjectByType<PlayerSO>();
+        if (playerSO.overrides)
+        {
+            this.currentWaterSprayData = playerSO.waterSprayData;
+            this.currentExtraLifeData = playerSO.extraLifeData;
+            this.currentPickaxeData = playerSO.pickaxeData;
+            this.currentMagnetData = playerSO.magnetData;
+            this.currentDynamiteData = playerSO.dynamiteData;
+            this.currentDashData = playerSO.dashData;
+            playerSO.overrides = false;
+        }
     }
 
     void Update()

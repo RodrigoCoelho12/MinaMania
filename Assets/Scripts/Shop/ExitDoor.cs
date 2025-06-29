@@ -7,6 +7,20 @@ public class ExitDoor : MonoBehaviour, IPointerClickHandler
 {
     public void OnPointerClick(PointerEventData eventData)
     {
+        PlayerSO playerSO = FindAnyObjectByType<PlayerSO>();
+        DontDestroyOnLoad(playerSO);
+
         SceneManager.LoadScene(1);
+
+    }
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        this.transform.localScale = new Vector3(1f, 1f, 1f);
+        //this.GetComponent<Renderer>().material.color = Color.grey;
+    }
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        this.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+        // this.GetComponent<Renderer>().material.color = Color.cyan;
     }
 }

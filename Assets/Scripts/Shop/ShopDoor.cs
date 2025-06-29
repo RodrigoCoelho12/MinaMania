@@ -7,6 +7,7 @@ public class ShopDoor : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            DontDestroyOnLoad(FindAnyObjectByType<PlayerSO>());
             SceneManager.LoadScene(2);
         }
     }
