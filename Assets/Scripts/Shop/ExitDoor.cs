@@ -5,9 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class ExitDoor : MonoBehaviour, IPointerClickHandler, IPointerExitHandler, IPointerEnterHandler
 {
-    public  void OnPointerClick(PointerEventData eventData)
+    public void OnPointerClick(PointerEventData eventData)
     {
+        PlayerSO playerSO = FindAnyObjectByType<PlayerSO>();
+        DontDestroyOnLoad(playerSO);
+
         SceneManager.LoadScene(1);
+
     }
     public void OnPointerExit(PointerEventData eventData)
     {
@@ -17,6 +21,6 @@ public class ExitDoor : MonoBehaviour, IPointerClickHandler, IPointerExitHandler
     public void OnPointerEnter(PointerEventData eventData)
     {
         this.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
-       // this.GetComponent<Renderer>().material.color = Color.cyan;
+        // this.GetComponent<Renderer>().material.color = Color.cyan;
     }
 }

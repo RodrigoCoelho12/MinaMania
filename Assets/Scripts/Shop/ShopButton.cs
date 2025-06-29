@@ -7,14 +7,11 @@ public class ShopButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     [Header("Shop Button Properties")]
     [SerializeField] private List<ItemData> itemData;
     private int itemIndex;
-    private Player player;
     private bool isHoverEnabled = true;
-
+    PlayerSO playerSO;
     private void Start()
     {
-        player = FindFirstObjectByType<Player>();
-        if (player == null)
-            Debug.LogError("Player not found in the scene.");
+        playerSO = FindAnyObjectByType<PlayerSO>();
         itemIndex = 1; // Default to the first weapon
         ChangeButtonAppearance();
     }
@@ -69,7 +66,7 @@ public class ShopButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (player == null)
+        if (playerSO == null)
         {
             Debug.LogError("Player reference is missing.");
             return;
@@ -88,33 +85,39 @@ public class ShopButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         {
             if (currentItem is DynamiteData dynamite)
             {
-                player.currentDynamiteData = dynamite;
+                playerSO.dynamiteData = dynamite;
                 Debug.Log("Dynamite assigned.");
+                playerSO.overrides = true;
             }
             else if (currentItem is PickaxeData pickaxe)
             {
-                player.currentPickaxeData = pickaxe;
+                playerSO.pickaxeData = pickaxe;
                 Debug.Log("Pickaxe assigned.");
+                playerSO.overrides = true;
             }
             else if (currentItem is WaterSprayData waterspray)
             {
-                player.currentWaterSprayData = waterspray;
+                playerSO.waterSprayData = waterspray;
                 Debug.Log("Waterspray assigned.");
+                playerSO.overrides = true;
             }
             else if (currentItem is DashData dash)
             {
-                player.currentDashData = dash;
+                playerSO.dashData = dash;
                 Debug.Log("Dash assigned.");
+                playerSO.overrides = true;
             }
             else if (currentItem is MagnetData magnet)
             {
-                player.currentMagnetData = magnet;
+                playerSO.magnetData = magnet;
                 Debug.Log("Magnet assigned.");
+                playerSO.overrides = true;
             }
             else if (currentItem is ExtraLifeData extraLife)
             {
-                player.currentExtraLifeData = extraLife;
+                playerSO.extraLifeData = extraLife;
                 Debug.Log("Extra Life assigned.");
+                playerSO.overrides = true;
             }
             else
             {
