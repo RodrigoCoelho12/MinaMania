@@ -120,9 +120,15 @@ public class UIManager : MonoBehaviour
 
     public void GameSceneLoad()
     {
+        ShowPanel(UINames.Loading);
         SceneManager.LoadScene(1); // Load the game scene
-        HidePanel(UINames.MainMenu); // Hide the main menu panel
         Time.timeScale = 1f; // Ensure the game runs at normal speed
+    }    
+    
+    public void LoadCreditsScene()
+    {
+        SceneManager.LoadScene(3);
+        Time.timeScale = 1f;
     }
 
     private void Update()
