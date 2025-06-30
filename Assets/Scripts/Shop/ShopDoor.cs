@@ -8,7 +8,10 @@ public class ShopDoor : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             PlayerSO playerSO = FindAnyObjectByType<PlayerSO>();
-            Player player = FindAnyObjectByType<Player>();
+
+
+            Player player = other.GetComponent<Player>();
+
 
             playerSO.waterSprayData = player.currentWaterSprayData;
             playerSO.extraLifeData = player.currentExtraLifeData;
@@ -17,8 +20,8 @@ public class ShopDoor : MonoBehaviour
             playerSO.dynamiteData = player.currentDynamiteData;
             playerSO.dashData = player.currentDashData;
             playerSO.playerCurrency = player.dropCurrency;
+            playerSO.hordeCount = FindAnyObjectByType<EnemyHordeSpawner>().hordeCount;
             
-            DontDestroyOnLoad(playerSO);
             SceneManager.LoadScene(2);
         }
     }

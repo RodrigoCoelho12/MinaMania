@@ -80,6 +80,7 @@ public partial class Player : Character
         {
             dropCurrency++;
             Destroy(other.gameObject);
+            UpdateCurrencyUI();
         }
 
         if (other.CompareTag("Mineral"))
@@ -92,6 +93,11 @@ public partial class Player : Character
     public override void OnTriggerStay(Collider other)
     {
 
+    }
+
+    public void UpdateCurrencyUI()
+    {
+        currencyText.text = ": " +dropCurrency.ToString();
     }
 
     public override void DeathRoutine()

@@ -24,7 +24,8 @@ public class EnemyHordeSpawner : MonoBehaviour
     public TextMeshProUGUI countdownHordeText;
 
     private Queue<HordeData> hordeQueue = new Queue<HordeData>();
-    public int hordeCount = 0;
+    public int hordeCount;
+    private PlayerSO playerSO;
     private bool canSpawn = true;
 
     private List<GameObject> activeEnemies = new List<GameObject>();
@@ -35,16 +36,20 @@ public class EnemyHordeSpawner : MonoBehaviour
 
     private void Start()
     {
-        hordeQueue.Enqueue(new HordeData(initialEnemyCount));
-        hordeQueue.Enqueue(new HordeData(initialEnemyCount + growthPerHorde));
-        hordeQueue.Enqueue(new HordeData(initialEnemyCount + growthPerHorde * 2));
+        playerSO = FindAnyObjectByType<PlayerSO>();
 
-        foreach (var item in dropPrefabs)
-        {
-            dropItemQueue.Enqueue(item);
-        }
+        hordeCount = playerSO.hordeCount;   
+        
+        //hordeQueue.Enqueue(new HordeData(initialEnemyCount));
+        //hordeQueue.Enqueue(new HordeData(initialEnemyCount + growthPerHorde));
+        //hordeQueue.Enqueue(new HordeData(initialEnemyCount + growthPerHorde * 2));
 
-        StartCoroutine(HordeLoop());
+        //foreach (var item in dropPrefabs)
+        //{
+        //    dropItemQueue.Enqueue(item);
+        //}
+
+        //StartCoroutine(HordeLoop());
     }
 
     IEnumerator HordeLoop()
@@ -121,7 +126,7 @@ public class EnemyHordeSpawner : MonoBehaviour
         while (time > 0)
         {
             if (countdownHordeText != null)
-                countdownHordeText.text = "Proxima horda em: " + Mathf.Ceil(time).ToString() + "s";
+                countdownHordeText.text = "Proxima horda em: " + Mathf.Ceil(time).ToString();
 
             time -= Time.deltaTime;
             yield return null;

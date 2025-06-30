@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2905139315404919225}
   - component: {fileID: 8092874242696110560}
   - component: {fileID: 5672718491453504926}
-  - component: {fileID: 3239053255130995161}
+  - component: {fileID: 1407077417388931467}
   m_Layer: 0
   m_Name: DropHematita
   m_TagString: Drop
@@ -87,8 +87,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &3239053255130995161
-SphereCollider:
+--- !u!65 &1407077417388931467
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -106,5 +106,5 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 3.0686727, y: 2.0131302, z: 1.6583781}
+  m_Center: {x: 0.067196965, y: 0.13161749, z: 0.022455215}

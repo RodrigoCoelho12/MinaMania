@@ -18,8 +18,7 @@ MonoBehaviour:
   itemMesh: {fileID: 7040633761853458416, guid: 58586bcf08aaf8e4db7c45169353d0d6, type: 3}
   itemMaterial: {fileID: 2100000, guid: 9d997fb6b548f404e95320b0b6874211, type: 2}
   itemPrice: 0
-  damage: 0
-  weaponPrice: 0
-  sprayRange: 0
-  waterMaxAmount: 0
+  damage: 2.5
+  sprayRangeIndex: 1
+  waterMaxAmount: 150
   watersprayPrefab: {fileID: 1065834227336969711, guid: df065b830e5508147ba5506a21608bb1, type: 3}

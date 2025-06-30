@@ -29,7 +29,7 @@ public partial class Player
     private void UpdateInterface()
     {
         if (scoreText != null)
-            scoreText.text = "PONTOS: " + score.ToString();
+            scoreText.text = score.ToString();
         //Debug.Log(scoreText.text = "PONTOS: " + score.ToString());
     }
 }

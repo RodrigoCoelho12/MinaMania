@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2551685676991948034}
   - component: {fileID: 7889732153569799202}
   - component: {fileID: 8810425502491015087}
-  - component: {fileID: 2222377934921856881}
+  - component: {fileID: -8814195859249416201}
   m_Layer: 0
   m_Name: DropPirita
   m_TagString: Drop
@@ -87,8 +87,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &2222377934921856881
-SphereCollider:
+--- !u!65 &-8814195859249416201
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -106,5 +106,5 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 4.3923225, y: 4.9178452, z: 4.1742}
+  m_Center: {x: -0.25385505, y: -0.2138238, z: 0.26949948}

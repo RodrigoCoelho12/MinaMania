@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 176068220564548414}
   - component: {fileID: 661852709130207883}
   - component: {fileID: 5404669548460460500}
-  - component: {fileID: 5186901883893879782}
+  - component: {fileID: -1220410763209814286}
   m_Layer: 0
   m_Name: DropMeteorito
   m_TagString: Drop
@@ -87,8 +87,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &5186901883893879782
-SphereCollider:
+--- !u!65 &-1220410763209814286
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -106,5 +106,5 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 3.1601748, y: 2.5899088, z: 2.7835696}
+  m_Center: {x: -0.27908987, y: 0.18030882, z: -0.026843905}

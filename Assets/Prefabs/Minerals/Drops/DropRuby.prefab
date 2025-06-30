@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3892490833293523504}
   - component: {fileID: 7938811858733645552}
   - component: {fileID: 8922104486112569010}
-  - component: {fileID: 3680237861248229882}
+  - component: {fileID: -8227287066038711713}
   m_Layer: 0
   m_Name: DropRuby
   m_TagString: Drop
@@ -87,8 +87,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &3680237861248229882
-SphereCollider:
+--- !u!65 &-8227287066038711713
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -106,5 +106,5 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2.2711399, y: 3.147057, z: 2.2696095}
+  m_Center: {x: 0.1540002, y: -0.03183806, z: -0.13480484}

@@ -13,7 +13,7 @@ public abstract class Enemy : Character
     public Animator animator;
     protected HitBox _hitBox;                // Reference to the HitBox component.
     public bool isAwakened = false;         // If true, the enemy will move towards the target and attack.
-    public int damage = 20;
+    public int damage;
 
     private Vector3 _positionInProfiling;   // The initial position to reset the enemy when it dies.
     private float exposureTime = 0f;        // Time exposed to a continuous attack like WaterSpray.
@@ -219,12 +219,12 @@ public abstract class Enemy : Character
         // Handle initial hit from any weapon.
         if (other.CompareTag("Pickaxe"))
         {
-            Pickaxe pickaxe = other.GetComponent<Pickaxe>();
+            float pickaxeDamage = other.GetComponentInParent<Player>().currentPickaxeData.damage;
 
-            healthBar.AdjustStatusBarBySubtraction(10);
+            healthBar.AdjustStatusBarBySubtraction(pickaxeDamage);
             CheckDeath();
 
-            StartCoroutine(StopMovementTemp(2f, () => Debug.Log("Movement resumed.")));
+            StartCoroutine(StopMovementTemp(0.5f, () => Debug.Log("Movement resumed.")));
         }
 
     }
@@ -247,7 +247,7 @@ public abstract class Enemy : Character
 
             if (exposureTime >= 2f)
             {
-                healthBar.AdjustStatusBarBySubtraction(1 * 2);
+                healthBar.AdjustStatusBarBySubtraction(waterSpray.waterSprayDamage);
                 exposureTime = 0f;
                 CheckDeath();
             }

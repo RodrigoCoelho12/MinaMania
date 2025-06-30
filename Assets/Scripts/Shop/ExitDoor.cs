@@ -8,7 +8,6 @@ public class ExitDoor : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         PlayerSO playerSO = FindAnyObjectByType<PlayerSO>();
-        DontDestroyOnLoad(playerSO);
 
         SceneManager.LoadScene(1);
 

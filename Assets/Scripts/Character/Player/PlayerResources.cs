@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 using static UnityEngine.UISystemProfilerApi;
 
 public partial class Player
@@ -9,6 +10,7 @@ public partial class Player
 
     [Header(" └─ Inventory")]
     public float dropCurrency;
+    public TextMeshProUGUI currencyText;
 
     [Header(" └─ Weapons")]
     public PickaxeData currentPickaxeData;

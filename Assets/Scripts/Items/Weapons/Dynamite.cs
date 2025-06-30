@@ -45,6 +45,7 @@ public class Dynamite : Weapon
     {
         player = GameObject.FindWithTag("Player");
         dynamiteCurrentAmount = dynamiteData.dynamiteAmount;
+        UpdateDynamiteUI();
     }
 
     public override void Attack()

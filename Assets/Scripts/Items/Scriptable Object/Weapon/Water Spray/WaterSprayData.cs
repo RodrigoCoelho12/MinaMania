@@ -4,7 +4,7 @@ using UnityEngine;
 public class WaterSprayData : WeaponData
 {
     [Header("WaterSpray Attributes")]
-    public float sprayRange;
+    public int sprayRangeIndex;
     public int waterMaxAmount;
 
     [Header("WaterSpray Object Attributes")]

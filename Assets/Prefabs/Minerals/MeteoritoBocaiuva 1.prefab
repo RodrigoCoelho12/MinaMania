@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3189470677884996045
+--- !u!1 &2427286615169913817
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,46 +8,46 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6601759394879672413}
-  - component: {fileID: 2208687729322767793}
-  - component: {fileID: 932623219843258971}
+  - component: {fileID: 2228508316499765955}
+  - component: {fileID: 7903542021562392175}
+  - component: {fileID: 8215972498254769412}
   m_Layer: 0
-  m_Name: Pirita
+  m_Name: MeteoritoBocaiuva 1
   m_TagString: Mineral
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6601759394879672413
+--- !u!4 &2228508316499765955
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3189470677884996045}
+  m_GameObject: {fileID: 2427286615169913817}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7590494, y: 1.199222e-17, z: -1.19922255e-17, w: 0.651033}
-  m_LocalPosition: {x: -2.916088, y: 0.18996099, z: 0.000000025522938}
-  m_LocalScale: {x: 307.01, y: 307.01, z: 883.75824}
+  m_LocalRotation: {x: -0.34818423, y: 0.6154411, z: 0.6154411, w: 0.34818426}
+  m_LocalPosition: {x: -1.628522, y: 0.22402912, z: 0.19633855}
+  m_LocalScale: {x: 387.79996, y: 387.79996, z: 387.79996}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &2208687729322767793
+--- !u!33 &7903542021562392175
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3189470677884996045}
-  m_Mesh: {fileID: -768317035883093411, guid: fc1cc0fa5fab46848b5f7e00ae75fd88, type: 3}
---- !u!23 &932623219843258971
+  m_GameObject: {fileID: 2427286615169913817}
+  m_Mesh: {fileID: 660318517399082512, guid: c294bf01e7835b74daac46907c148764, type: 3}
+--- !u!23 &8215972498254769412
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3189470677884996045}
+  m_GameObject: {fileID: 2427286615169913817}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8393012556073479705}
   - component: {fileID: 4496254118120546140}
   - component: {fileID: 7059267080037151680}
-  - component: {fileID: 7635840027780696785}
+  - component: {fileID: 2466473286235756710}
   m_Layer: 0
   m_Name: DropAluminio
   m_TagString: Drop
@@ -87,8 +87,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &7635840027780696785
-SphereCollider:
+--- !u!65 &2466473286235756710
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -106,5 +106,5 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2.275682, y: 2.6792042, z: 2.197699}
+  m_Center: {x: 0.13210684, y: 0.079098225, z: -0.0777362}
