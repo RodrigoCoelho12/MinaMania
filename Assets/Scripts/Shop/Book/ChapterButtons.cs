@@ -7,7 +7,9 @@ public class ChapterButtons : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     private BookManager bookManager;
     private int chapterIndex;
+    private Color ogColor;
 
+    void Start(){ ogColor = this.GetComponent<Renderer>().material.color; }
     public void Initialize(BookManager manager, int index)
     {
         bookManager = manager;
@@ -16,7 +18,7 @@ public class ChapterButtons : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        transform.localScale = Vector3.one * 1.1f;
+        transform.localScale = Vector3.one * 1.1f * 500;
         if (TryGetComponent<Renderer>(out var renderer))
             renderer.material.color = Color.yellow;
     }
@@ -25,9 +27,9 @@ public class ChapterButtons : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     {
         if (!bookManager.isSelected[chapterIndex])
         {
-            transform.localScale = Vector3.one;
+            transform.localScale = Vector3.one * 500;
             if (TryGetComponent<Renderer>(out var renderer))
-                renderer.material.color = Color.white;
+                renderer.material.color = ogColor;
         }
     }
 
@@ -45,8 +47,8 @@ public class ChapterButtons : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     public void ResetAppearance()
     {
-        transform.localScale = Vector3.one;
+        transform.localScale = Vector3.one * 500f;
         if (TryGetComponent<Renderer>(out var renderer))
-            renderer.material.color = Color.white;
+           renderer.material.color = ogColor;
     }
 }

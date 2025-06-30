@@ -21,4 +21,4 @@ MonoBehaviour:
     possui propriedades piezoel\xE9tricas (gera eletricidade sob press\xE3o) e piroel\xE9tricas
     (gera eletricidade com mudan\xE7a de temperatura), o que o torna essencial em
     rel\xF3gios (osciladores de quartzo), r\xE1dios e outros equipamentos eletr\xF4nicos. "
-  model3D: {fileID: 4952218683219100112, guid: 730f567133171c44d92fbbf2f1ca7d53, type: 3}
+  model3D: {fileID: 3551499940190733510, guid: 861d1563737f142499f957e85e98b3aa, type: 3}

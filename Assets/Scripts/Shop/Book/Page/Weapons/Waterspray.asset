@@ -24,4 +24,4 @@ MonoBehaviour:
     mais profundos. No jogo, essa caracter\xEDstica pode ser usada para simbolizar
     um jato d'\xE1gua com menor poder de penetra\xE7\xE3o. Um poder de infiltra\xE7\xE3o
     limitado. "
-  model3D: {fileID: 6881239265415306478, guid: fdeb3cd76bb894742b0b50fd4d38fbbb, type: 3}
+  model3D: {fileID: 5501039788446052973, guid: 8ff8227f897e10742a85928ae1ca67d1, type: 3}

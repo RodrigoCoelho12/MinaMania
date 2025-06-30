@@ -26,4 +26,4 @@ MonoBehaviour:
     Estados produtores de ETR s\xE3o Minas Gerais e Goi\xE1s. No jogo, sua for\xE7a
     magn\xE9tica incompar\xE1vel se traduz em uma habilidade de atrair automaticamente
     os itens, tornando sua coleta muito mais eficiente e r\xE1pida. "
-  model3D: {fileID: 0}
+  model3D: {fileID: 8486647690576626968, guid: 3e33feb37e6284942bdf1810e665708d, type: 3}

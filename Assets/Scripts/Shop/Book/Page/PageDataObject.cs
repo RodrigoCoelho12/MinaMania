@@ -23,6 +23,8 @@ public class PageDataObject : MonoBehaviour, IPointerEnterHandler, IPointerExitH
             _originalColor = _renderer.material.color;
         }
         _originalScale = transform.localScale;
+        Quaternion quaternion = Quaternion.Euler(-90, 90, 0);
+        transform.rotation = quaternion;
     }
 
     public void OnPointerEnter(PointerEventData eventData)
