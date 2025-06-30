@@ -12,7 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a966a140831a6549b094d995d1a639f, type: 3}
   m_Name: Waterspray 2
   m_EditorClassIdentifier: 
-  title: 
+  title: "Jato d\xB4\xC1gua de Arenito"
   id: 0
-  storyText: 
-  model3D: {fileID: 0}
+  storyText: "O Arenito \xE9 uma rocha sedimentar formada pelo ac\xFAmulo e cimenta\xE7\xE3o
+    de gr\xE3os de areia (principalmente quartzo). Diferente do Argilito, o Arenito
+    \xE9 extremamente perme\xE1vel e poroso, com espa\xE7os entre os gr\xE3os que
+    permitem a \xE1gua fluir e ser armazenada em grandes quantidades. Ele forma os
+    principais aqu\xEDferos, grandes reservat\xF3rios de \xE1gua subterr\xE2nea.
+    Al\xE9m de ser um importante reservat\xF3rio de \xE1gua pot\xE1vel, o Arenito
+    \xE9 tamb\xE9m uma rocha hospedeira de petr\xF3leo e g\xE1s natural. \xC9 um
+    material de constru\xE7\xE3o antigo e presente em muitas paisagens naturais,
+    formando fal\xE9sias e monumentos rochosos. No jogo, essa capacidade de movimentar
+    e conter \xE1gua \xE9 o que o torna a fonte de um jato de \xE1gua poderosa e
+    concentrada. Embora ele absorva \xE1gua na realidade, sua habilidade de armazenar
+    e liberar grandes volumes de l\xEDquido \xE9 o que inspira o jato mais forte
+    do jogo. Ele representa um \"ataque l\xEDquido\" poderoso e constante."
+  model3D: {fileID: 919132149155446097, guid: f726d81ad17279b4b94ed893ab684997, type: 3}

@@ -23,4 +23,4 @@ MonoBehaviour:
     das Minas e do Metal possui o Meteorito Bocai\xFAva dispon\xEDvel \xE0 visita\xE7\xE3o.
     No jogo, a for\xE7a destrutiva de um impacto mete\xF3rico \xE9 a base para o
     vasto raio de destrui\xE7\xE3o que esses inimigos podem causar. "
-  model3D: {fileID: 0}
+  model3D: {fileID: 1273010597011863382, guid: 6a206008e5a15b14ca78b71f9bc8d3cb, type: 3}

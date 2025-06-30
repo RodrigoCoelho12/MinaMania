@@ -12,7 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a966a140831a6549b094d995d1a639f, type: 3}
   m_Name: Dinamite 1
   m_EditorClassIdentifier: 
-  title: 
+  title: "Dinamite de C\xE9sio (Cs)"
   id: 0
-  storyText: 
-  model3D: {fileID: 0}
+  storyText: "O C\xE9sio \xE9 um metal alcalino muito macio, prateado-dourado e encontrado
+    em minerais como a polucita. \xC9 um dos elementos mais reativos que existem.
+    Ele reage de forma extremamente violenta e explosiva com a \xE1gua. A rea\xE7\xE3o
+    \xE9 t\xE3o energ\xE9tica que libera hidrog\xEAnio gasoso e uma quantidade enorme
+    de calor, o que instantaneamente incendeia o hidrog\xEAnio, resultando em uma
+    explos\xE3o e chamas intensas.  \xC9 usado em rel\xF3gios at\xF4micos (os mais
+    precisos do mundo), em sensores de luz e em aplica\xE7\xF5es m\xE9dicas. Sua
+    manipula\xE7\xE3o exige extremo cuidado devido \xE0 sua alta reatividade com
+    a umidade do ar. Os maiores dep\xF3sitos de C\xE9sio, principalmente na forma
+    do mineral polucita, est\xE3o localizados no Canad\xE1 (Mina Tanco) e no Zimb\xE1bue.
+    Devido \xE0 sua raridade e usos muito espec\xEDficos, o mercado de C\xE9sio \xE9
+    pequeno, mas estrat\xE9gico. Sua extra\xE7\xE3o e manuseio s\xE3o feitos com
+    rigorosos padr\xF5es de seguran\xE7a devido \xE0 sua reatividade extrema. No
+    jogo, sua capacidade de reagir explosivamente com a \xE1gua se manifesta em uma
+    explos\xE3o mais potente e com um raio de dano maior. "
+  model3D: {fileID: 781417470393761838, guid: 3fd47856a5ad4cc45b799588534843b0, type: 3}

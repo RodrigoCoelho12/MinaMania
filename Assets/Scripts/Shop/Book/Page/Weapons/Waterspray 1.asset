@@ -12,7 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a966a140831a6549b094d995d1a639f, type: 3}
   m_Name: Waterspray 1
   m_EditorClassIdentifier: 
-  title: 
+  title: "Jato d\xB4\xC1gua de Calc\xE1rio (CaCO3)"
   id: 0
-  storyText: 
-  model3D: {fileID: 0}
+  storyText: "O Calc\xE1rio \xE9 uma rocha sedimentar formada principalmente por
+    restos de organismos marinhos (conchas, esqueletos) e pela precipita\xE7\xE3o
+    de carbonato de c\xE1lcio em ambientes aqu\xE1ticos. Embora pare\xE7a s\xF3lido,
+    o Calc\xE1rio \xE9 sol\xFAvel em \xE1gua \xE1cida. Isso significa que, ao entrar
+    em contato com um \xE1cido fraco (como a chuva \xE1cida), ele se dissolve, formando
+    cavernas e rios subterr\xE2neos. O Calc\xE1rio \xE9 um material fundamental na
+    constru\xE7\xE3o (cimento e cal) e na agricultura (corretivo de solo). \xC9 a
+    rocha que forma paisagens c\xE1rsticas, com cavernas e dolinas, muito comuns
+    em algumas regi\xF5es do Brasil. No jogo, sua caracter\xEDstica de ser dissolvido
+    por \xE1cidos \xE9 metaforicamente traduzida em um jato mais \"corrosivo\" e
+    eficaz contra uma variedade maior de inimigos. "
+  model3D: {fileID: 5165288728792655192, guid: 244f692d3fcd0b34f9b2fcbf6b37fd7c, type: 3}

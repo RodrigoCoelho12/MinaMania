@@ -70,12 +70,18 @@ public class BookManager : MonoBehaviour
         int totalPages = chapterData.pages.Count;
         int pageCountToDisplay = Mathf.Min(totalPages, 10);
 
-        float spacingZ = 2f;
-        float spacingY = 2.5f;
+        // Define limits
+        float minY = 2f;
+        float maxY = 4f;
+        float minZ = -3f;
+        float maxZ = 3f;
 
+        // Fixed Y positions for 2 rows
+        float rowY1 = maxY;
+        float rowY2 = minY;
+
+        // Fixed X (same as button)
         Vector3 basePos = chapterButtons[chapterIndex].transform.position;
-        float rowY1 = basePos.y - 3f;
-        float rowY2 = rowY1 - spacingY;
         float x = basePos.x;
 
         // Split into two rows
@@ -87,9 +93,17 @@ public class BookManager : MonoBehaviour
             int row = i / 5;
             int col = i % 5;
 
+            // How many items in this row
             int itemsInRow = row == 0 ? firstRowCount : secondRowCount;
+            if (itemsInRow < 1) continue;
+
+            // Compute spacingZ dynamically to fit in [-3,3]
+            float maxSpanZ = maxZ - minZ;
+            float spacingZ = itemsInRow > 1 ? maxSpanZ / (itemsInRow - 1) : 0f;
+
+            // Center items in [-3,3]
             float totalWidth = (itemsInRow - 1) * spacingZ;
-            float startZ = basePos.z - totalWidth / 2f;
+            float startZ = (minZ + maxZ) / 2f - totalWidth / 2f;
 
             float zPos = startZ + col * spacingZ;
             float yPos = row == 0 ? rowY1 : rowY2;
@@ -103,7 +117,6 @@ public class BookManager : MonoBehaviour
             spawnedPages.Add(pageObj);
         }
     }
-
     public void SelectPage(PageData pageData)
     {
         // Clear previous pages

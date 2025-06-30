@@ -12,7 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a966a140831a6549b094d995d1a639f, type: 3}
   m_Name: Dash
   m_EditorClassIdentifier: 
-  title: 
+  title: Botas de Arrancada de Grafita (C)
   id: 0
-  storyText: 
-  model3D: {fileID: 0}
+  storyText: "A Grafita \xE9 outra forma do Carbono, assim como o Diamante, com uma
+    estrutura cristalina em camadas. A estrutura em camadas da Grafita permite que
+    \"deslizem\" umas sobre as outras com pouqu\xEDssima resist\xEAncia, como se
+    estivessem escorregando e \xE9 essa caracter\xEDstica que lhe confere excelentes
+    propriedades lubrificantes tornando-a \"macia\". Por isso, o grafite do l\xE1pis
+    de escrever desliza com facilidade no momento da escrita. A grafita tamb\xE9m
+    \xE9 usada como lubrificante industrial, em eletrodos de baterias (como nas pilhas
+    comuns), em escovas de motores el\xE9tricos e at\xE9 como componente em reatores
+    nucleares. Os principais produtores de grafita s\xE3o China, \xCDndia, Brasil
+    (com dep\xF3sitos importantes em Minas Gerais) e Mo\xE7ambique. A demanda por
+    grafita tem crescido por ser um componente chave das baterias de \xEDon-l\xEDtio,
+    usadas em ve\xEDculos el\xE9tricos e eletr\xF4nicos. No jogo, \xE9 essa capacidade
+    deslizante e lubrificante que confere a agilidade ao jogador nas Botas de Arrancada. "
+  model3D: {fileID: 7907868598432542114, guid: 67b54bc16eb576a428ee70d2c9a7dbc1, type: 3}

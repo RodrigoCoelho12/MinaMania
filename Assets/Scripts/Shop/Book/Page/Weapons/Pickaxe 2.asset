@@ -12,7 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a966a140831a6549b094d995d1a639f, type: 3}
   m_Name: Pickaxe 2
   m_EditorClassIdentifier: 
-  title: 
+  title: Picareta de Diamante (C)
   id: 0
-  storyText: 
-  model3D: {fileID: 0}
+  storyText: "O Diamante (C) \xE9 a subst\xE2ncia natural mais dura que existe. \xC9
+    feito de carbono, assim como o grafite do seu l\xE1pis, mas com uma estrutura
+    at\xF4mica totalmente diferente, formada sob press\xE3o e calor extremos no interior
+    da Terra. Al\xE9m de ser uma gema valiosa usada em joias, o diamante tem usos
+    industriais cruciais em ferramentas de corte, perfura\xE7\xE3o (como em brocas
+    de minera\xE7\xE3o) e polimento devido \xE0 sua dureza inigual\xE1vel.  Os maiores
+    produtores de diamantes s\xE3o R\xFAssia, Botswana, Canad\xE1, Angola, \xC1frica
+    do Sul e Austr\xE1lia. A minera\xE7\xE3o de diamantes tem um hist\xF3rico complexo,
+    envolvendo quest\xF5es \xE9ticas e socioecon\xF4micas, como os \"diamantes de
+    sangue\" (diamantes de conflito), o que levou \xE0 cria\xE7\xE3o de certifica\xE7\xF5es
+    como o Processo Kimberley para garantir que os diamantes sejam de origem leg\xEDtima.
+    A produ\xE7\xE3o de diamantes no Brasil est\xE1 presente principalmente em Minas
+    Gerais, Bahia e Mato Grosso, com destaque para a produ\xE7\xE3o secund\xE1ria
+    (aluvi\xF5es) em Minas Gerais e a produ\xE7\xE3o prim\xE1ria (kimberlitos) em
+    Mato Grosso. O Museu das Minas e do Metal possui algumas r\xE9plicas de diamantes
+    que ficaram famosos no mundo! Vale a pena conferir! No jogo, caracter\xEDsticas
+    como dureza, resist\xEAncia a arranh\xF5es e quebras conferem \xE0 picareta de
+    diamante uma qualidade imbat\xEDvel. "
+  model3D: {fileID: 4936127077969113503, guid: 4be44704c82751f4da59a87a357cdb62, type: 3}

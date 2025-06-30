@@ -12,7 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a966a140831a6549b094d995d1a639f, type: 3}
   m_Name: Pickaxe
   m_EditorClassIdentifier: 
-  title: 
+  title: "Picareta de A\xE7o"
   id: 0
-  storyText: 
-  model3D: {fileID: 0}
+  storyText: "O A\xE7o n\xE3o \xE9 um mineral, \xE9 uma liga met\xE1lica, ou seja,
+    uma mistura de ferro com carbono, e \xE0s vezes outros elementos (cromo, n\xEDquel,
+    van\xE1dio, etc.). A adi\xE7\xE3o de Carbono confere ao Ferro uma dureza e resist\xEAncia
+    \xE0 tra\xE7\xE3o muito maiores. Isso significa que o a\xE7o \xE9 mais forte
+    e menos propenso a se deformar ou quebrar do que o ferro puro. O a\xE7o \xE9
+    utilizado em diversos setores da sociedade moderna, desde arranha-c\xE9us e pontes
+    at\xE9 carros, eletrodom\xE9sticos e ferramentas. Sua produ\xE7\xE3o em larga
+    escala come\xE7ou na Revolu\xE7\xE3o Industrial, causando transforma\xE7\xE3o
+    ao mundo. O a\xE7o \xE9 produzido globalmente em sider\xFArgicas, com a China
+    sendo o maior produtor, seguida por \xCDndia, Jap\xE3o e EUA. Os maiores produtores
+    de a\xE7o no Brasil s\xE3o, em ordem decrescente de produ\xE7\xE3o, Minas Gerais,
+    Rio de Janeiro, Esp\xEDrito Santo e S\xE3o Paulo. No jogo, sua primeira picareta
+    \xE9 feita de A\xE7o. Ele \xE9 o n\xEDvel b\xE1sico de resist\xEAncia e poder,
+    permitindo que voc\xEA comece sua jornada mineradora com uma ferramenta s\xF3lida,
+    confi\xE1vel e robusta. "
+  model3D: {fileID: 6957299427424492821, guid: 105ce368a0a5c3c4db05dc26c2a3f8e8, type: 3}
