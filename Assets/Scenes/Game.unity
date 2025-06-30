@@ -13577,6 +13577,59 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 818547990}
   m_CullTransparentMesh: 1
+--- !u!1 &818559493
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 818559495}
+  - component: {fileID: 818559494}
+  m_Layer: 0
+  m_Name: PlayerSO
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &818559494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818559493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bb6c8630c1919f47be5cf6544ca2546, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  overrides: 0
+  pickaxeData: {fileID: 0}
+  waterSprayData: {fileID: 0}
+  dynamiteData: {fileID: 0}
+  dashData: {fileID: 0}
+  extraLifeData: {fileID: 0}
+  magnetData: {fileID: 0}
+  playerCurrency: 0
+  hordeCount: 0
+--- !u!4 &818559495
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818559493}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -25.755596, y: 16.944551, z: 461.7474}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &819860754
 GameObject:
   m_ObjectHideFlags: 0
@@ -51824,3 +51877,4 @@ SceneRoots:
   - {fileID: 2101868631}
   - {fileID: 513230594}
   - {fileID: 2134038236}
+  - {fileID: 818559495}

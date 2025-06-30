@@ -13,14 +13,14 @@ public class ShopDoor : MonoBehaviour
             Player player = other.GetComponent<Player>();
 
 
-            playerSO.waterSprayData = player.currentWaterSprayData;
-            playerSO.extraLifeData = player.currentExtraLifeData;
-            playerSO.pickaxeData = player.currentPickaxeData;
-            playerSO.magnetData = player.currentMagnetData;
-            playerSO.dynamiteData = player.currentDynamiteData;
-            playerSO.dashData = player.currentDashData;
-            playerSO.playerCurrency = player.dropCurrency;
-            playerSO.hordeCount = FindAnyObjectByType<EnemyHordeSpawner>().hordeCount;
+            PlayerSO.Instance.waterSprayData = player.currentWaterSprayData;
+            PlayerSO.Instance.extraLifeData = player.currentExtraLifeData;
+            PlayerSO.Instance.pickaxeData = player.currentPickaxeData;
+            PlayerSO.Instance.magnetData = player.currentMagnetData;
+            PlayerSO.Instance.dynamiteData = player.currentDynamiteData;
+            PlayerSO.Instance.dashData = player.currentDashData;
+            PlayerSO.Instance.playerCurrency = player.dropCurrency;
+            PlayerSO.Instance.hordeCount = FindAnyObjectByType<EnemyHordeSpawner>().hordeCount;
             
             SceneManager.LoadScene(2);
         }

@@ -7,7 +7,6 @@ public class ExitDoor : MonoBehaviour, IPointerClickHandler
 {
     public void OnPointerClick(PointerEventData eventData)
     {
-        PlayerSO playerSO = FindAnyObjectByType<PlayerSO>();
 
         SceneManager.LoadScene(1);
 

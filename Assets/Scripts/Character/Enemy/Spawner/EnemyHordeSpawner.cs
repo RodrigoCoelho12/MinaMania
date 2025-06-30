@@ -38,24 +38,28 @@ public class EnemyHordeSpawner : MonoBehaviour
     {
         playerSO = FindAnyObjectByType<PlayerSO>();
 
-        hordeCount = playerSO.hordeCount;   
-        
-        //hordeQueue.Enqueue(new HordeData(initialEnemyCount));
-        //hordeQueue.Enqueue(new HordeData(initialEnemyCount + growthPerHorde));
-        //hordeQueue.Enqueue(new HordeData(initialEnemyCount + growthPerHorde * 2));
+        hordeCount = PlayerSO.Instance.hordeCount;
 
-        //foreach (var item in dropPrefabs)
-        //{
-        //    dropItemQueue.Enqueue(item);
-        //}
+        hordeQueue.Enqueue(new HordeData(initialEnemyCount));
+        hordeQueue.Enqueue(new HordeData(initialEnemyCount + growthPerHorde));
+        hordeQueue.Enqueue(new HordeData(initialEnemyCount + growthPerHorde * 2));
 
-        //StartCoroutine(HordeLoop());
+        foreach (var item in dropPrefabs)
+        {
+            dropItemQueue.Enqueue(item);
+        }
+
+        StartCoroutine(HordeLoop());
     }
 
     IEnumerator HordeLoop()
     {
         while (canSpawn)
         {
+            float currentDelay = delayAfterLastEnemyDies;
+
+            yield return StartCoroutine(Countdown(currentDelay));
+            
             if (hordeQueue.Count == 0)
             {
                 int nextEnemyCount = initialEnemyCount + growthPerHorde * hordeCount;
@@ -70,13 +74,7 @@ public class EnemyHordeSpawner : MonoBehaviour
             yield return new WaitUntil(() => AllEnemiesDead());
 
             DropItem();
-
-            float currentDelay = delayAfterLastEnemyDies;
-
-            yield return StartCoroutine(Countdown(currentDelay));
-
-            int futureEnemyCount = initialEnemyCount + growthPerHorde * hordeCount;
-            hordeQueue.Enqueue(new HordeData(futureEnemyCount));
+            StopSpawning();
         }
     }
 

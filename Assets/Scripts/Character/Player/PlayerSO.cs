@@ -2,20 +2,9 @@ using UnityEngine;
 
 public class PlayerSO : MonoBehaviour
 {
-    public PlayerSO Instance;
+    public static PlayerSO Instance { get; private set; }
 
-    private void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);  // Garante que só um existe
-            return;
-        }
-
-        Instance = this;
-        DontDestroyOnLoad(gameObject);  // Opcional: persiste entre cenas
-    }
-
+    [Header("Player Data")]
     public bool overrides;
     public PickaxeData pickaxeData;
     public WaterSprayData waterSprayData;
@@ -25,4 +14,16 @@ public class PlayerSO : MonoBehaviour
     public MagnetData magnetData;
     public float playerCurrency;
     public int hordeCount;
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
 }
