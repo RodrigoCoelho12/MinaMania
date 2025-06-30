@@ -173,18 +173,8 @@ public class ShopButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
             return null;
 
         ItemData current = itemData[index];
-        ItemData previous = itemData[index - 1];
+        return current.description;
 
-        return current switch
-        {
-            DynamiteData dynamite => dynamite.GetTooltip(previous as DynamiteData),
-            PickaxeData pickaxe => pickaxe.GetTooltip(previous as PickaxeData),
-            WaterSprayData spray => spray.GetTooltip(previous as WaterSprayData),
-            DashData dash => dash.GetTooltip(previous as DashData),
-            MagnetData magnet => magnet.GetTooltip(previous as MagnetData),
-            ExtraLifeData life => life.GetTooltip(previous as ExtraLifeData),
-            _ => null
-        };
     }
 
     public void StartMoving(Vector3 newPosition, float timeToMove, GameObject gameObject)
