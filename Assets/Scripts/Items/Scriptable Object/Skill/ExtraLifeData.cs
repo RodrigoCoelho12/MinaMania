@@ -8,7 +8,7 @@ public class ExtraLifeData : SkillData
     { 
         if (previousData != null && (previousData is ExtraLifeData previousExtraLifeData))
         { 
-            return "ExtraLife";
+            return base.GetTooltip(previousData) + $" ";
         }  
         else
         {

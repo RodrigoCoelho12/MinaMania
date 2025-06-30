@@ -14,7 +14,7 @@ public class WaterSprayData : WeaponData
     {
         if (previousData != null && (previousData is WaterSprayData previousAsWaterSprayData))
         {
-            return "Water";
+            return base.GetTooltip(previousData) + $" ";
         }
         else
         {

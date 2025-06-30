@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acb262ea52f10254a89ca8267682db62, type: 3}
   m_Name: MagnetData 02
   m_EditorClassIdentifier: 
-  itemName: 
-  description: 
+  itemName: Ima de Neodimio
+  description: "Esse ima vai te ajudar a pegar todos os minerais no ch\xE3o antes
+    que ele se percam!"
   shopDescription: 
   itemMesh: {fileID: -1392683800031815050, guid: 6f248c8ffd7a5ff44aef5bfc6dc12dff, type: 3}
   itemMaterial: {fileID: 2100000, guid: 499947e1ffc204241830c52a7d79b58d, type: 2}
-  itemPrice: 0
+  itemPrice: 5
   magnetRange: 20
   magnetForce: 30
   magnetAffectedItemTags: []

@@ -22,6 +22,8 @@ public class EnemyHordeSpawner : MonoBehaviour
 
     [Header("UI")]
     public TextMeshProUGUI countdownHordeText;
+    public GameObject goToTheStore;
+    public Collider doorCollider;
 
     private Queue<HordeData> hordeQueue = new Queue<HordeData>();
     public int hordeCount;
@@ -39,6 +41,8 @@ public class EnemyHordeSpawner : MonoBehaviour
         playerSO = FindAnyObjectByType<PlayerSO>();
 
         hordeCount = PlayerSO.Instance.hordeCount;
+
+        goToTheStore.SetActive(false);
 
         hordeQueue.Enqueue(new HordeData(initialEnemyCount));
         hordeQueue.Enqueue(new HordeData(initialEnemyCount + growthPerHorde));
@@ -75,6 +79,8 @@ public class EnemyHordeSpawner : MonoBehaviour
 
             DropItem();
             StopSpawning();
+            goToTheStore.SetActive(true);
+            doorCollider.enabled = true;
         }
     }
 

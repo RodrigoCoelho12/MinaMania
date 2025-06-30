@@ -10,7 +10,7 @@ public class PickaxeData : WeaponData
     {
         if (previousData != null && (previousData is PickaxeData previousDataAsWaterSpray))
         {
-            return base.GetTooltip(previousData) + $"Pickaxe";
+            return base.GetTooltip(previousData) + $" ";
         }
         else
         {

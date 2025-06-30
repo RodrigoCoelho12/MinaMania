@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: "Tanque de Agua com n\xFAcleo de Arenito"
   description: "Este tanque possui a maior capacidade poss\xEDvel devido ao seu 
-    n\xFAcleo de Arenito, que resrva mais agua devido a porosidade"
+    n\xFAcleo de Arenito, que resrva mais agua devido a sua porosidade"
   shopDescription: 
   itemMesh: {fileID: -1849304479852903973, guid: 58586bcf08aaf8e4db7c45169353d0d6, type: 3}
   itemMaterial: {fileID: 2100000, guid: 9d997fb6b548f404e95320b0b6874211, type: 2}
-  itemPrice: 0
+  itemPrice: 10
   damage: 3
   sprayRangeIndex: 2
   waterMaxAmount: 200

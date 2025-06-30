@@ -13,7 +13,7 @@ public class MagnetData : SkillData
     {
         if (previousData != null && (previousData is MagnetData previousMagnetData))
         { 
-            return "Magnet";
+            return base.GetTooltip(previousData) + $" ";
         }  
         else
         {

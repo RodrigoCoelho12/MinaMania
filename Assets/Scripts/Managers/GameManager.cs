@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // Mudar o master (volume todo)
+    // Mud ar o master (volume todo)
     public void ChangeMasterVolume()
     {
         AudioManager.instance.ChangeMasterVolume(masterslider.value);

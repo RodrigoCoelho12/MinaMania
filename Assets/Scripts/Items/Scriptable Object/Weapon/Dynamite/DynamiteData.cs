@@ -15,7 +15,7 @@ public class DynamiteData : WeaponData
     {
         if (previousData != null && (previousData is WeaponData previousDynamiteData))
         {
-            return base.GetTooltip(previousData) + $"Dynamite";
+            return base.GetTooltip(previousData) + $" ";
         }
         else
         {

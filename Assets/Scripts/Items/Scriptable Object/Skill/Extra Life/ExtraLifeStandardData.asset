@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a5c9ff260a75334097c9541e738b3fd, type: 3}
   m_Name: ExtraLifeStandardData
   m_EditorClassIdentifier: 
-  itemName: 
-  description: 
+  itemName: Colar de Granada com pedras de Lazuli
+  description: "Esse colar misterioso \xE9 dito ser a chave para sua segunda chance..."
   shopDescription: 
   itemMesh: {fileID: -6162534724134956106, guid: 6f248c8ffd7a5ff44aef5bfc6dc12dff, type: 3}
   itemMaterial: {fileID: 2100000, guid: 499947e1ffc204241830c52a7d79b58d, type: 2}
-  itemPrice: 0
-  extraLives: 0
+  itemPrice: 10
+  extraLives: 1

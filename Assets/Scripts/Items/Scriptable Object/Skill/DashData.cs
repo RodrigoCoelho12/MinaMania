@@ -10,7 +10,7 @@ public class DashData : SkillData
     {
         if (previousData != null && (previousData is DashData previousDashData))
         { 
-            return "Dash";
+            return base.GetTooltip(previousData) + $" ";
         }  
         else
         {

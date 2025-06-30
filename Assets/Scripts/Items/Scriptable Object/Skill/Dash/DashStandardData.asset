@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fe868058389e5c428931af5d7277b65, type: 3}
   m_Name: DashStandardData
   m_EditorClassIdentifier: 
-  itemName: 
-  description: 
+  itemName: Botas de Grafite
+  description: "Essas botas s\xE3o capazes de te fazer desviar de qualquer coisa
+    com sua sola de grafite!"
   shopDescription: 
   itemMesh: {fileID: -3952231572300330341, guid: 6f248c8ffd7a5ff44aef5bfc6dc12dff, type: 3}
   itemMaterial: {fileID: 2100000, guid: 499947e1ffc204241830c52a7d79b58d, type: 2}

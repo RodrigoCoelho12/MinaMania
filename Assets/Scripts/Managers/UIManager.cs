@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -14,7 +15,16 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject mainMenuFirstButton;
     [SerializeField] GameObject rankingFirstButton;
     [SerializeField] GameObject settingsFirstButton;
+    [SerializeField] GameObject graphicsFirstButton;
+    [SerializeField] GameObject audioFirstButton;
+    [SerializeField] GameObject gamepadControls;
+    [SerializeField] GameObject keyboardControls;
+    [SerializeField] GameObject gamepadControlsFirstButton;
+    [SerializeField] GameObject keyboardControlsFirstButton;
 
+    [SerializeField] Slider masterSlider;
+    [SerializeField] Slider musicSlider;
+    [SerializeField] Slider sfxSlider;
     #endregion
 
     #region Initialization Routines
@@ -55,6 +65,7 @@ public class UIManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         AudioManager.instance.SwitchMusic(0);
+        SetDefaultVolume();
 
         EventSystem.current.SetSelectedGameObject(mainMenuFirstButton);
         InitializeUIDictionary();
@@ -116,10 +127,9 @@ public class UIManager : MonoBehaviour
     }
     #endregion
 
-    //Fix
-
     public void GameSceneLoad()
     {
+        ShowPanel(UINames.Loading);
         SceneManager.LoadScene(1); // Load the game scene
         HidePanel(UINames.MainMenu); // Hide the main menu panel
         Time.timeScale = 1f; // Ensure the game runs at normal speed
@@ -149,10 +159,80 @@ public class UIManager : MonoBehaviour
         {
             EventSystem.current.SetSelectedGameObject(settingsFirstButton);
         }
+        else if(panel.name == "GraphicsSettings Panel")
+        {
+            EventSystem.current.SetSelectedGameObject(graphicsFirstButton);
+        }
+        else if (panel.name == "AudioSettings Panel")
+        {
+            EventSystem.current.SetSelectedGameObject(audioFirstButton);
+        }
         else
         {
             EventSystem.current.SetSelectedGameObject(mainMenuFirstButton);
         }
 
+    }
+
+    public void ShowCorrectControls()
+    {
+        if (UserInputManager.instance.isUsingGamepad)
+        {
+            gamepadControls.SetActive(true); 
+            EventSystem.current.SetSelectedGameObject(gamepadControlsFirstButton);
+        }
+        else
+        {
+            keyboardControls.SetActive(true);
+            EventSystem.current.SetSelectedGameObject(keyboardControlsFirstButton);
+        }
+    }
+
+    public void LoadCreditsScene()
+    {
+        SceneManager.LoadScene(3);
+        Time.timeScale = 1f;
+    }
+    
+    // Mudar o master (volume todo)
+    public void ChangeMasterVolume()
+    {
+        AudioManager.instance.ChangeMasterVolume(masterSlider.value);
+    }
+
+    // Mudar o volume da musica (so muda a musica)
+    public void ChangeMusicVolume()
+    {
+        AudioManager.instance.ChangeMusicVolume(musicSlider.value);
+    }
+
+    // Mudar o volume do SFX (so muda os efeitos sonoros)
+    public void ChangeSFXVolume()
+    {
+        AudioManager.instance.ChangeSFXVolume(sfxSlider.value);
+    }
+    
+    public void SetDefaultVolume()
+    {
+        AudioManager.instance.mixer.GetFloat("MasterVol", out float aux1);
+
+        if (masterSlider != null)
+        {
+            masterSlider.value = aux1;
+        }
+
+        AudioManager.instance.mixer.GetFloat("MusicVol", out float aux2);
+
+        if (musicSlider != null)
+        {
+            musicSlider.value = aux2;
+        }
+
+        AudioManager.instance.mixer.GetFloat("SFXVol", out float aux3);
+
+        if (sfxSlider != null)
+        {
+            sfxSlider.value = aux3;
+        }
     }
 }

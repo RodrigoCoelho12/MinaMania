@@ -1517,8 +1517,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Professor Orientador\n\nGerente do projeto \n\nPrograma\xE7\xE3o\n\n\nArte
-    3D\n\n\nAnima\xE7\xE3o\n\n\nArte 2D\n\n\nTexturiza\xE7\xE3o\n\n\nDesign de Interface\n\n\nTrilha
+  m_text: "Professor Orientador\n\n\nGerente do projeto \n\nPrograma\xE7\xE3o\n\n\nArte
+    3D\n\n\nAnima\xE7\xE3o\n\n\nArte 2D\n\n\nTexturiza\xE7\xE3o\n\n\nDesign de Interface\n\n\n\nTrilha
     Sonora\n\n\n\n\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1655,9 +1655,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Roque Anderson\n\nRodrigo Coelho \n\nRodrigo Coelho\nJo\xE3o Vitor Lima\n\nMaria
-    Eduarda\nClara Nelson\n\nMaria Eduarda\nClara Nelson\n\nAmanda Novelli\n\n\nAmanda
-    Novelli\n\n\nIvan Marinho\n\n\nDaniel Amaral\n\n\n\n\n\n"
+  m_text: "Roque Anderson\n\n\nRodrigo Coelho \n\nRodrigo Coelho\nJo\xE3o Vitor Lima\n\nMaria
+    Eduarda\nClara Nelson\n\nMaria Eduarda\nClara Nelson\n\nAmanda Novelli\nDaniel
+    Amaral\n\nAmanda Novelli\n\n\nIvan Marinho\nRodrigo Coelho\nAmanda Novelli\n\nDaniel
+    Amaral\n\n\n\n\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: PickaxeData 02
   m_EditorClassIdentifier: 
   itemName: Picareta de Diamante
-  description: 
-  shopDescription: "Essa \xE9 a mais forte e resistente picareta de todas"
+  description: "Essa \xE9 a mais forte e resistente picareta de todas, a dureza do
+    diamante \xE9 capaz de quebrar qualquer coisa!"
+  shopDescription: 
   itemMesh: {fileID: -2952860655737247576, guid: 58586bcf08aaf8e4db7c45169353d0d6, type: 3}
   itemMaterial: {fileID: 2100000, guid: 0f926dab43d3c784db4e0df43b2c0249, type: 2}
-  itemPrice: 0
+  itemPrice: 10
   damage: 50
   pickaxePrefab: {fileID: 7394171789317946224, guid: 520d73c5b98c39b4087e54421fd5fcd8, type: 3}

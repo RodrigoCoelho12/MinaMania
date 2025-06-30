@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: DynamiteData 02
   m_EditorClassIdentifier: 
   itemName: Dinamite de Gelo de Metano
-  description: 
+  description: "Essa \xE9 verdadeiramente a mais poderosa dinamite que existe, seu
+    poder explosivo n\xE3o tem limites!"
   shopDescription: 
   itemMesh: {fileID: -6608124319622672718, guid: 6f248c8ffd7a5ff44aef5bfc6dc12dff, type: 3}
   itemMaterial: {fileID: 2100000, guid: ef74d2c6b4f59924a9121a0493cb66b6, type: 2}
-  itemPrice: 0
+  itemPrice: 10
   damage: 150
   dynamitePrefab: {fileID: 8007541920902249124, guid: f8879bf3daf325b478c57ac83a4354f1, type: 3}
   explosionRadius: 12
