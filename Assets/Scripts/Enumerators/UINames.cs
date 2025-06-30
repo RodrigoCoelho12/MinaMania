@@ -4,7 +4,6 @@ public enum UINames
     Settings,
     Ranking,
     KeyBinds,
-    Loading
 }
 
 public static class UINamesExtensions
