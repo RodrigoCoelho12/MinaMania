@@ -11,8 +11,10 @@ GameObject:
   - component: {fileID: 9089341739002666550}
   - component: {fileID: 8874738762538768952}
   - component: {fileID: 3990538928919512567}
-  m_Layer: 0
-  m_Name: CristalQuartzo 1
+  - component: {fileID: 4153755895734771548}
+  - component: {fileID: -5681642617461079268}
+  m_Layer: 6
+  m_Name: CristalQuartzo
   m_TagString: Mineral
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -86,3 +88,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4153755895734771548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081671301950794763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f61f31c0cc947b84b820a02419553f8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mineralData: {fileID: 11400000, guid: e869f579e38ebec42b8269bcf60172b3, type: 2}
+--- !u!65 &-5681642617461079268
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081671301950794763}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.0648562, y: 0.0799613, z: 0.055359937}
+  m_Center: {x: -0.00501987, y: -0.00994949, z: 0.026146557}

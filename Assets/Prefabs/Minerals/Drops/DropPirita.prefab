@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7889732153569799202}
   - component: {fileID: 8810425502491015087}
   - component: {fileID: -8814195859249416201}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: DropPirita
   m_TagString: Drop
   m_Icon: {fileID: 0}

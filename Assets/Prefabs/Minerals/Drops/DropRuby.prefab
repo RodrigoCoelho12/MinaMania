@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7938811858733645552}
   - component: {fileID: 8922104486112569010}
   - component: {fileID: -8227287066038711713}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: DropRuby
   m_TagString: Drop
   m_Icon: {fileID: 0}

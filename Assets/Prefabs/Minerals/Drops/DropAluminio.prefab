@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4496254118120546140}
   - component: {fileID: 7059267080037151680}
   - component: {fileID: 2466473286235756710}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: DropAluminio
   m_TagString: Drop
   m_Icon: {fileID: 0}

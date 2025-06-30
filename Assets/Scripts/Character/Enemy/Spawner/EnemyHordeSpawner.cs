@@ -44,11 +44,16 @@ public class EnemyHordeSpawner : MonoBehaviour
 
         goToTheStore.SetActive(false);
 
-        hordeQueue.Enqueue(new HordeData(initialEnemyCount));
-        hordeQueue.Enqueue(new HordeData(initialEnemyCount + growthPerHorde));
-        hordeQueue.Enqueue(new HordeData(initialEnemyCount + growthPerHorde * 2));
+        if( hordeCount > 0)
+        {
+            hordeQueue.Enqueue(new HordeData(initialEnemyCount * growthPerHorde * hordeCount));
+        }
+        else
+        {
+            hordeQueue.Enqueue(new HordeData(initialEnemyCount));
+        }
 
-        foreach (var item in dropPrefabs)
+        foreach (GameObject item in dropPrefabs)
         {
             dropItemQueue.Enqueue(item);
         }
@@ -87,6 +92,7 @@ public class EnemyHordeSpawner : MonoBehaviour
     public void DropItem()
     {
         var item = dropItemQueue.First();
+        
         Instantiate(item, Vector3.zero, Quaternion.identity);
 
         dropItemQueue.Dequeue();

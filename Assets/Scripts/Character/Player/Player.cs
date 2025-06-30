@@ -3,11 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using Unity.VisualScripting;
+using TMPro;
 
 public partial class Player : Character
 {
     float yPosition;
     public Image healthBarUI;
+    public TextMeshProUGUI mineralCollectedMessage;
     private GameManager gameManager;
 
     void Start()
@@ -24,20 +26,32 @@ public partial class Player : Character
         if (scoreText == null)
             Debug.LogError("scoreText nao atribuido no PlayerRanking.");
 
-        UpdateInterface();
+        CheckSkills();
+    
+        currentWaterSprayData = PlayerSO.Instance.waterSprayData;
+        currentExtraLifeData = PlayerSO.Instance.extraLifeData;
+        currentPickaxeData = PlayerSO.Instance.pickaxeData;
+        currentMagnetData = PlayerSO.Instance.magnetData;
+        currentDynamiteData = PlayerSO.Instance.dynamiteData;
+        currentDashData = PlayerSO.Instance.dashData;
+        dropCurrency = PlayerSO.Instance.playerCurrency;
+        score = PlayerSO.Instance.score;
 
-        PlayerSO playerSO = FindAnyObjectByType<PlayerSO>();
-        if (playerSO.overrides)
+        foreach (var mineral in PlayerSO.Instance.discoveredMinerals)
         {
-            this.currentWaterSprayData = playerSO.waterSprayData;
-            this.currentExtraLifeData = playerSO.extraLifeData;
-            this.currentPickaxeData = playerSO.pickaxeData;
-            this.currentMagnetData = playerSO.magnetData;
-            this.currentDynamiteData = playerSO.dynamiteData;
-            this.currentDashData = playerSO.dashData;
-            this.dropCurrency = playerSO.playerCurrency;
-            playerSO.overrides = false;
+            discoveredMinerals.Add(mineral);
         }
+        foreach (var skill in PlayerSO.Instance.discoveredSkills)
+        {
+            discoveredSkills.Add(skill);
+        }
+        foreach (var weapon in PlayerSO.Instance.discoveredWeapons)
+        {
+            discoveredWeapons.Add(weapon);
+        }
+
+        UpdateCurrencyUI();
+        UpdateScoreInterface();
     }
 
     void Update()
@@ -72,7 +86,8 @@ public partial class Player : Character
                     Debug.Log("null");
                     gameManager = GetComponent<GameManager>();
                 }
-                gameManager.GameOver();
+                
+                ApplyExtraLife();
             }
         }
 
@@ -82,11 +97,10 @@ public partial class Player : Character
             Destroy(other.gameObject);
             UpdateCurrencyUI();
         }
-
+        
         if (other.CompareTag("Mineral"))
         {
-            //discoveredMinerals.Add(other.gameObject.GetComponent(MineralData));
-            Destroy(other.gameObject);
+            StartCoroutine(PlayMineralCollectedMessage(other));
         }
     }
 
@@ -100,8 +114,31 @@ public partial class Player : Character
         currencyText.text = ": " +dropCurrency.ToString();
     }
 
+    private IEnumerator PlayMineralCollectedMessage(Collider other)
+    {
+        mineralCollectedMessage.text = $"Voce descobriu um/uma {other.gameObject.name}!";
+        yield return new WaitForSeconds(5f);
+        mineralCollectedMessage.text = " ";
+    }
+
+    public void CheckSkills()
+    {
+        if(currentDashData != null)
+        {
+            hasDash = true;
+        }
+        if (currentMagnetData != null)
+        {
+            hasMagnet = true;
+        }
+        if (currentExtraLifeData != null)
+        {
+            hasExtraLife = true;
+        }
+    }
+
     public override void DeathRoutine()
     {
-        throw new System.NotImplementedException();
+        gameManager.GameOver();
     }
 }

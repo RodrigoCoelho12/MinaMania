@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8092874242696110560}
   - component: {fileID: 5672718491453504926}
   - component: {fileID: 1407077417388931467}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: DropHematita
   m_TagString: Drop
   m_Icon: {fileID: 0}

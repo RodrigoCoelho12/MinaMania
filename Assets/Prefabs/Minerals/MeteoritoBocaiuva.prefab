@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3008787598396668878
+--- !u!1 &2427286615169913817
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,46 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2986227594176863206}
-  - component: {fileID: 8818319648032617654}
-  - component: {fileID: 4086015929859662733}
-  m_Layer: 0
-  m_Name: Pirita 1
+  - component: {fileID: 2228508316499765955}
+  - component: {fileID: 7903542021562392175}
+  - component: {fileID: 8215972498254769412}
+  - component: {fileID: -665101671064726931}
+  - component: {fileID: 7781091196262280357}
+  m_Layer: 6
+  m_Name: MeteoritoBocaiuva
   m_TagString: Mineral
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2986227594176863206
+--- !u!4 &2228508316499765955
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3008787598396668878}
+  m_GameObject: {fileID: 2427286615169913817}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7590494, y: 1.199222e-17, z: -1.19922255e-17, w: 0.651033}
-  m_LocalPosition: {x: -2.916088, y: 0.18996099, z: 0.000000025522938}
-  m_LocalScale: {x: 61.1, y: 61.1, z: 175.88231}
+  m_LocalRotation: {x: -0.34818423, y: 0.6154411, z: 0.6154411, w: 0.34818426}
+  m_LocalPosition: {x: -1.628522, y: 0.22402912, z: 0.19633855}
+  m_LocalScale: {x: 387.79996, y: 387.79996, z: 387.79996}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &8818319648032617654
+--- !u!33 &7903542021562392175
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3008787598396668878}
-  m_Mesh: {fileID: -768317035883093411, guid: fc1cc0fa5fab46848b5f7e00ae75fd88, type: 3}
---- !u!23 &4086015929859662733
+  m_GameObject: {fileID: 2427286615169913817}
+  m_Mesh: {fileID: 660318517399082512, guid: c294bf01e7835b74daac46907c148764, type: 3}
+--- !u!23 &8215972498254769412
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3008787598396668878}
+  m_GameObject: {fileID: 2427286615169913817}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -86,3 +88,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &-665101671064726931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2427286615169913817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f61f31c0cc947b84b820a02419553f8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mineralData: {fileID: 11400000, guid: 9b3c2b18a750a454e8734886144b96d7, type: 2}
+--- !u!65 &7781091196262280357
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2427286615169913817}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.009253408, y: 0.011320086, z: 0.0036930838}
+  m_Center: {x: 0.00057385676, y: -0.0006342232, z: 0.00012427344}

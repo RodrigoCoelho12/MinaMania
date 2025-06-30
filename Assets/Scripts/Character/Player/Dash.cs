@@ -8,20 +8,23 @@ public partial class Player : Character
     private float lastDashTime = -Mathf.Infinity;
     public void Dash()
     {
-        if (UserInputManager.instance.DashInput && Time.time >= lastDashTime + currentDashData.dashCooldown)
+        if (hasDash)
         {
-            isDashing = true;           
-            dashTime = 0f;              
-            lastDashTime = Time.time;   
-            Debug.Log("Dash");          
-        }
-
-        if (isDashing)
-        {
-            dashTime += Time.deltaTime;
-            if (dashTime >= currentDashData.dashDuration)
+            if (UserInputManager.instance.DashInput && Time.time >= lastDashTime + currentDashData.dashCooldown)
             {
-                isDashing = false;
+                isDashing = true;
+                dashTime = 0f;
+                lastDashTime = Time.time;
+                Debug.Log("Dash");
+            }
+
+            if (isDashing)
+            {
+                dashTime += Time.deltaTime;
+                if (dashTime >= currentDashData.dashDuration)
+                {
+                    isDashing = false;
+                }
             }
         }
     }

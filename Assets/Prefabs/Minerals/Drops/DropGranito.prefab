@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6748789343645472437}
   - component: {fileID: 3371756214956004301}
   - component: {fileID: -6697240686261161298}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: DropGranito
   m_TagString: Drop
   m_Icon: {fileID: 0}

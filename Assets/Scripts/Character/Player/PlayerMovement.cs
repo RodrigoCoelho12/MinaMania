@@ -16,8 +16,17 @@ public partial class Player
 
     public override void Move()
     {
+        float dashSpeed;
         bool isDashing = this.isDashing;
-        float dashSpeed = this.currentDashData.dashSpeed;
+
+        if (hasDash)
+        {
+            dashSpeed = this.currentDashData.dashSpeed;
+        }
+        else
+        {
+            dashSpeed = speedValue;
+        }
 
         float horizontalInput = UserInputManager.instance.MovementInput.x;
         float verticalInput = UserInputManager.instance.MovementInput.y;

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerSO : MonoBehaviour
@@ -6,6 +7,7 @@ public class PlayerSO : MonoBehaviour
 
     [Header("Player Data")]
     public bool overrides;
+
     public PickaxeData pickaxeData;
     public WaterSprayData waterSprayData;
     public DynamiteData dynamiteData;
@@ -14,6 +16,11 @@ public class PlayerSO : MonoBehaviour
     public MagnetData magnetData;
     public float playerCurrency;
     public int hordeCount;
+    public int score;
+
+    public List<ItemData> discoveredSkills;
+    public List<MineralData> discoveredMinerals;
+    public List<WeaponData> discoveredWeapons;
 
     private void Awake()
     {

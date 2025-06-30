@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2567678773895448109}
   - component: {fileID: 3674862840124975764}
   - component: {fileID: 8333613698583360395}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: DropObsidiana
   m_TagString: Drop
   m_Icon: {fileID: 0}

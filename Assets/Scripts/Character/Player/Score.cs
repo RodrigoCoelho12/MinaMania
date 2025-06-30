@@ -22,11 +22,11 @@ public partial class Player
     {
         Debug.Log("Entrei");
         score += 1000;
-        UpdateInterface();
+        UpdateScoreInterface();
         saveSystem.SaveRankingList(rankingList);
     }
 
-    private void UpdateInterface()
+    public void UpdateScoreInterface()
     {
         if (scoreText != null)
             scoreText.text = score.ToString();

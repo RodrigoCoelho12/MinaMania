@@ -1,20 +1,26 @@
 using UnityEngine;
 partial class Player
 {
+    public Collider[] items;
     private void MagnetEffect()
     {
-        Collider[] items = Physics.OverlapSphere(transform.position, currentMagnetData.magnetRange, currentMagnetData.magnetLayerMask);
-        foreach (Collider item in items)
+        if (hasMagnet)
         {
-            if (currentMagnetData.magnetAffectedItemTags.Contains(item.tag))
+            items = Physics.OverlapSphere(transform.position, currentMagnetData.magnetRange, currentMagnetData.magnetLayerMask);
+            
+            foreach (Collider item in items)
             {
-                Vector3 direction = transform.position - item.transform.position;
-                float distance = direction.magnitude;
-
-                if (distance < currentMagnetData.magnetRange)
+                if (item.tag == "Mineral" || item.tag == "Drop")
                 {
-                    Vector3 force = direction.normalized * currentMagnetData.magnetForce * Time.deltaTime;
-                    item.transform.position += force;
+                    Debug.Log(item.name);
+                    Vector3 direction = transform.position - item.transform.position;
+                    float distance = direction.magnitude;
+
+                    if (distance < currentMagnetData.magnetRange)
+                    {
+                        Vector3 force = direction.normalized * currentMagnetData.magnetForce * Time.deltaTime;
+                        item.transform.position += force;
+                    }
                 }
             }
         }

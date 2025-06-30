@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 661852709130207883}
   - component: {fileID: 5404669548460460500}
   - component: {fileID: -1220410763209814286}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: DropMeteorito
   m_TagString: Drop
   m_Icon: {fileID: 0}

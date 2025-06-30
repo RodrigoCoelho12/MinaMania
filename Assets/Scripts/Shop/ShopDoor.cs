@@ -7,9 +7,6 @@ public class ShopDoor : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            PlayerSO playerSO = FindAnyObjectByType<PlayerSO>();
-
-
             Player player = other.GetComponent<Player>();
 
 
@@ -21,7 +18,21 @@ public class ShopDoor : MonoBehaviour
             PlayerSO.Instance.dashData = player.currentDashData;
             PlayerSO.Instance.playerCurrency = player.dropCurrency;
             PlayerSO.Instance.hordeCount = FindAnyObjectByType<EnemyHordeSpawner>().hordeCount;
-            
+            PlayerSO.Instance.score = player.score;
+
+            foreach(var mineral in player.discoveredMinerals)
+            {
+                PlayerSO.Instance.discoveredMinerals.Add(mineral);
+            }
+            foreach (var skill in player.discoveredSkills)
+            {
+                PlayerSO.Instance.discoveredSkills.Add(skill);
+            }
+            foreach (var weapon in player.discoveredWeapons)
+            {
+                PlayerSO.Instance.discoveredWeapons.Add(weapon);
+            }
+
             SceneManager.LoadScene(2);
         }
     }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 785998111814388072}
   - component: {fileID: 2591068915622767888}
   - component: {fileID: -103646191068170829}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: DropSafira
   m_TagString: Drop
   m_Icon: {fileID: 0}
