@@ -505,6 +505,7 @@ GameObject:
   - component: {fileID: 5739248415030961817}
   - component: {fileID: 3858300891203352874}
   - component: {fileID: 628984300901115459}
+  - component: {fileID: -6440246911389433554}
   m_Layer: 0
   m_Name: TankGraniteEnemy
   m_TagString: Enemy
@@ -748,6 +749,29 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!136 &-6440246911389433554
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4221526861422610687}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.8243768
+  m_Height: 4.903226
+  m_Direction: 1
+  m_Center: {x: -0.00014066696, y: 2.6365957, z: 0.22017264}
 --- !u!1 &4353862809677841267
 GameObject:
   m_ObjectHideFlags: 0

@@ -302,6 +302,7 @@ GameObject:
   - component: {fileID: 8373023997273580773}
   - component: {fileID: 7481666750687940218}
   - component: {fileID: 5291125497911486559}
+  - component: {fileID: 727601286231682380}
   m_Layer: 0
   m_Name: DamagePiritaEnemy
   m_TagString: Enemy
@@ -341,7 +342,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 9ae2eb65fa3cd5e4f90c5838fbba6b48, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_AnimatePhysics: 0
@@ -421,7 +422,7 @@ MonoBehaviour:
   attackHitbox: {fileID: 1429510983428898932}
   animator: {fileID: 1289358321798107031}
   isAwakened: 1
-  damage: 10
+  damage: 5
   attackCooldown: 1
   attackDuration: 0.5
   attackRange: 4
@@ -545,6 +546,29 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!136 &727601286231682380
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1369153010550857258}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2.471006
+  m_Height: 4.942012
+  m_Direction: 1
+  m_Center: {x: -0.04505968, y: 1.7889061, z: 0.23939157}
 --- !u!1 &1416098329243101372
 GameObject:
   m_ObjectHideFlags: 0

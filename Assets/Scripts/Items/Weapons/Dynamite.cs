@@ -34,7 +34,7 @@ public class Dynamite : Weapon
     private Vector2 cursorHotspot;
 
     [Header("Explosion Effect Properties")]
-    public GameObject explosionEffect;
+    public GameObject[] explosionEffects;
 
 
 
@@ -141,7 +141,7 @@ public class Dynamite : Weapon
                     rb.AddExplosionForce(dynamiteData.explosionForce, dynamite.transform.position, dynamiteData.explosionRadius, 0f,ForceMode.Impulse);
                 }
             }
-            GameObject explosionClone = Instantiate(explosionEffect, dynamite.transform.position, explosionEffect.transform.rotation);
+            GameObject explosionClone = Instantiate(explosionEffects[dynamiteData.dynamiteIndex], dynamite.transform.position, explosionEffects[dynamiteData.dynamiteIndex].transform.rotation);
             AudioManager.instance.PlaySFX(3);
             Destroy(explosionClone, 2f);
         }

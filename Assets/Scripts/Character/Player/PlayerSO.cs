@@ -16,7 +16,7 @@ public class PlayerSO : MonoBehaviour
     public MagnetData magnetData;
     public float playerCurrency;
     public int hordeCount;
-    public int score;
+    public float score;
 
     public List<ItemData> discoveredSkills;
     public List<MineralData> discoveredMinerals;

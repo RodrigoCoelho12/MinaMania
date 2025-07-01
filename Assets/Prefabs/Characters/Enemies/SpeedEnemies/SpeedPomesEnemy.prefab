@@ -985,6 +985,7 @@ GameObject:
   - component: {fileID: 4010175014613124848}
   - component: {fileID: 2930635799256168781}
   - component: {fileID: 8906782362727626971}
+  - component: {fileID: 1058388961748500739}
   m_Layer: 0
   m_Name: SpeedPomesEnemy
   m_TagString: Enemy
@@ -1024,7 +1025,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 0e4d2346c857cee40b8fda86ed76baa9, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_AnimatePhysics: 0
@@ -1228,6 +1229,29 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!136 &1058388961748500739
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6518608040340854065}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.8849833
+  m_Height: 4.1274233
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.7331009, z: -0.10895753}
 --- !u!1 &6616245874731367548
 GameObject:
   m_ObjectHideFlags: 0

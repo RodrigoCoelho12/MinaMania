@@ -13,6 +13,7 @@ public partial class Player : Character
             if (UserInputManager.instance.DashInput && Time.time >= lastDashTime + currentDashData.dashCooldown)
             {
                 isDashing = true;
+                gameObject.GetComponent<TrailRenderer>().enabled = true;
                 dashTime = 0f;
                 lastDashTime = Time.time;
                 Debug.Log("Dash");
@@ -24,6 +25,7 @@ public partial class Player : Character
                 if (dashTime >= currentDashData.dashDuration)
                 {
                     isDashing = false;
+                    gameObject.GetComponent<TrailRenderer>().enabled = false;
                 }
             }
         }

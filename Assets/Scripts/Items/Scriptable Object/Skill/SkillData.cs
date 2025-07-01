@@ -7,7 +7,7 @@ public class SkillData : ItemData
     {
         if (previousData != null && (previousData is SkillData previousSkillData))
         { 
-            return $"{description} | Custo: {itemPrice}";
+            return $"{description}";
         }  
         else
         {

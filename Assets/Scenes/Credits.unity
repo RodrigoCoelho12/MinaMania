@@ -313,7 +313,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Cybele Guimar\xE3es\n\nSamuel Marinho\n\nLuciano Emerich Faria\n\nAdriana
-    Borrelli Achtschin\n\nAndr\xE9 Siqueira\n\n\n\n\n\n"
+    Borrelli Achtschin\n\nAndr\xE9 Siqueira\n\nLorene Santos\n\n\n\n\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1796,9 +1796,11 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Toda a equipe do educativo do Museu das Minas e do Metal (MM Gerdau) por
     todas as ideias, informa\xE7\xF5es e o imenso suporte e disposi\xE7\xE3o nesse
-    projeto\n\n\n\n\n\n\n\n\n\n\n\n\n\nAo aluno Artur Roque pelo suporte e assist\xEAncia
-    no desenvolvimento do projeto\n\n\nE ao professor Roque Anderson, pelas incont\xE1veis
-    linhas de c\xF3digo quebrado concertadas em 5 minutos de aula\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+    projeto\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAo Ronaldo, Funcionario do MMGerdau, por
+    nos inspirar e nos permitir o colocar no jogo como o lojista\n\n\nAo aluno Artur
+    Roque pelo suporte e assist\xEAncia no desenvolvimento do projeto\n\n\nE ao professor
+    Roque Anderson, pelas incont\xE1veis linhas de c\xF3digo quebrado concertadas
+    em 5 minutos de aula\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

@@ -46,6 +46,10 @@ public class EnemyHordeSpawner : MonoBehaviour
         {
             hordeQueue.Enqueue(new HordeData(initialEnemyCount * growthPerHorde * hordeCount));
         }
+        else if (hordeCount > 8)
+        {
+            hordeQueue.Enqueue(new HordeData(initialEnemyCount * growthPerHorde * 8));
+        }
         else
         {
             hordeQueue.Enqueue(new HordeData(initialEnemyCount));

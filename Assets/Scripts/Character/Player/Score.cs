@@ -4,8 +4,8 @@ using UnityEngine;
 public partial class Player
 {
     [Header("Player Stats")]
-    private int _score;
-    public int score
+    private float _score;
+    public float score
     {
         get { return _score; }
         set { _score = value; }
@@ -21,7 +21,7 @@ public partial class Player
     public void IncreasePoints(int hordeCount)
     {
         Debug.Log("Entrei");
-        score += 1000;
+        score = score + (1000 * (1+(PlayerSO.Instance.hordeCount/10f)));
         UpdateScoreInterface();
         saveSystem.SaveRankingList(rankingList);
     }

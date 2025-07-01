@@ -7,6 +7,6 @@ public class WeaponData : ItemData
     public float damage;
     public virtual string GetTooltip(WeaponData previousData)
     {
-        return $"{description} | Custo: {itemPrice}";
+        return $"{description}";
     }
 }

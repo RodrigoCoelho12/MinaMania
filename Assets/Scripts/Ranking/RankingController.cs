@@ -35,7 +35,7 @@ public class RankingController : MonoBehaviour
     public void InsertPlayerOnRanking()
     {
         string playerName = nameInputField.text;
-        int score = player.score;
+        float score = player.score;
 
         if (playerName.Length > 8)
         {
@@ -49,7 +49,7 @@ public class RankingController : MonoBehaviour
         }
         else
         {
-            PlayerData playerData = new PlayerData(playerName, score);
+            PlayerData playerData = new PlayerData(playerName, (int)score);
 
             rankingList.AddScore(playerData);
             saveSystem.SaveRankingList(rankingList);

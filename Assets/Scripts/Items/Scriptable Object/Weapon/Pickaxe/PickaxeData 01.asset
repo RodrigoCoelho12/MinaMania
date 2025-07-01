@@ -18,7 +18,7 @@ MonoBehaviour:
   shopDescription: 
   itemMesh: {fileID: -2358760027431658911, guid: 58586bcf08aaf8e4db7c45169353d0d6, type: 3}
   itemMaterial: {fileID: 2100000, guid: 0f926dab43d3c784db4e0df43b2c0249, type: 2}
-  itemPrice: 5
+  itemPrice: 7
   damage: 25
   pickaxePrefab: {fileID: 658906643886061425, guid: 6a6667090363a4a42aebc78260dfc530, type: 3}
   pickaxeIndex: 1

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -30,6 +31,7 @@ public class AudioManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(this.gameObject);
+
     }
 
     // Muda as musicas para cada ocasiao (pause, play, derrota, etc.)

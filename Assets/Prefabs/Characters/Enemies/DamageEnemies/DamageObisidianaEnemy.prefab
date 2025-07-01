@@ -431,6 +431,7 @@ GameObject:
   - component: {fileID: 2832036960091033310}
   - component: {fileID: 3634048638179125419}
   - component: {fileID: 3746208021643553479}
+  - component: {fileID: 4094694687871329991}
   m_Layer: 0
   m_Name: DamageObisidianaEnemy
   m_TagString: Enemy
@@ -470,7 +471,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: a54384ea6b7b5bc48ba6197c00383712, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_AnimatePhysics: 0
@@ -550,7 +551,7 @@ MonoBehaviour:
   attackHitbox: {fileID: 6335605883933905299}
   animator: {fileID: 984962982291584707}
   isAwakened: 1
-  damage: 10
+  damage: 5
   attackCooldown: 1
   attackDuration: 0.5
   attackRange: 4
@@ -674,6 +675,29 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!136 &4094694687871329991
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3815647585632192882}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2.471006
+  m_Height: 4.942012
+  m_Direction: 1
+  m_Center: {x: -0.04505968, y: 1.7889061, z: 0.23939157}
 --- !u!1 &3876581579074729595
 GameObject:
   m_ObjectHideFlags: 0

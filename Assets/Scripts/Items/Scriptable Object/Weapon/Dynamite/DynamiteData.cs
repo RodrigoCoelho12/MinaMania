@@ -10,6 +10,7 @@ public class DynamiteData : WeaponData
     public float explosionRadius;
     public float explosionForce;
     public int dynamiteAmount;
+    public int dynamiteIndex;
 
     public override string GetTooltip(WeaponData previousData)
     {

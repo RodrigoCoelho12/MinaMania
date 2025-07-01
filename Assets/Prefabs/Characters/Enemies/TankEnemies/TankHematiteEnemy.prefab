@@ -763,6 +763,7 @@ GameObject:
   - component: {fileID: 1269145112614717650}
   - component: {fileID: 4076740052241760023}
   - component: {fileID: 3014613329141417833}
+  - component: {fileID: 6303482767794726370}
   m_Layer: 0
   m_Name: TankHematiteEnemy
   m_TagString: Enemy
@@ -1006,6 +1007,29 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!136 &6303482767794726370
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6109635058577428299}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.8243768
+  m_Height: 4.903226
+  m_Direction: 1
+  m_Center: {x: -0.00014066696, y: 2.6365957, z: 0.22017264}
 --- !u!1 &6270850756605958341
 GameObject:
   m_ObjectHideFlags: 0

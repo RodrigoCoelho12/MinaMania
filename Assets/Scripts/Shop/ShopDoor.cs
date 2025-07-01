@@ -33,6 +33,8 @@ public class ShopDoor : MonoBehaviour
                 PlayerSO.Instance.discoveredWeapons.Add(weapon);
             }
 
+            AudioManager.instance.SwitchMusic(2);
+
             SceneManager.LoadScene(2);
         }
     }

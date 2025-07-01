@@ -18,9 +18,10 @@ MonoBehaviour:
   shopDescription: 
   itemMesh: {fileID: -6608124319622672718, guid: 6f248c8ffd7a5ff44aef5bfc6dc12dff, type: 3}
   itemMaterial: {fileID: 2100000, guid: ef74d2c6b4f59924a9121a0493cb66b6, type: 2}
-  itemPrice: 10
-  damage: 150
+  itemPrice: 20
+  damage: 130
   dynamitePrefab: {fileID: 8007541920902249124, guid: 072c43976d9e11448aed94a9e3dc017b, type: 3}
   explosionRadius: 12
   explosionForce: 200
   dynamiteAmount: 6
+  dynamiteIndex: 2

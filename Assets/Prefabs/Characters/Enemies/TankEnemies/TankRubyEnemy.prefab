@@ -513,6 +513,7 @@ GameObject:
   - component: {fileID: 8482041982164110407}
   - component: {fileID: 6687761780528552982}
   - component: {fileID: 3568717079873562245}
+  - component: {fileID: 7171886956863345161}
   m_Layer: 0
   m_Name: TankRubyEnemy
   m_TagString: Enemy
@@ -756,6 +757,29 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!136 &7171886956863345161
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3261145692649719770}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.8243768
+  m_Height: 4.903226
+  m_Direction: 1
+  m_Center: {x: -0.00014066696, y: 2.6365957, z: 0.22017264}
 --- !u!1 &3421216469325252417
 GameObject:
   m_ObjectHideFlags: 0

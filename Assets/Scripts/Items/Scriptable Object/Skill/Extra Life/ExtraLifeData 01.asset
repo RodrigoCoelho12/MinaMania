@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a5c9ff260a75334097c9541e738b3fd, type: 3}
   m_Name: ExtraLifeData 01
   m_EditorClassIdentifier: 
-  itemName: Colar de Granada com pedras de Lazuli
+  itemName: Colar de pedras de Granada
   description: "Esse colar misterioso \xE9 dito ser a chave para sua segunda chance..."
   shopDescription: 
   itemMesh: {fileID: -6162534724134956106, guid: 6f248c8ffd7a5ff44aef5bfc6dc12dff, type: 3}

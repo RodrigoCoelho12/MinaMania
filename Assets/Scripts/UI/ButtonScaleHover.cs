@@ -5,7 +5,8 @@ using UnityEngine.EventSystems;
 public class ButtonScaleHover : MonoBehaviour, ISelectHandler, IDeselectHandler, IPointerClickHandler
 {
     private Vector3 originalScale;
-    private void Start()
+    
+    private void Awake()
     {
         originalScale =  transform.localScale;
     }

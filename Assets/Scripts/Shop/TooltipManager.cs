@@ -8,6 +8,8 @@ public class TooltipManager : MonoBehaviour
 
     [SerializeField] private GameObject tooltipPanel;
     [SerializeField] private TMP_Text tooltipText;
+    [SerializeField] private TMP_Text tooltipTitle;
+    [SerializeField] private TMP_Text tooltipPrice;
 
     private void Awake()
     {
@@ -15,12 +17,14 @@ public class TooltipManager : MonoBehaviour
         HideTooltip();
     }
 
-    public void ShowTooltip(string message)
+    public void ShowTooltip(string message, string title, string price)
     {
         if (ShopNavigationButton.canRotate)
         { 
             tooltipPanel.SetActive(true);
             tooltipText.text = message;
+            tooltipTitle.text = title;
+            tooltipPrice.text = price+"$";
         }
     }
 

@@ -12,28 +12,9 @@ public partial class Player : Character
     public TextMeshProUGUI mineralCollectedMessage;
     private GameManager gameManager;
 
-    void Start()
+
+    private void Awake()
     {
-        if (gameManager == null)
-        {
-            gameManager = FindFirstObjectByType<GameManager>();
-        }
-
-        cc = GetComponent<CharacterController>();
-        animator = GetComponent<Animator>();
-        yPosition = transform.position.y;
-
-        if (scoreText == null)
-            Debug.LogError("scoreText nao atribuido no PlayerRanking.");
-        
-        if (hasExtraLife)
-        {
-            extraLifeIndicator.SetActive(true);
-        }
-
-        CheckSkills();
-        CheckWeapons();
-    
         currentWaterSprayData = PlayerSO.Instance.waterSprayData;
         currentExtraLifeData = PlayerSO.Instance.extraLifeData;
         currentPickaxeData = PlayerSO.Instance.pickaxeData;
@@ -55,9 +36,32 @@ public partial class Player : Character
         {
             discoveredWeapons.Add(weapon);
         }
+    }
+    void Start()
+    {
+        if (gameManager == null)
+        {
+            gameManager = FindFirstObjectByType<GameManager>();
+        }
+
+        cc = GetComponent<CharacterController>();
+        animator = GetComponent<Animator>();
+        yPosition = transform.position.y;
+
+        if (scoreText == null)
+            Debug.LogError("scoreText nao atribuido no PlayerRanking.");
+        
+        if (hasExtraLife)
+        {
+            extraLifeIndicator.SetActive(true);
+        }
 
         UpdateCurrencyUI();
         UpdateScoreInterface();
+
+        CheckSkills();
+        CheckWeapons();
+
     }
 
     void Update()
@@ -84,7 +88,9 @@ public partial class Player : Character
         {
             healthBar.AdjustStatusBarBySubtraction(other.GetComponentInParent<Enemy>().damage);
             healthBarUI.fillAmount = healthBar.CurrentBarValue/100;
-            
+            StartCoroutine(ChangePlayerColor());
+
+
             if (healthBar.CurrentBarValue <= 0)
             {
                 if (gameManager == null)
@@ -127,6 +133,13 @@ public partial class Player : Character
         mineralCollectedMessage.text = " ";
     }
 
+    private IEnumerator ChangePlayerColor()
+    {
+        gameObject.transform.GetChild(0).GetComponent<Renderer>().material.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        gameObject.transform.GetChild(0).GetComponent<Renderer>().material.color = Color.white;
+    }
+
     public void CheckSkills()
     {
         if(currentDashData != null)
@@ -140,6 +153,7 @@ public partial class Player : Character
         if (currentExtraLifeData != null)
         {
             hasExtraLife = true;
+            extraLifeIndicator.SetActive(true);
         }
     }
 

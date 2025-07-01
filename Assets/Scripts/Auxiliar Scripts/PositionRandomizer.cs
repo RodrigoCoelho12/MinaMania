@@ -62,8 +62,9 @@ public class PositionRandomizer : MonoBehaviour
                 {
                     int prefabIndex = Randomize(prefab.Count);
                     GameObject randomPrefab = prefab[prefabIndex];
+                    int randomRotation = Random.Range(0, 361);
 
-                    GameObject instance = Instantiate(randomPrefab, positions[posIndex].transform.position, Quaternion.identity);
+                    GameObject instance = Instantiate(randomPrefab, positions[posIndex].transform.position, Quaternion.Euler(randomPrefab.transform.rotation.x,randomRotation,randomPrefab.transform.rotation.x));
 
                     if (parent != null)
                         instance.transform.SetParent(parent.transform);

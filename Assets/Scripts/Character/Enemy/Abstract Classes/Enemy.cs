@@ -213,6 +213,12 @@ public abstract class Enemy : Character
         isAwakened = false;
         //Dropar moeda
     }
+    private IEnumerator ChangeEnemyColor()
+    {
+        gameObject.transform.GetChild(3).GetComponent<Renderer>().material.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        gameObject.transform.GetChild(3).GetComponent<Renderer>().material.color = Color.white;
+    }
 
     public override void OnTriggerEnter(Collider other)
     {
@@ -222,6 +228,7 @@ public abstract class Enemy : Character
             float pickaxeDamage = other.GetComponentInParent<Player>().currentPickaxeData.damage;
 
             healthBar.AdjustStatusBarBySubtraction(pickaxeDamage);
+            StartCoroutine(ChangeEnemyColor());
             CheckDeath();
 
             StartCoroutine(StopMovementTemp(0.5f, () => Debug.Log("Movement resumed.")));

@@ -111,6 +111,7 @@ GameObject:
   - component: {fileID: 6378409984836567488}
   - component: {fileID: 3843704973941016335}
   - component: {fileID: 7242291943799731319}
+  - component: {fileID: 5317184922722460559}
   m_Layer: 0
   m_Name: DamageMeteoritoEnemy
   m_TagString: Enemy
@@ -150,7 +151,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 127016739501538449c9f94892bd3406, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_AnimatePhysics: 0
@@ -230,7 +231,7 @@ MonoBehaviour:
   attackHitbox: {fileID: 4913213263780924059}
   animator: {fileID: 4740087694828649036}
   isAwakened: 1
-  damage: 10
+  damage: 5
   attackCooldown: 1
   attackDuration: 0.5
   attackRange: 4
@@ -354,6 +355,29 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!136 &5317184922722460559
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1273010597011863382}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2.471006
+  m_Height: 4.942012
+  m_Direction: 1
+  m_Center: {x: -0.04505968, y: 1.7889061, z: 0.23939157}
 --- !u!1 &1369107790842328335
 GameObject:
   m_ObjectHideFlags: 0

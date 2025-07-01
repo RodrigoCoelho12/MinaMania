@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,6 +25,8 @@ public class ShopButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     {
         originalScale = transform.localScale;
 
+        CheckButtonType();
+
         ChangeButtonAppearance();
     }
 
@@ -41,9 +43,12 @@ public class ShopButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         if (itemIndex < itemData.Count && itemData[itemIndex] != null)
         {
             string tooltip = GetTooltipForItem(itemIndex);
+            string title = GetTitleForItem(itemIndex);
+            string price = GetPriceForItem(itemIndex);
+
             if (!string.IsNullOrEmpty(tooltip))
             {
-                TooltipManager.Instance.ShowTooltip(tooltip);
+                TooltipManager.Instance.ShowTooltip(tooltip, title, price);
             }
         }
     }
@@ -123,7 +128,9 @@ public class ShopButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     private void AdvanceItem()
     {
-        // Verifica se há mais itens
+        // Cobra pelo novo item
+        PlayerSO.Instance.playerCurrency -= itemData[itemIndex].itemPrice;
+        // Verifica se hï¿½ mais itens
         if (itemIndex + 1 >= itemData.Count)
         {
             Debug.Log("No more items to advance to.");
@@ -131,20 +138,15 @@ public class ShopButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
             DisableButton();
             return;
         }
-
-        // Avança para o próximo item
+        // Avanï¿½a para o prï¿½ximo item
         itemIndex++;
-        Debug.Log($"Advanced to item index {itemIndex}.");
 
-        // Cobra pelo novo item
-        PlayerSO.Instance.playerCurrency -= itemData[itemIndex].itemPrice;
+        //// Se acabou os itens apÃ³s esse avanÃ§o, desativa botÃ£o
+        //if (itemIndex + 1 >= itemData.Count)
+        //{
 
-        // Se acabou os itens após esse avanço, desativa botão
-        if (itemIndex + 1 >= itemData.Count)
-        {
-
-            DisableButton();
-        }
+        //    DisableButton();
+        //}
 
         ChangeButtonAppearance();
     }
@@ -199,6 +201,44 @@ public class ShopButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
             _ => null
         };
     }
+    private string GetTitleForItem(int index)
+    {
+        if (index <= 0 || index >= itemData.Count)
+            return null;
+
+        ItemData current = itemData[index];
+        //ItemData previous = itemData[index - 1];
+
+        return current switch
+        {
+            DynamiteData dynamite => dynamite.itemName,
+            PickaxeData pickaxe => pickaxe.itemName,
+            WaterSprayData spray => spray.itemName,
+            DashData dash => dash.itemName,
+            MagnetData magnet => magnet.itemName,
+            ExtraLifeData life => life.itemName,
+            _ => null
+        };
+    }
+    private string GetPriceForItem(int index)
+    {
+        if (index <= 0 || index >= itemData.Count)
+            return null;
+
+        ItemData current = itemData[index];
+        //ItemData previous = itemData[index - 1];
+
+        return current switch
+        {
+            DynamiteData dynamite => dynamite.itemPrice.ToString(),
+            PickaxeData pickaxe => pickaxe.itemPrice.ToString(),
+            WaterSprayData spray => spray.itemPrice.ToString(),
+            DashData dash => dash.itemPrice.ToString(),
+            MagnetData magnet => magnet.itemPrice.ToString(),
+            ExtraLifeData life => life.itemPrice.ToString(),
+            _ => null
+        };
+    }
 
     public void StartMoving(Vector3 newPosition, float timeToMove, GameObject gameObject)
     {
@@ -220,5 +260,44 @@ public class ShopButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
         gameObject.transform.position = targetPosition;
         isMoving = false;
+    }
+
+    private void CheckButtonType()
+    {
+        switch (gameObject.tag)
+        {
+            case "Pickaxe":
+                itemIndex = PlayerSO.Instance.pickaxeData.pickaxeIndex+1;
+                if(itemIndex == 3)
+                    DisableButton();
+                break;
+
+            case "WaterSpray":
+                itemIndex = PlayerSO.Instance.waterSprayData.waterSprayIndex+1;
+                if (itemIndex == 3)
+                    DisableButton();
+                break;
+
+            case "Dynamite":
+                itemIndex = PlayerSO.Instance.dynamiteData.dynamiteIndex+1;
+                if (itemIndex == 3)
+                    DisableButton();
+                break;
+
+            case "Boots":
+                if (PlayerSO.Instance.dashData != null)
+                    DisableButton();
+                break;
+
+            case "Magnet":
+                if (PlayerSO.Instance.magnetData != null)
+                    DisableButton();
+                break;
+
+            case "ExtraLife":
+                if (PlayerSO.Instance.extraLifeData != null)
+                    DisableButton();
+                break;
+        }
     }
 }

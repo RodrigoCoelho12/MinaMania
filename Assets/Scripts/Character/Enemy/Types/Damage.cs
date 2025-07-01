@@ -16,4 +16,23 @@ public class Damage : Enemy
         Attack();
         Move();
     }
+
+    protected override IEnumerator ShowHitBox()
+    {
+        while (isAwakened)
+        {
+            WaitForSeconds hitboxCooldownTime = new WaitForSeconds(attackCooldown);
+
+            animator.SetBool("IsAttacking", true);
+            attackHitbox.SetActive(true);
+            yield return new WaitForSeconds(0.1f);
+            attackHitbox.SetActive(false);
+            yield return new WaitForSeconds(0.47f);
+            attackHitbox.SetActive(true);
+            yield return new WaitForSeconds(0.1f);
+            attackHitbox.SetActive(false);
+            animator.SetBool("IsAttacking", false);
+            yield return hitboxCooldownTime;
+        }
+    }
 }

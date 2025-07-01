@@ -19,7 +19,7 @@ MonoBehaviour:
   itemMesh: {fileID: -1849304479852903973, guid: 58586bcf08aaf8e4db7c45169353d0d6, type: 3}
   itemMaterial: {fileID: 2100000, guid: 9d997fb6b548f404e95320b0b6874211, type: 2}
   itemPrice: 10
-  damage: 3
+  damage: 7
   sprayRangeIndex: 2
   waterMaxAmount: 200
   waterSprayIndex: 2
