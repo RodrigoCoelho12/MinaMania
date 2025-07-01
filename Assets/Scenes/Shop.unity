@@ -381,8 +381,12 @@ MonoBehaviour:
   dashData: {fileID: 0}
   extraLifeData: {fileID: 0}
   magnetData: {fileID: 0}
-  playerCurrency: 0
+  playerCurrency: 10
   hordeCount: 0
+  score: 0
+  discoveredSkills: []
+  discoveredMinerals: []
+  discoveredWeapons: []
 --- !u!4 &1232943734
 Transform:
   m_ObjectHideFlags: 0

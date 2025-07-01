@@ -5,6 +5,7 @@ public class PickaxeData : WeaponData
 {
     [Header("Pickaxe Info Properties")]
     public GameObject pickaxePrefab;
+    public int pickaxeIndex;
 
     public override string GetTooltip(WeaponData previousData)
     {

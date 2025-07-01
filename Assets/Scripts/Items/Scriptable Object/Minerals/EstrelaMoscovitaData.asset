@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8202d2ff56b13c44cae586d6cf3705bb, type: 3}
   m_Name: EstrelaMoscovitaData
   m_EditorClassIdentifier: 
-  itemName: 
+  itemName: Estrela Moscovita
   description: 
   shopDescription: 
   itemMesh: {fileID: 0}

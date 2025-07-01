@@ -27,7 +27,6 @@ public class EnemyHordeSpawner : MonoBehaviour
 
     private Queue<HordeData> hordeQueue = new Queue<HordeData>();
     public int hordeCount;
-    private PlayerSO playerSO;
     private bool canSpawn = true;
 
     private List<GameObject> activeEnemies = new List<GameObject>();
@@ -38,7 +37,6 @@ public class EnemyHordeSpawner : MonoBehaviour
 
     private void Start()
     {
-        playerSO = FindAnyObjectByType<PlayerSO>();
 
         hordeCount = PlayerSO.Instance.hordeCount;
 
@@ -57,6 +55,16 @@ public class EnemyHordeSpawner : MonoBehaviour
         {
             dropItemQueue.Enqueue(item);
         }
+        
+        for(int i = 0; i < PlayerSO.Instance.discoveredMinerals.Count; i++ )
+        {
+            var ItemQueue = dropItemQueue.First();
+            dropItemQueue.Dequeue();
+            dropItemQueue.Enqueue(ItemQueue);
+        }
+
+
+        
 
         StartCoroutine(HordeLoop());
     }

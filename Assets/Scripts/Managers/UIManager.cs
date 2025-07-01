@@ -131,7 +131,6 @@ public class UIManager : MonoBehaviour
     {
         ShowPanel(UINames.Loading);
         SceneManager.LoadScene(1); // Load the game scene
-        HidePanel(UINames.MainMenu); // Hide the main menu panel
         Time.timeScale = 1f; // Ensure the game runs at normal speed
     }
 
@@ -234,5 +233,10 @@ public class UIManager : MonoBehaviour
         {
             sfxSlider.value = aux3;
         }
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }

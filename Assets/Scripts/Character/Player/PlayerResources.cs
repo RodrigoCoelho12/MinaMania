@@ -22,6 +22,14 @@ public partial class Player
     public WaterSpray waterSpray;
     public Dynamite dynamite;
 
+    [Header(" └─ Weapon Models")]
+    public GameObject PickaxeStandard;
+    public GameObject PickaxeEvo1;
+    public GameObject PickaxeEvo2;
+
+    public GameObject WaterSprayStandard;
+    public GameObject WaterSprayEvo1;
+    public GameObject WaterSprayEvo2;
 
     [Header("   └─ Discovered Weapons")]
     public List<WeaponData> discoveredWeapons;

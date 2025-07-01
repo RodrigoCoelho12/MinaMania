@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,14 +19,11 @@ public class ShopButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     public Vector3[] camPos = new Vector3[2]; // index 0 = standard, index 1 = close
     private bool isMoving;
 
-    private PlayerSO playerSO;
+    bool isAvailable;
 
     private void Start()
     {
         originalScale = transform.localScale;
-
-        playerSO = FindAnyObjectByType<PlayerSO>();
-        playerSO.overrides = false;
 
         ChangeButtonAppearance();
     }
@@ -58,7 +56,7 @@ public class ShopButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (currentCamera.transform.position == camPos[1])
+        if (currentCamera.transform.position == camPos[1] && isAvailable)
         {
             if (itemIndex >= itemData.Count)
             {
@@ -66,7 +64,7 @@ public class ShopButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
                 DisableButton();
                 return;
             }
-            if (playerSO.playerCurrency >= itemData[itemIndex].itemPrice)
+            if (PlayerSO.Instance.playerCurrency >= itemData[itemIndex].itemPrice)
             {
                 HandleItemAssignment(itemData[itemIndex]);
             }
@@ -90,22 +88,22 @@ public class ShopButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         switch (item)
         {
             case DynamiteData dynamite:
-                ConfirmAssignment(() => playerSO.dynamiteData = dynamite);
+                ConfirmAssignment(() => PlayerSO.Instance.dynamiteData = dynamite);
                 break;
             case PickaxeData pickaxe:
-                ConfirmAssignment(() => playerSO.pickaxeData = pickaxe);
+                ConfirmAssignment(() => PlayerSO.Instance.pickaxeData = pickaxe);
                 break;
             case WaterSprayData waterSpray:
-                ConfirmAssignment(() => playerSO.waterSprayData = waterSpray);
+                ConfirmAssignment(() => PlayerSO.Instance.waterSprayData = waterSpray);
                 break;
             case DashData dash:
-                ConfirmAssignment(() => playerSO.dashData = dash);
+                ConfirmAssignment(() => PlayerSO.Instance.dashData = dash);
                 break;
             case MagnetData magnet:
-                ConfirmAssignment(() => playerSO.magnetData = magnet);
+                ConfirmAssignment(() => PlayerSO.Instance.magnetData = magnet);
                 break;
             case ExtraLifeData extraLife:
-                ConfirmAssignment(() => playerSO.extraLifeData = extraLife);
+                ConfirmAssignment(() => PlayerSO.Instance.extraLifeData = extraLife);
                 break;
             default:
                 Debug.LogWarning("Unknown item type.");
@@ -125,22 +123,37 @@ public class ShopButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     private void AdvanceItem()
     {
-        itemIndex++;
-        playerSO.overrides = true;
-        Debug.Log("Advanced to next item.");
-        playerSO.playerCurrency -= itemData[itemIndex].itemPrice;
-        if (itemIndex >= itemData.Count)
+        // Verifica se há mais itens
+        if (itemIndex + 1 >= itemData.Count)
         {
+            Debug.Log("No more items to advance to.");
+            isAvailable = false;
             DisableButton();
             return;
+        }
+
+        // Avança para o próximo item
+        itemIndex++;
+        Debug.Log($"Advanced to item index {itemIndex}.");
+
+        // Cobra pelo novo item
+        PlayerSO.Instance.playerCurrency -= itemData[itemIndex].itemPrice;
+
+        // Se acabou os itens após esse avanço, desativa botão
+        if (itemIndex + 1 >= itemData.Count)
+        {
+
+            DisableButton();
         }
 
         ChangeButtonAppearance();
     }
 
+
     private void DisableButton()
     {
         isHoverEnabled = false;
+        this.gameObject.SetActive(false);
         Debug.Log("Shop button disabled.");
     }
 
@@ -151,7 +164,7 @@ public class ShopButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
             Debug.LogWarning("No item to show.");
             return;
         }
-
+        isAvailable = true;
         if (TryGetComponent(out MeshRenderer renderer))
         {
             renderer.material = itemData[itemIndex].itemMaterial;

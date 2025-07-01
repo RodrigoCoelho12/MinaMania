@@ -68,9 +68,6 @@ public class ShopNavigationGamepad : MonoBehaviour
     {
         if (currentIndex == 0 && ShopInputManager.instance.SubmitInput)
         {
-            PlayerSO playerSO = FindAnyObjectByType<PlayerSO>();
-            DontDestroyOnLoad(playerSO);
-
             SceneManager.LoadScene(1);
         }
         if(currentIndex == 1  && ShopInputManager.instance.SubmitInput)

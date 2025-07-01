@@ -6,6 +6,7 @@ public class WaterSprayData : WeaponData
     [Header("WaterSpray Attributes")]
     public int sprayRangeIndex;
     public int waterMaxAmount;
+    public int waterSprayIndex;
 
     [Header("WaterSpray Object Attributes")]
     public GameObject watersprayPrefab;

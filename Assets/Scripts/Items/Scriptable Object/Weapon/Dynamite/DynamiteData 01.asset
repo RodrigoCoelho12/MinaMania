@@ -20,7 +20,7 @@ MonoBehaviour:
   itemMaterial: {fileID: 2100000, guid: 831b84474e46af7498a58b3f96b6a29d, type: 2}
   itemPrice: 5
   damage: 100
-  dynamitePrefab: {fileID: 8007541920902249124, guid: f8879bf3daf325b478c57ac83a4354f1, type: 3}
+  dynamitePrefab: {fileID: 8007541920902249124, guid: 58648ff2271441a45a0110e1cc5895b3, type: 3}
   explosionRadius: 10
   explosionForce: 175
   dynamiteAmount: 5

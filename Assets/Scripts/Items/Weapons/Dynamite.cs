@@ -21,10 +21,7 @@ public class Dynamite : Weapon
     public List<Image> dynamiteIcons;
 
     [Header("Dynamite Data Properties")]
-    public DynamiteData dynamiteData;
-    
-    [Header("Dynamite Reference Properties")]
-    private GameObject player;
+    private DynamiteData dynamiteData;
 
     [Header("Dynamite Raycast Properties")]
     public LayerMask explosionLayerMask;
@@ -42,9 +39,16 @@ public class Dynamite : Weapon
 
 
     private void Start()
-    {
-        player = GameObject.FindWithTag("Player");
+    {   
+        dynamiteData = gameObject.GetComponent<Player>().currentDynamiteData;
+        
         dynamiteCurrentAmount = dynamiteData.dynamiteAmount;
+
+        for (int i = 0; i < dynamiteCurrentAmount-1; i++)
+        {
+            dynamiteIcons[i].enabled = true ;
+        }
+
         UpdateDynamiteUI();
     }
 
@@ -91,7 +95,7 @@ public class Dynamite : Weapon
     {
         isLaunching = true;
 
-        GameObject dynamite = GameObject.Instantiate(dynamiteData.dynamitePrefab, player.transform.position + dynamitePositionLaunchFactor, Quaternion.identity);
+        GameObject dynamite = GameObject.Instantiate(dynamiteData.dynamitePrefab, gameObject.transform.position + dynamitePositionLaunchFactor, Quaternion.identity);
 
         dynamiteCurrentAmount--;
         UpdateDynamiteUI();

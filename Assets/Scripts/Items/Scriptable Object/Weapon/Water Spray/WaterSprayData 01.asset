@@ -22,4 +22,5 @@ MonoBehaviour:
   damage: 2.5
   sprayRangeIndex: 1
   waterMaxAmount: 150
+  waterSprayIndex: 1
   watersprayPrefab: {fileID: 1065834227336969711, guid: df065b830e5508147ba5506a21608bb1, type: 3}

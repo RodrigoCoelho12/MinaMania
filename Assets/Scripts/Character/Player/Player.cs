@@ -25,8 +25,14 @@ public partial class Player : Character
 
         if (scoreText == null)
             Debug.LogError("scoreText nao atribuido no PlayerRanking.");
+        
+        if (hasExtraLife)
+        {
+            extraLifeIndicator.SetActive(true);
+        }
 
         CheckSkills();
+        CheckWeapons();
     
         currentWaterSprayData = PlayerSO.Instance.waterSprayData;
         currentExtraLifeData = PlayerSO.Instance.extraLifeData;
@@ -116,7 +122,7 @@ public partial class Player : Character
 
     private IEnumerator PlayMineralCollectedMessage(Collider other)
     {
-        mineralCollectedMessage.text = $"Voce descobriu um/uma {other.gameObject.name}!";
+        mineralCollectedMessage.text = $"Voce descobriu um/uma {other.gameObject.GetComponent<MineralController>().mineralData.itemName}!";
         yield return new WaitForSeconds(5f);
         mineralCollectedMessage.text = " ";
     }
@@ -134,6 +140,48 @@ public partial class Player : Character
         if (currentExtraLifeData != null)
         {
             hasExtraLife = true;
+        }
+    }
+
+    public void CheckWeapons()
+    {
+        switch(currentPickaxeData.pickaxeIndex)
+        {
+            case 0:
+                PickaxeEvo2.SetActive(false);
+                PickaxeEvo1.SetActive(false);
+                PickaxeStandard.SetActive(true);
+                break;
+            case 1:
+                PickaxeStandard.SetActive(false);
+                PickaxeEvo2.SetActive(false);
+                PickaxeEvo1.SetActive(true);
+            break;
+            
+            case 2:
+                PickaxeEvo2.SetActive(true);
+                PickaxeEvo1.SetActive(false);
+                PickaxeStandard.SetActive(false);
+             break;
+        }
+        switch (currentWaterSprayData.waterSprayIndex)
+        {
+            case 0:
+                WaterSprayEvo2.SetActive(false);
+                WaterSprayEvo1.SetActive(false);
+                WaterSprayStandard.SetActive(true);
+                break;
+            case 1:
+                WaterSprayEvo2.SetActive(false);
+                WaterSprayEvo1.SetActive(true);
+                WaterSprayStandard.SetActive(false);
+                break;
+
+            case 2:
+                WaterSprayEvo2.SetActive(true);
+                WaterSprayEvo1.SetActive(false);
+                WaterSprayStandard.SetActive(false);
+                break;
         }
     }
 

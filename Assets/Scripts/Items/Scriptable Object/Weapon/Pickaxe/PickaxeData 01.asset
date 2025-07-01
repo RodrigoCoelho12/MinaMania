@@ -21,3 +21,4 @@ MonoBehaviour:
   itemPrice: 5
   damage: 25
   pickaxePrefab: {fileID: 658906643886061425, guid: 6a6667090363a4a42aebc78260dfc530, type: 3}
+  pickaxeIndex: 1
